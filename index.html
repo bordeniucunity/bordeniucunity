@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Курсы Бухгалтерии в Молдове | Ludmila Bordeniuc | Cursuri de Contabilitate în Moldova</title>
+    <meta name="description" content="Практические курсы бухгалтерии в Молдове 2026. Обучение НСБУ и 1С с нуля. / Cursuri practice de contabilitate în Moldova 2026. Instruire SNC și 1C de la zero.">
+    <meta name="keywords" content="бухгалтерия Молдова, курсы бухгалтерского учета, обучение 1С, НСБУ 2026, Людмила Борденюк, contabilitate Moldova, cursuri contabilitate Chisinau, instruire 1C, SNC Moldova">
+    
+    <meta property="og:title" content="Курсы Бухгалтерии в Молдове | Bordeniuc Ludmila">
+    <meta property="og:description" content="Станьте востребованным специалистом под руководством Людмилы Борденюк. Практика на базе реальных документов.">
+    <meta property="og:image" content="Gemini_Generated_Image_ag3b37ag3b37ag3b-removebg-preview.png">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="icon" href="favicon.ico">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a4f8b;
+            --primary-light: #eef4fb;
+            --secondary: #d4af37;
+            --dark: #2c3e50;
+            --white: #ffffff;
+            --light-grey: #f1f5f9; 
+            --shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; color: var(--dark); line-height: 1.6; background-color: var(--white); overflow-x: hidden; }
+
+        /* АНИМАЦИИ */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-30px); transition: all 0.8s ease-out; }
+        .reveal-right { opacity: 0; transform: translateX(30px); transition: all 0.8s ease-out; }
+        .reveal-left.active, .reveal-right.active { opacity: 1; transform: translateX(0); }
+
+        /* НАВИГАЦИЯ */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 5%; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; min-height: 75px;
+        }
+        
+        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; z-index: 1001; }
+        .logo-img { height: 65px; width: auto; display: block; }
+        .logo-text { font-size: 1rem; font-weight: 800; color: #d4af37; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .nav-container { display: flex; align-items: center; gap: 20px; }
+        nav { display: flex; gap: 20px; }
+        nav a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
+
+        .lang-box {
+            display: flex; align-items: center; gap: 5px; background: var(--primary-light);
+            padding: 6px 12px; border-radius: 30px; cursor: pointer; border: 1px solid #c5d1e0; font-size: 0.85rem;
+        }
+        #langBtn { font-weight: 800; border: none; background: none; cursor: pointer; color: inherit; padding: 0; }
+
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); z-index: 1001; }
+
+        /* ГЕРОЙ */
+        .hero {
+            position: relative; min-height: 85vh; display: flex; align-items: center; justify-content: center;
+            color: var(--white); padding: 60px 5%; overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(10, 30, 60, 0.8), rgba(10, 30, 60, 0.7)), 
+                        url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-position: center; z-index: -1;
+        }
+        
+        .hero-container {
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1200px; width: 100%; gap: 50px; position: relative; z-index: 2;
+        }
+        
+        .hero-text { flex: 1.2; text-align: left; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 800; line-height: 1.2; text-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.15rem; margin-bottom: 35px; max-width: 600px; color: #eef4fb; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .btn-hero { background: var(--secondary); color: #000; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-block; transition: 0.3s; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); }
+        .btn-hero:hover { transform: translateY(-3px); background: #f0c345; box-shadow: 0 10px 25px rgba(212, 175, 55, 0.6); }
+
+        /* 3D БЛОКНОТ */
+        .hero-visual { flex: 1; display: flex; justify-content: center; align-items: center; perspective: 1500px; }
+        .floating-wrapper { position: relative; width: 100%; max-width: 300px; aspect-ratio: 1 / 1.35; }
+        .floating-shadow { position: absolute; bottom: -40px; left: 10%; width: 80%; height: 25px; background: rgba(0,0,0,0.8); filter: blur(25px); border-radius: 50%; animation: shadow-pulse 6s ease-in-out infinite; }
+        .floating-notebook { position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform-style: preserve-3d; animation: float-3d 6s ease-in-out infinite; }
+        .notebook-cover, .notebook-back { position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 3px 18px 18px 3px; }
+        .notebook-cover { background: linear-gradient(135deg, #242424 0%, #0a0a0a 100%); border-left: 22px solid #050505; transform: translateZ(25px); z-index: 4; display: flex; align-items: center; justify-content: center; padding: 25px; box-shadow: inset 0 0 0 1px #000, inset 0 0 0 3px #333, inset -5px 0 20px rgba(0,0,0,0.9); }
+        .notebook-cover::before { content: ''; position: absolute; top: -5px; right: 35px; width: 18px; height: 60px; background: #b71c1c; border-radius: 0 0 4px 4px; box-shadow: 2px 2px 10px rgba(0,0,0,0.5); transform: translateZ(2px); }
+        .notebook-back { background: #111111; border-left: 22px solid #050505; transform: translateZ(-25px) rotateY(180deg); }
+        .notebook-pages-right { position: absolute; top: 6px; right: -25px; width: 50px; height: calc(100% - 12px); background: repeating-linear-gradient(to right, #f4f4f4, #f4f4f4 2px, #e2e8f0 2px, #e2e8f0 4px); transform: rotateY(90deg); border-radius: 2px; }
+        .notebook-pages-bottom { position: absolute; bottom: -25px; left: 22px; width: calc(100% - 28px); height: 50px; background: repeating-linear-gradient(to bottom, #f4f4f4, #f4f4f4 2px, #e2e8f0 2px, #e2e8f0 4px); transform: rotateX(-90deg); }
+        .notebook-pages-top { position: absolute; top: -25px; left: 22px; width: calc(100% - 28px); height: 50px; background: repeating-linear-gradient(to bottom, #f4f4f4, #f4f4f4 2px, #e2e8f0 2px, #e2e8f0 4px); transform: rotateX(90deg); }
+        .notebook-spine { position: absolute; top: 0; left: -25px; width: 50px; height: 100%; background: linear-gradient(to right, #050505, #1a1a1a, #050505); transform: rotateY(-90deg); border-radius: 3px 0 0 3px; }
+        .notebook-cover img { width: 110%; transform: translateZ(35px); filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6)); }
+
+        @keyframes float-3d {
+            0% { transform: rotateX(15deg) rotateY(-20deg) rotateZ(3deg) translateY(0px); }
+            50% { transform: rotateX(25deg) rotateY(-10deg) rotateZ(0deg) translateY(-25px); }
+            100% { transform: rotateX(15deg) rotateY(-20deg) rotateZ(3deg) translateY(0px); }
+        }
+        @keyframes shadow-pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(0.7); opacity: 0.3; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        /* ЧЕРЕДОВАНИЕ ФОНОВ */
+        .section-white { background-color: var(--white); padding: 70px 5%; }
+        .section-light { background-color: var(--light-grey); padding: 70px 5%; }
+
+        /* ПРЕПОДАВАТЕЛЬ */
+        .teacher-card {
+            display: flex; align-items: center; gap: 40px; background: var(--white);
+            border-radius: 30px; padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); margin-top: -80px; position: relative; z-index: 5;
+        }
+        .teacher-img { width: 280px; height: 350px; border-radius: 20px; object-fit: cover; box-shadow: 15px 15px 0 var(--primary-light); flex-shrink: 0; }
+        .teacher-info h2 { font-size: 2rem; color: var(--primary); margin: 10px 0; }
+        .experience-badge { background: var(--secondary); color: #000; padding: 6px 15px; border-radius: 8px; font-weight: 800; display: inline-block; font-size: 0.9rem; }
+
+        /* ПУТЬ СТУДЕНТА */
+        .roadmap-container { text-align: center; }
+        .roadmap-container h2 { margin-bottom: 50px; font-size: 2rem; }
+        .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+        .step-item { background: #fff; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.04); display: flex; flex-direction: column; overflow: hidden; transition: 0.3s; }
+        .step-item:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .step-img { width: 100%; height: 180px; object-fit: cover; border-bottom: 3px solid var(--primary-light); }
+        .step-content { padding: 0 20px 30px; }
+        .step-num { width: 50px; height: 50px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin: -25px auto 15px; position: relative; z-index: 2; border: 4px solid #fff; }
+
+        /* ПРОГРАММА */
+        .program-container { max-width: 800px; margin: 0 auto; }
+        .acc-item { border: 1px solid #e2e8f0; border-radius: 15px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .acc-header { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; background: #fff; }
+        .acc-content { padding: 0 20px 20px; display: none; font-size: 0.95rem; color: #555; background: #fff; }
+        .acc-content ul { margin-top: 5px; padding-left: 20px; }
+        .acc-content li { margin-bottom: 5px; }
+
+        /* ТАРИФЫ */
+        .pricing-container { text-align: center; }
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; max-width: 1000px; margin-inline: auto; }
+        .price-card { background: #fff; padding: 40px 30px; border-radius: 30px; border: 2px solid transparent; transition: 0.3s; text-align: left; position: relative; }
+        .price-card.selected { border-color: var(--primary); transform: scale(1.02); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .price-val { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin: 15px 0; }
+
+        /* КОНТАКТЫ */
+        .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .contact-method { display: flex; align-items: center; gap: 15px; text-decoration: none; color: inherit; margin-bottom: 20px; font-weight: 600; }
+        .contact-method i { font-size: 1.8rem; color: #25d366; }
+        .contact-form { background: var(--light-grey); padding: 30px; border-radius: 30px; border: 1px solid #e2e8f0; }
+        .contact-form input { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #cbd5e1; outline: none; }
+        .contact-form input:focus { border-color: var(--primary); }
+        
+        .messenger-btns { display: flex; gap: 15px; margin-top: 15px; }
+        .btn-messenger { flex: 1; display: flex; justify-content: center; align-items: center; gap: 8px; color: #fff; padding: 15px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1rem; }
+        .btn-whatsapp { background: #25d366; }
+        .btn-whatsapp:hover { background: #1ebd5c; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
+        .btn-viber { background: #7360f2; }
+        .btn-viber:hover { background: #6554d4; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(115, 96, 242, 0.4); }
+
+        /* ИНТЕРАКТИВНЫЙ КАЛЕНДАРЬ */
+        .floating-calendar-btn { position: fixed; top: 50%; right: 0; transform: translateY(-50%); background: var(--secondary); color: #000; padding: 15px 20px 15px 25px; border-radius: 30px 0 0 30px; cursor: pointer; box-shadow: -5px 5px 15px rgba(0,0,0,0.2); z-index: 2000; font-weight: bold; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
+        .floating-calendar-btn:hover { padding-right: 30px; background: #e0a500; }
+        .calendar-drawer { position: fixed; top: 0; right: -100%; width: 450px; max-width: 100%; height: 100vh; background: #fff; z-index: 3000; box-shadow: -10px 0 30px rgba(0,0,0,0.1); transition: 0.4s ease-in-out; display: flex; flex-direction: column; overflow-y: auto; }
+        .calendar-drawer.open { right: 0; }
+        .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2999; display: none; opacity: 0; transition: 0.3s; }
+        .drawer-overlay.active { display: block; opacity: 1; }
+        .drawer-header { padding: 20px; background: var(--primary); color: #fff; display: flex; justify-content: space-between; align-items: center; }
+        .drawer-header h3 { margin: 0; font-size: 1.2rem; }
+        .close-drawer { color: #fff; font-size: 1.5rem; cursor: pointer; background: none; border: none; }
+        .drawer-content { padding: 20px; }
+        .month-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 25px; }
+        .month-item { background: var(--light-grey); border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px 5px; text-align: center; cursor: pointer; transition: 0.2s; font-weight: 600; font-size: 0.9rem; color: var(--dark); }
+        .month-item:hover, .month-item.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .deadline-info { background: var(--primary-light); padding: 20px; border-radius: 15px; border-left: 5px solid var(--secondary); display: none; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .deadline-info.show { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .dl-title { font-weight: 800; color: var(--primary); margin-bottom: 15px; font-size: 1.2rem; border-bottom: 1px solid #cbd5e1; padding-bottom: 10px; }
+        .info-label { font-size: 0.9rem; color: #555; font-weight: 600; margin-bottom: 5px; }
+        .holidays-block { margin-top: 15px; margin-bottom: 20px; padding: 10px; background: rgba(255, 255, 255, 0.8); border-radius: 8px; border: 1px dashed #cbd5e1; }
+        .holidays-text { font-size: 0.85rem; color: #d32f2f; font-weight: 600; line-height: 1.4; }
+        .reports-header { font-size: 0.9rem; color: var(--dark); font-weight: 700; margin-bottom: 10px; }
+        .report-group { margin-bottom: 12px; background: rgba(255, 255, 255, 0.9); padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; }
+        .report-group .dl-date { font-weight: bold; color: #d32f2f; background: #ffebbc; padding: 4px 10px; border-radius: 5px; display: inline-block; font-size: 0.9rem; margin-bottom: 8px; }
+        .report-group .reports-list { font-size: 0.85rem; color: var(--primary); font-weight: 600; line-height: 1.4; }
+        .work-time-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .work-time-table th, .work-time-table td { border: 1px solid #eef4fb; padding: 10px; text-align: center; }
+        .work-time-table th { background: var(--primary); color: #fff; font-weight: 600; }
+        .work-time-table td { color: var(--dark); font-weight: 500; }
+        .work-time-table .total-row { font-weight: 800; background: #ffebbc; color: var(--dark); }
+
+        /* АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА */
+        @media (max-width: 850px) {
+            header { padding: 10px 5%; }
+            .menu-toggle { display: block; }
+            nav { position: fixed; top: 75px; left: -100%; width: 100%; height: calc(100vh - 75px); background: #fff; flex-direction: column; align-items: center; padding-top: 50px; transition: 0.4s; z-index: 1000; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+            nav.active { left: 0; }
+            nav a { font-size: 1.2rem; }
+            .hero { min-height: auto; padding: 100px 5% 80px; }
+            .hero-container { flex-direction: column; text-align: center; gap: 60px; }
+            .hero-text { text-align: center; }
+            .hero p { margin: 0 auto 30px; }
+            .hero h1 { font-size: 2.2rem; }
+            .floating-wrapper { max-width: 250px; }
+            .teacher-card { flex-direction: column; text-align: center; margin-top: 20px; padding: 30px 20px; }
+            .teacher-img { width: 100%; max-width: 250px; height: 300px; }
+            .contacts-grid { grid-template-columns: 1fr; }
+            .teacher-info h2 { font-size: 1.6rem; }
+            .logo-text { font-size: 0.85rem; }
+            .logo-img { height: 50px; }
+            .floating-calendar-btn { padding: 12px 15px; }
+            .floating-calendar-btn span { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            .price-card { padding: 30px 20px; }
+            .logo { gap: 8px; }
+            .logo-img { height: 40px; }
+            .logo-text { display: block; font-size: 0.7rem; line-height: 1.1; max-width: 100px; }
+            .nav-container { gap: 10px; }
+            .month-grid { grid-template-columns: repeat(2, 1fr); }
+            .calendar-drawer { width: 100%; }
+            .messenger-btns { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="floating-calendar-btn" onclick="toggleCalendar()">
+    <i class="fas fa-calendar-alt" style="font-size: 1.2rem;"></i>
+    <span data-ru="Календарь" data-ro="Calendar">Календарь</span>
+</div>
+
+<div class="drawer-overlay" id="drawerOverlay" onclick="toggleCalendar()"></div>
+<div class="calendar-drawer" id="calDrawer">
+    <div class="drawer-header">
+        <h3 data-ru="Инструменты бухгалтера" data-ro="Instrumentele contabilului">Инструменты бухгалтера</h3>
+        <button class="close-drawer" onclick="toggleCalendar()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="drawer-content">
+        <p style="font-size: 0.95rem; color: var(--dark); font-weight: 600; margin-bottom: 15px;" data-ru="Выберите месяц:" data-ro="Selectați luna:">Выберите месяц:</p>
+        <div class="month-grid" id="monthGrid"></div>
+        <div class="deadline-info" id="deadlineBox">
+            <div class="dl-title" id="dlTitle">Январь</div>
+            <div class="holidays-block">
+                <div class="info-label" data-ru="Праздничные дни (нерабочие):" data-ro="Sărbători (zile nelucrătoare):">Праздничные дни (нерабочие):</div>
+                <div class="holidays-text" id="dlHolidays">1 января — Новый год</div>
+            </div>
+            <div style="margin-bottom: 25px;">
+                <div class="reports-header" data-ru="Сроки сдачи отчетов в этом месяце:" data-ro="Termene limită pentru rapoarte în această lună:">Сроки сдачи отчетов в этом месяце:</div>
+                <div id="reportsContainer"></div>
+            </div>
+            <div>
+                <div class="info-label" data-ru="Баланс рабочего времени (5 дн/нед):" data-ro="Balanța timpului de muncă (5 zile/săpt):">Баланс рабочего времени (5 дн/нед):</div>
+                <table class="work-time-table">
+                    <tr><th></th><th data-ru="Дни" data-ro="Zile">Дни</th><th data-ru="Часы" data-ro="Ore">Часы</th></tr>
+                    <tr><td>8 <span data-ru="ч/день" data-ro="ore/zi">ч/день</span></td><td id="wt-d8">19</td><td id="wt-h8">152</td></tr>
+                    <tr><td>7 <span data-ru="ч/день" data-ro="ore/zi">ч/день</span></td><td id="wt-d7">1</td><td id="wt-h7">7</td></tr>
+                    <tr class="total-row"><td>TOTAL</td><td id="wt-dt">20</td><td id="wt-ht">159</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header>
+    <a href="#" class="logo">
+        <img src="Gemini_Generated_Image_ag3b37ag3b37ag3b-removebg-preview.png" alt="Bordeniuc Unit Logo" class="logo-img">
+        <span class="logo-text">SERVICII CONTABILE</span>
+    </a>
+    <div class="nav-container">
+        <nav id="mobileNav">
+            <a href="#teacher" data-ru="Об эксперте" data-ro="Despre expert" onclick="closeMenu()">Об эксперте</a>
+            <a href="#program" data-ru="Программа Марафона" data-ro="Programa Maratonului" onclick="closeMenu()">Программа Марафона</a>
+            <a href="#pricing" data-ru="Тарифы" data-ro="Tarife" onclick="closeMenu()">Тарифы</a>
+            <a href="#contact" data-ru="Контакты" data-ro="Contacte" onclick="closeMenu()">Контакты</a>
+        </nav>
+        <div class="lang-box" onclick="toggleLang()">
+            <i class="fas fa-globe"></i>
+            <button id="langBtn">RO</button>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars" id="menuIcon"></i>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-container reveal">
+        <div class="hero-text">
+            <h1 id="hero-h1">Бухгалтерский учет в Республике Молдова:<br>Практика 2026</h1>
+            <p id="hero-p">Станьте востребованным специалистом под руководством Людмилы Борденюк.</p>
+            <a href="#pricing" class="btn-hero" id="hero-btn">Записаться на Марафон</a>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-wrapper">
+                <div class="floating-shadow"></div>
+                <div class="floating-notebook">
+                    <div class="notebook-back"></div>
+                    <div class="notebook-spine"></div>
+                    <div class="notebook-pages-right"></div>
+                    <div class="notebook-pages-bottom"></div>
+                    <div class="notebook-pages-top"></div>
+                    <div class="notebook-cover">
+                        <img src="Gemini_Generated_Image_ag3b37ag3b37ag3b-removebg-preview.png" alt="Bordeniuc Unity Logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-white" id="teacher">
+    <div class="teacher-card reveal">
+        <img src="5382334715228002213_121.jpg" alt="Ludmila Bordeniuc" class="teacher-img reveal-left">
+        <div class="teacher-info reveal-right">
+            <div class="experience-badge" data-ru="20 ЛЕТ ОПЫТА" data-ro="20 ANI EXPERIENȚĂ">20 ЛЕТ ОПЫТА</div>
+            <h2>Bordeniuc Ludmila</h2>
+            <p style="font-weight: 600; color: #555;" data-ru="Практикующий главный бухгалтер в РМ." data-ro="Contabil-șef practician în RM.">Практикующий главный бухгалтер в РМ.</p>
+            <p data-ru="Её курс — это не сухая теория, а живая практика на базе реальных документов и изменений 2026 года." 
+               data-ro="Cursul ei nu este o teorie uscată, ci o practică vie bazată pe documente reale și modificările din 2026.">
+               Её курс — это не сухая теория, а живая практика на базе реальных документов и изменений 2026 года.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section-light" id="roadmap">
+    <div class="roadmap-container">
+        <h2 class="reveal" data-ru="Ваш путь к новой профессии" data-ro="Calea ta către o nouă profesie">Ваш путь к новой профессии</h2>
+        <div class="roadmap-grid">
+            <div class="step-item reveal">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=400&q=80" alt="Консультация" class="step-img">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h4 data-ru="Консультация" data-ro="Consultanță">Консультация</h4>
+                    <p data-ru="Выбираем формат под ваши цели" data-ro="Alegem formatul pentru scopurile tale">Выбираем формат под ваши цели</p>
+                </div>
+            </div>
+            <div class="step-item reveal">
+                <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?auto=format&fit=crop&w=400&q=80" alt="Обучение" class="step-img">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h4 data-ru="Обучение" data-ro="Instruire">Обучение</h4>
+                    <p data-ru="Изучаем НСБУ и практику" data-ro="Studiem SNC și practica">Изучаем НСБУ и практику</p>
+                </div>
+            </div>
+            <div class="step-item reveal">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" alt="1С:Предприятие" class="step-img">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h4 data-ru="1С:Предприятие" data-ro="1C:Enterprise">1С:Предприятие</h4>
+                    <p data-ru="Теоретические объяснения" data-ro="Explicații teoretice">Теоретические объяснения</p>
+                </div>
+            </div>
+            <div class="step-item reveal"> 
+                <img src="https://images.unsplash.com/photo-1523289333742-be1143f6b766?auto=format&fit=crop&w=400&q=80" alt="Карьера" class="step-img">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h4 data-ru="Карьера" data-ro="Carieră">Карьера</h4>
+                    <p data-ru="Сертификат и работа" data-ro="Certificat și angajare">Сертификат и работа</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-white" id="program">
+    <div class="program-container">
+        <h2 class="reveal" style="text-align: center; margin-bottom: 40px; font-size: 2rem; color: var(--primary);" data-ru="Программа Марафона (6 недель)" data-ro="Programa Maratonului (6 săptămâni)">Программа Марафона (6 недель)</h2>
+        
+        <div class="acc-item reveal">
+            <div class="acc-header" onclick="toggleAcc(this)">
+                <span data-ru="Неделя 1: Основы и структура имущества компании" data-ro="Săptămâna 1: Bazele și structura patrimoniului companiei">Неделя 1: Основы и структура имущества компании</span>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="acc-content">
+                <p data-ru="Главная цель — создание прочной теоретической базы концепции имущества, объясненной с нуля для начинающих, и понимание того, как это имущество финансируется." data-ro="Obiectivul principal este construirea unei fundații teoretice solide privind conceptul de patrimoniu, explicat de la zero pentru începători, și înțelegerea modului în care acest patrimoniu este finanțat.">Главная цель — создание прочной теоретической базы концепции имущества, объясненной с нуля для начинающих, и понимание того, как это имущество финансируется.</p>
+                <p style="margin-top: 10px; font-weight: 600;" data-ru="К концу этой недели участники должны освоить следующие ключевые элементы:" data-ro="La finalul acestei săptămâni, participanții trebuie să stăpânească următoarele elemente cheie:">К концу этой недели участники должны освоить следующие ключевые элементы:</p>
+                <ul>
+                    <li data-ru="Основное уравнение бухгалтерского учета." data-ro="Ecuația fundamentală a contabilității.">Основное уравнение бухгалтерского учета.</li>
+                    <li data-ru="Классификация элементов." data-ro="Clasificarea elementelor.">Классификация элементов.</li>
+                    <li data-ru="Структура Баланса." data-ro="Structura Bilanțului.">Структура Баланса.</li>
+                </ul>
+                <p data-ru="Конечная цель состоит в том, чтобы к концу недели абстрактные понятия «актив» и «пассив» стали логичными, устранив первоначальную путаницу, чтобы участники могли анализировать простые транзакции без заучивания наизусть." data-ro="Scopul final este ca, până la sfârșitul săptămânii, conceptele abstracte de „activ” și „pasiv” să devină logice, eliminând confuzia inițială, astfel încât participanții să poată analiza tranzacții simple fără a învăța pe de rost.">Конечная цель состоит в том, чтобы к концу недели абстрактные понятия «актив» и «пассив» стали логичными, устранив первоначальную путаницу, чтобы участники могли анализировать простые транзакции без заучивания наизусть.</p>
+            </div>
+        </div>
+    
+        <div class="acc-item reveal">
+            <div class="acc-header" onclick="toggleAcc(this)">
+                <span data-ru="Неделя 2: Долгосрочные активы" data-ro="Săptămâna 2: Active pe termen lung">Неделя 2: Долгосрочные активы</span>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="acc-content">
+                <p data-ru="Главная цель — усвоение правил признания, оценки и бухгалтерского учета долгосрочных активов в соответствии с положениями Национальных стандартов бухгалтерского учета (НСБУ)." data-ro="Obiectivul principal este însușirea regulilor de recunoaștere, evaluare și evidență contabilă a activelor pe termen lung, respectând prevederile Standardelor Naționale de Contabilitate (SNC).">Главная цель — усвоение правил признания, оценки и бухгалтерского учета долгосрочных активов в соответствии с положениями Национальных стандартов бухгалтерского учета (НСБУ).</p>
+                <p style="margin-top: 10px; font-weight: 600;" data-ru="Для четкого структурирования этого этапа вот 4 ключевых направления, которые необходимо освоить на этой неделе:" data-ro="Pentru a structura clar această etapă, iată cele 4 direcții cheie care trebuie atinse în această săptămână:">Для четкого структурирования этого этапа вот 4 ключевых направления, которые необходимо освоить на этой неделе:</p>
+                <ul>
+                    <li data-ru="Идентификация и классификация." data-ro="Identificarea și Clasificarea.">Идентификация и классификация.</li>
+                    <li data-ru="Учет поступлений." data-ro="Contabilizarea Intrărilor.">Учет поступлений.</li>
+                    <li data-ru="Расчет и учет амортизации." data-ro="Calculul și Evidența Amortizării.">Расчет и учет амортизации.</li>
+                    <li data-ru="Учет выбытия." data-ro="Contabilizarea Ieșirilor.">Учет выбытия.</li>
+                </ul>
+                <p data-ru="К концу этой недели участники должны уметь регистрировать полный жизненный цикл долгосрочного актива в системе бухгалтерского учета (с помощью бухгалтерских проводок и соответствующих первичных документов)." data-ro="La finalul acestei săptămâni, participanții trebuie să poată înregistra ciclul complet de viață al unui activ imobilizat în sistemul de contabilitate (prin formule contabile și documente primare aferente).">К концу этой недели участники должны уметь регистрировать полный жизненный цикл долгосрочного актива в системе бухгалтерского учета (с помощью бухгалтерских проводок и соответствующих первичных документов).</p>
+            </div>
+        </div>
+    
+        <div class="acc-item reveal">
+            <div class="acc-header" onclick="toggleAcc(this)">
+                <span data-ru="Неделя 3: Казначейство, запасы и заработная плата" data-ro="Săptămâna 3: Trezoreria, stocurile și salarizarea">Неделя 3: Казначейство, запасы и заработная плата</span>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="acc-content">
+                <p data-ru="Главная цель — научиться управлению, документированию и правильному учету самых динамичных и частых текущих операций компании." data-ro="Obiectivul principal este de a învăța gestionarea, documentarea și înregistrarea corectă a celor mai dinamice și frecvente operațiuni curente ale unei companii.">Главная цель — научиться управлению, документированию и правильному учету самых динамичных и частых текущих операций компании.</p>
+                <p style="margin-top: 10px; font-weight: 600;" data-ru="Вот вкратце конкретные цели по каждой теме:" data-ro="Iată, pe scurt, obiectivele specifice pentru fiecare temă în parte:">Вот вкратце конкретные цели по каждой теме:</p>
+                <ul>
+                    <li data-ru="Казначейство (Деньги и ликвидность)." data-ro="Trezoreria (Bani și Lichidități).">Казначейство (Деньги и ликвидность).</li>
+                    <li data-ru="Запасы (Товары, материалы, продукция)." data-ro="Stocuri (Mărfuri, Materiale, Produse).">Запасы (Товары, материалы, продукция).</li>
+                    <li data-ru="Заработная плата (Человеческие ресурсы)." data-ro="Salarizarea (Resurse Umane).">Заработная плата (Человеческие ресурсы).</li>
+                </ul>
+                <p data-ru="Практически, в конце этого этапа марафона участник должен уметь обрабатывать ежедневные операционные документы фирмы: вести учет денег, управлять накладными на товары и рассчитывать ежемесячную заработную плату." data-ro="Practic, la finalul acestei etape a maratonului, participantul trebuie să fie capabil să proceseze documentele operaționale zilnice ale unei firme: să tină evidența banilor, să gestioneze facturile de marfă și să calculeze salariile lunare.">Практически, в конце этого этапа марафона участник должен уметь обрабатывать ежедневные операционные документы фирмы: вести учет денег, управлять накладными на товары и рассчитывать ежемесячную заработную плату.</p>
+            </div>
+        </div>
+    
+        <div class="acc-item reveal">
+            <div class="acc-header" onclick="toggleAcc(this)">
+                <span data-ru="Неделя 4: Собственный капитал, дебиторская и кредиторская задолженность" data-ro="Săptămâna 4: Capital propriu, creanțe și datorii">Неделя 4: Собственный капитал, дебиторская и кредиторская задолженность</span>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="acc-content">
+                <p data-ru="Главная цель состоит в том, чтобы участники поняли источники финансирования субъекта и механизмы расчетов с третьими лицами, правильно применяя базовые принципы (в соответствии с положениями НСБУ)." data-ro="Obiectivul principal este ca participanții să înțeleagă sursele de finanțare ale unei entități și mecanismele de decontare cu terții, aplicând corect principiile de bază (în conformitate cu prevederile SNC).">Главная цель состоит в том, чтобы участники поняли источники финансирования субъекта и механизмы расчетов с третьими лицами, правильно применяя базовые принципы (в соответствии с положениями НСБУ).</p>
+                <p style="margin-top: 10px; font-weight: 600;" data-ru="После изучения теоретических материалов и практики участник должен достичь следующих результатов:" data-ro="După parcurgerea materialelor teoretice și a practicii, participantul trebuie să atingă următoarele rezultate:">После изучения теоретических материалов и практики участник должен достичь следующих результатов:</p>
+                <ul>
+                    <li data-ru="Концептуальная ясность." data-ro="Claritate Conceptuală.">Концептуальная ясность.</li>
+                    <li data-ru="Навыки регистрации." data-ro="Abilități de Înregistrare.">Навыки регистрации.</li>
+                    <li data-ru="Общее видение." data-ro="Viziune de Ansamblu.">Общее видение.</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="acc-item reveal">
+            <div class="acc-header" onclick="toggleAcc(this)">
+                <span data-ru="Неделя 5: Доходы, расходы и финансовые результаты" data-ro="Săptămâna 5: Venituri, cheltuieli și rezultate financiare">Неделя 5: Доходы, расходы и финансовые результаты</span>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="acc-content">
+                <p data-ru="Главная цель — понимание процесса формирования финансового результата путем правильного признания и классификации доходов и расходов субъекта с соблюдением положений НСБУ." data-ro="Obiectivul principal este înțelegerea procesului de formare a rezultatului financiar prin recunoașterea și clasificarea corectă a veniturilor și cheltuielilor entității, respectând prevederile SNC.">Главная цель — понимание процесса формирования финансового результата путем правильного признания и классификации доходов и расходов субъекта с соблюдением положений НСБУ.</p>
+                <p style="margin-top: 10px; font-weight: 600;" data-ru="После изучения теоретических материалов и практики участник должен достичь следующих результатов:" data-ro="După parcurgerea materialelor teoretice și a practicii, participantul trebuie să atingă următoarele rezultate:">После изучения теоретических материалов и практики участник должен достичь следующих результатов:</p>
+                <ul>
+                    <li data-ru="Классификация доходов и расходов." data-ro="Clasificarea Veniturilor și Cheltuielilor.">Классификация доходов и расходов.</li>
+                    <li data-ru="Закрытие счетов доходов и расходов." data-ro="Închiderea Conturilor de Gestiune.">Закрытие счетов доходов и расходов.</li>
+                    <li data-ru="Определение финансового результата (Прибыль/Убыток)." data-ro="Determinarea Rezultatului Financiar (Profit/Pierdere).">Определение финансового результата (Прибыль/Убыток).</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="acc-item reveal">
+            <div class="acc-header" onclick="toggleAcc(this)">
+                <span data-ru="Неделя 6: Краткий обзор бухгалтерского учета и налогообложения" data-ro="Săptămâna 6: Scurtă trecere în revistă a contabilității și impozitării">Неделя 6: Краткий обзор бухгалтерского учета и налогообложения</span>
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="acc-content">
+                <p data-ru="Главная цель — интеграция всех накопленных знаний в полную финансовую картину. Модуль направлен на то, чтобы провести участников через процесс закрытия отчетного периода, переходя от текущего учета к итоговой отчетности и пониманию основных налоговых обязательств субъекта." data-ro="Obiectivul principal este integrarea tuturor cunoștințelor acumulate într-un tablou financiar complet. Modulul își propune să ghideze participanții prin procesul de închidere a unei perioade de gestiune, trecând de la evidența curentă la raportarea finală și la înțelegerea obligațiilor fiscale fundamentale ale unei entități.">Главная цель — интеграция всех накопленных знаний в полную финансовую картину. Модуль направлен на то, чтобы провести участников через процесс закрытия отчетного периода, переходя от текущего учета к итоговой отчетности и пониманию основных налоговых обязательств субъекта.</p>
+                <p style="margin-top: 10px; font-weight: 600;" data-ru="По окончании этого модуля слушатели смогут увидеть «общую картину» бухгалтерского учета и будут способны:" data-ro="La finalul acestui modul, cursanții vor avea capacitatea de a vedea „imaginea de ansamblu” a contabilității și vor fi capabili să:">По окончании этого модуля слушатели смогут увидеть «общую картину» бухгалтерского учета и будут способны:</p>
+                <ul>
+                    <li data-ru="Выполнять работы по закрытию месяца/года." data-ro="Efectueze lucrările de închidere a lunii/anului.">Выполнять работы по закрытию месяца/года.</li>
+                    <li data-ru="Составлять и читать Оборотно-сальдовую ведомость." data-ro="Întocmească și să citească Balanța de verificare.">Составлять и читать Оборотно-сальдовую ведомость.</li>
+                    <li data-ru="Понимать структуру Финансовой отчетности." data-ro="Înțeleagă structura Situațiilor Financiare.">Понимать структуру Финансовой отчетности.</li>
+                    <li data-ru="Рассчитывать основные налоги и сборы." data-ro="Calculeze principalele impozite și taxe.">Рассчитывать основные налоги и сборы.</li>
+                    <li data-ru="Отслеживать полную прослеживаемость данных." data-ro="Urmărească trasabilitatea completă a datelor.">Отслеживать полную прослеживаемость данных.</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="acc-item reveal" style="border-color: var(--primary);">
+            <div class="acc-header" onclick="toggleAcc(this)" style="background-color: var(--primary-light);">
+                <span data-ru="Финальный проект" data-ro="Proiect final" style="color: var(--primary);">Финальный проект</span>
+                <i class="fas fa-star" style="color: var(--secondary);"></i>
+            </div>
+            <div class="acc-content">
+                <p data-ru="Финальный проект представляет собой практическую оценку навыков, накопленных за 6 недель марафона. Участники с нуля решат задачу по ведению учета компании, чтобы отразить полный набор экономических операций, соблюдая действующее законодательство. Это не просто оценка, а первое практическое упражнение в качестве будущего бухгалтера." data-ro="Proiectul final reprezintă evaluarea practică a abilităților acumulate în cele 6 săptămâni de maraton. Participanții vor rezolva evidența unei companii de la zero pentru a reflecta un set complet de operațiuni economice, respectând legislația în vigoare. Nu este doar o evaluare, ci primul exercițiu practic ca viitor contabil.">Финальный проект представляет собой практическую оценку навыков, накопленных за 6 недель марафона. Участники с нуля решат задачу по ведению учета компании, чтобы отразить полный набор экономических операций, соблюдая действующее законодательство. Это не просто оценка, а первое практическое упражнение в качестве будущего бухгалтера.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-light" id="pricing">
+    <div class="pricing-container">
+        <h2 class="reveal" style="font-size: 2rem; color: var(--primary);" data-ru="Стоимость" data-ro="Costuri">Стоимость</h2>
+        <div class="price-grid" style="display: flex; justify-content: center;">
+            <div class="price-card selected reveal" style="max-width: 400px; width: 100%; cursor: default;">
+                <h3 data-ru="Базовый" data-ro="Baza">Базовый</h3>
+                <div class="price-val">3,000 <span>lei</span></div>
+                <p data-ru="Полный 6-недельный марафон, практика и сертификат" data-ro="Maraton complet de 6 săptămâni, practică și certificat">Полный 6-недельный марафон, практика и сертификат</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-white" id="contact">
+    <div class="contacts-grid">
+        <div class="contact-info reveal-left">
+            <h2 data-ru="Остались вопросы?" data-ro="Ai întrebări?">Остались вопросы?</h2>
+            <a href="tel:+37378506196" class="contact-method"> <i class="fas fa-phone-alt" style="color: var(--primary);"></i> +373 78 506 196</a>
+            <a href="https://wa.me/37378506196" class="contact-method"> <i class="fab fa-whatsapp" style="color: #25d366;"></i> WhatsApp</a>
+            <a href="viber://chat?number=%2B37378506196" class="contact-method"> <i class="fab fa-viber" style="color: #7360f2;"></i> Viber</a>
+            <p><i class="fas fa-envelope" style="color: var(--primary); margin-right: 10px;"></i> <a href="mailto:bordeniucunity@gmail.com" style="color: inherit; text-decoration: none;">bordeniucunity@gmail.com</a></p>
+        </div>
+        <div class="contact-form reveal-right">
+            <form id="orderForm" onsubmit="return false;">
+                <input type="text" placeholder="Ваше имя" id="nameInput" required>
+                <input type="tel" placeholder="Ваш телефон" id="phoneInput" required>
+                <div class="messenger-btns">
+                    <button type="button" class="btn-messenger btn-whatsapp" onclick="sendToWhatsApp()">
+                        <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> WhatsApp
+                    </button>
+                    <button type="button" class="btn-messenger btn-viber" onclick="sendToViber()">
+                        <i class="fab fa-viber" style="font-size: 1.4rem;"></i> Viber
+                    </button>
+                </div>
+                <p style="font-size: 0.85rem; text-align: center; color: #777; margin-top: 15px;" data-ru="*Выберите мессенджер для записи" data-ro="*Alegeți messengerul pentru înscriere">*Выберите мессенджер для записи</p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer style="padding: 30px; background: #1a1a1a; color: #888; text-align: center; font-size: 0.9rem;">
+    <p>&copy; 2026 Contabil.md | Ludmila Bordeniuc</p>
+</footer>
+
+<script>
+    function toggleMenu() { document.getElementById('mobileNav').classList.toggle('active'); document.getElementById('menuIcon').classList.toggle('fa-bars'); document.getElementById('menuIcon').classList.toggle('fa-times'); }
+    function closeMenu() { document.getElementById('mobileNav').classList.remove('active'); document.getElementById('menuIcon').classList.replace('fa-times', 'fa-bars'); }
+    function toggleAcc(header) { const content = header.nextElementSibling; const icon = header.querySelector('i'); const isOpen = content.style.display === "block"; document.querySelectorAll('.acc-content').forEach(c => c.style.display = "none"); document.querySelectorAll('.acc-header i').forEach(i => { i.className = "fas fa-plus"; }); if (!isOpen) { content.style.display = "block"; icon.className = "fas fa-minus"; } }
+    function reveal() { var reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right"); for (var i = 0; i < reveals.length; i++) { if (reveals[i].getBoundingClientRect().top < window.innerHeight - 50) reveals[i].classList.add("active"); } }
+    window.addEventListener("scroll", reveal); reveal();
+
+    function getMessageText() {
+        const name = document.getElementById('nameInput').value.trim();
+        const phone = document.getElementById('phoneInput').value.trim();
+        if (!name || !phone) { alert(currentLang === 'ru' ? 'Пожалуйста, введите имя и номер.' : 'Vă rugăm să introduceți numele și numărul.'); return null; }
+        const text = currentLang === 'ru' ? `Здравствуйте! Хочу записаться.\nИмя: ${name}\nТелефон: ${phone}` : `Bună ziua! Vreau să mă înscriu.\nNume: ${name}\nTelefon: ${phone}`;
+        return encodeURIComponent(text);
+    }
+    function sendToWhatsApp() { const text = getMessageText(); if (text) window.open(`https://wa.me/37378506196?text=${text}`, '_blank'); }
+    function sendToViber() { const text = getMessageText(); if (text) window.open(`viber://chat?number=%2B37378506196&draft=${text}`, '_blank'); }
+
+    const monthsData = [
+        { ru: "Январь", ro: "Ianuarie", holiRu: "1 января — Новый год<br>7, 8 января — Рождество Христово", holiRo: "1 Ianuarie — Anul Nou<br>7, 8 Ianuarie — Crăciunul pe stil vechi", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, reports: [{ dateRu: "До 15 Января", dateRo: "Până pe 15 Ianuarie", list: "CAS18-AN" }, { dateRu: "До 20 Января", dateRo: "Până pe 20 Ianuarie", list: "TGN-07" }, { dateRu: "До 26 Января", dateRo: "Până pe 26 Ianuarie", list: "CAS18-AN, IPC21, IALS21, INR14, IU17, ISAPTI 17, TAXI17, TVA12, ACZ09, TFD19, TDL-13, TL 13, TRN 21, TFSP 20, CFV21, DNTC25, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Февраль", ro: "Februarie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160, reports: [{ dateRu: "До 25 Февраля", dateRo: "Până pe 25 Februarie", list: "IPC21, IU17, TAXI18, TVA12, ACZ09, EMPOLDEP19, TFDP 20, TBDSA15, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Март", ro: "Martie", holiRu: "8 марта — Международный женский день", holiRo: "8 Martie — Ziua Internațională a Femeii", d8: 20, h8: 160, d7: 1, h7: 7, dt: 21, ht: 167, reports: [{ dateRu: "До 25 Марта", dateRo: "Până pe 25 Martie", list: "IPC21, IU17, TAXI18, DAP24, SIMM24, ONG17, VEN12, TVA12, ACZ09, TFZD-15, BIJ17, TFSP 20, UNIF25, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Апрель", ro: "Aprilie", holiRu: "12, 13 апреля — Святая Пасха<br>20 апреля — Радоница", holiRo: "12, 13 Aprilie — Paștele<br>20 Aprilie — Paștele Blajinilor", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, reports: [{ dateRu: "До 21 Апреля", dateRo: "Până pe 21 Aprilie", list: "TGN-07" }, { dateRu: "До 27 Апреля", dateRo: "Până pe 27 Aprilie", list: "IPC21, IU17, TAXI18, DAP24, SIMM24, TVA12, ACZ09, POLMED25, TDL-13, TFSP 20, CFV21" }, { dateRu: "До 30 Апреля", dateRo: "Până pe 30 Aprilie", list: "CET18" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Май", ro: "Mai", holiRu: "1 мая — День труда<br>9 мая — День Европы / День Победы", holiRo: "1 Mai — Ziua Muncii<br>9 Mai — Ziua Europei / Ziua Victoriei", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, reports: [{ dateRu: "До 25 Мая", dateRo: "Până pe 25 Mai", list: "IPC21, IU17, TAXI18, TVA12, ACZ09, TFSP 20, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Июнь", ro: "Iunie", holiRu: "1 июня — День защиты детей", holiRo: "1 Iunie — Ziua Copilului", d8: 21, h8: 168, d7: 0, h7: 0, dt: 21, ht: 168, reports: [{ dateRu: "До 25 Июня", dateRo: "Până pe 25 Iunie", list: "IPC21, IU17, TAXI18, TVA12, ACZ09, TFSP 20, IUPT25, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Июль", ro: "Iulie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 23, h8: 184, d7: 0, h7: 0, dt: 23, ht: 184, reports: [{ dateRu: "До 20 Июля", dateRo: "Până pe 20 Iulie", list: "TGN-07" }, { dateRu: "До 27 Июля", dateRo: "Până pe 27 Iulie", list: "IPC21, IU17, DAP24, SIMM24, TVA12, ACZ09, TFSP 20, POLMED25, TDL-13, TL 13, TRN 21, CFV21" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Август", ro: "August", holiRu: "27 августа — День независимости<br>31 августа — Праздник «Limba noastră»", holiRo: "27 August — Ziua Independenței<br>31 August — Sărbătoarea «Limba noastră»", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, reports: [{ dateRu: "До 25 Августа", dateRo: "Până pe 25 August", list: "IPC21, IU17, TVA12, ACZ09, TFSP 20, POLMED25, DDP24" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Сентябрь", ro: "Septembrie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reports: [{ dateRu: "До 25 Сентября", dateRo: "Până pe 25 Septembrie", list: "IPC21, IU17, TVA12, ACZ09, BIJ17, TFSP 20, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Октябрь", ro: "Octombrie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 23, h8: 184, d7: 0, h7: 0, dt: 23, ht: 184, reports: [{ dateRu: "До 20 Октября", dateRo: "Până pe 20 Octombrie", list: "TGN-07" }, { dateRu: "До 26 Октября", dateRo: "Până pe 26 Octombrie", list: "IPC21, IU17, TVA12, ACZ09, TFSP 20, POLMED25, TDL-13, CFV21" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Ноябрь", ro: "Noiembrie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160, reports: [{ dateRu: "До 25 Ноября", dateRo: "Până pe 25 Noiembrie", list: "IPC21, IU17, TVA12, ACZ09, TFSP 20, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Декабрь", ro: "Decembrie", holiRu: "25 декабря — Рождество Христово (по новому стилю)", holiRo: "25 Decembrie — Crăciunul pe stil nou", d8: 20, h8: 160, d7: 2, h7: 14, dt: 22, ht: 174, reports: [{ dateRu: "До 28 Декабря", dateRo: "Până pe 28 Decembrie", list: "IPC21, IU17, TVA12, ACZ09, TFSP 20, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] }
+    ];
+
+    let currentLang = 'ru';
+    window.onload = function() { initCalendar(); };
+
+    function initCalendar() {
+        const grid = document.getElementById('monthGrid'); grid.innerHTML = '';
+        monthsData.forEach((m, index) => { let item = document.createElement('div'); item.className = 'month-item'; item.innerText = currentLang === 'ru' ? m.ru : m.ro; item.onclick = () => showDeadline(index, item); grid.appendChild(item); });
+        document.querySelectorAll('[data-ru]').forEach(el => { el.innerText = el.getAttribute('data-' + currentLang); });
+    }
+
+    function showDeadline(index, element) {
+        document.querySelectorAll('.month-item').forEach(el => el.classList.remove('active')); element.classList.add('active');
+        const box = document.getElementById('deadlineBox');
+        document.getElementById('dlTitle').innerText = currentLang === 'ru' ? monthsData[index].ru : monthsData[index].ro;
+        document.getElementById('dlHolidays').innerHTML = currentLang === 'ru' ? monthsData[index].holiRu : monthsData[index].holiRo;
+        const cont = document.getElementById('reportsContainer'); cont.innerHTML = '';
+        monthsData[index].reports.forEach(rep => { let group = document.createElement('div'); group.className = 'report-group'; group.innerHTML = `<div class="dl-date">${currentLang === 'ru' ? rep.dateRu : rep.dateRo}</div><div class="reports-list">${rep.list}</div>`; cont.appendChild(group); });
+        
+        document.getElementById('wt-d8').innerText = monthsData[index].d8;
+        document.getElementById('wt-h8').innerText = monthsData[index].h8;
+        document.getElementById('wt-d7').innerText = monthsData[index].d7;
+        document.getElementById('wt-h7').innerText = monthsData[index].h7;
+        document.getElementById('wt-dt').innerText = monthsData[index].dt;
+        document.getElementById('wt-ht').innerText = monthsData[index].ht;
+        
+        box.classList.remove('show'); void box.offsetWidth; box.classList.add('show');
+    }
+
+    function toggleCalendar() { document.getElementById('calDrawer').classList.toggle('open'); document.getElementById('drawerOverlay').classList.toggle('active'); }
+
+    function toggleLang() {
+        currentLang = currentLang === 'ru' ? 'ro' : 'ru';
+        document.getElementById('langBtn').innerText = currentLang === 'ru' ? 'RO' : 'RU';
+        document.querySelectorAll('[data-ru]').forEach(el => { el.innerText = el.getAttribute('data-' + currentLang); });
+        document.getElementById('nameInput').placeholder = currentLang === 'ru' ? "Ваше имя" : "Numele dvs.";
+        document.getElementById('phoneInput').placeholder = currentLang === 'ru' ? "Ваш телефон" : "Telefonul dvs.";
+        const trans = { ru: { h1: "Бухгалтерский учет в Республике Молдова:<br>Практика 2026", p: "Станьте востребованным специалистом под руководством Людмилы Борденюк.", btn: "Записаться на Марафон" }, ro: { h1: "Evidența contabilă în Republica Moldova:<br>Practica 2026", p: "Devino un specialist solicitat sub îndrumarea Ludmilei Bordeniuc.", btn: "Înscrie-te la Maraton" } };
+        document.getElementById('hero-h1').innerHTML = trans[currentLang].h1;
+        document.getElementById('hero-p').innerText = trans[currentLang].p;
+        document.getElementById('hero-btn').innerText = trans[currentLang].btn;
+        initCalendar();
+        document.getElementById('deadlineBox').classList.remove('show');
+    }
+</script>
+
+</body>
+</html>
