@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-
-    <link rel="canonical" href="https://bordeniucunity.md/" />
-        
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -284,6 +280,16 @@
         .work-time-table td { color: var(--dark); font-weight: 500; }
         .work-time-table .total-row { font-weight: 800; background: #ffebbc; color: var(--dark); }
 
+/* ЦЕЛЕВАЯ АУДИТОРИЯ И ФОРМАТ */
+        .target-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+        .target-card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border-bottom: 4px solid var(--secondary); transition: transform 0.3s; }
+        .target-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .target-icon { width: 70px; height: 70px; background: var(--primary-light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 20px; }
+        
+        .format-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 40px; }
+        .format-card { display: flex; align-items: center; gap: 15px; background: #fff; padding: 20px; border-radius: 15px; border-left: 4px solid var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+        .format-icon { font-size: 1.8rem; color: var(--primary); width: 40px; text-align: center; }
+
         /* АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА */
         @media (max-width: 850px) {
             header { padding: 10px 5%; }
@@ -296,7 +302,9 @@
             .hero-text { text-align: center; }
             .hero p { margin: 0 auto 30px; }
             .hero h1 { font-size: 2.2rem; }
-            .floating-wrapper { max-width: 250px; }
+            .hero-visual { width: 100%; min-height: 360px; padding-top: 20px; }
+            .floating-wrapper { width: 220px; height: 297px; margin: 0 auto; aspect-ratio: unset; }
+            .notebook-cover img { width: 95%; transform: translateZ(20px); }
             .teacher-card { flex-direction: column; text-align: center; margin-top: 20px; padding: 30px 20px; }
             .teacher-img { width: 100%; max-width: 250px; height: 300px; }
             .contacts-grid { grid-template-columns: 1fr; }
@@ -309,6 +317,9 @@
 
         @media (max-width: 480px) {
             .hero h1 { font-size: 1.8rem; }
+            .hero-visual { min-height: 300px; padding-top: 0; }
+            .floating-wrapper { width: 180px; height: 243px; }
+            .floating-shadow { bottom: -20px; }
             .price-card { padding: 30px 20px; }
             .logo { gap: 8px; }
             .logo-img { height: 40px; }
@@ -388,6 +399,8 @@
         <div class="hero-text">
             <h1 id="hero-h1">Бухгалтерский учет в Республике Молдова:<br>Практика 2026</h1>
             <p id="hero-p">Станьте востребованным специалистом под руководством Людмилы Борденюк.</p>
+            <!-- Новая строчка с датой -->
+            <p data-ru="📅 Старт марафона: 1 октября" data-ro="📅 Start maraton: 1 Octombrie" style="font-size: 1.3rem; font-weight: 800; color: var(--secondary); margin-bottom: 30px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">📅 Старт марафона: 1 октября</p>
             <a href="#pricing" class="btn-hero" id="hero-btn">Записаться на Марафон</a>
         </div>
         <div class="hero-visual">
@@ -419,6 +432,24 @@
                data-ro="Cursul ei nu este o teorie uscată, ci o practică vie bazată pe documente reale și modificările din 2026.">
                Её курс — это не сухая теория, а живая практика на базе реальных документов и изменений 2026 года.
             </p>
+        </div>
+    </div>
+</section>
+
+<section class="section-light" id="target">
+    <div class="roadmap-container">
+        <h2 class="reveal" data-ru="Кому подойдет этот марафон?" data-ro="Pentru cine este acest maraton?">Кому подойдет этот марафон?</h2>
+        <div class="target-grid">
+                        <div class="target-card reveal" style="transition-delay: 0.1s;">
+                <div class="target-icon"><i class="fas fa-briefcase"></i></div>
+                <h4 data-ru="Предпринимателям" data-ro="Antreprenorilor">Предпринимателям</h4>
+                <p data-ru="Хотите сами понимать налоги, контролировать бизнес и не переплачивать штрафы по незнанию." data-ro="Doriți să înțelegeți singuri taxele, să vă controlați afacerea și să nu plătiți amenzi din neștiință.">Хотите сами понимать налоги, контролировать бизнес и не переплачивать штрафы по незнанию.</p>
+            </div>
+            <div class="target-card reveal" style="transition-delay: 0.2s;">
+                <div class="target-icon"><i class="fas fa-sync-alt"></i></div>
+                <h4 data-ru="Бухгалтерам после перерыва" data-ro="Contabililor după o pauză">Бухгалтерам после перерыва</h4>
+                <p data-ru="Выходили в декрет или меняли сферу? Поможем обновить знания под реалии и законы 2026 года." data-ro="Ați fost în concediu de maternitate sau ați schimbat domeniul? Vă ajutăm să vă actualizați cunoștințele.">Выходили в декрет или меняли сферу? Поможем обновить знания под реалии и законы 2026 года.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -457,6 +488,42 @@
                 <div class="step-content">
                     <h4 data-ru="Карьера" data-ro="Carieră">Карьера</h4>
                     <p data-ru="Сертификат и работа" data-ro="Certificat și angajare">Сертификат и работа</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-white" id="format" style="background-color: var(--light-grey); padding-top: 30px;">
+    <div class="roadmap-container">
+        <h2 class="reveal" data-ru="Как проходит обучение?" data-ro="Cum se desfășoară instruirea?">Как проходит обучение?</h2>
+        <div class="format-grid">
+            <div class="format-card reveal">
+                <div class="format-icon"><i class="fas fa-video"></i></div>
+                <div>
+                    <h4 style="margin: 0; color: var(--dark);" data-ru="Живые уроки" data-ro="Lecții live">Живые уроки</h4>
+                    <p style="margin: 5px 0 0; font-size: 0.9rem;" data-ru="В реальном времени с преподавателем" data-ro="În timp real cu profesorul">В реальном времени с преподавателем</p>
+                </div>
+            </div>
+            <div class="format-card reveal" style="transition-delay: 0.1s;">
+                <div class="format-icon"><i class="fas fa-play-circle"></i></div>
+                <div>
+                    <h4 style="margin: 0; color: var(--dark);" data-ru="Записи занятий" data-ro="Înregistrările lecțiilor">Записи занятий</h4>
+                    <p style="margin: 5px 0 0; font-size: 0.9rem;" data-ru="Доступны для повторения в любое время" data-ro="Disponibile pentru repetare oricând">Доступны для повторения в любое время</p>
+                </div>
+            </div>
+            <div class="format-card reveal" style="transition-delay: 0.2s;">
+                <div class="format-icon"><i class="fas fa-comments"></i></div>
+                <div>
+                    <h4 style="margin: 0; color: var(--dark);" data-ru="Чат поддержки" data-ro="Chat de suport">Чат поддержки</h4>
+                    <p style="margin: 5px 0 0; font-size: 0.9rem;" data-ru="Ответы на ваши вопросы в процессе" data-ro="Răspunsuri la întrebările dvs. pe parcurs">Ответы на ваши вопросы в процессе</p>
+                </div>
+            </div>
+            <div class="format-card reveal" style="transition-delay: 0.3s;">
+                <div class="format-icon"><i class="fas fa-laptop-code"></i></div>
+                <div>
+                    <h4 style="margin: 0; color: var(--dark);" data-ru="Удобный график" data-ro="Program flexibil">Удобный график</h4>
+                    <p style="margin: 5px 0 0; font-size: 0.9rem;" data-ru="Можно совмещать с работой" data-ro="Poate fi combinat cu munca">Можно совмещать с работой</p>
                 </div>
             </div>
         </div>
@@ -616,16 +683,30 @@
 
 <section class="section-light" id="pricing">
     <div class="pricing-container">
-        <h2 class="reveal" style="font-size: 2rem; color: var(--primary);" data-ru="Стоимость" data-ro="Costuri">Стоимость</h2>
-        <div class="price-grid" style="display: flex; justify-content: center;">
-            <div class="price-card selected reveal" style="max-width: 400px; width: 100%; cursor: default; position: relative;">
-    <div class="discount-badge" data-ru="-15%" data-ro="-15%">-15%</div> 
-    
-    <h3 data-ru="Базовый" data-ro="Baza">Базовый</h3>
-    <div class="old-price">3 500 lei</div>
-    <div class="price-val">2 999 <span>lei</span></div>
-    <p data-ru="Полный 6-недельный марафон, практика и сертификат" data-ro="Maraton complet de 6 săptămâni, practică și certificat">Полный 6-недельный марафон, практика и сертификат</p>
-</div>
+        <h2 class="reveal" style="font-size: 2rem; color: var(--primary);" data-ru="Наши услуги" data-ro="Serviciile noastre">Наши услуги</h2>
+        
+        <!-- Убрал inline-стиль flex, чтобы сработал ваш родной CSS для сетки -->
+        <div class="price-grid reveal" style="max-width: 900px;">
+            
+            <!-- Карточка 1: Основной марафон -->
+            <div class="price-card selected" style="cursor: default; position: relative;">
+                <div class="discount-badge" data-ru="-15%" data-ro="-15%">-15%</div> 
+                <h3 data-ru="Марафон" data-ro="Maraton">Марафон</h3>
+                <div class="old-price">3 500 lei</div>
+                <div class="price-val">2 999 lei <span></span></div>
+                <p data-ru="Полный 6-недельный марафон, теория + практика и сертификат" data-ro="Maraton complet de 6 săptămâni, teorie + practică și certificat">Полный 6-недельный марафон, теория + практика и сертификат</p>
+            </div>
+
+            <!-- Карточка 2: Отдельная услуга (Практика) -->
+            <div class="price-card" style="cursor: default; position: relative; border: 2px solid var(--primary); box-shadow: 0 10px 30px rgba(26, 79, 139, 0.1);">
+                <h3 data-ru="Практика в 1С" data-ro="Practică în 1C" style="color: var(--primary);">Практика в 1С</h3>
+                
+                <!-- ВНИМАНИЕ: Здесь нужно вписать реальную цену! Пока поставил XXXX -->
+                <div class="price-val">4000 lei <span></span></div>
+                
+                <p data-ru="Отдельная услуга: практика на реальных действующих фирмах и живая работа в программе 1С." data-ro="Serviciu separat: practică pe companii reale active și lucru real în programul 1C.">Отдельная услуга: практика на реальных действующих фирмах и живая работа в программе 1С.</p>
+            </div>
+
         </div>
     </div>
 </section>
