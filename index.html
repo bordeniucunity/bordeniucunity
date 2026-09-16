@@ -653,6 +653,7 @@
                 
         <div class="reviews-grid">
 
+            <!-- ОТЗЫВ 1 (Николета) -->
             <div class="review-card reveal">
                 <i class="fas fa-quote-right quote-icon"></i>
                 <div class="stars">
@@ -667,12 +668,12 @@
                     <div class="reviewer-avatar" style="background: var(--primary); color: #fff;"><i class="fas fa-user"></i></div>
                     <div>
                         <h4 data-ru="Николета" data-ro="Nicoleta">Николета</h4>
-                        <span data-ru="Выпускник" data-ro="Absolvent">Выпускник</span>
+                        <span data-ru="Выпускник марафона" data-ro="Absolvent al maratonului">Выпускник</span>
                     </div>
                 </div>
             </div>
 
-<!-- ВТОРОЙ ОТЗЫВ (Реальный) -->
+            <!-- ОТЗЫВ 2 (Лолита) -->
             <div class="review-card reveal">
                 <i class="fas fa-quote-right quote-icon"></i>
                 <div class="stars">
@@ -692,7 +693,7 @@
                 </div>
             </div>
 
-<!-- ТРЕТИЙ ОТЗЫВ (Реальный) -->
+            <!-- ОТЗЫВ 3 (Ольга) -->
             <div class="review-card reveal">
                 <i class="fas fa-quote-right quote-icon"></i>
                 <div class="stars">
@@ -708,6 +709,26 @@
                     <div>
                         <h4 data-ru="Ольга" data-ro="Oliga">Ольга</h4>
                         <span data-ru="Курсант" data-ro="Cadet">Курсант</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ОТЗЫВ 4 (Новый) -->
+            <div class="review-card reveal">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text" 
+                   data-ru="Людмила, огромное спасибо за проведенные вами уроки. Данный курс сформировал мощную базу в моей профессиональной деятельности. ОГРОМНОЕ СПАСИБО !!!" 
+                   data-ro="Doamna Ludmila, multumesc enorm pt lectiile care d-voastra le-ati petrecut. Cursul dat a format o baza puternica in activitatea mea profesionala. MULTUMESC ENORM !!!">
+                   Людмила, огромное спасибо за проведенные вами уроки. Данный курс сформировал мощную базу в моей профессиональной деятельности. ОГРОМНОЕ СПАСИБО !!!
+                </p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar" style="background: var(--primary); color: #fff;"><i class="fas fa-user"></i></div>
+                    <div>
+                        <h4 data-ru="Ирина" data-ro="Irina">Студент</h4>
+                        <span data-ru="Выпускник марафона" data-ro="Absolvent al maratonului">Выпускник марафона</span>
                     </div>
                 </div>
             </div>
@@ -929,32 +950,41 @@
 
     // Функция отправки отзыва
     function sendReview(messenger) {
+        // Забираем Имя и Текст из полей
+        const name = document.getElementById('reviewNameInput').value.trim();
         const text = document.getElementById('reviewTextInput').value.trim();
+        
         if (!text) {
             alert(currentLang === 'ru' ? 'Пожалуйста, напишите текст отзыва.' : 'Vă rugăm să scrieți textul recenziei.');
             return;
         }
         
-        // Создаем визуальную строку со звездами (например, ★★★★☆)
+        // Звездочки
         let starsString = "";
         for(let i = 0; i < currentRating; i++) starsString += "★";
         for(let i = currentRating; i < 5; i++) starsString += "☆";
         
-        // Формируем текст сообщения
+        // Формируем блок имени. Если имя введено, добавляем его с новой строки
+        const nameStrRu = name ? `\nИмя: ${name}` : "";
+        const nameStrRo = name ? `\nNume: ${name}` : "";
+        
+        // Собираем полное сообщение
         const message = currentLang === 'ru' ? 
-            `Здравствуйте! Хочу оставить отзыв о марафоне:\nОценка: ${currentRating}/5 ${starsString}\n\n"${text}"` : 
-            `Bună ziua! Vreau să las o recenzie despre maraton:\nNota: ${currentRating}/5 ${starsString}\n\n"${text}"`;
+            `Здравствуйте! Хочу оставить отзыв о марафоне:${nameStrRu}\nОценка: ${currentRating}/5 ${starsString}\n\n"${text}"` : 
+            `Bună ziua! Vreau să las o recenzie despre maraton:${nameStrRo}\nNota: ${currentRating}/5 ${starsString}\n\n"${text}"`;
             
         const encodedMessage = encodeURIComponent(message);
         
+        // Отправка в выбранный мессенджер
         if (messenger === 'whatsapp') {
             window.open(`https://wa.me/37378506196?text=${encodedMessage}`, '_blank');
         } else if (messenger === 'viber') {
             window.open(`viber://chat?number=%2B37378506196&draft=${encodedMessage}`, '_blank');
         }
         
-        // Очищаем форму и закрываем окно после отправки
+        // Очистка формы после отправки
         closeReviewModal();
+        document.getElementById('reviewNameInput').value = '';
         document.getElementById('reviewTextInput').value = '';
         setRating(5);
     }
