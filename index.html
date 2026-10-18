@@ -119,17 +119,70 @@
         .section-white { background-color: var(--white); padding: 70px 5%; }
         .section-light { background-color: var(--light-grey); padding: 70px 5%; }
 
-        /* ПРЕПОДАВАТЕЛЬ */
+        /* ПРЕПОДАВАТЕЛИ & ТАБЫ (ДИНАМИЧЕСКИЕ ОТСТУПЫ) */
+        .teacher-switcher { 
+            display: inline-flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 50px; 
+            background: var(--light-grey); padding: 8px 20px; border-radius: 50px; 
+        }
+        .teacher-tab { 
+            display: flex; align-items: center; gap: 8px; padding: 3px 12px 3px 3px; 
+            background: transparent; border-radius: 40px; cursor: pointer; 
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            opacity: 0.6; border: 2px solid transparent; 
+            transform: scale(1); 
+            margin: 0 4px; /* Базовый отступ */
+            position: relative;
+        }
+        .teacher-tab:hover { 
+            opacity: 1; 
+            transform: scale(1.12); /* Увеличиваем */
+            margin: 0 14px; /* РАЗДВИГАЕМ СОСЕДЕЙ, ЧТОБЫ НЕ НАКЛАДЫВАЛИСЬ */
+            background: rgba(255,255,255,0.8);
+            z-index: 2;
+        }
+        .teacher-tab.active { 
+            background: var(--white); border-color: var(--primary); opacity: 1; 
+            box-shadow: 0 5px 15px rgba(26, 79, 139, 0.15); 
+            transform: scale(1.22); /* Активный еще больше */
+            margin: 0 20px; /* РАЗДВИГАЕМ СОСЕДЕЙ СИЛЬНЕЕ */
+            z-index: 3;
+        }
+        .teacher-tab img { 
+            width: 30px; height: 30px; border-radius: 50%; object-fit: cover; object-position: center top; 
+        }
+        .teacher-tab img.irina-thumb {
+            object-position: center 10%; /* Позиционирование лица для Ирины */
+        }
+        .teacher-tab span { 
+            font-weight: 700; color: var(--dark); font-size: 0.85rem; 
+            transition: color 0.3s ease; 
+        }
+        .teacher-tab:hover span, .teacher-tab.active span { 
+            color: var(--primary); 
+        }
+
         .teacher-card {
             display: flex; align-items: center; gap: 40px; background: var(--white);
-            border-radius: 30px; padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); margin-top: -80px; position: relative; z-index: 5;
+            border-radius: 30px; padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.06); 
         }
-        .teacher-img { width: 280px; height: 350px; border-radius: 20px; object-fit: cover; box-shadow: 15px 15px 0 var(--primary-light); flex-shrink: 0; }
+        .hidden-profile { display: none !important; }
+
+        /* Плавно-масштабируемая анимация профиля */
+        .fade-in-profile {
+            animation: smoothFadeIn 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+        }
+
+        @keyframes smoothFadeIn {
+            0% { opacity: 0; transform: translateY(25px) scale(0.97); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .teacher-img { width: 280px; height: 350px; border-radius: 20px; object-fit: cover; box-shadow: 15px 15px 0 var(--primary-light); flex-shrink: 0; object-position: center top; }
         .teacher-info h2 { font-size: 2rem; color: var(--primary); margin: 10px 0; }
         .experience-badge { background: var(--secondary); color: #000; padding: 6px 15px; border-radius: 8px; font-weight: 800; display: inline-block; font-size: 0.9rem; }
 
         /* ПУТЬ СТУДЕНТА */
-        .roadmap-container { text-align: center; }
+        .roadmap-container { text-align: center; max-width: 1200px; margin: 0 auto; }
         .roadmap-container h2 { margin-bottom: 50px; font-size: 2rem; }
         .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
         .step-item { background: #fff; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.04); display: flex; flex-direction: column; overflow: hidden; transition: 0.3s; }
@@ -146,93 +199,89 @@
         .acc-content ul { margin-top: 5px; padding-left: 20px; }
         .acc-content li { margin-bottom: 5px; }
 
-/* ОТЗЫВЫ */
-.reviews-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 30px; 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 10px;
-}
-.review-card { 
-    background: #fff; 
-    padding: 40px 30px 30px; 
-    border-radius: 20px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-    position: relative; 
-    text-align: left;
-    transition: transform 0.3s ease;
-    border-top: 4px solid var(--secondary);
-}
-.review-card:hover {
-    transform: translateY(-5px);
-}
-.quote-icon { 
-    position: absolute; 
-    top: 20px; 
-    right: 30px; 
-    font-size: 3rem; 
-    color: var(--primary-light); 
-    opacity: 0.6;
-}
-.stars { 
-    color: #f59e0b; 
-    margin-bottom: 15px; 
-    font-size: 1.1rem; 
-}
-.review-text { 
-    font-size: 0.95rem; 
-    color: #555; 
-    font-style: italic; 
-    margin-bottom: 25px; 
-    line-height: 1.7;
-    position: relative;
-    z-index: 2;
-}
-.reviewer-info { 
-    display: flex; 
-    align-items: center; 
-    gap: 15px; 
-    border-top: 1px solid #e2e8f0; 
-    padding-top: 20px;
-}
-.reviewer-avatar { 
-    width: 50px; 
-    height: 50px; 
-    background: var(--primary); 
-    color: #fff; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-size: 1.5rem; 
-    font-weight: bold; 
-}
-.reviewer-info h4 { 
-    margin: 0 0 3px 0; 
-    color: var(--dark); 
-    font-size: 1rem;
-}
-.reviewer-info span { 
-    font-size: 0.8rem; 
-    color: #888; 
-    font-weight: 600;
-}
+        /* ОТЗЫВЫ */
+        .reviews-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 10px;
+        }
+        .review-card { 
+            background: #fff; 
+            padding: 40px 30px 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            position: relative; 
+            text-align: left;
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+        .quote-icon { 
+            position: absolute; 
+            top: 20px; 
+            right: 30px; 
+            font-size: 3rem; 
+            color: var(--primary-light); 
+            opacity: 0.6;
+        }
+        .stars { 
+            color: #f59e0b; 
+            margin-bottom: 15px; 
+            font-size: 1.1rem; 
+        }
+        .review-text { 
+            font-size: 0.95rem; 
+            color: #555; 
+            font-style: italic; 
+            margin-bottom: 25px; 
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+        .reviewer-info { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            border-top: 1px solid #e2e8f0; 
+            padding-top: 20px;
+        }
+        .reviewer-avatar { 
+            width: 50px; 
+            height: 50px; 
+            background: var(--primary); 
+            color: #fff; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+        }
+        .reviewer-info h4 { 
+            margin: 0 0 3px 0; 
+            color: var(--dark); 
+            font-size: 1rem;
+        }
+        .reviewer-info span { 
+            font-size: 0.8rem; 
+            color: #888; 
+            font-weight: 600;
+        }
 
         /* ТАРИФЫ */
-.pricing-container { text-align: center; }
-.price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; max-width: 1000px; margin-inline: auto; }
-.price-card { background: #fff; padding: 40px 30px; border-radius: 30px; border: 2px solid transparent; transition: 0.3s; text-align: left; position: relative; }
-.price-card.selected { border-color: #d32f2f; transform: scale(1.02); box-shadow: 0 15px 40px rgba(211, 47, 47, 0.15); } /* Сделали тень и рамку красноватыми */
-
-/* Новые стили для цены */
-.old-price { font-size: 1.2rem; color: #94a3b8; text-decoration: line-through; font-weight: 600; margin-top: 15px; margin-bottom: -5px; }
-.price-val { font-size: 2.8rem; font-weight: 800; color: #d32f2f; margin: 5px 0 15px; text-shadow: 0 2px 10px rgba(211, 47, 47, 0.2); }
-.price-val span { font-size: 1.5rem; color: var(--dark); font-weight: 600; }
-
-/* Стиль для красной плашки со скидкой */
-.discount-badge { position: absolute; top: -15px; right: 20px; background: #d32f2f; color: #fff; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4); transform: rotate(5deg); }
+        .pricing-container { text-align: center; }
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; max-width: 1000px; margin-inline: auto; }
+        .price-card { background: #fff; padding: 40px 30px; border-radius: 30px; border: 2px solid transparent; transition: 0.3s; text-align: left; position: relative; }
+        .price-card.selected { border-color: #d32f2f; transform: scale(1.02); box-shadow: 0 15px 40px rgba(211, 47, 47, 0.15); } 
+        .old-price { font-size: 1.2rem; color: #94a3b8; text-decoration: line-through; font-weight: 600; margin-top: 15px; margin-bottom: -5px; }
+        .price-val { font-size: 2.8rem; font-weight: 800; color: #d32f2f; margin: 5px 0 15px; text-shadow: 0 2px 10px rgba(211, 47, 47, 0.2); }
+        .price-val span { font-size: 1.5rem; color: var(--dark); font-weight: 600; }
+        .discount-badge { position: absolute; top: -15px; right: 20px; background: #d32f2f; color: #fff; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4); transform: rotate(5deg); }
 
         /* КОНТАКТЫ */
         .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
@@ -280,7 +329,7 @@
         .work-time-table td { color: var(--dark); font-weight: 500; }
         .work-time-table .total-row { font-weight: 800; background: #ffebbc; color: var(--dark); }
 
-/* ЦЕЛЕВАЯ АУДИТОРИЯ И ФОРМАТ */
+        /* ЦЕЛЕВАЯ АУДИТОРИЯ И ФОРМАТ */
         .target-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
         .target-card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border-bottom: 4px solid var(--secondary); transition: transform 0.3s; }
         .target-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
@@ -305,8 +354,14 @@
             .hero-visual { width: 100%; min-height: 360px; padding-top: 20px; }
             .floating-wrapper { width: 220px; height: 297px; margin: 0 auto; aspect-ratio: unset; }
             .notebook-cover img { width: 95%; transform: translateZ(20px); }
-            .teacher-card { flex-direction: column; text-align: center; margin-top: 20px; padding: 30px 20px; }
-            .teacher-img { width: 100%; max-width: 250px; height: 300px; }
+            
+            .teacher-card { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .teacher-switcher { display: flex; flex-direction: column; background: transparent; padding: 0; margin-bottom: 30px; }
+            .teacher-tab { background: var(--light-grey); border: 1px solid #cbd5e1; width: 100%; justify-content: center; margin: 6px 0; }
+            .teacher-tab:hover { transform: scale(1.03); margin: 10px 0; }
+            .teacher-tab.active { transform: scale(1.05); margin: 15px 0; }
+            .teacher-img { width: 100%; max-width: 280px; height: 350px; }
+            
             .contacts-grid { grid-template-columns: 1fr; }
             .teacher-info h2 { font-size: 1.6rem; }
             .logo-text { font-size: 0.85rem; }
@@ -399,7 +454,6 @@
         <div class="hero-text">
             <h1 id="hero-h1">Бухгалтерский учет в Республике Молдова:<br>Практика 2026</h1>
             <p id="hero-p">Станьте востребованным специалистом под руководством Людмилы Борденюк.</p>
-            <!-- Новая строчка с датой -->
             <p data-ru="📅 Старт марафона: 1 ноября" data-ro="📅 Start maraton: 1 Noiembrie" style="font-size: 1.3rem; font-weight: 800; color: var(--secondary); margin-bottom: 30px; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">📅 Старт марафона: 1 ноября</p>
             <a href="#pricing" class="btn-hero" id="hero-btn">Записаться на Марафон</a>
         </div>
@@ -421,18 +475,68 @@
     </div>
 </section>
 
-<section class="section-white" id="teacher">
-    <div class="teacher-card reveal">
-        <img src="5337326082190942459_121.jpg" alt="Ludmila Bordeniuc" class="teacher-img reveal-left">
-        <div class="teacher-info reveal-right">
-            <div class="experience-badge" data-ru="20 ЛЕТ ОПЫТА" data-ro="20 ANI EXPERIENȚĂ">20 ЛЕТ ОПЫТА</div>
-            <h2>Bordeniuc Ludmila</h2>
-            <p style="font-weight: 600; color: #555;" data-ru="Практикующий главный бухгалтер в РМ." data-ro="Contabil-șef practician în RM.">Практикующий главный бухгалтер в РМ.</p>
-            <p data-ru="Её курс — это не сухая теория, а живая практика на базе реальных документов и изменений 2026 года." 
-               data-ro="Cursul ei nu este o teorie uscată, ci o practică vie bazată pe documente reale și modificările din 2026.">
-               Её курс — это не сухая теория, а живая практика на базе реальных документов и изменений 2026 года.
-            </p>
+<!-- СЕКЦИЯ КОМАНДЫ -->
+<section class="section-white" id="teacher" style="padding-top: 40px;">
+    <div class="roadmap-container">
+        <h2 class="reveal" data-ru="Наша команда экспертов" data-ro="Echipa noastră de experți" style="margin-bottom: 30px;">Наша команда экспертов</h2>
+        
+        <div class="teacher-switcher reveal" style="transition-delay: 0.1s;">
+            <div class="teacher-tab active" onclick="switchProfile('ludmila', this)">
+                <img src="5337326082190942459_121.jpg" alt="Ludmila Bordeniuc">
+                <span>Ludmila Bordeniuc</span>
+            </div>
+            <div class="teacher-tab" onclick="switchProfile('nadejda', this)">
+                <img src="9f263394.jpg" alt="Nadejda Ciriuchina">
+                <span>Nadejda Ciriuchina</span>
+            </div>
+            <div class="teacher-tab" onclick="switchProfile('irina', this)">
+                <img src="537779575083.jpg" alt="Irina Grigor" class="irina-thumb">
+                <span>Irina Grigor</span>
+            </div>
         </div>
+
+        <!-- ПРОФИЛЬ ЛЮДМИЛЫ -->
+        <div class="teacher-card fade-in-profile reveal" id="profile-ludmila" style="transition-delay: 0.2s;">
+            <img src="5337326082190942459_121.jpg" alt="Ludmila Bordeniuc" class="teacher-img">
+            <div class="teacher-info" style="text-align: left;">
+                <div class="experience-badge" data-ru="20 ЛЕТ ОПЫТА" data-ro="20 ANI EXPERIENȚĂ">20 ЛЕТ ОПЫТА</div>
+                <h2>Bordeniuc Ludmila</h2>
+                <p style="font-weight: 600; color: #555; margin-bottom: 15px;" data-ru="Предприниматель, практикующий главный бухгалтер в РМ." data-ro="Antreprenor, contabil-șef practician în RM.">Предприниматель, практикующий главный бухгалтер в РМ.</p>
+                <p data-ru="Её курс — это не сухая теория, а живая практика на базе реальных документов и изменений 2026 года." 
+                   data-ro="Cursul ei nu este o teorie uscată, ci o practică vie bazată pe documente reale și modificările din 2026.">
+                   Её курс — это не сухая теория, а живая практика на базе реальных документов и изменений 2026 года.
+                </p>
+            </div>
+        </div>
+
+        <!-- ПРОФИЛЬ НАДЕЖДЫ -->
+        <div class="teacher-card hidden-profile" id="profile-nadejda">
+            <img src="9f263394.jpg" alt="Nadejda Ciriuchina" class="teacher-img">
+            <div class="teacher-info" style="text-align: left;">
+                <div class="experience-badge" data-ru="КОМАНДА ЭКСПЕРТОВ" data-ro="ECHIPA DE EXPERȚI">КОМАНДА ЭКСПЕРТОВ</div>
+                <h2 data-ru="Nadejda Ciriuchina" data-ro="Nadejda Ciriuchina">Nadejda Ciriuchina</h2>
+                <p style="font-weight: 600; color: #555; margin-bottom: 15px;" data-ru="Практикующий бухгалтер в РМ." data-ro="Contabil practician în Republica Moldova.">Практикующий бухгалтер в РМ.</p>
+                <p data-ru="Обеспечивает качественную поддержку и делится реальным опытом ведения бухгалтерии на практике." 
+                   data-ro="Oferă suport de calitate și împărtășește experiența reală de ținere a contabilității în practică.">
+                   Обеспечивает качественную поддержку и делится реальным опытом ведения бухгалтерии на практике.
+                </p>
+            </div>
+        </div>
+
+        <!-- ПРОФИЛЬ ИРИНЫ -->
+        <div class="teacher-card hidden-profile" id="profile-irina">
+            <img src="537779575083.jpg" alt="Irina Grigor" class="teacher-img" style="object-position: center 10%;">
+            <div class="teacher-info" style="text-align: left;">
+                <div class="experience-badge" data-ru="КОМАНДА ЭКСПЕРТОВ" data-ro="ECHIPA DE EXPERȚI">КОМАНДА ЭКСПЕРТОВ</div>
+                <h2 data-ru="Irina Grigor" data-ro="Irina Grigor">Irina Grigor</h2>
+                <p style="font-weight: 600; color: #555; margin-bottom: 15px;" data-ru="Практикующий руководитель в РМ." data-ro="Șef practician în Republica Moldova.">Практикующий руководитель в РМ.</p>
+                <p data-ru="Помогает студентам глубже понять процессы управления финансами и организацию работы отдела." 
+                   data-ro="Ajută studenții să înțeleagă mai profund procesele de management financiar și organizarea muncii departamentului.">
+                   Помогает студентам глубже понять процессы управления финансами и организацию работы отдела.
+                </p>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -440,7 +544,7 @@
     <div class="roadmap-container">
         <h2 class="reveal" data-ru="Кому подойдет этот марафон?" data-ro="Pentru cine este acest maraton?">Кому подойдет этот марафон?</h2>
         <div class="target-grid">
-                        <div class="target-card reveal" style="transition-delay: 0.1s;">
+            <div class="target-card reveal" style="transition-delay: 0.1s;">
                 <div class="target-icon"><i class="fas fa-briefcase"></i></div>
                 <h4 data-ru="Предпринимателям" data-ro="Antreprenorilor">Предпринимателям</h4>
                 <p data-ru="Хотите сами понимать налоги, контролировать бизнес и не переплачивать штрафы по незнанию." data-ro="Doriți să înțelegeți singuri taxele, să vă controlați afacerea și să nu plătiți amenzi din neștiință.">Хотите сами понимать налоги, контролировать бизнес и не переплачивать штрафы по незнанию.</p>
@@ -454,7 +558,7 @@
     </div>
 </section>
 
-<section class="section-light" id="roadmap">
+<section class="section-white" id="roadmap">
     <div class="roadmap-container">
         <h2 class="reveal" data-ru="Ваш путь к новой профессии" data-ro="Calea ta către o nouă profesie">Ваш путь к новой профессии</h2>
         <div class="roadmap-grid">
@@ -494,7 +598,7 @@
     </div>
 </section>
 
-<section class="section-white" id="format" style="background-color: var(--light-grey); padding-top: 30px;">
+<section class="section-light" id="format">
     <div class="roadmap-container">
         <h2 class="reveal" data-ru="Как проходит обучение?" data-ro="Cum se desfășoară instruirea?">Как проходит обучение?</h2>
         <div class="format-grid">
@@ -648,7 +752,7 @@
     </div>
 </section>
 
-<section class="section-white" id="testimonials">
+<section class="section-light" id="testimonials">
     <div class="roadmap-container"> <h2 class="reveal" style="font-size: 2rem; color: var(--primary); margin-bottom: 50px;" data-ru="Отзывы наших учеников" data-ro="Recenziile studenților noștri">Отзывы наших учеников</h2>
                 
         <div class="reviews-grid">
@@ -742,11 +846,10 @@
 
 </section>
 
-<section class="section-light" id="pricing">
+<section class="section-white" id="pricing">
     <div class="pricing-container">
         <h2 class="reveal" style="font-size: 2rem; color: var(--primary);" data-ru="Наши услуги" data-ro="Serviciile noastre">Наши услуги</h2>
         
-        <!-- Убрал inline-стиль flex, чтобы сработал ваш родной CSS для сетки -->
         <div class="price-grid reveal" style="max-width: 900px;">
             
             <!-- Карточка 1: Основной марафон -->
@@ -762,7 +865,6 @@
             <div class="price-card" style="cursor: default; position: relative; border: 2px solid var(--primary); box-shadow: 0 10px 30px rgba(26, 79, 139, 0.1);">
                 <h3 data-ru="Практика в 1С" data-ro="Practică în 1C" style="color: var(--primary);">Практика в 1С</h3>
                 
-                <!-- ВНИМАНИЕ: Здесь нужно вписать реальную цену! Пока поставил XXXX -->
                 <div class="price-val">4000 lei <span></span></div>
                 
                 <p data-ru="Отдельная услуга: практика на реальных действующих фирмах и живая работа в программе 1С." data-ro="Serviciu separat: practică pe companii reale active și lucru real în programul 1C.">Отдельная услуга: практика на реальных действующих фирмах и живая работа в программе 1С.</p>
@@ -772,7 +874,7 @@
     </div>
 </section>
 
-<section class="section-white" id="contact">
+<section class="section-light" id="contact">
     <div class="contacts-grid">
         <div class="contact-info reveal-left">
             <h2 data-ru="Остались вопросы?" data-ro="Ai întrebări?">Остались вопросы?</h2>
@@ -809,6 +911,35 @@
     function toggleAcc(header) { const content = header.nextElementSibling; const icon = header.querySelector('i'); const isOpen = content.style.display === "block"; document.querySelectorAll('.acc-content').forEach(c => c.style.display = "none"); document.querySelectorAll('.acc-header i').forEach(i => { i.className = "fas fa-plus"; }); if (!isOpen) { content.style.display = "block"; icon.className = "fas fa-minus"; } }
     function reveal() { var reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right"); for (var i = 0; i < reveals.length; i++) { if (reveals[i].getBoundingClientRect().top < window.innerHeight - 50) reveals[i].classList.add("active"); } }
     window.addEventListener("scroll", reveal); reveal();
+
+    // Функция переключения экспертов (С перезапуском плавной анимации)
+    function switchProfile(profileId, btnElement) {
+        // Убираем активный класс у всех табов
+        document.querySelectorAll('.teacher-tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        
+        // Скрываем все профили и убираем класс анимации
+        document.querySelectorAll('.teacher-card').forEach(card => {
+            card.classList.add('hidden-profile');
+            card.classList.remove('fade-in-profile');
+        });
+        
+        // Находим нужный профиль
+        const targetProfile = document.getElementById('profile-' + profileId);
+        targetProfile.classList.remove('hidden-profile');
+        
+        // Небольшой трюк, чтобы анимация CSS сработала заново
+        void targetProfile.offsetWidth; 
+        
+        // Запускаем анимацию
+        targetProfile.classList.add('fade-in-profile');
+        
+        // Добавляем активный класс нажатому табу
+        if(btnElement) {
+            btnElement.classList.add('active');
+        }
+    }
 
     function getMessageText() {
         const name = document.getElementById('nameInput').value.trim();
