@@ -620,6 +620,8 @@
             color: #475569;
             border-top: 1px solid #f1f5f9;
         }
+        .acc-content-inner p { margin: 0 0 10px; }
+        .acc-content-inner p:last-child { margin-bottom: 0; }
         .acc-content-inner ul { margin: 8px 0 14px; padding-left: 20px; }
         .acc-content-inner li { margin-bottom: 6px; color: var(--primary-dark); font-weight: 600; }
 
@@ -1846,7 +1848,7 @@
             <div class="target-card reveal" style="transition-delay: 0.2s;">
                 <div class="target-icon"><i class="fas fa-sync-alt"></i></div>
                 <h4 data-ru="Бухгалтерам после перерыва" data-ro="Contabililor după o pauză">Contabililor după o pauză</h4>
-                <p data-ru="Выходили в декрет или меняли сферу? Поможем обновить знания под реалии и законы 2026 года." data-ro="Ați fost în concediu de maternitate sau ați schimbat domeniul? Vă ajutăm să vă actualizați cunoștințele.">Ați fost în concediu de maternitate sau ați schimbat domeniul? Vă ajutăm să vă actualizați cunoștințele.</p>
+                <p data-ru="Выходили в декрет или меняли сферу? Поможем обновить знания под реалии и законы 2026 года." data-ro="Ați fost în concediu de maternitate sau ați schбаt domeniul? Vă ajutăm să vă actualizați cunoștințele.">Ați fost în concediu de maternitate sau ați schimbat domeniul? Vă ajutăm să vă actualizați cunoștințele.</p>
             </div>
         </div>
     </div>
@@ -1938,6 +1940,7 @@
         <h2 class="section-title reveal" data-ru="Программа Марафона (6 недель)" data-ro="Programa Maratonului (6 săptămâni)">Programa Maratonului (6 săptămâni)</h2>
         <div class="section-divider reveal"></div>
         
+        <!-- НЕДЕЛЯ 1 -->
         <div class="acc-item reveal">
             <div class="acc-header" onclick="toggleAcc(this)">
                 <span data-ru="Неделя 1: Основы и структура имущества компании" data-ro="Săptămâna 1: Bazele și structura patrimoniului companiei">Săptămâna 1: Bazele și structura patrimoniului companiei</span>
@@ -1945,16 +1948,29 @@
             </div>
             <div class="acc-content">
                 <div class="acc-content-inner">
-                    <p data-ru="Главная цель — создание прочной теоретической базы концепции имущества, объясненной с нуля для начинающих, и понимание того, как это имущество финансируется." data-ro="Obiectivul principal este construirea unei fundații teoretice solide privind conceptul de patrimoniu, explicat de la zero pentru începători, și înțelegerea modului în care acest patrimoniu este finanțat.">Obiectivul principal este construirea unei fundații teoretice solide privind conceptul de patrimoniu, explicat de la zero pentru începători, și înțelegerea modului în care acest patrimoniu este finanțat.</p>
+                    <p data-ru="Главная цель — создание прочной теоретической базы концепции имущества, объясненной с нуля для начинающих, и понимание того, как это имущество финансируется." 
+                       data-ro="Obiectivul principal este construirea unei fundații teoretice solide privind conceptul de patrimoniu, explicat de la zero pentru începători, și înțelegerea modului în care acest patrimoniu este finanțat.">
+                       Obiectivul principal este construirea unei fundații teoretice solide privind conceptul de patrimoniu, explicat de la zero pentru începători, și înțelegerea modului în care acest patrimoniu este finanțat.
+                    </p>
+                    <p style="font-weight: 700; color: var(--dark); margin-bottom: 4px;" 
+                       data-ru="К концу этой недели участники должны освоить следующие ключевые элементы:" 
+                       data-ro="Până la sfârșitul acestei săptămâni, participanții trebuie să stăpânească următoarele elemente cheie:">
+                       Până la sfârșitul acestei săptămâni, participanții trebuie să stăpânească următoarele elemente cheie:
+                    </p>
                     <ul>
                         <li data-ru="Основное уравнение бухгалтерского учета." data-ro="Ecuația fundamentală a contabilității.">Ecuația fundamentală a contabilității.</li>
                         <li data-ru="Классификация элементов." data-ro="Clasificarea elementelor.">Clasificarea elementelor.</li>
                         <li data-ru="Структура Баланса." data-ro="Structura Bilanțului.">Structura Bilanțului.</li>
                     </ul>
+                    <p data-ru="Конечная цель состоит в том, чтобы к концу недели абстрактные понятия «актив» и «пассив» стали логичными, устранив первоначальную путаницу, чтобы участники могли анализировать простые транзакции без заучивания наизусть." 
+                       data-ro="Scopul final este ca, până la sfârșitul săptămânii, noțiunile abstracte de «activ» și «pasiv» să devină logice, eliminând confuzia inițială, astfel încât participanții să poată analiza tranzacții simple fără a le memora pe de rost.">
+                       Scopul final este ca, până la sfârșitul săptămânii, noțiunile abstracte de «activ» și «pasiv» să devină logice, eliminând confuzia inițială, astfel încât participanții să poată analiza tranzacții simple fără a le memora pe de rost.
+                    </p>
                 </div>
             </div>
         </div>
     
+        <!-- НЕДЕЛЯ 2 -->
         <div class="acc-item reveal">
             <div class="acc-header" onclick="toggleAcc(this)">
                 <span data-ru="Неделя 2: Долгосрочные активы" data-ro="Săptămâna 2: Active pe termen lung">Săptămâna 2: Active pe termen lung</span>
@@ -1962,17 +1978,30 @@
             </div>
             <div class="acc-content">
                 <div class="acc-content-inner">
-                    <p data-ru="Главная цель — усвоение правил признания, оценки и бухгалтерского учета долгосрочных активов в соответствии с положениями Национальных стандартов бухгалтерского учета (НСБУ)." data-ro="Obiectivul principal este însușirea regulilor de recunoaștere, evaluare și evidență contabilă a activelor pe termen lung, respectând prevederile Standardelor Naționale de Contabilitate (SNC).">Obiectivul principal este însușirea regulilor de recunoaștere, evaluare și evidență contabilă a activelor pe termen lung, respectând prevederile Standardelor Naționale de Contabilitate (SNC).</p>
+                    <p data-ru="Главная цель — усвоение правил признания, оценки и бухгалтерского учета долгосрочных активов в соответствии с положениями Национальных стандартов бухгалтерского учета (НСБУ)." 
+                       data-ro="Obiectivul principal este însușirea regulilor de recunoaștere, evaluare și evidență contabilă a activelor pe termen lung, respectând prevederile Standardelor Naționale de Contabilitate (SNC).">
+                       Obiectivul principal este însușirea regulilor de recunoaștere, evaluare și evidență contabilă a activelor pe termen lung, respectând prevederile Standardelor Naționale de Contabilitate (SNC).
+                    </p>
+                    <p style="font-weight: 700; color: var(--dark); margin-bottom: 4px;" 
+                       data-ru="Для четкого структурирования этого этапа вот 4 ключевых направления, которые необходимо освоить на этой неделе:" 
+                       data-ro="Pentru o structurare clară a acestei etape, iată 4 direcții cheie care trebuie însușite în această săptămână:">
+                       Pentru o structurare clară a acestei etape, iată 4 direcții cheie care trebuie însușite în această săptămână:
+                    </p>
                     <ul>
                         <li data-ru="Идентификация и классификация." data-ro="Identificarea și Clasificarea.">Identificarea și Clasificarea.</li>
                         <li data-ru="Учет поступлений." data-ro="Contabilizarea Intrărilor.">Contabilizarea Intrărilor.</li>
                         <li data-ru="Расчет и учет амортизации." data-ro="Calculul și Evidența Amortizării.">Calculul și Evidența Amortizării.</li>
                         <li data-ru="Учет выбытия." data-ro="Contabilizarea Ieșirilor.">Contabilizarea Ieșirilor.</li>
                     </ul>
+                    <p data-ru="К концу этой недели участники должны уметь регистрировать полный жизненный цикл долгосрочного актива в системе бухгалтерского учета (с помощью бухгалтерских проводок и соответствующих первичных документов)." 
+                       data-ro="Până la sfârșitul acestei săptămâni, participanții trebuie să știe să înregistreze ciclul complet de viață al unui activ pe termen lung în sistemul contabil (cu ajutorul formulelor contabile și al documentelor primare aferente).">
+                       Până la sfârșitul acestei săptămâni, participanții trebuie să știe să înregistreze ciclul complet de viață al unui activ pe termen lung în sistemul contabil (cu ajutorul formulelor contabile și al documentelor primare aferente).
+                    </p>
                 </div>
             </div>
         </div>
     
+        <!-- НЕДЕЛЯ 3 -->
         <div class="acc-item reveal">
             <div class="acc-header" onclick="toggleAcc(this)">
                 <span data-ru="Неделя 3: Казначейство, запасы и заработная плата" data-ro="Săptămâna 3: Trezoreria, stocurile și salarizarea">Săptămâna 3: Trezoreria, stocurile și salarizarea</span>
@@ -1980,16 +2009,29 @@
             </div>
             <div class="acc-content">
                 <div class="acc-content-inner">
-                    <p data-ru="Главная цель — научиться управлению, документированию и правильному учету самых динамичных и частых текущих операций компании." data-ro="Obiectivul principal este de a învăța gestionarea, documentarea și înregistrarea corectă a celor mai dinamice și frecvente operațiuni curente ale unei companii.">Obiectivul principal este de a învăța gestionarea, documentarea și înregistrarea corectă a celor mai dinamice și frecvente operațiuni curente ale unei companii.</p>
+                    <p data-ru="Главная цель — научиться управлению, документированию и правильному учету самых динамичных и частых текущих операций компании." 
+                       data-ro="Obiectivul principal este de a învăța gestionarea, documentarea și înregistrarea corectă a celor mai dinamice și frecvente operațiuni curente ale unei companii.">
+                       Obiectivul principal este de a învăța gestionarea, documentarea și înregistrarea corectă a celor mai dinamice și frecvente operațiuni curente ale unei companii.
+                    </p>
+                    <p style="font-weight: 700; color: var(--dark); margin-bottom: 4px;" 
+                       data-ru="Вот вкратце конкретные цели по каждой теме:" 
+                       data-ro="Iată pe scurt obiectivele specifice pentru fiecare temă:">
+                       Iată pe scurt obiectivele specifice pentru fiecare temă:
+                    </p>
                     <ul>
                         <li data-ru="Казначейство (Деньги и ликвидность)." data-ro="Trezoreria (Bani și Lichidități).">Trezoreria (Bani și Lichidități).</li>
                         <li data-ru="Запасы (Товары, материалы, продукция)." data-ro="Stocuri (Mărfuri, Materiale, Produse).">Stocuri (Mărfuri, Materiale, Produse).</li>
                         <li data-ru="Заработная плата (Человеческие ресурсы)." data-ro="Salarizarea (Resurse Umane).">Salarizarea (Resurse Umane).</li>
                     </ul>
+                    <p data-ru="Практически, в конце этого этапа марафона участник должен уметь обрабатывать ежедневные операционные документы фирмы: вести учет денег, управлять накладными на товары и рассчитывать ежемесячную заработную плату." 
+                       data-ro="Practic, la sfârșitul acestei etape a maratonului, participantul trebuie să știe să prelucreze documentele operaționale zilnice ale firmei: să țină evidența banilor, să gestioneze facturile pentru mărfuri și să calculeze salariul lunar.">
+                       Practic, la sfârșitul acestei etape a maratonului, participantul trebuie să știe să prelucreze documentele operaționale zilnice ale firmei: să țină evidența banilor, să gestioneze facturile pentru mărfuri și să calculeze salariul lunar.
+                    </p>
                 </div>
             </div>
         </div>
     
+        <!-- НЕДЕЛЯ 4 -->
         <div class="acc-item reveal">
             <div class="acc-header" onclick="toggleAcc(this)">
                 <span data-ru="Неделя 4: Собственный капитал, дебиторская и кредиторская задолженность" data-ro="Săptămâna 4: Capital propriu, creanțe și datorii">Săptămâna 4: Capital propriu, creanțe și datorii</span>
@@ -1997,7 +2039,15 @@
             </div>
             <div class="acc-content">
                 <div class="acc-content-inner">
-                    <p data-ru="Главная цель состоит в том, чтобы участники поняли источники финансирования субъекта и механизмы расчетов с третьими лицами." data-ro="Obiectivul principal este ca participanții să înțeleagă sursele de finanțare ale unei entități și mecanismele de decontare cu terții.">Obiectivul principal este ca participanții să înțeleagă sursele de finanțare ale unei entități și mecanismele de decontare cu terții.</p>
+                    <p data-ru="Главная цель состоит в том, чтобы участники поняли источники финансирования субъекта и механизмы расчетов с третьими лицами, правильно применяя базовые принципы (в соответствии с положениями НСБУ)." 
+                       data-ro="Obiectivul principal este ca participanții să înțeleagă sursele de finanțare ale unei entități și mecanismele de decontare cu terții, aplicând corect principiile de bază (conform prevederilor SNC).">
+                       Obiectivul principal este ca participanții să înțeleagă sursele de finanțare ale unei entități și mecanismele de decontare cu terții, aplicând corect principiile de bază (conform prevederilor SNC).
+                    </p>
+                    <p style="font-weight: 700; color: var(--dark); margin-bottom: 4px;" 
+                       data-ru="После изучения теоретических материалов и практики участник должен достичь следующих результатов:" 
+                       data-ro="După studierea materialelor teoretice și a practicii, participantul trebuie să atingă următoarele rezultate:">
+                       După studierea materialelor teoretice și a practicii, participantul trebuie să atingă următoarele rezultate:
+                    </p>
                     <ul>
                         <li data-ru="Концептуальная ясность." data-ro="Claritate Conceptuală.">Claritate Conceptuală.</li>
                         <li data-ru="Навыки регистрации." data-ro="Abilități de Înregistrare.">Abilități de Înregistrare.</li>
@@ -2007,6 +2057,7 @@
             </div>
         </div>
     
+        <!-- НЕДЕЛЯ 5 -->
         <div class="acc-item reveal">
             <div class="acc-header" onclick="toggleAcc(this)">
                 <span data-ru="Неделя 5: Доходы, расходы и финансовые результаты" data-ro="Săptămâna 5: Venituri, cheltuieli și rezultate financiare">Săptămâna 5: Venituri, cheltuieli și rezultate financiare</span>
@@ -2014,7 +2065,15 @@
             </div>
             <div class="acc-content">
                 <div class="acc-content-inner">
-                    <p data-ru="Главная цель — понимание процесса формирования финансового результата путем правильного признания и классификации доходов и расходов." data-ro="Obiectivul principal este înțelegerea procesului de formare a rezultatului financiar prin recunoașterea și clasificarea corectă a veniturilor și cheltuielilor.">Obiectivul principal este înțelegerea procesului de formare a rezultatului financiar prin recunoașterea și clasificarea corectă a veniturilor și cheltuielilor.</p>
+                    <p data-ru="Главная цель — понимание процесса формирования финансового результата путем правильного признания и классификации доходов и расходов субъекта с соблюдением положений НСБУ." 
+                       data-ro="Obiectivul principal este înțelegerea procesului de formare a rezultatului financiar prin recunoașterea și clasificarea corectă a veniturilor și cheltuielilor entității cu respectarea prevederilor SNC.">
+                       Obiectivul principal este înțelegerea procesului de formare a rezultatului financiar prin recunoașterea și clasificarea corectă a veniturilor și cheltuielilor entității cu respectarea prevederilor SNC.
+                    </p>
+                    <p style="font-weight: 700; color: var(--dark); margin-bottom: 4px;" 
+                       data-ru="После изучения теоретических материалов и практики участник должен достичь следующих результатов:" 
+                       data-ro="După studierea materialelor teoretice și a practicii, participantul trebuie să atingă următoarele rezultate:">
+                       După studierea materialelor teoretice și a practicii, participantul trebuie să atingă următoarele rezultate:
+                    </p>
                     <ul>
                         <li data-ru="Классификация доходов и расходов." data-ro="Clasificarea Veniturilor și Cheltuielilor.">Clasificarea Veniturilor și Cheltuielilor.</li>
                         <li data-ru="Закрытие счетов доходов и расходов." data-ro="Închiderea Conturilor de Gestiune.">Închiderea Conturilor de Gestiune.</li>
@@ -2024,6 +2083,7 @@
             </div>
         </div>
     
+        <!-- НЕДЕЛЯ 6 -->
         <div class="acc-item reveal">
             <div class="acc-header" onclick="toggleAcc(this)">
                 <span data-ru="Неделя 6: Краткий обзор бухгалтерского учета и налогообложения" data-ro="Săptămâna 6: Scurtă trecere în revistă a contabilității și impozitării">Săptămâna 6: Scurtă trecere în revistă a contabilității și impozitării</span>
@@ -2031,17 +2091,27 @@
             </div>
             <div class="acc-content">
                 <div class="acc-content-inner">
-                    <p data-ru="Главная цель — интеграция всех накопленных знаний в полную финансовую картину." data-ro="Obiectivul principal este integrarea tuturor cunoștințelor acumulate într-un tablou financiar complet.">Obiectivul principal este integrarea tuturor cunoștințelor acumulate într-un tablou financiar complet.</p>
+                    <p data-ru="Главная цель — интеграция всех накопленных знаний в полную финансовую картину. Модуль направлен на то, чтобы провести участников через процесс закрытия отчетного периода, переходя от текущего учета к итоговой отчетности и пониманию основных налоговых обязательств субъекта." 
+                       data-ro="Obiectivul principal este integrarea tuturor cunoștințelor acumulate într-un tablou financiar complet. Modulul urmărește ghidarea participanților prin procesul de închidere a perioadei de gestiune, trecând de la evidența curentă la situațiile financiare finale și înțelegerea principalelor obligații fiscale ale entității.">
+                       Obiectivul principal este integrarea tuturor cunoștințelor acumulate într-un tablou financiar complet. Modulul urmărește ghidarea participanților prin procesul de închidere a perioadei de gestiune, trecând de la evidența curentă la situațiile financiare finale și înțelegerea principalelor obligații fiscale ale entității.
+                    </p>
+                    <p style="font-weight: 700; color: var(--dark); margin-bottom: 4px;" 
+                       data-ru="По окончании этого модуля слушатели смогут увидеть «общую картину» бухгалтерского учета и будут способны:" 
+                       data-ro="La finalizarea acestui modul, cursanții vor putea vedea «tabloul de ansamblu» al contabilității și vor fi capabili:">
+                       La finalizarea acestui modul, cursanții vor putea vedea «tabloul de ansamblu» al contabilității și vor fi capabili:
+                    </p>
                     <ul>
                         <li data-ru="Выполнять работы по закрытию месяца/года." data-ro="Efectueze lucrările de închidere a lunii/anului.">Efectueze lucrările de închidere a lunii/anului.</li>
                         <li data-ru="Составлять и читать Оборотно-сальдовую ведомость." data-ro="Întocmească și să citească Balanța de verificare.">Întocmească și să citească Balanța de verificare.</li>
                         <li data-ru="Понимать структуру Финансовой отчетности." data-ro="Înțeleagă structura Situațiilor Financiare.">Înțeleagă structura Situațiilor Financiare.</li>
                         <li data-ru="Рассчитывать основные налоги и сборы." data-ro="Calculeze principalele impozite și taxe.">Calculeze principalele impozite și taxe.</li>
+                        <li data-ru="Отслеживать полную прослеживаемость данных." data-ro="Urmărească trasabilitatea completă a datelor.">Urmărească trasabilitatea completă a datelor.</li>
                     </ul>
                 </div>
             </div>
         </div>
     
+        <!-- ФИНАЛЬНЫЙ ПРОЕКТ -->
         <div class="acc-item reveal" style="border: 1.5px solid var(--secondary); border-left: 5px solid var(--secondary);">
             <div class="acc-header" onclick="toggleAcc(this)" style="background: linear-gradient(90deg, var(--secondary-light) 0%, #ffffff 100%);">
                 <span data-ru="Финальный проект" data-ro="Proiect final" style="color: #856006; font-weight: 800;">Proiect final</span>
@@ -2049,7 +2119,10 @@
             </div>
             <div class="acc-content">
                 <div class="acc-content-inner">
-                    <p data-ru="Финальный проект представляет собой практическую оценку навыков, накопленных за 6 недель марафона." data-ro="Proiectul final reprezintă evaluarea practică a abilităților acumulate în cele 6 săptămâni de maraton.">Proiectul final reprezintă evaluarea practică a abilităților acumulate în cele 6 săptămâni de maraton.</p>
+                    <p data-ru="Финальный проект представляет собой практическую оценку навыков, накопленных за 6 недель марафона. Участники с нуля решат задачу по ведению учета компании, чтобы отразить полный набор экономических операций, соблюдая действующее законодательство. Это не просто оценка, а первое практическое упражнение в качестве будущего бухгалтера." 
+                       data-ro="Proiectul final reprezintă evaluarea practică a abilităților acumulate în cele 6 săptămâni de maraton. Participanții vor rezolva de la zero o aplicație practică de ținere a contabilității unei companii, pentru a reflecta setul complet de operațiuni economice, respectând legislația în vigoare. Nu este doar o evaluare, ci primul exercițiu practic în calitate de viitor contabil.">
+                       Proiectul final reprezintă evaluarea practică a abilităților acumulate în cele 6 săptămâni de maraton. Participanții vor rezolva de la zero o aplicație practică de ținere a contabilității unei companii, pentru a reflecta setul complet de operațiuni economice, respectând legislația în vigoare. Nu este doar o evaluare, ci primul exercițiu practic în calitate de viitor contabil.
+                    </p>
                 </div>
             </div>
         </div>
@@ -2386,7 +2459,7 @@
         }, 3500);
     }
 
-    /* СКРЫТЫЙ ФОНОВЫЙ ПЕРЕВОД (RU <-> RO) С ТАЙМАУТОМ 2.5 СЕК ЧТОБЫ НИКОГДА НЕ ЗАВИСАЛ */
+    /* СКРЫТЫЙ ФОНОВЫЙ ПЕРЕВОД (RU <-> RO) С ТАЙМАУТОМ 2.5 СЕК */
     async function smartAutoTranslate(text) {
         if (!text || !text.trim()) return { ru: '', ro: '' };
         const clean = text.trim();
@@ -2451,7 +2524,7 @@
                 id: 'mat-1',
                 groupId: 'grp-marathon',
                 type: 'excel',
-                titleRu: 'Шаблон: Оборотно-сальдовая ведомость и Баланс (2026)',
+                titleRu: 'Шаблон: Оборотно-сальдовую ведомость и Баланс (2026)',
                 titleRo: 'Șablon: Balanța de verificare și Bilanțul (2026)',
                 descRu: 'Готовая таблица Excel с формулами для выполнения практических заданий.',
                 descRo: 'Tabel Excel pregătit cu formule pentru realizarea sarcinilor practice.',
@@ -2766,7 +2839,6 @@
             revision: { cls: 'status-revision', text: isRu ? 'На доработку' : 'De refăcut' }
         };
 
-        // По умолчанию: задания "Надо сдать" (pending / revision) развернуты, а "Сдано" (submitted / approved) аккуратно свернуты
         const defaultOpen = (status === 'pending' || status === 'revision');
         const isOpen = Object.prototype.hasOwnProperty.call(expandedHwMap, hw.id) ? expandedHwMap[hw.id] : defaultOpen;
 
@@ -3270,12 +3342,15 @@
                             ${marathonGroups.map(g => {
                                 const count = allPeople.filter(st => !isPracticeUser(st) && st.groupId === g.id).length;
                                 return `
-                                    <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:var(--light-grey); border-radius:12px; margin-bottom:8px; border:1px solid #e2e8f0;">
-                                        <div>
+                                    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 14px; background:var(--light-grey); border-radius:12px; margin-bottom:8px; border:1px solid #e2e8f0;">
+                                        <div style="flex:1;">
                                             <strong style="font-size:0.88rem; color:var(--primary-dark);">${isRu ? g.nameRu : g.nameRo}</strong>
                                             <div style="font-size:0.76rem; color:var(--text-muted);">${isRu ? 'Учеников:' : 'Studenți:'} ${count}</div>
                                         </div>
-                                        <button type="button" class="btn-sm btn-sm-danger" onclick="confirmDelete('group', '${g.id}')"><i class="fas fa-trash"></i></button>
+                                        <div style="display:flex; gap:6px; flex-shrink:0;">
+                                            <button type="button" class="btn-sm btn-sm-gold" style="padding:8px 12px;" title="${isRu ? 'Изменить название группы' : 'Editează denumirea grupei'}" onclick="openEditGroupModal('${g.id}')"><i class="fas fa-pen"></i></button>
+                                            <button type="button" class="btn-sm btn-sm-danger" style="padding:8px 12px;" title="${isRu ? 'Удалить группу' : 'Șterge grupa'}" onclick="confirmDelete('group', '${g.id}')"><i class="fas fa-trash"></i></button>
+                                        </div>
                                     </div>
                                 `;
                             }).join('')}
@@ -3631,7 +3706,6 @@
         if (existingIdx >= 0) appState.submissions[existingIdx] = entry;
         else appState.submissions.push(entry);
 
-        // Автоматически сворачиваем сданное задание после отправки
         expandedHwMap[hwId] = false;
 
         saveAppState();
@@ -3683,6 +3757,46 @@
                 freshBtn.innerHTML = `<i class="fas fa-check"></i> ${currentLang === 'ru' ? 'Опубликовать' : 'Publică'}`;
             }
         }
+    }
+
+    /* МОДАЛЬНОЕ ОКНО РЕДАКТИРОВАНИЯ НАЗВАНИЯ ГРУППЫ */
+    function openEditGroupModal(grpId) {
+        const grp = appState.groups.find(g => g.id === grpId);
+        if (!grp) return;
+        const isRu = currentLang === 'ru';
+
+        document.getElementById('editModalTitle').innerText = isRu ? 'Изменить название группы' : 'Editează denumirea grupei';
+        document.getElementById('editModalContent').innerHTML = `
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Название группы (RU)' : 'Denumire grupă (RU)'}</label>
+            <input type="text" id="edGrpNameRu" class="portal-input" value="${grp.nameRu}">
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Название группы (RO)' : 'Denumire grupă (RO)'}</label>
+            <input type="text" id="edGrpNameRo" class="portal-input" value="${grp.nameRo}">
+            <button type="button" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:12px;" onclick="saveEditedGroup('${grp.id}')">
+                <i class="fas fa-save"></i> ${isRu ? 'Сохранить название' : 'Salvează denumirea'}
+            </button>
+        `;
+        document.getElementById('editModal').classList.add('active');
+    }
+
+    function saveEditedGroup(grpId) {
+        const grp = appState.groups.find(g => g.id === grpId);
+        if (!grp) return;
+
+        const newRu = document.getElementById('edGrpNameRu').value.trim();
+        const newRo = document.getElementById('edGrpNameRo').value.trim();
+
+        if (!newRu && !newRo) {
+            showToast(currentLang === 'ru' ? 'Введите название группы!' : 'Introduceți denumirea grupei!', 'warning');
+            return;
+        }
+
+        grp.nameRu = newRu || newRo;
+        grp.nameRo = newRo || newRu;
+
+        saveAppState();
+        closeEditModal();
+        renderCabinet(false);
+        showToast(currentLang === 'ru' ? 'Название группы обновлено!' : 'Denumirea grupei a fost actualizată!', 'success');
     }
 
     /* МОДАЛЬНЫЕ ОКНА РЕДАКТИРОВАНИЯ */
@@ -3840,9 +3954,9 @@
             <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Titlu (RO)</label>
             <input type="text" id="edHwTitleRo" class="portal-input" value="${hw.titleRo}">
             <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Описание (RU)</label>
-            <textarea id="edHwDescRu" rows="2" class="portal-input">${hw.descRu}</textarea>
-            <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Descriere (RO)</label>
-            <textarea id="edHwDescRo" rows="2" class="portal-input">${hw.descRo}</textarea>
+            <textarea id="edHwDescRu" rows="2" class="portal-input">${hw.descRu || ''}</textarea>
+            <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Condiție (RO)</label>
+            <textarea id="edHwDescRo" rows="2" class="portal-input">${hw.descRo || ''}</textarea>
             <button type="button" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:12px;" onclick="saveEditedHw('${hw.id}')">
                 <i class="fas fa-save"></i> ${isRu ? 'Сохранить изменения' : 'Salvează modificările'}
             </button>
@@ -3858,7 +3972,6 @@
         hw.titleRo = document.getElementById('edHwTitleRo').value.trim() || hw.titleRo;
         hw.descRu = document.getElementById('edHwDescRu').value.trim();
         hw.descRo = document.getElementById('edHwDescRo').value.trim();
-
         saveAppState();
         closeEditModal();
         renderCabinet(false);
@@ -3876,7 +3989,7 @@
         const rawDesc = document.getElementById('newHwDescSingle').value.trim();
 
         if (!rawTitle) {
-            showToast(currentLang === 'ru' ? 'Введите название домашнего задания!' : 'Introduceți titlul temei!', 'warning');
+            showToast(currentLang === 'ru' ? 'Введите название задания!' : 'Introduceți titlul temei!', 'warning');
             return;
         }
 
@@ -3893,15 +4006,15 @@
             appState.homeworks.push({
                 id: 'hw-' + Date.now(),
                 groupId,
+                deadline: deadline || '2026-02-20',
                 titleRu: trTitle.ru,
                 titleRo: trTitle.ro,
                 descRu: trDesc.ru,
-                descRo: trDesc.ro,
-                deadline: deadline || '2026-02-20'
+                descRo: trDesc.ro
             });
             saveAppState();
             renderCabinet(false);
-            showToast(currentLang === 'ru' ? 'Задание опубликовано!' : 'Tema a fost publicată!', 'success');
+            showToast(currentLang === 'ru' ? 'Домашнее задание создано!' : 'Tema a fost creată!', 'success');
         } finally {
             const freshBtn = document.getElementById('btnAddHw');
             if (freshBtn) {
@@ -3914,23 +4027,26 @@
     function adminGradeSub(subId, newStatus) {
         const sub = appState.submissions.find(s => s.id === subId);
         if (!sub) return;
+        const gradeVal = document.getElementById('grade-' + subId).value;
+        const comm = document.getElementById('comm-' + subId).value.trim();
+        sub.grade = gradeVal;
+        sub.teacherComment = comm;
         sub.status = newStatus;
-        sub.grade = document.getElementById('grade-' + subId).value;
-        sub.teacherComment = document.getElementById('comm-' + subId).value.trim();
         saveAppState();
         renderCabinet(false);
-        showToast(currentLang === 'ru' ? `Оценка ${sub.grade}/10 сохранена!` : `Nota ${sub.grade}/10 a fost salvată!`, 'success');
+        showToast(currentLang === 'ru' ? `Оценка ${gradeVal}/10 сохранена!` : `Nota ${gradeVal}/10 a fost salvată!`, 'success');
     }
 
-    async function adminAddGroup() {
+    function adminAddGroup() {
         const rawName = document.getElementById('newGrpSingle').value.trim();
-        if (!rawName) return;
-
-        const tr = await smartAutoTranslate(rawName);
+        if (!rawName) {
+            showToast(currentLang === 'ru' ? 'Введите название группы!' : 'Introduceți denumirea grupei!', 'warning');
+            return;
+        }
         appState.groups.push({
             id: 'grp-' + Date.now(),
-            nameRu: tr.ru,
-            nameRo: tr.ro,
+            nameRu: rawName,
+            nameRo: rawName,
             type: 'marathon'
         });
         saveAppState();
@@ -3940,17 +4056,14 @@
 
     function adminAddStudent() {
         const name = document.getElementById('newStuName').value.trim();
+
         if (!name) {
-            showToast(currentLang === 'ru' ? 'Введите имя и фамилию!' : 'Introduceți numele и prenumele!', 'warning');
+            showToast(currentLang === 'ru' ? 'Введите имя и фамилию!' : 'Introduceți numele și prenumele!', 'warning');
             return;
         }
 
         if (adminAddPersonMode === 'practice') {
-            const practiceUntil = document.getElementById('newStuPracticeUntil').value;
-            if (!practiceUntil) {
-                showToast(currentLang === 'ru' ? 'Укажите дату окончания практики!' : 'Specificați data finalizării practicii!', 'warning');
-                return;
-            }
+            const practiceUntil = document.getElementById('newStuPracticeUntil')?.value || '2026-04-30';
             appState.users.push({
                 id: 'u-' + Date.now(),
                 login: '',
@@ -3963,7 +4076,7 @@
             });
             saveAppState();
             renderCabinet(false);
-            showToast(currentLang === 'ru' ? 'Практикант добавлен!' : 'Practicantul a fost adăugat!', 'success');
+            showToast(currentLang === 'ru' ? 'Практикант 1С добавлен!' : 'Practicantul 1C a fost adăugat!', 'success');
             return;
         }
 
@@ -3972,7 +4085,7 @@
         const pass = document.getElementById('newStuPass').value.trim();
 
         if (!login || !pass) {
-            showToast(currentLang === 'ru' ? 'Для ученика марафона заполните логин и пароль!' : 'Pentru studentul la maraton completați login-ul și parola!', 'warning');
+            showToast(currentLang === 'ru' ? 'Для участника Марафона заполните логин и пароль!' : 'Pentru participantul la Maraton completați login-ul și parola!', 'warning');
             return;
         }
         if (appState.users.some(u => u.login && u.login.toLowerCase() === login.toLowerCase())) {
@@ -3991,106 +4104,27 @@
         });
         saveAppState();
         renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Ученик Марафона добавлен!' : 'Studentul Maratonului a fost adăugat!', 'success');
+        showToast(currentLang === 'ru' ? 'Ученик Марафона добавлен!' : 'Studentul Maraton a fost adăugat!', 'success');
     }
 
-    function formatDate(isoStr) {
-        if (!isoStr) return '';
-        const parts = isoStr.split('-');
-        return parts.length === 3 ? `${parts[2]}.${parts[1]}.${parts[0]}` : isoStr;
+    function formatDate(iso) {
+        if (!iso) return '';
+        const p = iso.split('-');
+        return p.length === 3 ? `${p[2]}.${p[1]}.${p[0]}` : iso;
     }
 
-    /* ==================== МЯГКОЕ И ПЛАВНОЕ ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА ==================== */
-    let currentLang = 'ro';
-    let langSwitchTimer = null;
-
-    function syncCabLangSwitch() {
-        const cabPill = document.getElementById('cabLangPill');
-        const cabRu = document.getElementById('cabBtnRu');
-        const cabRo = document.getElementById('cabBtnRo');
-        if (!cabPill) return;
-        if (currentLang === 'ru') {
-            cabPill.style.transform = 'translateX(0%)';
-            cabRu.style.color = '#000';
-            cabRo.style.color = '#fff';
-        } else {
-            cabPill.style.transform = 'translateX(100%)';
-            cabRu.style.color = '#fff';
-            cabRo.style.color = '#000';
-        }
-    }
-
-    function setLanguage(lang) {
-        if (lang === currentLang) return;
-        currentLang = lang;
-        
-        const pill = document.getElementById('langPill');
-        const btnRu = document.getElementById('btnRu');
-        const btnRo = document.getElementById('btnRo');
-
-        if (lang === 'ru') {
-            pill.style.transform = 'translateX(0%)';
-            btnRu.classList.add('active');
-            btnRo.classList.remove('active');
-        } else {
-            pill.style.transform = 'translateX(100%)';
-            btnRo.classList.add('active');
-            btnRu.classList.remove('active');
-        }
-        syncCabLangSwitch();
-
-        document.body.classList.add('lang-switching');
-        clearTimeout(langSwitchTimer);
-
-        langSwitchTimer = setTimeout(() => {
-            document.querySelectorAll('[data-ru]').forEach(el => {
-                el.innerHTML = el.getAttribute('data-' + lang);
-            });
-            
-            const h1 = document.getElementById('hero-h1');
-            const p = document.getElementById('hero-p');
-            const btn = document.getElementById('hero-btn');
-            const nameIn = document.getElementById('nameInput');
-            const phoneIn = document.getElementById('phoneInput');
-            const revNameIn = document.getElementById('reviewNameInput');
-            const revTextIn = document.getElementById('reviewTextInput');
-
-            if (lang === 'ru') {
-                h1.innerHTML = 'Бухгалтерский учет в Республике Молдова:<br>Практика 2026';
-                p.innerText = 'Станьте востребованным специалистом под руководством Людмилы Борденюк.';
-                btn.innerText = 'Записаться на Марафон';
-                nameIn.placeholder = 'Ваше имя';
-                phoneIn.placeholder = 'Ваш телефон';
-                revNameIn.placeholder = 'Ваше имя';
-                revTextIn.placeholder = 'Напишите ваш отзыв здесь...';
-            } else {
-                h1.innerHTML = 'Evidența contabilă în Republica Moldova:<br>Practica 2026';
-                p.innerText = 'Devino un specialist solicitat sub îndrumarea Ludmilei Bordeniuc.';
-                btn.innerText = 'Înscrie-te la Maraton';
-                nameIn.placeholder = 'Numele dvs.';
-                phoneIn.placeholder = 'Telefonul dvs.';
-                revNameIn.placeholder = 'Numele dvs.';
-                revTextIn.placeholder = 'Scrie recenzia ta aici...';
-            }
-            
-            renderMonths();
-            if (currentSelectedMonthIndex !== null) showDeadline(currentSelectedMonthIndex);
-
-            if (currentUser && document.getElementById('portalOverlay').classList.contains('active')) {
-                if (currentUser.role === 'admin') {
-                    document.getElementById('cabUserRole').innerText = currentLang === 'ru' ? '👑 Администратор / Преподаватель' : '👑 Administrator / Profesor';
-                } else {
-                    const grp = appState.groups.find(g => g.id === currentUser.groupId);
-                    const grpName = grp ? (currentLang === 'ru' ? grp.nameRu : grp.nameRo) : '';
-                    document.getElementById('cabUserRole').innerText = `🎓 ${currentLang === 'ru' ? 'Марафон' : 'Maraton'} • ${grpName}`;
-                }
-                renderCabinet(false);
-            }
-
-            requestAnimationFrame(() => {
-                document.body.classList.remove('lang-switching');
-            });
-        }, 230);
+    /* ==================== КОД ОСНОВНОГО САЙТА ==================== */
+    function switchProfile(teacherId, clickedElement) {
+        document.querySelectorAll('.teacher-tab').forEach(tab => tab.classList.remove('active'));
+        clickedElement.classList.add('active');
+        document.querySelectorAll('.teacher-card').forEach(card => {
+            card.classList.add('hidden-profile');
+            card.classList.remove('fade-in-profile');
+        });
+        const targetCard = document.getElementById('profile-' + teacherId);
+        targetCard.classList.remove('hidden-profile');
+        void targetCard.offsetWidth;
+        targetCard.classList.add('fade-in-profile');
     }
 
     function toggleMenu() {
@@ -4104,24 +4138,207 @@
         document.getElementById('menuIcon').className = 'fas fa-bars';
     }
 
-    function selectCourse(courseName) {
-        const selectEl = document.getElementById('courseSelect');
-        if (selectEl) selectEl.value = courseName;
-        const contactSection = document.getElementById('contact');
-        if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+    const calendarData = [
+        { ro: "Ianuarie", ru: "Январь", h_ro: "1 Ianuarie — Anul Nou; 7, 8 Ianuarie — Crăciunul pe stil vechi", h_ru: "1 Января — Новый год; 7, 8 Января — Рождество по старому стилю", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, reps: [{ date_ro: "Până pe 15 Ianuarie", date_ru: "До 15 Января", list: "IRV21 (în caz de încetare)" }, { date_ro: "Până pe 25 Ianuarie", date_ru: "До 25 Января", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21" }, { date_ro: "Până pe 31 Ianuarie", date_ru: "До 31 Января", list: "FPI19, IRM19 (în termen de 10 zile de la angajare/modificare)" }] },
+        { ro: "Februarie", ru: "Февраль", h_ro: "Fără sărbători legale", h_ru: "Без государственных праздников", d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160, reps: [{ date_ro: "Până pe 25 Februarie", date_ru: "До 25 Февраля", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21" }] },
+        { ro: "Martie", ru: "Март", h_ro: "8 Martie — Ziua Internațională a Femeii", h_ru: "8 Марта — Международный женский день", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reps: [{ date_ro: "Până pe 25 Martie", date_ru: "До 25 Марта", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, VEN12 (Declarația cu privire la impozitul pe venit)" }, { date_ro: "Până pe 31 Martie", date_ru: "До 31 Марта", list: "Situațiile financiare anuale (Bilanțul), CET18 (Persoane fizice)" }] },
+        { ro: "Aprilie", ru: "Апрель", h_ro: "12, 13 Aprilie — Sfintele Paști; 20 Aprilie — Paștele Blajinilor", h_ru: "12, 13 Апреля — Пасха; 20 Апреля — Радоница", d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160, reps: [{ date_ro: "Până pe 25 Aprilie", date_ru: "До 25 Апреля", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, Rapoarte trimestriale (Trimestrul I)" }, { date_ro: "Până pe 30 Aprilie", date_ru: "До 30 Апреля", list: "CET18 (termenul final pentru persoane fizice)" }] },
+        { ro: "Mai", ru: "Май", h_ro: "1 Mai — Ziua Muncii; 9 Mai — Ziua Victoriei și a Europei", h_ru: "1 Мая — День труда; 9 Мая — День Победы и Европы", d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160, reps: [{ date_ro: "Până pe 25 Mai", date_ru: "До 25 Мая", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21" }, { date_ro: "Până pe 30 Mai", date_ru: "До 30 Мая", list: "Situațiile financiare (pentru entitățile mari/mijlocii)" }] },
+        { ro: "Iunie", ru: "Июнь", h_ro: "Fără sărbători legale", h_ru: "Без государственных праздников", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reps: [{ date_ro: "Până pe 25 Iunie", date_ru: "До 25 Июня", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, BIJ17 (Impozitul pe bunurile imobiliare - achitare cu reducere)" }] },
+        { ro: "Iulie", ru: "Июль", h_ro: "Fără sărbători legale", h_ru: "Без государственных праздников", d8: 23, h8: 184, d7: 0, h7: 0, dt: 23, ht: 184, reps: [{ date_ro: "Până pe 25 Iulie", date_ru: "До 25 Июля", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, Rapoarte trimestriale (Trimestrul II)" }] },
+        { ro: "August", ru: "Август", h_ro: "27 August — Ziua Independenței; 31 August — Limba Noastră", h_ru: "27 Августа — День Независимости; 31 Августа — Лимба Ноастрэ", d8: 18, h8: 144, d7: 1, h7: 7, dt: 19, ht: 151, reps: [{ date_ro: "Până pe 25 August", date_ru: "До 25 Августа", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21" }] },
+        { ro: "Septembrie", ru: "Сентябрь", h_ro: "Fără sărbători legale", h_ru: "Без государственных праздников", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reps: [{ date_ro: "Până pe 25 Septembrie", date_ru: "До 25 Сентября", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, BIJ17 (Impozitul pe bunurile imobiliare - termen standard)" }] },
+        { ro: "Octombrie", ru: "Октябрь", h_ro: "14 Octombrie — Hramul orașului Chișinău", h_ru: "14 Октября — День города Кишинёв", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reps: [{ date_ro: "Până pe 25 Octombrie", date_ru: "До 25 Октября", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, Rapoarte trimestriale (Trimestrul III)" }] },
+        { ro: "Noiembrie", ru: "Ноябрь", h_ro: "Fără sărbători legale", h_ru: "Без государственных праздников", d8: 21, h8: 168, d7: 0, h7: 0, dt: 21, ht: 168, reps: [{ date_ro: "Până pe 25 Noiembrie", date_ru: "До 25 Ноября", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21" }] },
+        { ro: "Decembrie", ru: "Декабрь", h_ro: "25 Decembrie — Crăciunul pe stil nou", h_ru: "25 Декабря — Рождество по новому стилю", d8: 21, h8: 168, d7: 1, h7: 7, dt: 22, ht: 175, reps: [{ date_ro: "Până pe 25 Decembrie", date_ru: "До 25 Декабря", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, Achitarea în avans a impozitului pe venit (Trimestrul IV)" }] }
+    ];
+
+    let currentLang = 'ro';
+    let selectedMonthIdx = null;
+    let currentRating = 5;
+
+    function syncCabLangSwitch() {
+        const pill = document.getElementById('cabLangPill');
+        const btnRu = document.getElementById('cabBtnRu');
+        const btnRo = document.getElementById('cabBtnRo');
+        if (!pill || !btnRu || !btnRo) return;
+        if (currentLang === 'ru') {
+            pill.style.transform = 'translateX(0%)';
+            btnRu.style.color = '#000';
+            btnRo.style.color = '#fff';
+        } else {
+            pill.style.transform = 'translateX(100%)';
+            btnRu.style.color = '#fff';
+            btnRo.style.color = '#000';
+        }
     }
 
-    function switchProfile(profileId, tabElement) {
-        document.querySelectorAll('.teacher-tab').forEach(tab => tab.classList.remove('active'));
-        tabElement.classList.add('active');
-        document.querySelectorAll('.teacher-card').forEach(card => {
-            card.classList.add('hidden-profile');
-            card.classList.remove('fade-in-profile');
+    function openReviewModal() {
+        document.getElementById('reviewModal').style.display = 'flex';
+        setRating(5);
+    }
+    function closeReviewModal() {
+        document.getElementById('reviewModal').style.display = 'none';
+    }
+    function setRating(val) {
+        currentRating = val;
+        document.querySelectorAll('.star-icon').forEach(star => {
+            const starVal = parseInt(star.getAttribute('data-val'));
+            star.classList.toggle('active', starVal <= val);
         });
-        const target = document.getElementById('profile-' + profileId);
-        target.classList.remove('hidden-profile');
-        void target.offsetWidth;
-        target.classList.add('fade-in-profile');
+    }
+    function sendReview(platform) {
+        const name = document.getElementById('reviewNameInput').value.trim();
+        const text = document.getElementById('reviewTextInput').value.trim();
+        if (!name || !text) {
+            showToast(currentLang === 'ru' ? 'Пожалуйста, укажите имя и текст отзыва!' : 'Vă rugăm să introduceți numele și textul recenziei!', 'warning');
+            return;
+        }
+        const stars = '⭐'.repeat(currentRating);
+        const message = currentLang === 'ru' 
+            ? `Здравствуйте! Хочу оставить отзыв о курсе:\nИмя: ${name}\nОценка: ${stars} (${currentRating}/5)\nОтзыв: ${text}`
+            : `Bună ziua! Doresc să las o recenzie despre curs:\nNume: ${name}\nNotă: ${stars} (${currentRating}/5)\nRecenzie: ${text}`;
+        const url = platform === 'whatsapp' 
+            ? `https://wa.me/37378506196?text=${encodeURIComponent(message)}`
+            : `viber://chat?number=%2B37378506196&text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+        closeReviewModal();
+        document.getElementById('reviewNameInput').value = '';
+        document.getElementById('reviewTextInput').value = '';
+    }
+
+    function initCalendar() {
+        const grid = document.getElementById('monthGrid');
+        grid.innerHTML = '';
+        calendarData.forEach((m, index) => {
+            const div = document.createElement('div');
+            div.className = 'month-item' + (selectedMonthIdx === index ? ' active' : '');
+            div.innerText = currentLang === 'ru' ? m.ru : m.ro;
+            div.onclick = () => selectMonth(index, div);
+            grid.appendChild(div);
+        });
+        if (selectedMonthIdx !== null) updateDeadlineInfo(selectedMonthIdx);
+    }
+
+    function selectMonth(index, el) {
+        selectedMonthIdx = index;
+        document.querySelectorAll('.month-item').forEach(i => i.classList.remove('active'));
+        el.classList.add('active');
+        updateDeadlineInfo(index);
+    }
+
+    function updateDeadlineInfo(index) {
+        const data = calendarData[index];
+        const box = document.getElementById('deadlineBox');
+        document.getElementById('dlTitle').innerText = currentLang === 'ru' ? data.ru : data.ro;
+        document.getElementById('dlHolidays').innerText = currentLang === 'ru' ? data.h_ru : data.h_ro;
+        
+        const repContainer = document.getElementById('reportsContainer');
+        repContainer.innerHTML = '';
+        data.reps.forEach(r => {
+            const groupDiv = document.createElement('div');
+            groupDiv.className = 'report-group';
+            groupDiv.innerHTML = `<div class="dl-date">${currentLang === 'ru' ? r.date_ru : r.date_ro}</div><div class="reports-list">${r.list}</div>`;
+            repContainer.appendChild(groupDiv);
+        });
+        
+        document.getElementById('wt-d8').innerText = data.d8; document.getElementById('wt-h8').innerText = data.h8;
+        document.getElementById('wt-d7').innerText = data.d7; document.getElementById('wt-h7').innerText = data.h7;
+        document.getElementById('wt-dt').innerText = data.dt; document.getElementById('wt-ht').innerText = data.ht;
+        box.classList.add('show');
+    }
+
+    function toggleCalendar() {
+        const dr = document.getElementById('calDrawer');
+        const ov = document.getElementById('drawerOverlay');
+        const isOpen = dr.classList.contains('open');
+        if (isOpen) { dr.classList.remove('open'); ov.classList.remove('active'); }
+        else { dr.classList.add('open'); ov.classList.add('active'); if (selectedMonthIdx === null) selectMonth(0, document.querySelectorAll('.month-item')[0]); }
+    }
+
+    function selectCourse(courseName) {
+        const select = document.getElementById('courseSelect');
+        select.value = courseName;
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        const form = document.querySelector('.contact-form');
+        form.style.transition = '0.3s';
+        form.style.boxShadow = '0 0 25px rgba(212, 175, 55, 0.55)';
+        setTimeout(() => { form.style.boxShadow = 'var(--shadow-md)'; }, 1200);
+    }
+
+    function validateAndGetMsg() {
+        const name = document.getElementById('nameInput').value.trim();
+        const phone = document.getElementById('phoneInput').value.trim();
+        const course = document.getElementById('courseSelect').value;
+        if (!name || !phone) {
+            showToast(currentLang === 'ru' ? 'Пожалуйста, заполните имя и телефон!' : 'Vă rugăm să completați numele și telefonul!', 'warning');
+            return null;
+        }
+        return `Bună ziua / Здравствуйте!\nVreau să mă înscriu la curs:\nNume: ${name}\nTelefon: ${phone}\nCurs: ${course}`;
+    }
+
+    function sendToWhatsApp() {
+        const msg = validateAndGetMsg();
+        if (msg) window.open(`https://wa.me/37378506196?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function sendToViber() {
+        const msg = validateAndGetMsg();
+        if (msg) window.location.href = `viber://chat?number=%2B37378506196&text=${encodeURIComponent(msg)}`;
+    }
+
+    function setLanguage(lang) {
+        if (currentLang === lang) return;
+        currentLang = lang;
+        document.documentElement.lang = lang;
+
+        const pill = document.getElementById('langPill');
+        const btnRu = document.getElementById('btnRu');
+        const btnRo = document.getElementById('btnRo');
+        if (lang === 'ru') {
+            pill.style.transform = 'translateX(0%)';
+            btnRu.classList.add('active');
+            btnRo.classList.remove('active');
+        } else {
+            pill.style.transform = 'translateX(100%)';
+            btnRo.classList.add('active');
+            btnRu.classList.remove('active');
+        }
+
+        syncCabLangSwitch();
+
+        document.body.classList.add('lang-switching');
+        
+        setTimeout(() => {
+            document.querySelectorAll('[data-ru]').forEach(el => {
+                el.innerText = el.getAttribute(`data-${lang}`);
+            });
+
+            if (lang === 'ru') {
+                document.getElementById('hero-h1').innerHTML = 'Бухгалтерский учет в Республике Молдова:<br>Практика 2026';
+                document.getElementById('hero-p').innerText = 'Станьте востребованным специалистом под руководством Людмилы Борденюк.';
+                document.getElementById('hero-btn').innerText = 'Записаться на Марафон';
+                document.getElementById('nameInput').placeholder = 'Ваше имя';
+                document.getElementById('phoneInput').placeholder = 'Ваш телефон';
+                document.getElementById('reviewNameInput').placeholder = 'Ваше имя';
+                document.getElementById('reviewTextInput').placeholder = 'Напишите ваш отзыв здесь...';
+            } else {
+                document.getElementById('hero-h1').innerHTML = 'Evidența contabilă în Republica Moldova:<br>Practica 2026';
+                document.getElementById('hero-p').innerText = 'Devino un specialist solicitat sub îndrumarea Ludmilei Bordeniuc.';
+                document.getElementById('hero-btn').innerText = 'Înscrie-te la Maraton';
+                document.getElementById('nameInput').placeholder = 'Numele dvs.';
+                document.getElementById('phoneInput').placeholder = 'Telefonul dvs.';
+                document.getElementById('reviewNameInput').placeholder = 'Numele dvs.';
+                document.getElementById('reviewTextInput').placeholder = 'Scrie recenzia ta aici...';
+            }
+            
+            initCalendar();
+            if (currentUser) showCabinetView();
+
+            requestAnimationFrame(() => {
+                document.body.classList.remove('lang-switching');
+            });
+        }, 250);
     }
 
     function toggleAcc(el) {
@@ -4129,9 +4346,9 @@
         const content = el.nextElementSibling;
         const isOpen = item.classList.contains('open');
 
-        document.querySelectorAll('.acc-item').forEach(other => {
-            other.classList.remove('open');
-            other.querySelector('.acc-content').style.maxHeight = null;
+        document.querySelectorAll('.acc-item').forEach(acc => {
+            acc.classList.remove('open');
+            acc.querySelector('.acc-content').style.maxHeight = null;
         });
 
         if (!isOpen) {
@@ -4140,130 +4357,17 @@
         }
     }
 
-    const monthsData = [
-        { ru: "Январь", ro: "Ianuarie", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, holRu: "1 января — Новый год; 7 и 8 января — Рождество по старому стилю", holRo: "1 Ianuarie — Anul Nou; 7 și 8 Ianuarie — Crăciunul pe stil vechi", deadRu: [{ date: "15 января", list: "VEN 12, DAREA DE SEAMĂ 4 BASS (за 4 кв.)" }, { date: "26 января", list: "IPC21, IRM19, TVA12, IAL21, TFD21, BIJ17, TL13" }], deadRo: [{ date: "15 Ianuarie", list: "VEN 12, DAREA DE SEAMĂ 4 BASS (trim. IV)" }, { date: "26 Ianuarie", list: "IPC21, IRM19, TVA12, IAL21, TFD21, BIJ17, TL13" }] },
-        { ru: "Февраль", ro: "Februarie", d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160, holRu: "Праздничных дней нет", holRo: "Nu sunt zile de sărbătoare", deadRu: [{ date: "25 февраля", list: "IPC21, IRM19, TVA12, TFD21, TAXA DE STAT" }], deadRo: [{ date: "25 Februarie", list: "IPC21, IRM19, TVA12, TFD21, TAXA DE STAT" }] },
-        { ru: "Март", ro: "Martie", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, holRu: "8 марта — Международный женский день (выпадает на воскресенье)", holRo: "8 Martie — Ziua Internațională a Femeii (cade duminica)", deadRu: [{ date: "25 марта", list: "VEN12 (годовая декларация за 2025), IPC21, TVA12" }], deadRo: [{ date: "25 Martie", list: "VEN12 (declarația anuală 2025), IPC21, TVA12" }] },
-        { ru: "Апрель", ro: "Aprilie", d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160, holRu: "12–13 апреля — Пасха; 20 апреля — Радоница (Пасха блаженных)", holRo: "12–13 Aprilie — Paștele; 20 Aprilie — Paștele Blajinilor", deadRu: [{ date: "27 апреля", list: "IPC21, TVA12, BIJ17, TL13 (за 1 кв.)" }], deadRo: [{ date: "27 Aprilie", list: "IPC21, TVA12, BIJ17, TL13 (trim. I)" }] },
-        { ru: "Май", ro: "Mai", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, holRu: "1 мая — День труда; 9 мая — День Победы и День Европы", holRo: "1 Mai — Ziua Muncii; 9 Mai — Ziua Victoriei și a Europei", deadRu: [{ date: "25 мая", list: "IPC21, IRM19, TVA12, TFD21" }, { date: "30 мая", list: "Сдача Финансовой отчетности (Bilanț) в НБС" }], deadRo: [{ date: "25 Mai", list: "IPC21, IRM19, TVA12, TFD21" }, { date: "30 Mai", list: "Prezentarea Situațiilor Financiare (Bilanț) la BNS" }] },
-        { ru: "Июнь", ro: "Iunie", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, holRu: "1 июня — Международный день защиты детей", holRo: "1 Iunie — Ziua Internațională a Copilului", deadRu: [{ date: "25 июня", list: "IPC21, IRM19, TVA12, TFD21" }], deadRo: [{ date: "25 Iunie", list: "IPC21, IRM19, TVA12, TFD21" }] },
-        { ru: "Июль", ro: "Iulie", d8: 23, h8: 184, d7: 0, h7: 0, dt: 23, ht: 184, holRu: "Праздничных дней нет", holRo: "Nu sunt zile de sărbătoare", deadRu: [{ date: "27 июля", list: "IPC21, TVA12, BIJ17, TL13 (за 2 кв.)" }], deadRo: [{ date: "27 Iulie", list: "IPC21, TVA12, BIJ17, TL13 (trim. II)" }] },
-        { ru: "Август", ro: "August", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, holRu: "27 августа — День Независимости; 31 августа — День «Limba Noastră»", holRo: "27 August — Ziua Independenței; 31 August — Sărbătoarea «Limba Noastră»", deadRu: [{ date: "25 августа", list: "IPC21, IRM19, TVA12, TFD21" }], deadRo: [{ date: "25 August", list: "IPC21, IRM19, TVA12, TFD21" }] },
-        { ru: "Сентябрь", ro: "Septembrie", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, holRu: "Праздничных дней нет", holRo: "Nu sunt zile de sărbătoare", deadRu: [{ date: "25 сентября", list: "IPC21, IRM19, TVA12, BIJ17, TFD21" }], deadRo: [{ date: "25 Septembrie", list: "IPC21, IRM19, TVA12, BIJ17, TFD21" }] },
-        { ru: "Октябрь", ro: "Octombrie", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, holRu: "14 октября — Храм города Кишинёв (местный выходной)", holRo: "14 Octombrie — Hramul orașului Chișinău (zi liberă locală)", deadRu: [{ date: "26 октября", list: "IPC21, TVA12, BIJ17, TL13 (за 3 кв.)" }], deadRo: [{ date: "26 Octombrie", list: "IPC21, TVA12, BIJ17, TL13 (trim. III)" }] },
-        { ru: "Ноябрь", ro: "Noiembrie", d8: 21, h8: 168, d7: 0, h7: 0, dt: 21, ht: 168, holRu: "Праздничных дней нет", holRo: "Nu sunt zile de sărbătoare", deadRu: [{ date: "25 ноября", list: "IPC21, IRM19, TVA12, TFD21" }], deadRo: [{ date: "25 Noiembrie", list: "IPC21, IRM19, TVA12, TFD21" }] },
-        { ru: "Декабрь", ro: "Decembrie", d8: 21, h8: 168, d7: 1, h7: 7, dt: 22, ht: 175, holRu: "25 декабря — Рождество по новому стилю", holRo: "25 Decembrie — Crăciunul pe stil nou", deadRu: [{ date: "28 декабря", list: "IPC21, IRM19, TVA12, TFD21" }], deadRo: [{ date: "28 Decembrie", list: "IPC21, IRM19, TVA12, TFD21" }] }
-    ];
-
-    let currentSelectedMonthIndex = null;
-    function renderMonths() {
-        const grid = document.getElementById('monthGrid');
-        if (!grid) return;
-        grid.innerHTML = '';
-        monthsData.forEach((m, index) => {
-            const div = document.createElement('div');
-            div.className = 'month-item' + (currentSelectedMonthIndex === index ? ' active' : '');
-            div.innerText = m[currentLang];
-            div.onclick = () => showDeadline(index);
-            grid.appendChild(div);
-        });
-    }
-
-    function showDeadline(index) {
-        currentSelectedMonthIndex = index;
-        document.querySelectorAll('.month-item').forEach((el, i) => el.classList.toggle('active', i === index));
-        const data = monthsData[index];
-        const box = document.getElementById('deadlineBox');
-        document.getElementById('dlTitle').innerText = data[currentLang];
-        document.getElementById('dlHolidays').innerText = currentLang === 'ru' ? data.holRu : data.holRo;
-        const container = document.getElementById('reportsContainer');
-        container.innerHTML = '';
-        const deadArray = currentLang === 'ru' ? data.deadRu : data.deadRo;
-        deadArray.forEach(group => {
-            const groupDiv = document.createElement('div');
-            groupDiv.className = 'report-group';
-            groupDiv.innerHTML = `<div class="dl-date">${group.date}</div><div class="reports-list">${group.list}</div>`;
-            container.appendChild(groupDiv);
-        });
-        document.getElementById('wt-d8').innerText = data.d8;
-        document.getElementById('wt-h8').innerText = data.h8;
-        document.getElementById('wt-d7').innerText = data.d7;
-        document.getElementById('wt-h7').innerText = data.h7;
-        document.getElementById('wt-dt').innerText = data.dt;
-        document.getElementById('wt-ht').innerText = data.ht;
-        box.classList.remove('show');
-        void box.offsetWidth;
-        box.classList.add('show');
-    }
-
-    function toggleCalendar() {
-        document.getElementById('calDrawer').classList.toggle('open');
-        document.getElementById('drawerOverlay').classList.toggle('active');
-    }
-
-    function buildFormMessage() {
-        const name = document.getElementById('nameInput').value.trim();
-        const phone = document.getElementById('phoneInput').value.trim();
-        const course = document.getElementById('courseSelect').value;
-        if (!name || !phone) {
-            showToast(currentLang === 'ru' ? 'Пожалуйста, заполните имя и телефон!' : 'Vă rugăm să completați numele și telefonul!', 'warning');
-            return null;
-        }
-        return `Bună ziua / Здравствуйте! Заявка с сайта:\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n📚 Курс: ${course}`;
-    }
-
-    function sendToWhatsApp() {
-        const text = buildFormMessage();
-        if (!text) return;
-        window.open(`https://wa.me/37378506196?text=${encodeURIComponent(text)}`, '_blank');
-    }
-
-    function sendToViber() {
-        const text = buildFormMessage();
-        if (!text) return;
-        window.open(`viber://chat?number=%2B37378506196&draft=${encodeURIComponent(text)}`, '_blank');
-    }
-
-    let currentRating = 5;
-    function setRating(rating) {
-        currentRating = rating;
-        document.querySelectorAll('.star-icon').forEach(star => {
-            star.classList.toggle('active', parseInt(star.getAttribute('data-val')) <= rating);
-        });
-    }
-    function openReviewModal() {
-        document.getElementById('reviewModal').style.display = 'flex';
-        setRating(5);
-    }
-    function closeReviewModal() { document.getElementById('reviewModal').style.display = 'none'; }
-    function sendReview(platform) {
-        const name = document.getElementById('reviewNameInput').value.trim();
-        const text = document.getElementById('reviewTextInput').value.trim();
-        if (!name || !text) {
-            showToast(currentLang === 'ru' ? 'Пожалуйста, введите имя и текст отзыва!' : 'Vă rugăm să introduceți numele și textul recenziei!', 'warning');
-            return;
-        }
-        const starsStr = '⭐'.repeat(currentRating);
-        const msg = `📝 Новый отзыв с сайта BordeniucUnity.md:\n👤 Имя: ${name}\n🌟 Оценка: ${starsStr} (${currentRating}/5)\n💬 Отзыв: ${text}`;
-        if (platform === 'whatsapp') window.open(`https://wa.me/37378506196?text=${encodeURIComponent(msg)}`, '_blank');
-        else if (platform === 'viber') window.open(`viber://chat?number=%2B37378506196&draft=${encodeURIComponent(msg)}`, '_blank');
-        closeReviewModal();
-    }
-
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('active');
-        });
-    }, { threshold: 0.1 });
-    revealElements.forEach(el => observer.observe(el));
-
-    document.addEventListener('DOMContentLoaded', () => {
-        renderMonths();
-        setLanguage('ro');
+    document.addEventListener("DOMContentLoaded", () => {
+        initCalendar();
         updateHeaderUserButton();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
     });
 </script>
-
 </body>
 </html>
