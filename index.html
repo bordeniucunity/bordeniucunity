@@ -1140,7 +1140,7 @@
             border-top: 1px solid #f1f5f9;
         }
 
-        /* БЕЙДЖ ОЦЕНКИ УЧЕНИКА (ФИКС ЧТОБЫ 10/10 НЕ ВЫЛЕЗАЛО) */
+        /* БЕЙДЖ ОЦЕНКИ УЧЕНИКА */
         .grade-pill-badge {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.05rem;
@@ -1697,9 +1697,9 @@
                 <div class="info-label" data-ru="Баланс рабочего времени (5 дн/нед):" data-ro="Balanța timpului de muncă (5 zile/săpt):">Balanța timpului de muncă (5 zile/săpt):</div>
                 <table class="work-time-table">
                     <tr><th></th><th data-ru="Дни" data-ro="Zile">Zile</th><th data-ru="Часы" data-ro="Ore">Ore</th></tr>
-                    <tr><td>8 <span data-ru="ч/день" data-ro="ore/zi">ore/zi</span></td><td id="wt-d8">19</td><td id="wt-h8">152</td></tr>
+                    <tr><td>8 <span data-ru="ч/день" data-ro="ore/zi">ore/zi</span></td><td id="wt-d8">18</td><td id="wt-h8">144</td></tr>
                     <tr><td>7 <span data-ru="ч/день" data-ro="ore/zi">ore/zi</span></td><td id="wt-d7">1</td><td id="wt-h7">7</td></tr>
-                    <tr class="total-row"><td>TOTAL</td><td id="wt-dt">20</td><td id="wt-ht">159</td></tr>
+                    <tr class="total-row"><td>TOTAL</td><td id="wt-dt">19</td><td id="wt-ht">151</td></tr>
                 </table>
             </div>
         </div>
@@ -1848,7 +1848,7 @@
             <div class="target-card reveal" style="transition-delay: 0.2s;">
                 <div class="target-icon"><i class="fas fa-sync-alt"></i></div>
                 <h4 data-ru="Бухгалтерам после перерыва" data-ro="Contabililor după o pauză">Contabililor după o pauză</h4>
-                <p data-ru="Выходили в декрет или меняли сферу? Поможем обновить знания под реалии и законы 2026 года." data-ro="Ați fost în concediu de maternitate sau ați schбаt domeniul? Vă ajutăm să vă actualizați cunoștințele.">Ați fost în concediu de maternitate sau ați schimbat domeniul? Vă ajutăm să vă actualizați cunoștințele.</p>
+                <p data-ru="Выходили в декрет или меняли сферу? Поможем обновить знания под реалии и законы 2026 года." data-ro="Ați fost în concediu de maternitate sau ați schimbat domeniul? Vă ajutăm să vă actualizați cunoștințele.">Ați fost în concediu de maternitate sau ați schimbat domeniul? Vă ajutăm să vă actualizați cunoștințele.</p>
             </div>
         </div>
     </div>
@@ -3955,7 +3955,7 @@
             <input type="text" id="edHwTitleRo" class="portal-input" value="${hw.titleRo}">
             <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Описание (RU)</label>
             <textarea id="edHwDescRu" rows="2" class="portal-input">${hw.descRu || ''}</textarea>
-            <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Condiție (RO)</label>
+            <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Descriere (RO)</label>
             <textarea id="edHwDescRo" rows="2" class="portal-input">${hw.descRo || ''}</textarea>
             <button type="button" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:12px;" onclick="saveEditedHw('${hw.id}')">
                 <i class="fas fa-save"></i> ${isRu ? 'Сохранить изменения' : 'Salvează modificările'}
@@ -3972,6 +3972,7 @@
         hw.titleRo = document.getElementById('edHwTitleRo').value.trim() || hw.titleRo;
         hw.descRu = document.getElementById('edHwDescRu').value.trim();
         hw.descRo = document.getElementById('edHwDescRo').value.trim();
+
         saveAppState();
         closeEditModal();
         renderCabinet(false);
@@ -4014,7 +4015,7 @@
             });
             saveAppState();
             renderCabinet(false);
-            showToast(currentLang === 'ru' ? 'Домашнее задание создано!' : 'Tema a fost creată!', 'success');
+            showToast(currentLang === 'ru' ? 'Домашнее задание опубликовано!' : 'Tema a fost publicată!', 'success');
         } finally {
             const freshBtn = document.getElementById('btnAddHw');
             if (freshBtn) {
@@ -4028,27 +4029,23 @@
         const sub = appState.submissions.find(s => s.id === subId);
         if (!sub) return;
         const gradeVal = document.getElementById('grade-' + subId).value;
-        const comm = document.getElementById('comm-' + subId).value.trim();
+        const commVal = document.getElementById('comm-' + subId).value.trim();
         sub.grade = gradeVal;
-        sub.teacherComment = comm;
+        sub.teacherComment = commVal;
         sub.status = newStatus;
         saveAppState();
         renderCabinet(false);
         showToast(currentLang === 'ru' ? `Оценка ${gradeVal}/10 сохранена!` : `Nota ${gradeVal}/10 a fost salvată!`, 'success');
     }
 
-    function adminAddGroup() {
-        const rawName = document.getElementById('newGrpSingle').value.trim();
-        if (!rawName) {
+    async function adminAddGroup() {
+        const rawGrp = document.getElementById('newGrpSingle').value.trim();
+        if (!rawGrp) {
             showToast(currentLang === 'ru' ? 'Введите название группы!' : 'Introduceți denumirea grupei!', 'warning');
             return;
         }
-        appState.groups.push({
-            id: 'grp-' + Date.now(),
-            nameRu: rawName,
-            nameRo: rawName,
-            type: 'marathon'
-        });
+        const trGrp = await smartAutoTranslate(rawGrp);
+        appState.groups.push({ id: 'grp-' + Date.now(), nameRu: trGrp.ru, nameRo: trGrp.ro, type: 'marathon' });
         saveAppState();
         renderCabinet(false);
         showToast(currentLang === 'ru' ? 'Группа Марафона создана!' : 'Grupa Maraton a fost creată!', 'success');
@@ -4057,26 +4054,29 @@
     function adminAddStudent() {
         const name = document.getElementById('newStuName').value.trim();
 
-        if (!name) {
-            showToast(currentLang === 'ru' ? 'Введите имя и фамилию!' : 'Introduceți numele și prenumele!', 'warning');
-            return;
-        }
-
         if (adminAddPersonMode === 'practice') {
-            const practiceUntil = document.getElementById('newStuPracticeUntil')?.value || '2026-04-30';
+            const practiceUntil = document.getElementById('newStuPracticeUntil').value;
+            if (!name) {
+                showToast(currentLang === 'ru' ? 'Введите имя и фамилию практиканта!' : 'Introduceți numele practicantului!', 'warning');
+                return;
+            }
+            if (!practiceUntil) {
+                showToast(currentLang === 'ru' ? 'Укажите дату окончания практики!' : 'Specificați data finalizării practicii!', 'warning');
+                return;
+            }
             appState.users.push({
                 id: 'u-' + Date.now(),
-                login: '',
-                pass: '',
                 name,
                 role: 'student',
                 category: 'practice',
                 groupId: '',
+                login: '',
+                pass: '',
                 practiceUntil
             });
             saveAppState();
             renderCabinet(false);
-            showToast(currentLang === 'ru' ? 'Практикант 1С добавлен!' : 'Practicantul 1C a fost adăugat!', 'success');
+            showToast(currentLang === 'ru' ? 'Практикант добавлен!' : 'Practicantul a fost adăugat!', 'success');
             return;
         }
 
@@ -4084,95 +4084,57 @@
         const login = document.getElementById('newStuLogin').value.trim();
         const pass = document.getElementById('newStuPass').value.trim();
 
-        if (!login || !pass) {
-            showToast(currentLang === 'ru' ? 'Для участника Марафона заполните логин и пароль!' : 'Pentru participantul la Maraton completați login-ul și parola!', 'warning');
+        if (!name || !login || !pass) {
+            showToast(currentLang === 'ru' ? 'Заполните имя, логин и пароль!' : 'Completați numele, login-ul și parola!', 'warning');
             return;
         }
         if (appState.users.some(u => u.login && u.login.toLowerCase() === login.toLowerCase())) {
             showToast(currentLang === 'ru' ? 'Такой логин уже существует!' : 'Acest login există deja!', 'error');
             return;
         }
-
         appState.users.push({
             id: 'u-' + Date.now(),
+            name,
             login,
             pass,
-            name,
             role: 'student',
             category: 'marathon',
             groupId
         });
         saveAppState();
         renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Ученик Марафона добавлен!' : 'Studentul Maraton a fost adăugat!', 'success');
+        showToast(currentLang === 'ru' ? 'Ученик добавлен на Марафон!' : 'Studentul a fost adăugat la Maraton!', 'success');
     }
 
     function formatDate(iso) {
         if (!iso) return '';
-        const p = iso.split('-');
-        return p.length === 3 ? `${p[2]}.${p[1]}.${p[0]}` : iso;
+        const parts = iso.split('-');
+        if (parts.length !== 3) return iso;
+        return `${parts[2]}.${parts[1]}.${parts[0]}`;
     }
 
-    /* ==================== КОД ОСНОВНОГО САЙТА ==================== */
-    function switchProfile(teacherId, clickedElement) {
-        document.querySelectorAll('.teacher-tab').forEach(tab => tab.classList.remove('active'));
-        clickedElement.classList.add('active');
-        document.querySelectorAll('.teacher-card').forEach(card => {
+    /* ПРОФИЛИ ЭКСПЕРТОВ */
+    function switchProfile(profileId, tabElement) {
+        const allCards = document.querySelectorAll('.teacher-card');
+        allCards.forEach(card => {
             card.classList.add('hidden-profile');
             card.classList.remove('fade-in-profile');
         });
-        const targetCard = document.getElementById('profile-' + teacherId);
-        targetCard.classList.remove('hidden-profile');
-        void targetCard.offsetWidth;
-        targetCard.classList.add('fade-in-profile');
-    }
-
-    function toggleMenu() {
-        const nav = document.getElementById('mobileNav');
-        const icon = document.getElementById('menuIcon');
-        nav.classList.toggle('active');
-        icon.className = nav.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
-    }
-    function closeMenu() {
-        document.getElementById('mobileNav').classList.remove('active');
-        document.getElementById('menuIcon').className = 'fas fa-bars';
-    }
-
-    const calendarData = [
-        { ro: "Ianuarie", ru: "Январь", h_ro: "1 Ianuarie — Anul Nou; 7, 8 Ianuarie — Crăciunul pe stil vechi", h_ru: "1 Января — Новый год; 7, 8 Января — Рождество по старому стилю", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, reps: [{ date_ro: "Până pe 15 Ianuarie", date_ru: "До 15 Января", list: "IRV21 (în caz de încetare)" }, { date_ro: "Până pe 25 Ianuarie", date_ru: "До 25 Января", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21" }, { date_ro: "Până pe 31 Ianuarie", date_ru: "До 31 Января", list: "FPI19, IRM19 (în termen de 10 zile de la angajare/modificare)" }] },
-        { ro: "Februarie", ru: "Февраль", h_ro: "Fără sărbători legale", h_ru: "Без государственных праздников", d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160, reps: [{ date_ro: "Până pe 25 Februarie", date_ru: "До 25 Февраля", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21" }] },
-        { ro: "Martie", ru: "Март", h_ro: "8 Martie — Ziua Internațională a Femeii", h_ru: "8 Марта — Международный женский день", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reps: [{ date_ro: "Până pe 25 Martie", date_ru: "До 25 Марта", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, VEN12 (Declarația cu privire la impozitul pe venit)" }, { date_ro: "Până pe 31 Martie", date_ru: "До 31 Марта", list: "Situațiile financiare anuale (Bilanțul), CET18 (Persoane fizice)" }] },
-        { ro: "Aprilie", ru: "Апрель", h_ro: "12, 13 Aprilie — Sfintele Paști; 20 Aprilie — Paștele Blajinilor", h_ru: "12, 13 Апреля — Пасха; 20 Апреля — Радоница", d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160, reps: [{ date_ro: "Până pe 25 Aprilie", date_ru: "До 25 Апреля", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, Rapoarte trimestriale (Trimestrul I)" }, { date_ro: "Până pe 30 Aprilie", date_ru: "До 30 Апреля", list: "CET18 (termenul final pentru persoane fizice)" }] },
-        { ro: "Mai", ru: "Май", h_ro: "1 Mai — Ziua Muncii; 9 Mai — Ziua Victoriei și a Europei", h_ru: "1 Мая — День труда; 9 Мая — День Победы и Европы", d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160, reps: [{ date_ro: "Până pe 25 Mai", date_ru: "До 25 Мая", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21" }, { date_ro: "Până pe 30 Mai", date_ru: "До 30 Мая", list: "Situațiile financiare (pentru entitățile mari/mijlocii)" }] },
-        { ro: "Iunie", ru: "Июнь", h_ro: "Fără sărbători legale", h_ru: "Без государственных праздников", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reps: [{ date_ro: "Până pe 25 Iunie", date_ru: "До 25 Июня", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, BIJ17 (Impozitul pe bunurile imobiliare - achitare cu reducere)" }] },
-        { ro: "Iulie", ru: "Июль", h_ro: "Fără sărbători legale", h_ru: "Без государственных праздников", d8: 23, h8: 184, d7: 0, h7: 0, dt: 23, ht: 184, reps: [{ date_ro: "Până pe 25 Iulie", date_ru: "До 25 Июля", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, Rapoarte trimestriale (Trimestrul II)" }] },
-        { ro: "August", ru: "Август", h_ro: "27 August — Ziua Independenței; 31 August — Limba Noastră", h_ru: "27 Августа — День Независимости; 31 Августа — Лимба Ноастрэ", d8: 18, h8: 144, d7: 1, h7: 7, dt: 19, ht: 151, reps: [{ date_ro: "Până pe 25 August", date_ru: "До 25 Августа", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21" }] },
-        { ro: "Septembrie", ru: "Сентябрь", h_ro: "Fără sărbători legale", h_ru: "Без государственных праздников", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reps: [{ date_ro: "Până pe 25 Septembrie", date_ru: "До 25 Сентября", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, BIJ17 (Impozitul pe bunurile imobiliare - termen standard)" }] },
-        { ro: "Octombrie", ru: "Октябрь", h_ro: "14 Octombrie — Hramul orașului Chișinău", h_ru: "14 Октября — День города Кишинёв", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reps: [{ date_ro: "Până pe 25 Octombrie", date_ru: "До 25 Октября", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, Rapoarte trimestriale (Trimestrul III)" }] },
-        { ro: "Noiembrie", ru: "Ноябрь", h_ro: "Fără sărbători legale", h_ru: "Без государственных праздников", d8: 21, h8: 168, d7: 0, h7: 0, dt: 21, ht: 168, reps: [{ date_ro: "Până pe 25 Noiembrie", date_ru: "До 25 Ноября", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21" }] },
-        { ro: "Decembrie", ru: "Декабрь", h_ro: "25 Decembrie — Crăciunul pe stil nou", h_ru: "25 Декабря — Рождество по новому стилю", d8: 21, h8: 168, d7: 1, h7: 7, dt: 22, ht: 175, reps: [{ date_ro: "Până pe 25 Decembrie", date_ru: "До 25 Декабря", list: "IPC21, TVA12, IALS21, INR14, TFD19, TL13, BIJ17, TAT14, TA18, TR16, ACVA13, AMM18, TF17, TP22, IVAO15, UNIF21, Achitarea în avans a impozitului pe venit (Trimestrul IV)" }] }
-    ];
-
-    let currentLang = 'ro';
-    let selectedMonthIdx = null;
-    let currentRating = 5;
-
-    function syncCabLangSwitch() {
-        const pill = document.getElementById('cabLangPill');
-        const btnRu = document.getElementById('cabBtnRu');
-        const btnRo = document.getElementById('cabBtnRo');
-        if (!pill || !btnRu || !btnRo) return;
-        if (currentLang === 'ru') {
-            pill.style.transform = 'translateX(0%)';
-            btnRu.style.color = '#000';
-            btnRo.style.color = '#fff';
-        } else {
-            pill.style.transform = 'translateX(100%)';
-            btnRu.style.color = '#fff';
-            btnRo.style.color = '#000';
+        const allTabs = document.querySelectorAll('.teacher-tab');
+        allTabs.forEach(tab => tab.classList.remove('active'));
+        const selectedCard = document.getElementById('profile-' + profileId);
+        if (selectedCard) {
+            selectedCard.classList.remove('hidden-profile');
+            void selectedCard.offsetWidth;
+            selectedCard.classList.add('fade-in-profile');
+        }
+        if (tabElement) {
+            tabElement.classList.add('active');
         }
     }
 
+    /* ОТЗЫВЫ */
+    let currentRating = 5;
     function openReviewModal() {
         document.getElementById('reviewModal').style.display = 'flex';
         setRating(5);
@@ -4183,108 +4145,202 @@
     function setRating(val) {
         currentRating = val;
         document.querySelectorAll('.star-icon').forEach(star => {
-            const starVal = parseInt(star.getAttribute('data-val'));
-            star.classList.toggle('active', starVal <= val);
+            if (parseInt(star.getAttribute('data-val')) <= val) {
+                star.classList.add('active');
+            } else {
+                star.classList.remove('active');
+            }
         });
     }
-    function sendReview(platform) {
+    function sendReview(messenger) {
         const name = document.getElementById('reviewNameInput').value.trim();
         const text = document.getElementById('reviewTextInput').value.trim();
         if (!name || !text) {
-            showToast(currentLang === 'ru' ? 'Пожалуйста, укажите имя и текст отзыва!' : 'Vă rugăm să introduceți numele și textul recenziei!', 'warning');
+            showToast(currentLang === 'ru' ? "Пожалуйста, введите ваше имя и текст отзыва!" : "Vă rugăm să introduceți numele și textul recenziei!", 'warning');
             return;
         }
-        const stars = '⭐'.repeat(currentRating);
-        const message = currentLang === 'ru' 
-            ? `Здравствуйте! Хочу оставить отзыв о курсе:\nИмя: ${name}\nОценка: ${stars} (${currentRating}/5)\nОтзыв: ${text}`
-            : `Bună ziua! Doresc să las o recenzie despre curs:\nNume: ${name}\nNotă: ${stars} (${currentRating}/5)\nRecenzie: ${text}`;
-        const url = platform === 'whatsapp' 
-            ? `https://wa.me/37378506196?text=${encodeURIComponent(message)}`
-            : `viber://chat?number=%2B37378506196&text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank');
+        const stars = "⭐".repeat(currentRating);
+        const msg = currentLang === 'ru'
+            ? `Здравствуйте! Хочу оставить отзыв о курсах:\nИмя: ${name}\nОценка: ${stars} (${currentRating}/5)\nОтзыв: ${text}`
+            : `Bună ziua! Doresc să las o recenzie despre cursuri:\nNume: ${name}\nNota: ${stars} (${currentRating}/5)\nRecenzie: ${text}`;
+        if (messenger === 'whatsapp') {
+            window.open(`https://wa.me/37378506196?text=${encodeURIComponent(msg)}`, '_blank');
+        } else if (messenger === 'viber') {
+            window.location.href = `viber://forward?text=${encodeURIComponent(msg)}`;
+        }
         closeReviewModal();
-        document.getElementById('reviewNameInput').value = '';
-        document.getElementById('reviewTextInput').value = '';
     }
+
+    /* АНИМАЦИЯ ПРИ СКРОЛЛЕ */
+    function initScrollReveal() {
+        const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => observer.observe(el));
+    }
+
+    /* КАЛЕНДАРЬ БУХГАЛТЕРА (ОБНОВЛЕННЫЙ) */
+    const monthsData = [
+        { ru: "Январь", ro: "Ianuarie", holiRu: "1 января — Новый год<br>7, 8 января — Рождество Христово", holiRo: "1 Ianuarie — Anul Nou<br>7, 8 Ianuarie — Crăciunul pe stil vechi", d8: 18, h8: 144, d7: 1, h7: 7, dt: 19, ht: 151, reports: [{ dateRu: "До 15 Января", dateRo: "Până pe 15 Ianuarie", list: "CAS18-AN" }, { dateRu: "До 20 Января", dateRo: "Până pe 20 Ianuarie", list: "TGN-07" }, { dateRu: "До 26 Января", dateRo: "Până pe 26 Ianuarie", list: "CAS18-AN, IPC21, IALS21, INR14, IU17, ISAPTI 17, TAXI17, TVA12, ACZ09, TFD19, TDL-13, TL 13, TRN 21, TFSP 20, CFV21, DNTC25, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Февраль", ro: "Februarie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160, reports: [{ dateRu: "До 25 Февраля", dateRo: "Până pe 25 Februarie", list: "IPC21, IU17, TAXI18, TVA12, ACZ09, EMPOLDEP19, TFDP 20, TBDSA15, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Март", ro: "Martie", holiRu: "8 марта — Международный женский день", holiRo: "8 Martie — Ziua Internațională a Femeii", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reports: [{ dateRu: "До 25 Марта", dateRo: "Până pe 25 Martie", list: "IPC21, IU17, TAXI18, DAP24, SIMM24, ONG17, VEN12, TVA12, ACZ09, TFZD-15, BIJ17, TFSP 20, UNIF25, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Апрель", ro: "Aprilie", holiRu: "12, 13 апреля — Святая Пасха<br>20 апреля — Радоница", holiRo: "12, 13 Aprilie — Paștele<br>20 Aprilie — Paștele Blajinilor", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, reports: [{ dateRu: "До 21 Апреля", dateRo: "Până pe 21 Aprilie", list: "TGN-07" }, { dateRu: "До 27 Апреля", dateRo: "Până pe 27 Aprilie", list: "IPC21, IU17, TAXI18, DAP24, SIMM24, TVA12, ACZ09, POLMED25, TDL-13, TFSP 20, CFV21" }, { dateRu: "До 30 Апреля", dateRo: "Până pe 30 Aprilie", list: "CET18" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Май", ro: "Mai", holiRu: "1 мая — День труда<br>9 мая — День Европы / День Победы", holiRo: "1 Mai — Ziua Muncii<br>9 Mai — Ziua Europei / Ziua Victoriei", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, reports: [{ dateRu: "До 25 Мая", dateRo: "Până pe 25 Mai", list: "IPC21, IU17, TAXI18, TVA12, ACZ09, TFSP 20, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Июнь", ro: "Iunie", holiRu: "1 июня — День защиты детей", holiRo: "1 Iunie — Ziua Copilului", d8: 21, h8: 168, d7: 0, h7: 0, dt: 21, ht: 168, reports: [{ dateRu: "До 25 Июня", dateRo: "Până pe 25 Iunie", list: "IPC21, IU17, TAXI18, TVA12, ACZ09, TFSP 20, IUPT25, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Июль", ro: "Iulie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 23, h8: 184, d7: 0, h7: 0, dt: 23, ht: 184, reports: [{ dateRu: "До 20 Июля", dateRo: "Până pe 20 Iulie", list: "TGN-07" }, { dateRu: "До 27 Июля", dateRo: "Până pe 27 Июля", list: "IPC21, IU17, DAP24, SIMM24, TVA12, ACZ09, TFSP 20, POLMED25, TDL-13, TL 13, TRN 21, CFV21" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Август", ro: "August", holiRu: "27 августа — День независимости<br>31 августа — Праздник «Limba noastră»", holiRo: "27 August — Ziua Independenței<br>31 August — Sărbătoarea «Limba noastră»", d8: 18, h8: 144, d7: 1, h7: 7, dt: 19, ht: 151, reports: [{ dateRu: "До 25 Августа", dateRo: "Până pe 25 August", list: "IPC21, IU17, TVA12, ACZ09, TFSP 20, POLMED25, DDP24" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Сентябрь", ro: "Septembrie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reports: [{ dateRu: "До 25 Сентября", dateRo: "Până pe 25 Septembrie", list: "IPC21, IU17, TVA12, ACZ09, BIJ17, TFSP 20, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Октябрь", ro: "Octombrie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reports: [{ dateRu: "До 20 Октября", dateRo: "Până pe 20 Octombrie", list: "TGN-07" }, { dateRu: "До 26 Октября", dateRo: "Până pe 26 Octombrie", list: "IPC21, IU17, TVA12, ACZ09, TFSP 20, POLMED25, TDL-13, CFV21" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Ноябрь", ro: "Noiembrie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 21, h8: 168, d7: 0, h7: 0, dt: 21, ht: 168, reports: [{ dateRu: "До 25 Ноября", dateRo: "Până pe 25 Noiembrie", list: "IPC21, IU17, TVA12, ACZ09, TFSP 20, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
+        { ru: "Декабрь", ro: "Decembrie", holiRu: "25 декабря — Рождество Христово (по новому стилю)", holiRo: "25 Decembrie — Crăciunul pe stil nou", d8: 20, h8: 160, d7: 2, h7: 14, dt: 22, ht: 174, reports: [{ dateRu: "До 28 Декабря", dateRo: "Până pe 28 Decembrie", list: "IPC21, IU17, TVA12, ACZ09, TFSP 20, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] }
+    ];
+
+    let currentLang = 'ro';
+    let selectedMonthIdx = null;
+    const grid = document.getElementById('monthGrid');
 
     function initCalendar() {
-        const grid = document.getElementById('monthGrid');
         grid.innerHTML = '';
-        calendarData.forEach((m, index) => {
+        monthsData.forEach((m, index) => {
             const div = document.createElement('div');
-            div.className = 'month-item' + (selectedMonthIdx === index ? ' active' : '');
+            div.className = 'month-item';
+            if (selectedMonthIdx === index) div.classList.add('active');
             div.innerText = currentLang === 'ru' ? m.ru : m.ro;
-            div.onclick = () => selectMonth(index, div);
+            div.onclick = () => showDeadline(index);
             grid.appendChild(div);
         });
-        if (selectedMonthIdx !== null) updateDeadlineInfo(selectedMonthIdx);
     }
 
-    function selectMonth(index, el) {
+    function showDeadline(index) {
         selectedMonthIdx = index;
-        document.querySelectorAll('.month-item').forEach(i => i.classList.remove('active'));
-        el.classList.add('active');
-        updateDeadlineInfo(index);
-    }
+        document.querySelectorAll('.month-item').forEach((item, idx) => {
+            item.classList.toggle('active', idx === index);
+        });
+        const m = monthsData[index];
+        document.getElementById('dlTitle').innerText = currentLang === 'ru' ? m.ru : m.ro;
+        document.getElementById('dlHolidays').innerHTML = currentLang === 'ru' ? m.holiRu : m.holiRo;
+        document.getElementById('wt-d8').innerText = m.d8;
+        document.getElementById('wt-h8').innerText = m.h8;
+        document.getElementById('wt-d7').innerText = m.d7;
+        document.getElementById('wt-h7').innerText = m.h7;
+        document.getElementById('wt-dt').innerText = m.dt;
+        document.getElementById('wt-ht').innerText = m.ht;
 
-    function updateDeadlineInfo(index) {
-        const data = calendarData[index];
-        const box = document.getElementById('deadlineBox');
-        document.getElementById('dlTitle').innerText = currentLang === 'ru' ? data.ru : data.ro;
-        document.getElementById('dlHolidays').innerText = currentLang === 'ru' ? data.h_ru : data.h_ro;
-        
-        const repContainer = document.getElementById('reportsContainer');
-        repContainer.innerHTML = '';
-        data.reps.forEach(r => {
+        const reportsCont = document.getElementById('reportsContainer');
+        reportsCont.innerHTML = '';
+        m.reports.forEach(rep => {
             const groupDiv = document.createElement('div');
             groupDiv.className = 'report-group';
-            groupDiv.innerHTML = `<div class="dl-date">${currentLang === 'ru' ? r.date_ru : r.date_ro}</div><div class="reports-list">${r.list}</div>`;
-            repContainer.appendChild(groupDiv);
+            groupDiv.innerHTML = `
+                <div class="dl-date">${currentLang === 'ru' ? rep.dateRu : rep.dateRo}</div>
+                <div class="reports-list">${rep.list}</div>
+            `;
+            reportsCont.appendChild(groupDiv);
         });
-        
-        document.getElementById('wt-d8').innerText = data.d8; document.getElementById('wt-h8').innerText = data.h8;
-        document.getElementById('wt-d7').innerText = data.d7; document.getElementById('wt-h7').innerText = data.h7;
-        document.getElementById('wt-dt').innerText = data.dt; document.getElementById('wt-ht').innerText = data.ht;
-        box.classList.add('show');
+
+        document.getElementById('deadlineBox').classList.add('show');
     }
 
     function toggleCalendar() {
-        const dr = document.getElementById('calDrawer');
-        const ov = document.getElementById('drawerOverlay');
-        const isOpen = dr.classList.contains('open');
-        if (isOpen) { dr.classList.remove('open'); ov.classList.remove('active'); }
-        else { dr.classList.add('open'); ov.classList.add('active'); if (selectedMonthIdx === null) selectMonth(0, document.querySelectorAll('.month-item')[0]); }
+        document.getElementById('calDrawer').classList.toggle('open');
+        document.getElementById('drawerOverlay').classList.toggle('active');
     }
 
-    function selectCourse(courseName) {
-        const select = document.getElementById('courseSelect');
-        select.value = courseName;
+    function toggleMenu() {
+        const nav = document.getElementById('mobileNav');
+        const icon = document.getElementById('menuIcon');
+        nav.classList.toggle('active');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    }
+
+    function closeMenu() {
+        document.getElementById('mobileNav').classList.remove('active');
+        document.getElementById('menuIcon').classList.add('fa-bars');
+        document.getElementById('menuIcon').classList.remove('fa-times');
+    }
+
+    function toggleAcc(headerElement) {
+        const currentItem = headerElement.parentElement;
+        const currentContent = currentItem.querySelector('.acc-content');
+        const isOpen = currentItem.classList.contains('open');
+
+        document.querySelectorAll('.acc-item.open').forEach(openItem => {
+            if (openItem !== currentItem) {
+                openItem.classList.remove('open');
+                openItem.querySelector('.acc-content').style.maxHeight = null;
+            }
+        });
+
+        if (isOpen) {
+            currentItem.classList.remove('open');
+            currentContent.style.maxHeight = null;
+        } else {
+            currentItem.classList.add('open');
+            currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+        }
+    }
+
+    function selectCourse(course) {
+        document.getElementById('courseSelect').value = course;
         document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        const form = document.querySelector('.contact-form');
-        form.style.transition = '0.3s';
-        form.style.boxShadow = '0 0 25px rgba(212, 175, 55, 0.55)';
-        setTimeout(() => { form.style.boxShadow = 'var(--shadow-md)'; }, 1200);
     }
 
-    function validateAndGetMsg() {
+    function sendToWhatsApp() {
         const name = document.getElementById('nameInput').value.trim();
         const phone = document.getElementById('phoneInput').value.trim();
         const course = document.getElementById('courseSelect').value;
         if (!name || !phone) {
-            showToast(currentLang === 'ru' ? 'Пожалуйста, заполните имя и телефон!' : 'Vă rugăm să completați numele și telefonul!', 'warning');
-            return null;
+            showToast(currentLang === 'ru' ? "Пожалуйста, заполните имя и телефон!" : "Vă rugăm să completați numele și telefonul!", 'warning');
+            return;
         }
-        return `Bună ziua / Здравствуйте!\nVreau să mă înscriu la curs:\nNume: ${name}\nTelefon: ${phone}\nCurs: ${course}`;
-    }
-
-    function sendToWhatsApp() {
-        const msg = validateAndGetMsg();
-        if (msg) window.open(`https://wa.me/37378506196?text=${encodeURIComponent(msg)}`, '_blank');
+        const msg = currentLang === 'ru' 
+            ? `Здравствуйте! Меня зовут ${name}. Хочу записаться на курс: ${course}. Мой телефон: ${phone}` 
+            : `Bună ziua! Mă numesc ${name}. Doresc să mă înscriu la curs: ${course}. Telefonul meu: ${phone}`;
+        window.open(`https://wa.me/37378506196?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function sendToViber() {
-        const msg = validateAndGetMsg();
-        if (msg) window.location.href = `viber://chat?number=%2B37378506196&text=${encodeURIComponent(msg)}`;
+        const name = document.getElementById('nameInput').value.trim();
+        const phone = document.getElementById('phoneInput').value.trim();
+        const course = document.getElementById('courseSelect').value;
+        if (!name || !phone) {
+            showToast(currentLang === 'ru' ? "Пожалуйста, заполните имя и телефон!" : "Vă rugăm să completați numele și telefonul!", 'warning');
+            return;
+        }
+        const msg = currentLang === 'ru' 
+            ? `Здравствуйте! Меня зовут ${name}. Хочу записаться на курс: ${course}. Мой телефон: ${phone}` 
+            : `Bună ziua! Mă numesc ${name}. Doresc să mă înscriu la curs: ${course}. Telefonul meu: ${phone}`;
+        window.location.href = `viber://forward?text=${encodeURIComponent(msg)}`;
+    }
+
+    /* ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА С ПЛАВНОЙ АНИМАЦИЕЙ */
+    let langSwitchTimer = null;
+
+    function syncCabLangSwitch() {
+        const cabPill = document.getElementById('cabLangPill');
+        const cabBtnRu = document.getElementById('cabBtnRu');
+        const cabBtnRo = document.getElementById('cabBtnRo');
+        if (!cabPill || !cabBtnRu || !cabBtnRo) return;
+
+        if (currentLang === 'ru') {
+            cabPill.style.transform = 'translateX(0)';
+            cabBtnRu.classList.add('active');
+            cabBtnRu.style.color = '#000';
+            cabBtnRo.classList.remove('active');
+            cabBtnRo.style.color = '#fff';
+        } else {
+            cabPill.style.transform = 'translateX(100%)';
+            cabBtnRo.classList.add('active');
+            cabBtnRo.style.color = '#000';
+            cabBtnRu.classList.remove('active');
+            cabBtnRu.style.color = '#fff';
+        }
     }
 
     function setLanguage(lang) {
@@ -4295,8 +4351,9 @@
         const pill = document.getElementById('langPill');
         const btnRu = document.getElementById('btnRu');
         const btnRo = document.getElementById('btnRo');
+
         if (lang === 'ru') {
-            pill.style.transform = 'translateX(0%)';
+            pill.style.transform = 'translateX(0)';
             btnRu.classList.add('active');
             btnRo.classList.remove('active');
         } else {
@@ -4308,10 +4365,11 @@
         syncCabLangSwitch();
 
         document.body.classList.add('lang-switching');
-        
-        setTimeout(() => {
+        clearTimeout(langSwitchTimer);
+
+        langSwitchTimer = setTimeout(() => {
             document.querySelectorAll('[data-ru]').forEach(el => {
-                el.innerText = el.getAttribute(`data-${lang}`);
+                el.innerText = el.getAttribute('data-' + lang);
             });
 
             if (lang === 'ru') {
@@ -4331,42 +4389,27 @@
                 document.getElementById('reviewNameInput').placeholder = 'Numele dvs.';
                 document.getElementById('reviewTextInput').placeholder = 'Scrie recenzia ta aici...';
             }
-            
+
             initCalendar();
+            if (selectedMonthIdx !== null) showDeadline(selectedMonthIdx);
             if (currentUser) showCabinetView();
+
+            document.querySelectorAll('.acc-item.open').forEach(item => {
+                const content = item.querySelector('.acc-content');
+                content.style.maxHeight = content.scrollHeight + "px";
+            });
 
             requestAnimationFrame(() => {
                 document.body.classList.remove('lang-switching');
             });
-        }, 250);
+        }, 260);
     }
 
-    function toggleAcc(el) {
-        const item = el.parentElement;
-        const content = el.nextElementSibling;
-        const isOpen = item.classList.contains('open');
-
-        document.querySelectorAll('.acc-item').forEach(acc => {
-            acc.classList.remove('open');
-            acc.querySelector('.acc-content').style.maxHeight = null;
-        });
-
-        if (!isOpen) {
-            item.classList.add('open');
-            content.style.maxHeight = content.scrollHeight + "px";
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener('DOMContentLoaded', () => {
         initCalendar();
+        initScrollReveal();
         updateHeaderUserButton();
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+        syncCabLangSwitch();
     });
 </script>
 </body>
