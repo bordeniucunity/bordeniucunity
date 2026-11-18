@@ -43,6 +43,7 @@
             --light-grey: #f4f7fb;
             --danger: #e11d48;
             --success: #10b981;
+            --warning: #f59e0b;
             --shadow-sm: 0 4px 18px rgba(15, 45, 82, 0.05);
             --shadow-md: 0 16px 38px rgba(15, 45, 82, 0.09);
             --shadow-lg: 0 28px 60px rgba(15, 45, 82, 0.16);
@@ -902,12 +903,12 @@
         
         .portal-input {
             width: 100%;
-            padding: 14px 18px;
+            padding: 13px 16px;
             border-radius: 14px;
             border: 1.5px solid #cbd5e1;
-            font-size: 0.96rem;
+            font-size: 0.94rem;
             font-family: inherit;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             background: #f8fafc;
             outline: none;
             transition: all 0.25s ease;
@@ -922,7 +923,7 @@
         .cabinet-workspace {
             background: #f1f5f9;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1220px;
             margin: auto;
             border-radius: 34px;
             box-shadow: 0 35px 90px rgba(0, 0, 0, 0.55);
@@ -1014,19 +1015,19 @@
 
         .cabinet-tabs {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             padding: 16px 36px 0;
             background: #fff;
             border-bottom: 1px solid #e2e8f0;
             overflow-x: auto;
         }
         .cab-tab {
-            padding: 14px 24px;
+            padding: 13px 20px;
             border: none;
             background: none;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
             cursor: pointer;
             border-bottom: 3px solid transparent;
@@ -1034,7 +1035,7 @@
             transition: all 0.28s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             border-radius: 14px 14px 0 0;
         }
         .cab-tab:hover { color: var(--primary); background: var(--secondary-light); }
@@ -1043,17 +1044,25 @@
             border-bottom-color: var(--secondary);
             background: linear-gradient(180deg, rgba(251, 246, 230, 0.5) 0%, #fbf6e6 100%);
         }
+        .tab-badge-count {
+            background: var(--danger);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 12px;
+        }
 
         .cabinet-body {
-            padding: 32px 36px 42px;
-            max-height: 74vh;
+            padding: 30px 36px 42px;
+            max-height: 75vh;
             overflow-y: auto;
         }
 
         .cab-card {
             background: #fff;
             border-radius: 24px;
-            padding: 28px;
+            padding: 26px;
             border: 1px solid #e2e8f0;
             box-shadow: var(--shadow-sm);
             margin-bottom: 22px;
@@ -1061,13 +1070,123 @@
         }
         .cab-card:hover {
             box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
         }
         .cab-grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
+
+        /* ПАНЕЛЬ ФИЛЬТРОВ И ПОИСКА В АДМИНКЕ */
+        .admin-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            padding: 14px 20px;
+            border-radius: 18px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        .filter-pill-btn {
+            padding: 8px 16px;
+            border-radius: 12px;
+            border: 1.5px solid #cbd5e1;
+            background: #f8fafc;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 0.84rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .filter-pill-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        /* ЧАТ ВНУТРИ ДОМАШНЕГО ЗАДАНИЯ */
+        .hw-chat-box {
+            margin-top: 16px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 14px 16px;
+        }
+        .hw-chat-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 210px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding-right: 4px;
+        }
+        .hw-chat-msg {
+            padding: 9px 14px;
+            border-radius: 14px;
+            font-size: 0.86rem;
+            max-width: 85%;
+            line-height: 1.45;
+        }
+        .hw-chat-msg.msg-student {
+            align-self: flex-start;
+            background: #fff;
+            border: 1px solid #cbd5e1;
+            color: var(--dark);
+        }
+        .hw-chat-msg.msg-admin {
+            align-self: flex-end;
+            background: var(--primary-light);
+            border: 1px solid #bfdbfe;
+            color: var(--primary-dark);
+        }
+        .hw-chat-input-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* КАРТОЧКИ БИБЛИОТЕКИ МАТЕРИАЛОВ */
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 18px;
+        }
+        .material-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 22px;
+            border: 1px solid #e2e8f0;
+            border-top: 4px solid var(--secondary);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 14px;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .material-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .mat-type-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .mat-video { background: #fee2e2; color: #dc2626; }
+        .mat-excel { background: #dcfce7; color: #16a34a; }
+        .mat-doc { background: #dbeafe; color: #2563eb; }
 
         /* ПЕРЕКЛЮЧАТЕЛЬ ТИПА ДОБАВЛЕНИЯ В АДМИНКЕ (МАРАФОН / ПРАКТИКА 1С) */
         .mode-pill-switch {
@@ -1132,6 +1251,16 @@
             align-items: center;
             gap: 6px;
             margin-bottom: 8px;
+        }
+        .practice-warn-soon {
+            background: #fef3c7 !important;
+            color: #b45309 !important;
+            border-color: #fcd34d !important;
+        }
+        .practice-warn-expired {
+            background: #ffe4e6 !important;
+            color: #be123c !important;
+            border-color: #fda4af !important;
         }
 
         /* КОМПАКТНЫЙ И ПЛАВНЫЙ КАЛЕНДАРЬ УЧЕНИКА МАРАФОНА (ФИКСИРОВАННЫЕ 6 СТРОК) */
@@ -1314,6 +1443,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            text-decoration: none;
         }
         .btn-sm-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; box-shadow: 0 4px 14px rgba(26, 79, 139, 0.25); }
         .btn-sm-primary:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 8px 20px rgba(26, 79, 139, 0.35); }
@@ -1853,77 +1983,81 @@
         <div class="section-divider reveal"></div>
                 
         <div class="reviews-grid">
+            <!-- 1. OLIGA -->
             <div class="review-card reveal">
                 <div class="review-header-row">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <div class="quote-badge"><i class="fas fa-quote-right"></i></div>
                 </div>
                 <p class="review-text" 
-                   data-ru="И я вам очень благодарна за то, что у вас хватило терпения мне всё объяснить. Вы приняли меня в такой теплой атмосфере, мне всегда было очень комфортно рядом с вами." 
-                   data-ro="Si eu va multumesc foarte mult, pentru că ați avut răbdare să îmi explicați, m-ați primit intr-o atmosferă așa calda, m-am simțit lângă voi întotdeauna foarte bine.">
-                   Si eu va multumesc foarte mult, pentru că ați avut răbdare să îmi explicați, m-ați primit intr-o atmosferă așa calda, m-am simțit lângă voi întotdeauna foarte bine.
-                </p>
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar"><i class="fas fa-user"></i></div>
-                    <div>
-                        <h4 data-ru="Николета" data-ro="Nicoleta">Nicoleta</h4>
-                        <span data-ru="Выпускник марафона" data-ro="Absolvent al maratonului">Absolvent al maratonului</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card reveal">
-                <div class="review-header-row">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <div class="quote-badge"><i class="fas fa-quote-right"></i></div>
-                </div>
-                <p class="review-text" 
-                   data-ru="Хочу выразить огромную благодарность моему преподавателю по бухгалтерскому учету! Занятия проходят на одном дыхании." 
-                   data-ro="Vreau să-mi exprim recunoștința enormă față de profesorul meu de contabilitate! Lecțiile trec pe nerăsuflate.">
-                   Vreau să-mi exprim recunoștința enormă față de profesorul meu de contabilitate! Lecțiile trec pe nerăsuflate.
-                </p>
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar"><i class="fas fa-user"></i></div>
-                    <div>
-                        <h4 data-ru="Лолита" data-ro="Lolita">Lolita</h4>
-                        <span data-ru="Курсант" data-ro="Cadet">Cadet</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card reveal">
-                <div class="review-header-row">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <div class="quote-badge"><i class="fas fa-quote-right"></i></div>
-                </div>
-                <p class="review-text" 
-                   data-ru="Хочу сказать большое спасибо нашему преподавателю за эти курсы! Всё объяснялось спокойно, понятно и простыми словами." 
-                   data-ro="Vreau să spun un mare mulțumesc profesorului nostru pentru aceste cursuri! Totul a fost explicat calm, clar.">
-                   Vreau să spun un mare mulțumesc profesorului nostru pentru aceste cursuri! Totul a fost explicat calm, clar.
+                   data-ru="Хочу выразить огромную благодарность моему преподавателю по бухгалтерскому учету! Занятия проходят на одном дыхании: вся информация объясняется максимально доступно, четко и без лишней «воды», от самых азов до сложных проводок. Очень ценю индивидуальный подход, терпение и готовность отвечать на любые вопросы до тех пор, пока всё не станет понятно. Благодаря вам появилась уверенность в своих силах и глубокое понимание профессии. Огромное спасибо за ваш труд, профессионализм и атмосферу на уроках!" 
+                   data-ro="Vreau să-mi exprim recunoștința enormă față de profesorul meu de contabilitate! Lecțiile trec pe nerăsuflate: toată informația este explicată cât se poate de accesibil, clar și fără «apă» inutilă, de la baze până la formule contabile complexe. Apreciez foarte mult abordarea individuală, răbdarea și disponibilitatea de a răspunde la orice întrebare până când totul devine clar. Datorită dvs. a apărut încrederea în propriile forțe și o înțelegere profundă a profesiei. Mulțumesc enorm pentru munca, profesionalismul și atmosfera de la lecții!">
+                   Vreau să-mi exprim recunoștința enormă față de profesorul meu de contabilitate! Lecțiile trec pe nerăsuflate: toată informația este explicată cât se poate de accesibil, clar și fără «apă» inutilă, de la baze până la formule contabile complexe. Apreciez foarte mult abordarea individuală, răbdarea și disponibilitatea de a răspunde la orice întrebare până când totul devine clar. Datorită dvs. a apărut încrederea în propriile forțe și o înțelegere profundă a profesiei. Mulțumesc enorm pentru munca, profesionalismul și atmosfera de la lecții!
                 </p>
                 <div class="reviewer-info">
                     <div class="reviewer-avatar"><i class="fas fa-user"></i></div>
                     <div>
                         <h4 data-ru="Ольга" data-ro="Oliga">Oliga</h4>
-                        <span data-ru="Курсант" data-ro="Cadet">Cadet</span>
+                        <span data-ru="Выпускник марафона" data-ro="Absolvent al maratonului">Absolvent al maratonului</span>
                     </div>
                 </div>
             </div>
 
+            <!-- 2. LOLITA -->
             <div class="review-card reveal">
                 <div class="review-header-row">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <div class="quote-badge"><i class="fas fa-quote-right"></i></div>
                 </div>
                 <p class="review-text" 
-                   data-ru="Людмила, огромное спасибо за проведенные вами уроки. Данный курс сформировал мощную базу в моей профессиональной деятельности." 
-                   data-ro="Doamna Ludmila, multumesc enorm pt lectiile care d-voastra le-ati petrecut. Cursul dat a format o baza puternica.">
-                   Doamna Ludmila, multumesc enorm pt lectiile care d-voastra le-ati petrecut. Cursul dat a format o baza puternica.
+                   data-ru="Хочу сказать большое спасибо нашему преподавателю за эти курсы! Мне очень понравилось, как проходили занятия. Всё объяснялось спокойно, понятно и простыми словами. Даже сложные темы постепенно стали понятнее. Отдельное спасибо за терпение, внимание и готовность всегда всё объяснить ещё раз. Я получила много полезных знаний и уверенности в себе. Очень рада, что попала именно к такому преподавателю. Спасибо за ваш труд и хорошее отношение!" 
+                   data-ro="Vreau să spun un mare mulțumesc profesorului nostru pentru aceste cursuri! Mi-a plăcut foarte mult cum s-au desfășurat lecțiile. Totul a fost explicat calm, clar și în cuvinte simple. Chiar și temele complexe au devenit treptat mai clare. Mulțumesc separat pentru răbdare, atenție și disponibilitatea de a explica mereu încă o dată. Am primit multe cunoștințe utile și încredere în mine. Mă bucur foarte mult că am ajuns anume la un astfel de profesor. Mulțumesc pentru munca și atitudinea frumoasă!">
+                   Vreau să spun un mare mulțumesc profesorului nostru pentru aceste cursuri! Mi-a plăcut foarte mult cum s-au desfășurat lecțiile. Totul a fost explicat calm, clar și în cuvinte simple. Chiar și temele complexe au devenit treptat mai clare. Mulțumesc separat pentru răbdare, atenție și disponibilitatea de a explica mereu încă o dată. Am primit multe cunoștințe utile și încredere în mine. Mă bucur foarte mult că am ajuns anume la un astfel de profesor. Mulțumesc pentru munca și atitudinea frumoasă!
+                </p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar"><i class="fas fa-user"></i></div>
+                    <div>
+                        <h4 data-ru="Лолита" data-ro="Lolita">Lolita</h4>
+                        <span data-ru="Выпускник марафона" data-ro="Absolvent al maratonului">Absolvent al maratonului</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. IRINA -->
+            <div class="review-card reveal">
+                <div class="review-header-row">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="quote-badge"><i class="fas fa-quote-right"></i></div>
+                </div>
+                <p class="review-text" 
+                   data-ru="Людмила, огромное спасибо за проведенные вами уроки. Данный курс сформировал мощную базу в моей профессиональной деятельности. ОГРОМНОЕ СПАСИБО !!!" 
+                   data-ro="Doamna Ludmila, multumesc enorm pt lectiile care d-voastra le-ati petrecut. Cursul dat a format o baza puternica in activitatea mea profesionala. MULTUMESC ENORM !!!">
+                   Doamna Ludmila, multumesc enorm pt lectiile care d-voastra le-ati petrecut. Cursul dat a format o baza puternica in activitatea mea profesionala. MULTUMESC ENORM !!!
                 </p>
                 <div class="reviewer-info">
                     <div class="reviewer-avatar"><i class="fas fa-user"></i></div>
                     <div>
                         <h4 data-ru="Ирина" data-ro="Irina">Irina</h4>
+                        <span data-ru="Выпускник марафона" data-ro="Absolvent al maratonului">Absolvent al maratonului</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. SVETLANA VOLCOV -->
+            <div class="review-card reveal">
+                <div class="review-header-row">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <div class="quote-badge"><i class="fas fa-quote-right"></i></div>
+                </div>
+                <p class="review-text" 
+                   data-ru="Хочу от всей души поблагодарить госпожу Людмилу, которая направляла меня и обучила на курсах бухгалтерии. ✨ Это настоящий профессионал, очень терпеливая и доступно всё объясняющая. Она разобрала каждую тему четко и понятно для меня, терпеливо отвечая на все мои вопросы. Благодаря её методике преподавания я смогла гораздо лучше понять бухгалтерский учет и обрела больше уверенности в себе. Спасибо вам, госпожа Людмила, за терпение, профессионализм и за все знания, которые вы мне передали! От всей души рекомендую вас всем, кто хочет изучить бухгалтерию с нуля или углубить свои знания." 
+                   data-ro="Vreau să-i mulțumesc din suflet doamnei Ludmila care m-a îndrumat și m-a învățat cursurile de contabilitate. ✨ Este o adevărată profesionistă, foarte răbdătoare și explicită. Mi-a explicat fiecare temă clar și pe înțelesul meu, răspunzând cu răbdare la toate întrebările mele. Datorită modului în care predă, am reușit să înțeleg mult mai bine contabilitatea și să capăt mai multă încredere în mine. Vă mulțumesc Dna Ludmila pentru răbdare, profesionalism și pentru toate cunoștințele pe care mi le-ați transmis! Vă recomand cu mare drag tuturor celor care doresc să învețe contabilitate de la zero sau să-și îmbogățească cunoștințele.">
+                   Vreau să-i mulțumesc din suflet doamnei Ludmila care m-a îndrumat și m-a învățat cursurile de contabilitate. ✨ Este o adevărată profesionistă, foarte răbdătoare și explicită. Mi-a explicat fiecare temă clar și pe înțelesul meu, răspunzând cu răbdare la toate întrebările mele. Datorită modului în care predă, am reușit să înțeleg mult mai bine contabilitatea și să capăt mai multă încredere în mine. Vă mulțumesc Dna Ludmila pentru răbdare, profesionalism și pentru toate cunoștințele pe care mi le-ați transmis! Vă recomand cu mare drag tuturor celor care doresc să învețe contabilitate de la zero sau să-și îmbogățească cunoștințele.
+                </p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar"><i class="fas fa-user"></i></div>
+                    <div>
+                        <h4 data-ru="Светлана Волков" data-ro="Svetlana Volcov">Svetlana Volcov</h4>
                         <span data-ru="Выпускник марафона" data-ro="Absolvent al maratonului">Absolvent al maratonului</span>
                     </div>
                 </div>
@@ -2005,7 +2139,7 @@
 </section>
 
 <footer style="padding: 30px; background: #0d1626; color: #94a3b8; text-align: center; font-size: 0.9rem; border-top: 2px solid rgba(212, 175, 55, 0.35);">
-    <p style="margin: 0;">&copy; 2026 <span style="color: var(--secondary); font-weight: 700;">Contabil.md</span> | Ludmila Bordeniuc</p>
+    <p style="margin: 0;">&copy; 2026 <span style="color: var(--secondary); font-weight: 700;"> bordeniucunity.md </span> | Ludmila Bordeniuc</p>
 </footer>
 
 <!-- МОДАЛЬНОЕ ОКНО ОТЗЫВОВ -->
@@ -2224,19 +2358,37 @@
                 deadline: '2026-02-10'
             }
         ],
+        materials: [
+            {
+                id: 'mat-1',
+                groupId: 'grp-marathon',
+                type: 'excel',
+                titleRu: 'Шаблон: Оборотно-сальдовая ведомость и Баланс (2026)',
+                titleRo: 'Șablon: Balanța de verificare și Bilanțul (2026)',
+                descRu: 'Готовая таблица Excel с формулами для выполнения практических заданий.',
+                descRo: 'Tabel Excel pregătit cu formule pentru realizarea sarcinilor practice.',
+                url: 'https://docs.google.com/spreadsheets/'
+            }
+        ],
         submissions: []
     };
 
     let appState = JSON.parse(localStorage.getItem('contabil_portal_v7')) || JSON.parse(JSON.stringify(DEFAULT_STATE));
+    if (!appState.materials) appState.materials = DEFAULT_STATE.materials;
+
     let currentUser = JSON.parse(sessionStorage.getItem('contabil_current_user')) || null;
     let activePortalTab = 'student-schedule';
 
-    /* СОСТОЯНИЕ РЕЖИМА ДОБАВЛЕНИЯ В АДМИНКЕ (marathon | practice) */
+    /* СОСТОЯНИЯ АДМИН-ФИЛЬТРОВ И РЕЖИМОВ */
     let adminAddPersonMode = 'marathon';
+    let adminHwGroupFilter = 'all';
+    let adminHwOnlyPending = false;
+    let adminPeopleSearch = '';
+    let adminPeopleGroupFilter = 'all';
 
     /* СОСТОЯНИЕ КАЛЕНДАРЯ УЧЕНИКА МАРАФОНА */
     let stuCalYear = 2026;
-    let stuCalMonth = 1; // Февраль
+    let stuCalMonth = 1;
     let stuSelectedDate = null;
     let stuCalSlideDir = '';
 
@@ -2264,6 +2416,7 @@
             const doc = await db.collection('portal').doc('mainStateV7').get();
             if (doc.exists) {
                 appState = doc.data();
+                if (!appState.materials) appState.materials = [];
                 localStorage.setItem('contabil_portal_v7', JSON.stringify(appState));
                 if (currentUser) renderCabinet(false);
             } else {
@@ -2450,7 +2603,6 @@
             `;
         }
 
-        // Добиваем сетку ровно до 42 ячеек (6 строк), чтобы размер календаря не скакал при листании
         const totalCells = offset + daysInMonth;
         for (let i = totalCells; i < 42; i++) {
             cellsHtml += `<div class="stu-cal-day empty"></div>`;
@@ -2486,6 +2638,28 @@
         `;
     }
 
+    function getPracticeDeadlineStatus(dateIso, isRu) {
+        if (!dateIso) return { cls: '', label: '—' };
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const target = new Date(dateIso);
+        const diffDays = Math.ceil((target - today) / (1000 * 60 * 60 * 24));
+
+        if (diffDays < 0) {
+            return {
+                cls: 'practice-warn-expired',
+                label: `${formatDate(dateIso)} (${isRu ? 'завершена' : 'expirat'})`
+            };
+        }
+        if (diffDays <= 7) {
+            return {
+                cls: 'practice-warn-soon',
+                label: `${formatDate(dateIso)} (${isRu ? `осталось ${diffDays} дн.` : `${diffDays} zile`})`
+            };
+        }
+        return { cls: '', label: formatDate(dateIso) };
+    }
+
     function renderCabinet(animate = true) {
         if (!currentUser) return;
         const tabsEl = document.getElementById('cabinetTabs');
@@ -2495,13 +2669,16 @@
         const marathonGroups = appState.groups.filter(g => g.type !== 'practice');
 
         if (currentUser.role === 'student') {
-            /* ПРОФИЛЬ УЧЕНИКА МАРАФОНА */
+            /* ==================== ПРОФИЛЬ УЧЕНИКА МАРАФОНА ==================== */
             tabsEl.innerHTML = `
                 <button class="cab-tab ${activePortalTab === 'student-schedule' ? 'active' : ''}" onclick="switchPortalTab('student-schedule')">
                     <i class="fas fa-calendar-check"></i> ${isRu ? 'Расписание уроков' : 'Orarul lecțiilor'}
                 </button>
                 <button class="cab-tab ${activePortalTab === 'student-hw' ? 'active' : ''}" onclick="switchPortalTab('student-hw')">
                     <i class="fas fa-tasks"></i> ${isRu ? 'Домашние задания' : 'Teme pentru acasă'}
+                </button>
+                <button class="cab-tab ${activePortalTab === 'student-materials' ? 'active' : ''}" onclick="switchPortalTab('student-materials')">
+                    <i class="fas fa-folder-open"></i> ${isRu ? 'Материалы' : 'Materiale'}
                 </button>
             `;
 
@@ -2545,7 +2722,7 @@
                         <div>${listBlock}</div>
                     </div>
                 `;
-            } else {
+            } else if (activePortalTab === 'student-hw') {
                 const myHws = appState.homeworks.filter(h => h.groupId === currentUser.groupId);
                 if (!myHws.length) {
                     bodyEl.innerHTML = `<div class="cab-card"><p style="margin:0;color:var(--text-muted);">${isRu ? 'Домашних заданий пока нет.' : 'Nu există teme momentan.'}</p></div>`;
@@ -2556,6 +2733,7 @@
                 bodyEl.innerHTML = myHws.map(hw => {
                     const sub = appState.submissions.find(s => s.hwId === hw.id && s.studentId === currentUser.id);
                     const status = sub ? sub.status : 'pending';
+                    const chatMessages = (sub && Array.isArray(sub.messages)) ? sub.messages : [];
                     const statusMap = {
                         pending: { cls: 'status-pending', text: isRu ? 'Не сдано' : 'Nepredat' },
                         submitted: { cls: 'status-submitted', text: isRu ? 'На проверке' : 'În verificare' },
@@ -2602,18 +2780,75 @@
                             <button type="button" class="btn-sm btn-sm-primary" onclick="submitStudentHw('${hw.id}')">
                                 <i class="fas fa-paper-plane"></i> ${isRu ? 'Отправить работу' : 'Trimite lucrarea'}
                             </button>
+
+                            <!-- ЧАТ С ПРЕПОДАВАТЕЛЕМ ПО ЗАДАНИЮ -->
+                            <div class="hw-chat-box">
+                                <div style="font-size:0.82rem; font-weight:800; color:var(--primary-dark); margin-bottom:8px;">
+                                    <i class="fas fa-comments" style="color:var(--secondary);"></i> ${isRu ? 'Вопросы и обсуждение с преподавателем' : 'Întrebări și discuții cu profesorul'}
+                                </div>
+                                <div class="hw-chat-messages">
+                                    ${chatMessages.length === 0
+                                        ? `<div style="font-size:0.8rem; color:var(--text-muted);">${isRu ? 'Здесь можно задать уточняющий вопрос по этому заданию.' : 'Aici puteți adresa o întrebare despre această temă.'}</div>`
+                                        : chatMessages.map(m => `
+                                            <div class="hw-chat-msg ${m.senderRole === 'admin' ? 'msg-admin' : 'msg-student'}">
+                                                <div style="font-size:0.72rem; font-weight:800; opacity:0.75; margin-bottom:2px;">${m.senderName} • ${m.time}</div>
+                                                <div>${m.text}</div>
+                                            </div>
+                                        `).join('')
+                                    }
+                                </div>
+                                <div class="hw-chat-input-row">
+                                    <input type="text" id="chat-stu-${hw.id}" class="portal-input" style="margin:0; padding:9px 14px; font-size:0.86rem;" placeholder="${isRu ? 'Написать вопрос...' : 'Scrie o întrebare...'}" onkeydown="if(event.key==='Enter') sendStudentChatMsg('${hw.id}')">
+                                    <button type="button" class="btn-sm btn-sm-gold" onclick="sendStudentChatMsg('${hw.id}')"><i class="fas fa-paper-plane"></i></button>
+                                </div>
+                            </div>
                         </div>
                     `;
                 }).join('');
+            } else if (activePortalTab === 'student-materials') {
+                const myMats = (appState.materials || []).filter(m => m.groupId === currentUser.groupId || m.groupId === 'all');
+                if (!myMats.length) {
+                    bodyEl.innerHTML = `<div class="cab-card"><p style="margin:0;color:var(--text-muted);">${isRu ? 'Материалы и шаблоны скоро появятся.' : 'Materialele și șabloanele vor apărea în curând.'}</p></div>`;
+                } else {
+                    bodyEl.innerHTML = `
+                        <div class="materials-grid">
+                            ${myMats.map(m => {
+                                const iconCls = m.type === 'video' ? 'mat-video fa-play-circle' : m.type === 'excel' ? 'mat-excel fa-file-excel' : 'mat-doc fa-file-alt';
+                                const typeLabel = m.type === 'video' ? (isRu ? 'Видеозапись' : 'Înregistrare video') : m.type === 'excel' ? 'Excel / Шаблон' : (isRu ? 'Методичка / Документ' : 'Document / Ghid');
+                                return `
+                                    <div class="material-card">
+                                        <div>
+                                            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                                                <div class="mat-type-icon ${iconCls.split(' ')[0]}"><i class="fas ${iconCls.split(' ')[1]}"></i></div>
+                                                <span style="font-size:0.78rem; font-weight:800; color:var(--text-muted); text-transform:uppercase;">${typeLabel}</span>
+                                            </div>
+                                            <h4 style="margin:0 0 8px; color:var(--primary-dark); font-size:1.02rem;">${isRu ? m.titleRu : m.titleRo}</h4>
+                                            <p style="margin:0; font-size:0.88rem; color:#475569;">${isRu ? (m.descRu || '') : (m.descRo || '')}</p>
+                                        </div>
+                                        <a href="${m.url}" target="_blank" class="btn-sm btn-sm-primary" style="justify-content:center;">
+                                            <i class="fas fa-external-link-alt"></i> ${isRu ? 'Открыть материал' : 'Deschide materialul'}
+                                        </a>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    `;
+                }
             }
         } else {
             /* ==================== ПАНЕЛЬ АДМИНИСТРАТОРА ==================== */
+            const pendingCount = appState.submissions.filter(s => s.status === 'submitted').length;
+
             tabsEl.innerHTML = `
                 <button class="cab-tab ${activePortalTab === 'admin-schedule' ? 'active' : ''}" onclick="switchPortalTab('admin-schedule')">
-                    <i class="fas fa-calendar-alt"></i> ${isRu ? 'Расписание Марафона' : 'Orar Maraton'}
+                    <i class="fas fa-calendar-alt"></i> ${isRu ? 'Расписание' : 'Orar'}
                 </button>
                 <button class="cab-tab ${activePortalTab === 'admin-hw' ? 'active' : ''}" onclick="switchPortalTab('admin-hw')">
-                    <i class="fas fa-check-double"></i> ${isRu ? 'Домашние задания (Марафон)' : 'Teme (Maraton)'}
+                    <i class="fas fa-check-double"></i> ${isRu ? 'Домашние задания' : 'Teme'}
+                    ${pendingCount > 0 ? `<span class="tab-badge-count">${pendingCount}</span>` : ''}
+                </button>
+                <button class="cab-tab ${activePortalTab === 'admin-materials' ? 'active' : ''}" onclick="switchPortalTab('admin-materials')">
+                    <i class="fas fa-folder-open"></i> ${isRu ? 'Материалы' : 'Materiale'}
                 </button>
                 <button class="cab-tab ${activePortalTab === 'admin-groups' ? 'active' : ''}" onclick="switchPortalTab('admin-groups')">
                     <i class="fas fa-users"></i> ${isRu ? 'Группы, ученики и практика' : 'Grupe, studenți și practică'}
@@ -2682,7 +2917,9 @@
             } else if (activePortalTab === 'admin-hw') {
                 const marathonHws = appState.homeworks.filter(h => {
                     const grp = appState.groups.find(g => g.id === h.groupId);
-                    return !grp || grp.type !== 'practice';
+                    const isMarathon = !grp || grp.type !== 'practice';
+                    const matchesGroup = adminHwGroupFilter === 'all' || h.groupId === adminHwGroupFilter;
+                    return isMarathon && matchesGroup;
                 });
 
                 bodyEl.innerHTML = `
@@ -2701,9 +2938,25 @@
                         </button>
                     </div>
 
+                    <!-- ПАНЕЛЬ БЫСТРОЙ ФИЛЬТРАЦИИ ДЗ -->
+                    <div class="admin-filter-bar">
+                        <span style="font-size:0.84rem; font-weight:800; color:var(--primary-dark);"><i class="fas fa-filter"></i> ${isRu ? 'Фильтр:' : 'Filtru:'}</span>
+                        <select class="portal-input" style="width:auto; min-width:210px; margin:0; padding:8px 14px;" onchange="adminHwGroupFilter = this.value; renderCabinet(false);">
+                            <option value="all" ${adminHwGroupFilter === 'all' ? 'selected' : ''}>${isRu ? 'Все группы' : 'Toate grupele'}</option>
+                            ${marathonGroups.map(g => `<option value="${g.id}" ${adminHwGroupFilter === g.id ? 'selected' : ''}>${isRu ? g.nameRu : g.nameRo}</option>`).join('')}
+                        </select>
+                        <button type="button" class="filter-pill-btn ${adminHwOnlyPending ? 'active' : ''}" onclick="adminHwOnlyPending = !adminHwOnlyPending; renderCabinet(false);">
+                            <i class="fas fa-clock"></i> ${isRu ? `Только непроверенные (${pendingCount})` : `Doar neverificate (${pendingCount})`}
+                        </button>
+                    </div>
+
                     ${marathonHws.map(hw => {
                         const grp = appState.groups.find(g => g.id === hw.groupId);
-                        const subs = appState.submissions.filter(s => s.hwId === hw.id);
+                        let subs = appState.submissions.filter(s => s.hwId === hw.id);
+                        if (adminHwOnlyPending) {
+                            subs = subs.filter(s => s.status === 'submitted');
+                        }
+
                         return `
                             <div class="cab-card">
                                 <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:10px;">
@@ -2722,48 +2975,139 @@
                                     <strong style="font-size:0.9rem; display:block; margin-bottom:12px; color:var(--primary-dark);">
                                         ${isRu ? `Ответы и работы учеников (${subs.length}):` : `Răspunsurile studenților (${subs.length}):`}
                                     </strong>
-                                    ${subs.length === 0 ? `<p style="margin:0; font-size:0.86rem; color:var(--text-muted);">${isRu ? 'Пока никто не сдал эту работу.' : 'Nimeni nu a predat lucrarea.'}</p>` : subs.map(s => `
-                                        <div style="background:#fff; padding:16px; border-radius:14px; border:1px solid #cbd5e1; margin-bottom:12px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-                                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
-                                                <strong><i class="fas fa-user-graduate" style="color:var(--primary);"></i> ${s.studentName}</strong>
-                                                <div style="display:flex; align-items:center; gap:8px;">
-                                                    ${s.grade ? `<span style="background:#fefce8; color:#ca8a04; border:1px solid #fde047; padding:2px 10px; border-radius:12px; font-weight:900; font-size:0.85rem;">⭐ ${s.grade}/10</span>` : ''}
-                                                    <span class="hw-status ${s.status === 'approved' ? 'status-approved' : s.status === 'revision' ? 'status-revision' : 'status-submitted'}">
-                                                        ${s.status === 'approved' ? (isRu ? 'Зачтено' : 'Acceptat') : s.status === 'revision' ? (isRu ? 'На доработку' : 'De refăcut') : (isRu ? 'Ожидает' : 'În așteptare')}
-                                                    </span>
+                                    ${subs.length === 0 ? `<p style="margin:0; font-size:0.86rem; color:var(--text-muted);">${adminHwOnlyPending ? (isRu ? 'Непроверенных работ по этому заданию нет.' : 'Nu există lucrări neverificate.') : (isRu ? 'Пока никто не сдал эту работу.' : 'Nimeni nu a predat lucrarea.')}</p>` : subs.map(s => {
+                                        const chatMessages = Array.isArray(s.messages) ? s.messages : [];
+                                        return `
+                                            <div style="background:#fff; padding:16px; border-radius:14px; border:1px solid #cbd5e1; margin-bottom:12px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
+                                                    <strong><i class="fas fa-user-graduate" style="color:var(--primary);"></i> ${s.studentName}</strong>
+                                                    <div style="display:flex; align-items:center; gap:8px;">
+                                                        ${s.grade ? `<span style="background:#fefce8; color:#ca8a04; border:1px solid #fde047; padding:2px 10px; border-radius:12px; font-weight:900; font-size:0.85rem;">⭐ ${s.grade}/10</span>` : ''}
+                                                        <span class="hw-status ${s.status === 'approved' ? 'status-approved' : s.status === 'revision' ? 'status-revision' : 'status-submitted'}">
+                                                            ${s.status === 'approved' ? (isRu ? 'Зачтено' : 'Acceptat') : s.status === 'revision' ? (isRu ? 'На доработку' : 'De refăcut') : (isRu ? 'Ожидает' : 'În așteptare')}
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            
-                                            <p style="margin:0 0 10px; font-size:0.92rem; background:#f1f5f9; padding:10px 14px; border-radius:10px;">${s.answerText || (isRu ? 'Без текста' : 'Fără text')}</p>
-                                            
-                                            ${s.photoData ? `
-                                                <div style="margin-bottom:12px;">
-                                                    <img src="${s.photoData}" class="uploaded-img-thumb" title="${isRu ? 'Нажмите для увеличения' : 'Click pentru mărire'}" onclick="window.open(this.src)">
-                                                </div>
-                                            ` : ''}
+                                                
+                                                <p style="margin:0 0 10px; font-size:0.92rem; background:#f1f5f9; padding:10px 14px; border-radius:10px;">${s.answerText || (isRu ? 'Без текста' : 'Fără text')}</p>
+                                                
+                                                ${s.photoData ? `
+                                                    <div style="margin-bottom:12px;">
+                                                        <img src="${s.photoData}" class="uploaded-img-thumb" title="${isRu ? 'Нажмите для увеличения' : 'Click pentru mărire'}" onclick="window.open(this.src)">
+                                                    </div>
+                                                ` : ''}
 
-                                            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; border-top:1px solid #f1f5f9; padding-top:10px;">
-                                                <div style="display:flex; align-items:center; gap:6px;">
-                                                    <label style="font-size:0.8rem; font-weight:700;">${isRu ? 'Оценка (1-10):' : 'Nota (1-10):'}</label>
-                                                    <select id="grade-${s.id}" class="portal-input" style="width:70px; margin:0; padding:6px;">
-                                                        ${[10,9,8,7,6,5,4,3,2,1].map(num => `<option value="${num}" ${s.grade == num ? 'selected' : ''}>${num}</option>`).join('')}
-                                                    </select>
+                                                <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; border-top:1px solid #f1f5f9; padding-top:10px;">
+                                                    <div style="display:flex; align-items:center; gap:6px;">
+                                                        <label style="font-size:0.8rem; font-weight:700;">${isRu ? 'Оценка (1-10):' : 'Nota (1-10):'}</label>
+                                                        <select id="grade-${s.id}" class="portal-input" style="width:70px; margin:0; padding:6px;">
+                                                            ${[10,9,8,7,6,5,4,3,2,1].map(num => `<option value="${num}" ${s.grade == num ? 'selected' : ''}>${num}</option>`).join('')}
+                                                        </select>
+                                                    </div>
+                                                    <input type="text" id="comm-${s.id}" class="portal-input" style="flex:1; margin:0; padding:8px 12px; font-size:0.88rem;" placeholder="${isRu ? 'Комментарий к оценке...' : 'Comentariu...'}" value="${s.teacherComment || ''}">
+                                                    <button type="button" class="btn-sm btn-sm-success" onclick="adminGradeSub('${s.id}', 'approved')">✓</button>
+                                                    <button type="button" class="btn-sm btn-sm-danger" onclick="adminGradeSub('${s.id}', 'revision')">↺</button>
                                                 </div>
-                                                <input type="text" id="comm-${s.id}" class="portal-input" style="flex:1; margin:0; padding:8px 12px; font-size:0.88rem;" placeholder="${isRu ? 'Комментарий к оценке...' : 'Comentariu...'}" value="${s.teacherComment || ''}">
-                                                <button type="button" class="btn-sm btn-sm-success" onclick="adminGradeSub('${s.id}', 'approved')">✓</button>
-                                                <button type="button" class="btn-sm btn-sm-danger" onclick="adminGradeSub('${s.id}', 'revision')">↺</button>
+
+                                                <!-- ЧАТ АДМИНА С УЧЕНИКОМ ПО ДЗ -->
+                                                <div class="hw-chat-box" style="margin-top:12px;">
+                                                    <div style="font-size:0.78rem; font-weight:800; color:var(--primary-dark); margin-bottom:6px;">
+                                                        <i class="fas fa-comments" style="color:var(--secondary);"></i> ${isRu ? `Переписка с учеником (${chatMessages.length})` : `Mesaje cu studentul (${chatMessages.length})`}
+                                                    </div>
+                                                    ${chatMessages.length > 0 ? `
+                                                        <div class="hw-chat-messages">
+                                                            ${chatMessages.map(m => `
+                                                                <div class="hw-chat-msg ${m.senderRole === 'admin' ? 'msg-admin' : 'msg-student'}">
+                                                                    <div style="font-size:0.7rem; font-weight:800; opacity:0.75; margin-bottom:2px;">${m.senderName} • ${m.time}</div>
+                                                                    <div>${m.text}</div>
+                                                                </div>
+                                                            `).join('')}
+                                                        </div>
+                                                    ` : ''}
+                                                    <div class="hw-chat-input-row">
+                                                        <input type="text" id="chat-adm-${s.id}" class="portal-input" style="margin:0; padding:7px 12px; font-size:0.84rem;" placeholder="${isRu ? 'Ответить ученику...' : 'Răspunde studentului...'}" onkeydown="if(event.key==='Enter') sendAdminChatMsg('${s.id}')">
+                                                        <button type="button" class="btn-sm btn-sm-primary" style="padding:7px 14px;" onclick="sendAdminChatMsg('${s.id}')"><i class="fas fa-paper-plane"></i></button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    `).join('')}
+                                        `;
+                                    }).join('')}
                                 </div>
                             </div>
                         `;
                     }).join('')}
                 `;
+            } else if (activePortalTab === 'admin-materials') {
+                const mats = appState.materials || [];
+                bodyEl.innerHTML = `
+                    <div class="cab-card" style="border-top:5px solid var(--secondary);">
+                        <h4 style="margin-top:0; color:var(--primary-dark); font-size:1.15rem;"><i class="fas fa-folder-plus" style="color:var(--secondary);"></i> ${isRu ? 'Добавить материал или шаблон' : 'Adaugă material sau șablon'}</h4>
+                        <div class="cab-grid-2">
+                            <div>
+                                <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Для какой группы' : 'Pentru ce grupă'}</label>
+                                <select id="newMatGroup" class="portal-input">
+                                    <option value="all">${isRu ? 'Для всех групп Марафона' : 'Pentru toate grupele Maraton'}</option>
+                                    ${marathonGroups.map(g => `<option value="${g.id}">${isRu ? g.nameRu : g.nameRo}</option>`).join('')}
+                                </select>
+                            </div>
+                            <div>
+                                <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Тип материала' : 'Tip material'}</label>
+                                <select id="newMatType" class="portal-input">
+                                    <option value="video">${isRu ? '🎥 Видеозапись урока' : '🎥 Înregistrare video'}</option>
+                                    <option value="excel">${isRu ? '📊 Таблица Excel / Шаблон' : '📊 Tabel Excel / Șablon'}</option>
+                                    <option value="doc">${isRu ? '📄 Методичка / Документ' : '📄 Document / Ghid'}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="text" id="newMatTitle" class="portal-input" placeholder="${isRu ? 'Название материала' : 'Denumirea materialului'}">
+                        <input type="text" id="newMatDesc" class="portal-input" placeholder="${isRu ? 'Краткое описание (необязательно)' : 'Descriere scurtă (opțional)'}">
+                        <input type="url" id="newMatUrl" class="portal-input" placeholder="${isRu ? 'Ссылка (Google Drive, YouTube, Excel...)' : 'Link (Google Drive, YouTube, Excel...)'}">
+                        <button type="button" id="btnAddMat" class="btn-sm btn-sm-gold" onclick="adminAddMaterial()">
+                            <i class="fas fa-check"></i> ${isRu ? 'Опубликовать' : 'Publică'}
+                        </button>
+                    </div>
+
+                    ${mats.length === 0 ? `<div class="cab-card"><p style="margin:0;color:var(--text-muted);">${isRu ? 'Материалов пока нет.' : 'Nu există materiale momentan.'}</p></div>` : `
+                        <div class="materials-grid">
+                            ${mats.map(m => {
+                                const grp = appState.groups.find(g => g.id === m.groupId);
+                                const grpText = m.groupId === 'all' ? (isRu ? 'Все группы' : 'Toate grupele') : (grp ? (isRu ? grp.nameRu : grp.nameRo) : '');
+                                const iconCls = m.type === 'video' ? 'mat-video fa-play-circle' : m.type === 'excel' ? 'mat-excel fa-file-excel' : 'mat-doc fa-file-alt';
+                                return `
+                                    <div class="material-card">
+                                        <div>
+                                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                                                <div class="mat-type-icon ${iconCls.split(' ')[0]}"><i class="fas ${iconCls.split(' ')[1]}"></i></div>
+                                                <button type="button" class="btn-sm btn-sm-danger" style="padding:6px 10px;" onclick="confirmDelete('material', '${m.id}')"><i class="fas fa-trash"></i></button>
+                                            </div>
+                                            <span style="font-size:0.74rem; font-weight:800; color:var(--primary);">${grpText}</span>
+                                            <h4 style="margin:4px 0 6px; color:var(--dark); font-size:1rem;">${isRu ? m.titleRu : m.titleRo}</h4>
+                                            <p style="margin:0; font-size:0.86rem; color:var(--text-muted);">${isRu ? (m.descRu || '') : (m.descRo || '')}</p>
+                                        </div>
+                                        <a href="${m.url}" target="_blank" class="btn-sm btn-sm-primary" style="justify-content:center;">
+                                            <i class="fas fa-external-link-alt"></i> ${isRu ? 'Проверить ссылку' : 'Verifică link-ul'}
+                                        </a>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    `}
+                `;
             } else if (activePortalTab === 'admin-groups') {
                 const allPeople = appState.users.filter(u => u.role === 'student');
-                const marathonStudents = allPeople.filter(st => !isPracticeUser(st));
-                const practiceStudents = allPeople.filter(st => isPracticeUser(st));
+                const searchLower = adminPeopleSearch.trim().toLowerCase();
+
+                const marathonStudents = allPeople.filter(st => {
+                    if (isPracticeUser(st)) return false;
+                    const matchGroup = adminPeopleGroupFilter === 'all' || st.groupId === adminPeopleGroupFilter;
+                    const matchName = !searchLower || st.name.toLowerCase().includes(searchLower) || (st.login && st.login.toLowerCase().includes(searchLower));
+                    return matchGroup && matchName;
+                });
+
+                const practiceStudents = allPeople.filter(st => {
+                    if (!isPracticeUser(st)) return false;
+                    return !searchLower || st.name.toLowerCase().includes(searchLower);
+                });
 
                 bodyEl.innerHTML = `
                     <div class="cab-grid-2">
@@ -2778,7 +3122,7 @@
                             <hr style="border:none; border-top:1px solid #e2e8f0; margin:20px 0;">
                             <h4 style="margin:0 0 12px; font-size:0.95rem;">${isRu ? 'Активные группы Марафона:' : 'Grupe active Maraton:'}</h4>
                             ${marathonGroups.map(g => {
-                                const count = marathonStudents.filter(st => st.groupId === g.id).length;
+                                const count = allPeople.filter(st => !isPracticeUser(st) && st.groupId === g.id).length;
                                 return `
                                     <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:var(--light-grey); border-radius:12px; margin-bottom:8px; border:1px solid #e2e8f0;">
                                         <div>
@@ -2795,7 +3139,6 @@
                         <div class="cab-card" style="border-top:5px solid var(--secondary);">
                             <h4 style="margin-top:0; color:var(--primary-dark); font-size:1.1rem;"><i class="fas fa-user-plus" style="color:var(--secondary);"></i> ${isRu ? 'Добавить человека' : 'Adaugă persoană'}</h4>
                             
-                            <!-- ПЕРЕКЛЮЧАТЕЛЬ: МАРАФОН / ПРАКТИКА В 1С -->
                             <div class="mode-pill-switch">
                                 <button type="button" class="mode-pill-btn ${adminAddPersonMode === 'marathon' ? 'active-marathon' : ''}" onclick="setAdminAddPersonMode('marathon')">
                                     <i class="fas fa-rocket"></i> ${isRu ? 'Марафон' : 'Maraton'}
@@ -2834,6 +3177,18 @@
                         </div>
                     </div>
 
+                    <!-- ПАНЕЛЬ ПОИСКА И ФИЛЬТРАЦИИ УЧЕНИКОВ -->
+                    <div class="admin-filter-bar">
+                        <div style="position:relative; flex:1; min-width:220px;">
+                            <i class="fas fa-search" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-muted);"></i>
+                            <input type="text" class="portal-input" style="margin:0; padding:9px 14px 9px 38px;" placeholder="${isRu ? 'Поиск по имени или логину...' : 'Caută după nume sau login...'}" value="${adminPeopleSearch}" oninput="adminPeopleSearch = this.value; renderCabinet(false);">
+                        </div>
+                        <select class="portal-input" style="width:auto; min-width:200px; margin:0; padding:9px 14px;" onchange="adminPeopleGroupFilter = this.value; renderCabinet(false);">
+                            <option value="all" ${adminPeopleGroupFilter === 'all' ? 'selected' : ''}>${isRu ? 'Все группы Марафона' : 'Toate grupele Maraton'}</option>
+                            ${marathonGroups.map(g => `<option value="${g.id}" ${adminPeopleGroupFilter === g.id ? 'selected' : ''}>${isRu ? g.nameRu : g.nameRo}</option>`).join('')}
+                        </select>
+                    </div>
+
                     <!-- РАЗДЕЛЬНЫЕ ТАБЛИЦЫ: 1) УЧЕНИКИ МАРАФОНА  2) ПРАКТИКАНТЫ В 1С -->
                     <div class="cab-grid-2">
                         <!-- БЛОК 1: УЧЕНИКИ МАРАФОНА -->
@@ -2842,7 +3197,7 @@
                                 <i class="fas fa-rocket" style="color:var(--secondary);"></i>
                                 ${isRu ? `Ученики Марафона (${marathonStudents.length})` : `Studenți Maraton (${marathonStudents.length})`}
                             </h4>
-                            ${marathonStudents.length === 0 ? `<p style="color:var(--text-muted); font-size:0.9rem;">${isRu ? 'Пока нет учеников марафона.' : 'Nu sunt studenți la maraton.'}</p>` : `
+                            ${marathonStudents.length === 0 ? `<p style="color:var(--text-muted); font-size:0.9rem;">${isRu ? 'Ученики не найдены.' : 'Nu s-au găsit studenți.'}</p>` : `
                                 <table class="admin-table">
                                     <thead>
                                         <tr>
@@ -2881,7 +3236,7 @@
                                 <i class="fas fa-laptop-code"></i>
                                 ${isRu ? `Практиканты в 1С (${practiceStudents.length})` : `Practicanți în 1C (${practiceStudents.length})`}
                             </h4>
-                            ${practiceStudents.length === 0 ? `<p style="color:var(--text-muted); font-size:0.9rem;">${isRu ? 'Пока нет практикантов.' : 'Nu sunt practicanți momentan.'}</p>` : `
+                            ${practiceStudents.length === 0 ? `<p style="color:var(--text-muted); font-size:0.9rem;">${isRu ? 'Практиканты не найдены.' : 'Nu s-au găsit practicanți.'}</p>` : `
                                 <table class="admin-table">
                                     <thead>
                                         <tr>
@@ -2891,20 +3246,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        ${practiceStudents.map(st => `
-                                            <tr>
-                                                <td><strong>${st.name}</strong></td>
-                                                <td>
-                                                    <span class="category-badge-practice" style="margin:0; font-size:0.84rem;">
-                                                        <i class="far fa-calendar-check"></i> ${st.practiceUntil ? formatDate(st.practiceUntil) : '—'}
-                                                    </span>
-                                                </td>
-                                                <td style="text-align:right; white-space:nowrap;">
-                                                    <button type="button" class="btn-sm btn-sm-gold" style="margin-right:6px;" title="${isRu ? 'Изменить практиканта' : 'Modifică practicantul'}" onclick="openEditStudentPracticeModal('${st.id}')"><i class="fas fa-pen"></i></button>
-                                                    <button type="button" class="btn-sm btn-sm-danger" onclick="confirmDelete('student', '${st.id}')"><i class="fas fa-trash"></i></button>
-                                                </td>
-                                            </tr>
-                                        `).join('')}
+                                        ${practiceStudents.map(st => {
+                                            const prStatus = getPracticeDeadlineStatus(st.practiceUntil, isRu);
+                                            return `
+                                                <tr>
+                                                    <td><strong>${st.name}</strong></td>
+                                                    <td>
+                                                        <span class="category-badge-practice ${prStatus.cls}" style="margin:0; font-size:0.82rem;">
+                                                            <i class="far fa-calendar-check"></i> ${prStatus.label}
+                                                        </span>
+                                                    </td>
+                                                    <td style="text-align:right; white-space:nowrap;">
+                                                        <button type="button" class="btn-sm btn-sm-gold" style="margin-right:6px;" title="${isRu ? 'Изменить практиканта' : 'Modifică practicantul'}" onclick="openEditStudentPracticeModal('${st.id}')"><i class="fas fa-pen"></i></button>
+                                                        <button type="button" class="btn-sm btn-sm-danger" onclick="confirmDelete('student', '${st.id}')"><i class="fas fa-trash"></i></button>
+                                                    </td>
+                                                </tr>
+                                            `;
+                                        }).join('')}
                                     </tbody>
                                 </table>
                             `}
@@ -2917,18 +3275,141 @@
         if (animate) triggerSmoothBodyAnimation();
     }
 
-    /* ЗАГРУЗКА ИЗОБРАЖЕНИЯ (ФОТО) В ДЗ */
-    function handleImageUpload(e, hwId) {
+    /* АВТОМАТИЧЕСКОЕ СЖАТИЕ ИЗОБРАЖЕНИЙ ПЕРЕД СОХРАНЕНИЕМ В ОБЛАКО (ПУНКТ 6) */
+    function compressImageFile(file, maxWidth = 1000, quality = 0.72) {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const img = new Image();
+                img.onload = function() {
+                    let w = img.width;
+                    let h = img.height;
+                    if (w > maxWidth) {
+                        h = Math.round((h * maxWidth) / w);
+                        w = maxWidth;
+                    }
+                    const canvas = document.createElement('canvas');
+                    canvas.width = w;
+                    canvas.height = h;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, w, h);
+                    resolve(canvas.toDataURL('image/jpeg', quality));
+                };
+                img.onerror = () => resolve(event.target.result);
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    async function handleImageUpload(e, hwId) {
         const file = e.target.files[0];
         if (!file) return;
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            const base64Img = event.target.result;
-            document.getElementById('photoVal-' + hwId).value = base64Img;
-            document.getElementById('preview-' + hwId).innerHTML = `<img src="${base64Img}" class="uploaded-img-thumb" onclick="window.open(this.src)">`;
-            showToast(currentLang === 'ru' ? 'Фотография прикреплена!' : 'Fotografia a fost atașată!', 'success');
-        };
-        reader.readAsDataURL(file);
+        const compressedBase64 = await compressImageFile(file);
+        document.getElementById('photoVal-' + hwId).value = compressedBase64;
+        document.getElementById('preview-' + hwId).innerHTML = `<img src="${compressedBase64}" class="uploaded-img-thumb" onclick="window.open(this.src)">`;
+        showToast(currentLang === 'ru' ? 'Фотография сжата и прикреплена!' : 'Fotografia a fost optimizată și atașată!', 'success');
+    }
+
+    /* ЧАТ ВНУТРИ ДОМАШНЕГО ЗАДАНИЯ (ПУНКТ 2) */
+    function sendStudentChatMsg(hwId) {
+        const input = document.getElementById('chat-stu-' + hwId);
+        if (!input) return;
+        const text = input.value.trim();
+        if (!text) return;
+
+        let sub = appState.submissions.find(s => s.hwId === hwId && s.studentId === currentUser.id);
+        if (!sub) {
+            sub = {
+                id: 'sub-' + Date.now(),
+                hwId: hwId,
+                studentId: currentUser.id,
+                studentName: currentUser.name,
+                answerText: '',
+                photoData: '',
+                status: 'submitted',
+                grade: null,
+                teacherComment: '',
+                messages: [],
+                updatedAt: new Date().toLocaleDateString('ru-RU')
+            };
+            appState.submissions.push(sub);
+        }
+        if (!Array.isArray(sub.messages)) sub.messages = [];
+
+        const now = new Date();
+        const timeStr = `${String(now.getDate()).padStart(2,'0')}.${String(now.getMonth()+1).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+        sub.messages.push({
+            senderRole: 'student',
+            senderName: currentUser.name,
+            text,
+            time: timeStr
+        });
+
+        saveAppState();
+        renderCabinet(false);
+    }
+
+    function sendAdminChatMsg(subId) {
+        const input = document.getElementById('chat-adm-' + subId);
+        if (!input) return;
+        const text = input.value.trim();
+        if (!text) return;
+
+        const sub = appState.submissions.find(s => s.id === subId);
+        if (!sub) return;
+        if (!Array.isArray(sub.messages)) sub.messages = [];
+
+        const now = new Date();
+        const timeStr = `${String(now.getDate()).padStart(2,'0')}.${String(now.getMonth()+1).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+        sub.messages.push({
+            senderRole: 'admin',
+            senderName: currentUser.name,
+            text,
+            time: timeStr
+        });
+
+        saveAppState();
+        renderCabinet(false);
+    }
+
+    /* ДОБАВЛЕНИЕ МАТЕРИАЛА В БИБЛИОТЕКУ (ПУНКТ 3) */
+    async function adminAddMaterial() {
+        const groupId = document.getElementById('newMatGroup').value;
+        const type = document.getElementById('newMatType').value;
+        const rawTitle = document.getElementById('newMatTitle').value.trim();
+        const rawDesc = document.getElementById('newMatDesc').value.trim();
+        const url = document.getElementById('newMatUrl').value.trim();
+
+        if (!rawTitle || !url) {
+            showToast(currentLang === 'ru' ? 'Укажите название и ссылку на материал!' : 'Specificați denumirea și link-ul materialului!', 'warning');
+            return;
+        }
+
+        const btn = document.getElementById('btnAddMat');
+        btn.disabled = true;
+        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${currentLang === 'ru' ? 'Публикация...' : 'Se publică...'}`;
+
+        const trTitle = await smartAutoTranslate(rawTitle);
+        const trDesc = await smartAutoTranslate(rawDesc);
+
+        if (!appState.materials) appState.materials = [];
+        appState.materials.unshift({
+            id: 'mat-' + Date.now(),
+            groupId,
+            type,
+            titleRu: trTitle.ru,
+            titleRo: trTitle.ro,
+            descRu: trDesc.ru,
+            descRo: trDesc.ro,
+            url
+        });
+
+        await saveAppState();
+        renderCabinet(false);
+        showToast(currentLang === 'ru' ? 'Материал опубликован!' : 'Materialul a fost publicat!', 'success');
     }
 
     /* АНИМИРОВАННОЕ ПОДТВЕРЖДЕНИЕ УДАЛЕНИЯ */
@@ -2955,6 +3436,8 @@
         } else if (type === 'hw') {
             appState.homeworks = appState.homeworks.filter(h => h.id !== id);
             appState.submissions = appState.submissions.filter(s => s.hwId !== id);
+        } else if (type === 'material') {
+            appState.materials = (appState.materials || []).filter(m => m.id !== id);
         } else if (type === 'group') {
             appState.groups = appState.groups.filter(g => g.id !== id);
         } else if (type === 'student') {
@@ -2974,16 +3457,19 @@
             return;
         }
         const existingIdx = appState.submissions.findIndex(s => s.hwId === hwId && s.studentId === currentUser.id);
+        const existingSub = existingIdx >= 0 ? appState.submissions[existingIdx] : null;
+
         const entry = {
-            id: existingIdx >= 0 ? appState.submissions[existingIdx].id : 'sub-' + Date.now(),
+            id: existingSub ? existingSub.id : 'sub-' + Date.now(),
             hwId: hwId,
             studentId: currentUser.id,
             studentName: currentUser.name,
             answerText: text,
             photoData: photo,
             status: 'submitted',
-            grade: existingIdx >= 0 ? appState.submissions[existingIdx].grade : null,
-            teacherComment: existingIdx >= 0 ? appState.submissions[existingIdx].teacherComment : '',
+            grade: existingSub ? existingSub.grade : null,
+            teacherComment: existingSub ? existingSub.teacherComment : '',
+            messages: existingSub && Array.isArray(existingSub.messages) ? existingSub.messages : [],
             updatedAt: new Date().toLocaleDateString('ru-RU')
         };
         if (existingIdx >= 0) appState.submissions[existingIdx] = entry;
@@ -3076,7 +3562,7 @@
         showToast(currentLang === 'ru' ? 'Изменения сохранены!' : 'Modificările au fost salvate!', 'success');
     }
 
-    /* РЕДАКТИРОВАНИЕ СТУДЕНТА МАРАФОНА (ИМЯ, ГРУППА, ЛОГИН, ПАРОЛЬ) */
+    /* РЕДАКТИРОВАНИЕ СТУДЕНТА МАРАФОНА */
     function openEditMarathonStudentModal(stuId) {
         const stu = appState.users.find(u => u.id === stuId);
         if (!stu) return;
@@ -3538,7 +4024,7 @@
             return;
         }
         const starsStr = '⭐'.repeat(selectedRating);
-        const fullMsg = `Новый отзыв с сайта Contabil.md!\nИмя: ${name}\nОценка: ${starsStr} (${selectedRating}/5)\nОтзыв: ${text}`;
+        const fullMsg = `Новый отзыв с сайта bordeniucunity.md!\nИмя: ${name}\nОценка: ${starsStr} (${selectedRating}/5)\nОтзыв: ${text}`;
         if (platform === 'whatsapp') {
             window.open(`https://wa.me/37378506196?text=${encodeURIComponent(fullMsg)}`, '_blank');
         } else {
@@ -3572,35 +4058,35 @@
             holRu: "8 марта — Международный женский день",
             holRo: "8 martie — Ziua internațională a femeii",
             rep: [
-                { date: "25.03.2026", list: "IPC 21, IRM 19, TVA 12, TL 13, IU 17, IAL 21, VEN 12 (годовой подоходный налог), UNIF 21, SIMM 24" }
+                { date: "25.03.2026", list: "IPC 21, IRM 19, TVA 12, TL 13, VEN 12 (Годовая декларация), UNIF 21, IVAO 15" }
             ],
             wt: { d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176 }
         },
         {
             ru: "Апрель", ro: "Aprilie",
-            holRu: "12–13 апреля — Пасха; 20 апреля — Радоница",
-            holRo: "12–13 aprilie — Paștele; 20 aprilie — Paștele Blajinilor",
+            holRu: "12 и 13 апреля — Пасха; 20 апреля — Радоница",
+            holRo: "12 și 13 aprilie — Paștele; 20 aprilie — Paștele Blajinilor",
             rep: [
-                { date: "27.04.2026", list: "IPC 21, IRM 19, TVA 12, TL 13, IU 17, IAL 21, INR 14, TFD 19, BIJ 1, TACL, TBDSA 15" }
+                { date: "27.04.2026", list: "IPC 21, IRM 19, TVA 12, TL 13 (за I квартал), BIJ 1, TACL, TBDSA 15" }
             ],
             wt: { d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160 }
         },
         {
             ru: "Май", ro: "Mai",
             holRu: "1 мая — День труда; 9 мая — День Победы и День Европы",
-            holRo: "1 mai — Ziua muncii; 9 mai — Ziua Victoriei și a Europei",
+            holRo: "1 mai — Ziua muncii; 9 mai — Ziua Victoriei și a comemorării eroilor",
             rep: [
-                { date: "25.05.2026", list: "IPC 21, IRM 19, TVA 12, TL 13, IU 17, IAL 21, INR 14, TFD 19, BIJ 1, TACL" },
-                { date: "30.05.2026", list: "Сдача годовой финансовой отчетности (Situații financiare anuale)" }
+                { date: "25.05.2026", list: "IPC 21, IRM 19, TVA 12, IU 17, IAL 21, INR 14" },
+                { date: "30.05.2026", list: "Сдача финансовой отчетности (Situațiile Financiare) в BNS за 2025 год" }
             ],
             wt: { d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159 }
         },
         {
             ru: "Июнь", ro: "Iunie",
             holRu: "1 июня — Международный день защиты детей",
-            holRo: "1 iunie — Ziua Internațională a Copilului",
+            holRo: "1 iunie — Ziua Ocrotirii Copilului",
             rep: [
-                { date: "25.06.2026", list: "IPC 21, IRM 19, TVA 12, TL 13, IU 17, IAL 21, INR 14, TFD 19, BIJ 1, TACL, TBDSA 15" }
+                { date: "25.06.2026", list: "IPC 21, IRM 19, TVA 12, IU 17, IAL 21, INR 14" }
             ],
             wt: { d8: 21, h8: 168, d7: 0, h7: 0, dt: 21, ht: 168 }
         },
@@ -3609,16 +4095,16 @@
             holRu: "Нет официальных праздничных дней",
             holRo: "Nu sunt zile de sărbătoare nelucrătoare",
             rep: [
-                { date: "27.07.2026", list: "IPC 21, IRM 19, TVA 12, TL 13, IU 17, IAL 21, INR 14, TFD 19, BIJ 1, TACL, TBDSA 15" }
+                { date: "27.07.2026", list: "IPC 21, IRM 19, TVA 12, TL 13 (за II квартал), BIJ 1, TACL, TBDSA 15" }
             ],
             wt: { d8: 23, h8: 184, d7: 0, h7: 0, dt: 23, ht: 184 }
         },
         {
             ru: "Август", ro: "August",
             holRu: "27 августа — День Независимости; 31 августа — Limba Noastră",
-            holRo: "27 august — Ziua Independenței; 31 august — Sărbătoarea Limba Noastră",
+            holRo: "27 august — Ziua Independenței; 31 august — Sărbătoarea „Limba Noastră”",
             rep: [
-                { date: "25.08.2026", list: "IPC 21, IRM 19, TVA 12, TL 13, IU 17, IAL 21, INR 14, TFD 19, BIJ 1, TACL, TBDSA 15" }
+                { date: "25.08.2026", list: "IPC 21, IRM 19, TVA 12, IU 17, IAL 21, INR 14" }
             ],
             wt: { d8: 18, h8: 144, d7: 1, h7: 7, dt: 19, ht: 151 }
         },
@@ -3627,16 +4113,16 @@
             holRu: "Нет официальных праздничных дней",
             holRo: "Nu sunt zile de sărbătoare nelucrătoare",
             rep: [
-                { date: "25.09.2026", list: "IPC 21, IRM 19, TVA 12, TL 13, IU 17, IAL 21, INR 14, TFD 19, BIJ 1, TACL, TBDSA 15" }
+                { date: "25.09.2026", list: "IPC 21, IRM 19, TVA 12, BIJ 1, TACL, TBDSA 15" }
             ],
             wt: { d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176 }
         },
         {
             ru: "Октябрь", ro: "Octombrie",
-            holRu: "14 октября — Храм города Кишинева (местный выходной)",
-            holRo: "14 octombrie — Hramul orașului Chișinău (zi nelucrătoare locală)",
+            holRu: "14 октября — Храм города Кишинёв (для муниципия)",
+            holRo: "14 octombrie — Hramul orașului Chișinău (pentru municipiu)",
             rep: [
-                { date: "26.10.2026", list: "IPC 21, IRM 19, TVA 12, TL 13, IU 17, IAL 21, INR 14, TFD 19, BIJ 1, TACL, TBDSA 15" }
+                { date: "26.10.2026", list: "IPC 21, IRM 19, TVA 12, TL 13 (за III квартал), BIJ 1, TACL, TBDSA 15" }
             ],
             wt: { d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176 }
         },
@@ -3645,7 +4131,7 @@
             holRu: "Нет официальных праздничных дней",
             holRo: "Nu sunt zile de sărbătoare nelucrătoare",
             rep: [
-                { date: "25.11.2026", list: "IPC 21, IRM 19, TVA 12, TL 13, IU 17, IAL 21, INR 14, TFD 19, BIJ 1, TACL, TBDSA 15" }
+                { date: "25.11.2026", list: "IPC 21, IRM 19, TVA 12, IU 17, IAL 21, INR 14" }
             ],
             wt: { d8: 21, h8: 168, d7: 0, h7: 0, dt: 21, ht: 168 }
         },
@@ -3654,7 +4140,7 @@
             holRu: "25 декабря — Рождество Христово (по новому стилю)",
             holRo: "25 decembrie — Nașterea lui Isus Hristos (stil nou)",
             rep: [
-                { date: "28.12.2026", list: "IPC 21, IRM 19, TVA 12, TL 13, IU 17, IAL 21, INR 14, TFD 19, BIJ 1, TACL, TBDSA 15" }
+                { date: "28.12.2026", list: "IPC 21, IRM 19, TVA 12, IU 17, IAL 21, INR 14" }
             ],
             wt: { d8: 21, h8: 168, d7: 1, h7: 7, dt: 22, ht: 175 }
         }
@@ -3663,53 +4149,63 @@
     let activeMonthIndex = 0;
 
     function toggleCalendar() {
-        document.getElementById('calDrawer').classList.toggle('open');
-        document.getElementById('drawerOverlay').classList.toggle('active');
+        const drawer = document.getElementById('calDrawer');
+        const overlay = document.getElementById('drawerOverlay');
+        drawer.classList.toggle('open');
+        overlay.classList.toggle('active');
     }
 
     function renderMonths() {
         const grid = document.getElementById('monthGrid');
         grid.innerHTML = '';
         monthsData.forEach((m, idx) => {
-            const btn = document.createElement('div');
-            btn.className = 'month-item' + (idx === activeMonthIndex ? ' active' : '');
-            btn.innerText = currentLang === 'ru' ? m.ru : m.ro;
-            btn.onclick = () => showDeadline(idx, true);
-            grid.appendChild(btn);
+            const div = document.createElement('div');
+            div.className = 'month-item' + (idx === activeMonthIndex ? ' active' : '');
+            div.innerText = m[currentLang];
+            div.onclick = () => showDeadline(idx, true);
+            grid.appendChild(div);
         });
     }
 
     function showDeadline(idx, scroll = false) {
         activeMonthIndex = idx;
-        renderMonths();
-        const m = monthsData[idx];
-        const box = document.getElementById('deadlineBox');
-        document.getElementById('dlTitle').innerText = (currentLang === 'ru' ? m.ru : m.ro) + ' 2026';
-        document.getElementById('dlHolidays').innerText = currentLang === 'ru' ? m.holRu : m.holRo;
-
-        const repCont = document.getElementById('reportsContainer');
-        repCont.innerHTML = '';
-        m.rep.forEach(r => {
-            const grp = document.createElement('div');
-            grp.className = 'report-group';
-            grp.innerHTML = `<div class="dl-date">${r.date}</div><div class="reports-list">${r.list}</div>`;
-            repCont.appendChild(grp);
+        document.querySelectorAll('.month-item').forEach((el, i) => {
+            el.classList.toggle('active', i === idx);
         });
 
-        document.getElementById('wt-d8').innerText = m.wt.d8;
-        document.getElementById('wt-h8').innerText = m.wt.h8;
-        document.getElementById('wt-d7').innerText = m.wt.d7;
-        document.getElementById('wt-h7').innerText = m.wt.h7;
-        document.getElementById('wt-dt').innerText = m.wt.dt;
-        document.getElementById('wt-ht').innerText = m.wt.ht;
+        const data = monthsData[idx];
+        const box = document.getElementById('deadlineBox');
+        document.getElementById('dlTitle').innerText = data[currentLang] + " 2026";
+        document.getElementById('dlHolidays').innerText = currentLang === 'ru' ? data.holRu : data.holRo;
+
+        const repContainer = document.getElementById('reportsContainer');
+        repContainer.innerHTML = '';
+        data.rep.forEach(r => {
+            const grp = document.createElement('div');
+            grp.className = 'report-group';
+            grp.innerHTML = `
+                <div class="dl-date"><i class="far fa-clock"></i> ${r.date}</div>
+                <div class="reports-list">${r.list}</div>
+            `;
+            repContainer.appendChild(grp);
+        });
+
+        document.getElementById('wt-d8').innerText = data.wt.d8;
+        document.getElementById('wt-h8').innerText = data.wt.h8;
+        document.getElementById('wt-d7').innerText = data.wt.d7;
+        document.getElementById('wt-h7').innerText = data.wt.h7;
+        document.getElementById('wt-dt').innerText = data.wt.dt;
+        document.getElementById('wt-ht').innerText = data.wt.ht;
 
         box.classList.add('show');
         if (scroll) box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
+    /* ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ */
     renderMonths();
     showDeadline(0, false);
     updateHeaderUserButton();
 </script>
+
 </body>
 </html>
