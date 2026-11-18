@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
     <title>Cursuri de Contabilitate în Moldova | Ludmila Bordeniuc | Курсы Бухгалтерии в Молдове</title>
     <meta name="description" content="Cursuri practice de contabilitate în Moldova 2026. Instruire SNC și 1C de la zero. / Практические курсы бухгалтерии в Молдове 2026. Обучение НСБУ и 1С с нуля.">
@@ -49,20 +49,33 @@
             --shadow-lg: 0 28px 60px rgba(15, 45, 82, 0.16);
         }
 
-        * { box-sizing: border-box; scroll-behavior: smooth; }
+        * { box-sizing: border-box; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+
+        html {
+            width: 100%;
+            overflow-x: clip;
+            -webkit-text-size-adjust: 100%;
+            touch-action: manipulation;
+        }
         
         body {
             font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
             margin: 0;
+            width: 100%;
             color: var(--dark);
             line-height: 1.65;
             background-color: var(--white);
-            overflow-x: hidden;
+            overflow-x: clip;
             -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4, .logo-text, .btn-hero {
             font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ЗАЩИТА ОТ АВТО-ЗУМА НА IPHONE ПРИ ФОКУСЕ В ПОЛЯХ */
+        input, textarea, select {
+            font-size: 16px !important;
         }
 
         .gold-text {
@@ -73,9 +86,9 @@
 
         /* МЯГКИЙ И ПЛАВНЫЙ ПЕРЕХОД ПРИ СМЕНЕ ЯЗЫКА */
         [data-ru], #hero-h1, #hero-p, #hero-btn, input, textarea, select, #cabinetBody, #cabinetTabs, #cabUserRole {
-            transition: opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1),
-                        transform 0.52s cubic-bezier(0.22, 1, 0.36, 1),
-                        filter 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                        filter 0.45s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .lang-switching [data-ru],
         .lang-switching #hero-h1,
@@ -86,7 +99,7 @@
         .lang-switching #cabUserRole {
             opacity: 0;
             transform: translateY(5px);
-            filter: blur(5px);
+            filter: blur(4px);
         }
 
         /* АНИМАЦИЯ ПЕРЕКЛЮЧЕНИЯ ВКЛАДОК И РАЗДЕЛОВ В КАБИНЕТЕ */
@@ -108,7 +121,7 @@
         /* КРАСИВЫЕ ВСПЛЫВАЮЩИЕ УВЕДОМЛЕНИЯ (TOASTS) */
         .toast-container {
             position: fixed;
-            top: 24px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 9999;
@@ -120,10 +133,10 @@
             max-width: 430px;
         }
         .custom-toast {
-            background: rgba(255, 255, 255, 0.97);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(14px);
             border-radius: 20px;
-            padding: 16px 20px;
+            padding: 15px 18px;
             box-shadow: 0 22px 50px rgba(15, 23, 42, 0.25);
             display: flex;
             align-items: center;
@@ -161,7 +174,7 @@
 
         /* НАВИГАЦИЯ */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             padding: 10px 5%;
@@ -173,11 +186,11 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            min-height: 78px;
+            min-height: 76px;
         }
         
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; z-index: 1001; }
-        .logo-img { height: 60px; width: auto; display: block; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); filter: drop-shadow(0 3px 8px rgba(212, 175, 55, 0.25)); }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; z-index: 1002; }
+        .logo-img { height: 58px; width: auto; display: block; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); filter: drop-shadow(0 3px 8px rgba(212, 175, 55, 0.25)); }
         .logo:hover .logo-img { transform: scale(1.05); }
         .logo-text {
             font-size: 0.96rem;
@@ -190,8 +203,8 @@
         }
 
         .nav-container { display: flex; align-items: center; gap: 16px; }
-        nav { display: flex; gap: 20px; align-items: center; }
-        nav a {
+        nav.desktop-nav { display: flex; gap: 20px; align-items: center; }
+        nav.desktop-nav a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 600;
@@ -200,7 +213,7 @@
             position: relative;
             padding: 4px 0;
         }
-        nav a::after {
+        nav.desktop-nav a::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -210,8 +223,8 @@
             background: var(--gold-grad);
             transition: width 0.25s ease;
         }
-        nav a:hover { color: var(--primary); }
-        nav a:hover::after { width: 100%; }
+        nav.desktop-nav a:hover { color: var(--primary); }
+        nav.desktop-nav a:hover::after { width: 100%; }
 
         /* КНОПКА ЛИЧНОГО КАБИНЕТА В ШАПКЕ */
         .btn-cabinet-nav {
@@ -221,7 +234,7 @@
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: #fff;
             border: 1.5px solid var(--secondary);
-            padding: 9px 20px;
+            padding: 9px 18px;
             border-radius: 30px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
@@ -262,7 +275,7 @@
             background: var(--primary);
             border-radius: 25px;
             transform: translateX(100%);
-            transition: transform 0.48s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
             box-shadow: 0 2px 10px rgba(26, 79, 139, 0.28);
         }
         .lang-btn {
@@ -281,19 +294,154 @@
         .lang-btn.active { color: #fff; }
         .lang-btn:not(.active) { color: var(--primary); }
 
+        /* СТИЛЬНАЯ КНОПКА БУРГЕРА С МОРФИНГОМ */
         .menu-toggle {
             display: none;
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: var(--primary-light);
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #fffdf7 0%, var(--secondary-light) 100%);
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
             cursor: pointer;
-            color: var(--primary);
-            z-index: 1001;
-            border: 1px solid rgba(212, 175, 55, 0.45);
+            z-index: 1005;
+            border: 1.5px solid rgba(212, 175, 55, 0.65);
+            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.22);
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+        .menu-toggle:active { transform: scale(0.92); }
+        .burger-lines {
+            width: 20px;
+            height: 14px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .burger-lines span {
+            display: block;
+            height: 2.5px;
+            width: 100%;
+            background: var(--primary-dark);
+            border-radius: 4px;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: center;
+        }
+        .burger-lines span:nth-child(2) {
+            width: 72%;
+            align-self: flex-end;
+            background: #b48811;
+        }
+        .menu-toggle.open {
+            background: var(--primary-dark);
+            border-color: var(--secondary);
+        }
+        .menu-toggle.open .burger-lines span {
+            background: #fff;
+        }
+        .menu-toggle.open .burger-lines span:nth-child(1) {
+            transform: translateY(5.75px) rotate(45deg);
+        }
+        .menu-toggle.open .burger-lines span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(10px);
+        }
+        .menu-toggle.open .burger-lines span:nth-child(3) {
+            transform: translateY(-5.75px) rotate(-45deg);
+        }
+
+        /* ПРЕМИАЛЬНАЯ ВЫЕЗЖАЮЩАЯ МОБИЛЬНАЯ ПАНЕЛЬ */
+        .mobile-menu-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(9, 18, 36, 0.68);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 1003;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+        .mobile-menu-backdrop.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 84%;
+            max-width: 340px;
+            height: 100dvh;
+            background: radial-gradient(circle at 90% 10%, #1d518f 0%, #0d2544 55%, #071529 100%);
+            color: #fff;
+            z-index: 1004;
+            transform: translateX(105%);
+            transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px 22px 28px;
+            border-left: 2px solid rgba(212, 175, 55, 0.55);
+            box-shadow: -20px 0 50px rgba(0, 0, 0, 0.45);
+            overflow-y: auto;
+        }
+        .mobile-drawer.active {
+            transform: translateX(0);
+        }
+        .mobile-drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        .mobile-drawer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 22px 0;
+        }
+        .mobile-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 16px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #f8fafc;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.94rem;
+            transition: all 0.25s ease;
+        }
+        .mobile-nav-link:active, .mobile-nav-link:hover {
+            background: rgba(212, 175, 55, 0.18);
+            border-color: rgba(212, 175, 55, 0.55);
+            transform: translateX(4px);
+        }
+        .mobile-nav-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: rgba(212, 175, 55, 0.16);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #f6d776;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.92rem;
+            flex-shrink: 0;
+        }
+        .mobile-drawer-footer {
+            border-top: 1px solid rgba(212, 175, 55, 0.25);
+            padding-top: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         /* ГЕРОЙ */
@@ -353,7 +501,7 @@
             border-left: 4px solid var(--secondary);
             padding: 12px 22px;
             border-radius: 14px;
-            font-size: 1.18rem;
+            font-size: 1.12rem;
             font-weight: 800;
             color: #f6d776;
             margin-bottom: 32px;
@@ -374,9 +522,10 @@
             font-weight: 800;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             transition: all 0.3s ease;
-            font-size: 1.08rem;
+            font-size: 1.05rem;
             box-shadow: 0 10px 26px rgba(212, 175, 55, 0.45);
             border: 1px solid rgba(255,255,255,0.45);
             cursor: pointer;
@@ -463,8 +612,8 @@
         }
         .teacher-tab:hover { 
             opacity: 1; 
-            transform: scale(1.08);
-            margin: 0 10px;
+            transform: scale(1.06);
+            margin: 0 8px;
             background: rgba(255,255,255,0.95);
             z-index: 2;
         }
@@ -473,8 +622,8 @@
             border-color: var(--secondary);
             opacity: 1; 
             box-shadow: var(--gold-glow);
-            transform: scale(1.14);
-            margin: 0 16px;
+            transform: scale(1.1);
+            margin: 0 12px;
             z-index: 3;
         }
         .teacher-tab img { 
@@ -619,6 +768,7 @@
             font-size: 0.95rem;
             color: #475569;
             border-top: 1px solid #f1f5f9;
+            text-align: left;
         }
         .acc-content-inner p { margin: 0 0 10px; }
         .acc-content-inner p:last-child { margin-bottom: 0; }
@@ -783,13 +933,14 @@
             background: #fff; padding: 14px 20px; border-radius: 16px;
             box-shadow: var(--shadow-sm); border: 1px solid rgba(212, 175, 55, 0.32);
             transition: transform 0.25s, border-color 0.25s;
+            word-break: break-word;
         }
         .contact-method:hover { transform: translateX(5px); border-color: var(--secondary); }
-        .contact-method i { font-size: 1.6rem; width: 30px; text-align: center; }
+        .contact-method i { font-size: 1.6rem; width: 30px; text-align: center; flex-shrink: 0; }
         .contact-form { background: var(--white); padding: 34px; border-radius: 28px; border: 1.5px solid rgba(212, 175, 55, 0.42); box-shadow: var(--shadow-md); }
         .contact-form input, .contact-form select {
             width: 100%; padding: 14px 16px; margin-bottom: 15px; border-radius: 12px;
-            border: 1px solid #cbd5e1; outline: none; font-size: 0.95rem; font-family: inherit;
+            border: 1px solid #cbd5e1; outline: none; font-family: inherit;
             background: #f8fafc; transition: border-color 0.2s, background 0.2s;
         }
         .contact-form input:focus, .contact-form select:focus { border-color: var(--secondary); background: #fff; }
@@ -806,13 +957,13 @@
             position: fixed; top: 50%; right: 0; transform: translateY(-50%);
             background: var(--gold-grad);
             color: #0f172a; padding: 15px 20px 15px 24px; border-radius: 30px 0 0 30px;
-            cursor: pointer; box-shadow: -5px 5px 22px rgba(212, 175, 55, 0.42); z-index: 2000;
+            cursor: pointer; box-shadow: -5px 5px 22px rgba(212, 175, 55, 0.42); z-index: 990;
             font-weight: 800; display: flex; align-items: center; gap: 10px; transition: 0.3s;
             font-family: 'Montserrat', sans-serif; font-size: 0.92rem;
             border: 1.5px solid rgba(255,255,255,0.65); border-right: none;
         }
         .floating-calendar-btn:hover { padding-right: 28px; filter: brightness(1.06); }
-        .calendar-drawer { position: fixed; top: 0; right: -100%; width: 450px; max-width: 100%; height: 100vh; background: #fff; z-index: 3000; box-shadow: -10px 0 35px rgba(0,0,0,0.18); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; overflow-y: auto; }
+        .calendar-drawer { position: fixed; top: 0; right: -100%; width: 450px; max-width: 100%; height: 100dvh; background: #fff; z-index: 3000; box-shadow: -10px 0 35px rgba(0,0,0,0.18); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; overflow-y: auto; }
         .calendar-drawer.open { right: 0; }
         .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.55); backdrop-filter: blur(3px); z-index: 2999; display: none; opacity: 0; transition: 0.3s; }
         .drawer-overlay.active { display: block; opacity: 1; }
@@ -840,7 +991,7 @@
         .work-time-table td { color: var(--dark); font-weight: 600; }
         .work-time-table .total-row { font-weight: 800; background: #ffebbc; color: var(--dark); }
 
-        .target-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; max-width: 850px; margin-inline: auto; }
+        .target-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 20px; max-width: 850px; margin-inline: auto; }
         .target-card { background: #fff; padding: 36px 28px; border-radius: 22px; box-shadow: var(--shadow-sm); text-align: center; border-bottom: 4px solid var(--secondary); border-top: 1px solid rgba(212, 175, 55, 0.25); transition: transform 0.3s, box-shadow 0.3s; }
         .target-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
         .target-icon { width: 68px; height: 68px; background: var(--secondary-light); color: #9f7509; border: 1.5px solid rgba(212, 175, 55, 0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 18px; }
@@ -864,7 +1015,7 @@
             -webkit-backdrop-filter: blur(12px);
             z-index: 5000;
             overflow-y: auto;
-            padding: 20px;
+            padding: 16px;
         }
         .portal-overlay.active {
             display: flex;
@@ -877,7 +1028,7 @@
             width: 100%;
             max-width: 440px;
             border-radius: 32px;
-            padding: 44px 38px;
+            padding: 40px 32px;
             box-shadow: 0 35px 80px rgba(0, 0, 0, 0.45);
             position: relative;
             animation: modalPopIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -886,8 +1037,8 @@
 
         .portal-close {
             position: absolute;
-            top: 18px;
-            right: 20px;
+            top: 16px;
+            right: 18px;
             width: 38px;
             height: 38px;
             border-radius: 50%;
@@ -908,7 +1059,6 @@
             padding: 13px 16px;
             border-radius: 14px;
             border: 1.5px solid #cbd5e1;
-            font-size: 0.94rem;
             font-family: inherit;
             margin-bottom: 14px;
             background: #f8fafc;
@@ -943,7 +1093,7 @@
         .cabinet-topbar {
             background: radial-gradient(circle at 15% 50%, #1e5799 0%, #0d2648 65%, #07162b 100%);
             color: #fff;
-            padding: 20px 36px;
+            padding: 20px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -966,12 +1116,12 @@
         .cabinet-user-badge {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 16px;
             position: relative;
             z-index: 2;
         }
         .cabinet-logo-clean {
-            height: 78px;
+            height: 74px;
             width: auto;
             object-fit: contain;
             filter: drop-shadow(0 6px 16px rgba(212, 175, 55, 0.42));
@@ -998,7 +1148,7 @@
         .cabinet-actions {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
             position: relative;
             z-index: 2;
         }
@@ -1006,10 +1156,10 @@
             background: rgba(255,255,255,0.1);
             color: #fff;
             border: 1px solid rgba(255,255,255,0.22);
-            padding: 10px 18px;
+            padding: 10px 16px;
             border-radius: 14px;
             font-weight: 700;
-            font-size: 0.86rem;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.25s ease;
         }
@@ -1018,18 +1168,22 @@
         .cabinet-tabs {
             display: flex;
             gap: 8px;
-            padding: 16px 36px 0;
+            padding: 14px 28px 0;
             background: #fff;
             border-bottom: 1px solid #e2e8f0;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
+        .cabinet-tabs::-webkit-scrollbar { height: 3px; }
+        .cabinet-tabs::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 4px; }
+
         .cab-tab {
-            padding: 13px 20px;
+            padding: 12px 18px;
             border: none;
             background: none;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             color: var(--text-muted);
             cursor: pointer;
             border-bottom: 3px solid transparent;
@@ -1056,15 +1210,15 @@
         }
 
         .cabinet-body {
-            padding: 30px 36px 42px;
-            max-height: 75vh;
+            padding: 26px 32px 38px;
+            max-height: 75dvh;
             overflow-y: auto;
         }
 
         .cab-card {
             background: #fff;
             border-radius: 24px;
-            padding: 26px;
+            padding: 24px;
             border: 1px solid #e2e8f0;
             box-shadow: var(--shadow-sm);
             margin-bottom: 22px;
@@ -1236,7 +1390,7 @@
         /* КАРТОЧКИ БИБЛИОТЕКИ МАТЕРИАЛОВ */
         .materials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
             gap: 18px;
         }
         .material-card {
@@ -1282,12 +1436,12 @@
         }
         .mode-pill-btn {
             flex: 1;
-            padding: 10px 14px;
+            padding: 10px 12px;
             border: none;
             border-radius: 10px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             cursor: pointer;
             background: transparent;
             color: var(--text-muted);
@@ -1295,7 +1449,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
         }
         .mode-pill-btn.active-marathon {
             background: var(--primary);
@@ -1345,7 +1499,7 @@
             border-color: #fda4af !important;
         }
 
-        /* КОМПАКТНЫЙ И ПЛАВНЫЙ КАЛЕНДАРЬ УЧЕНИКА МАРАФОНА (ФИКСИРОВАННЫЕ 6 СТРОК) */
+        /* КОМПАКТНЫЙ И ПЛАВНЫЙ КАЛЕНДАРЬ УЧЕНИКА МАРАФОНА */
         .stu-schedule-layout {
             display: grid;
             grid-template-columns: 315px 1fr;
@@ -1472,8 +1626,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 18px;
-            padding: 20px 24px;
+            gap: 16px;
+            padding: 18px 22px;
             background: #fff;
             border: 1px solid #e2e8f0;
             border-left: 6px solid var(--secondary);
@@ -1495,11 +1649,11 @@
             padding: 12px 16px;
             border-radius: 16px;
             font-size: 0.88rem;
-            min-width: 145px;
+            min-width: 140px;
             text-align: center;
         }
-        .lesson-main { flex: 1; min-width: 220px; }
-        .lesson-main h4 { margin: 4px 0 6px; color: var(--dark); font-size: 1.08rem; }
+        .lesson-main { flex: 1; min-width: 200px; }
+        .lesson-main h4 { margin: 4px 0 6px; color: var(--dark); font-size: 1.06rem; }
         .lesson-main p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
 
         .hw-status {
@@ -1539,10 +1693,10 @@
         .admin-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
         .admin-table th, .admin-table td {
-            padding: 13px 14px;
+            padding: 12px 12px;
             text-align: left;
             border-bottom: 1px solid #e2e8f0;
         }
@@ -1565,7 +1719,7 @@
             z-index: 6000;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 16px;
         }
         .sub-modal-overlay.active {
             display: flex;
@@ -1578,11 +1732,13 @@
             width: 100%;
             max-width: 490px;
             border-radius: 28px;
-            padding: 34px 30px;
+            padding: 32px 26px;
             box-shadow: 0 30px 70px rgba(0,0,0,0.35);
             border: 1.5px solid rgba(212, 175, 55, 0.45);
             animation: scaleUpModal 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             position: relative;
+            max-height: 90dvh;
+            overflow-y: auto;
         }
         @keyframes scaleUpModal {
             0% { transform: scale(0.86) translateY(15px); opacity: 0; }
@@ -1604,22 +1760,16 @@
         @media (max-width: 980px) {
             header { padding: 10px 4%; min-height: 68px; }
             .menu-toggle { display: flex; }
-            nav {
-                position: fixed; top: 68px; left: -100%; width: 100%; height: calc(100vh - 68px);
-                background: #fff; flex-direction: column; align-items: center; justify-content: flex-start;
-                padding-top: 40px; gap: 22px; transition: 0.35s ease; z-index: 1000;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
-            nav.active { left: 0; }
-            nav a { font-size: 1.15rem; }
-            .hero { min-height: auto; padding: 60px 5% 65px; }
-            .hero-container { flex-direction: column; text-align: center; gap: 45px; }
+            nav.desktop-nav { display: none; }
+
+            .hero { min-height: auto; padding: 55px 5% 60px; }
+            .hero-container { flex-direction: column; text-align: center; gap: 40px; }
             .hero-text { text-align: center; }
             .hero p { margin: 0 auto 24px; }
-            .hero h1 { font-size: 2.15rem; }
+            .hero h1 { font-size: 2.05rem; }
             .hero-actions { justify-content: center; }
-            .hero-visual { width: 100%; min-height: 320px; padding-top: 10px; }
-            .floating-wrapper { width: 210px; height: 284px; margin: 0 auto; aspect-ratio: unset; }
+            .hero-visual { width: 100%; min-height: 310px; padding-top: 10px; }
+            .floating-wrapper { width: 205px; height: 278px; margin: 0 auto; aspect-ratio: unset; }
             .notebook-cover img { width: 95%; transform: translateZ(20px); }
             
             .teacher-card { flex-direction: column; text-align: center; padding: 28px 20px; gap: 25px; }
@@ -1630,36 +1780,55 @@
             .teacher-img { width: 100%; max-width: 260px; height: 320px; }
 
             .reviews-grid { grid-template-columns: 1fr; }
-            .review-card { height: auto; min-height: 260px; }
+            .review-card { height: auto; min-height: 240px; }
             
             .contacts-grid, .cab-grid-2, .stu-schedule-layout { grid-template-columns: 1fr; }
             .stu-cal-wrapper { max-width: 340px; margin: 0 auto; width: 100%; }
-            .section-title { font-size: 1.75rem; }
+            .section-title { font-size: 1.7rem; }
             .logo-text { font-size: 0.8rem; }
             .logo-img { height: 44px; }
-            .floating-calendar-btn { padding: 12px 15px; }
+            .floating-calendar-btn { padding: 12px 14px; }
             .floating-calendar-btn span { display: none; }
         }
 
         @media (max-width: 520px) {
-            .hero h1 { font-size: 1.75rem; }
+            .section-white, .section-light { padding: 55px 4%; }
+            .hero { padding: 42px 4% 52px; }
+            .hero h1 { font-size: 1.65rem; }
+            .hero-start-pill { font-size: 0.98rem; padding: 10px 16px; }
             .hero-actions { flex-direction: column; width: 100%; }
-            .btn-hero { width: 100%; justify-content: center; }
-            .hero-visual { min-height: 270px; padding-top: 0; }
-            .floating-wrapper { width: 175px; height: 236px; }
+            .btn-hero { width: 100%; justify-content: center; padding: 16px 24px; font-size: 0.98rem; }
+            .hero-visual { min-height: 255px; padding-top: 0; }
+            .floating-wrapper { width: 170px; height: 230px; }
             .floating-shadow { bottom: -20px; }
-            .price-card { padding: 30px 22px; }
+
+            .price-grid { grid-template-columns: 1fr; }
+            .price-card { padding: 28px 20px; }
+            .price-card.selected { transform: none; }
+            .price-val { font-size: 2.35rem; }
+
             .logo { gap: 8px; }
             .logo-img { height: 38px; }
             .logo-text { display: none; }
             .nav-container { gap: 8px; }
             .btn-cabinet-nav span { display: none; }
             .btn-cabinet-nav { padding: 9px 12px; }
+
             .month-grid { grid-template-columns: repeat(2, 1fr); }
             .calendar-drawer { width: 100%; }
             .messenger-btns { flex-direction: column; }
-            .cabinet-body, .cabinet-topbar { padding: 18px; }
-            .cabinet-logo-clean { height: 58px; }
+
+            .portal-overlay { padding: 8px; }
+            .cabinet-workspace { border-radius: 22px; }
+            .cabinet-topbar { padding: 14px 16px; }
+            .cabinet-tabs { padding: 10px 14px 0; }
+            .cabinet-body { padding: 16px 14px 28px; max-height: 82dvh; }
+            .cab-card { padding: 18px 14px; border-radius: 18px; }
+            .cabinet-logo-clean { height: 50px; }
+            .lesson-row { padding: 14px 16px; }
+            .lesson-date-badge { width: 100%; text-align: left; display: flex; justify-content: space-between; }
+            .contact-form { padding: 22px 18px; }
+            .review-card { padding: 24px 20px 20px; }
         }
     </style>
 </head>
@@ -1713,12 +1882,12 @@
         <span class="logo-text">SERVICII CONTABILE</span>
     </a>
     <div class="nav-container">
-        <nav id="mobileNav">
-            <a href="#testimonials" data-ru="Отзывы" data-ro="Recenzii" onclick="closeMenu()">Recenzii</a>
-            <a href="#teacher" data-ru="Об эксперте" data-ro="Despre expert" onclick="closeMenu()">Despre expert</a>
-            <a href="#program" data-ru="Программа Марафона" data-ro="Programa Maratonului" onclick="closeMenu()">Programa Maratonului</a>
-            <a href="#pricing" data-ru="Тарифы" data-ro="Tarife" onclick="closeMenu()">Tarife</a>
-            <a href="#contact" data-ru="Контакты" data-ro="Contacte" onclick="closeMenu()">Contacte</a>
+        <nav class="desktop-nav">
+            <a href="#testimonials" data-ru="Отзывы" data-ro="Recenzii">Recenzii</a>
+            <a href="#teacher" data-ru="Об эксперте" data-ro="Despre expert">Despre expert</a>
+            <a href="#program" data-ru="Программа Марафона" data-ro="Programa Maratonului">Programa Maratonului</a>
+            <a href="#pricing" data-ru="Тарифы" data-ro="Tarife">Tarife</a>
+            <a href="#contact" data-ru="Контакты" data-ro="Contacte">Contacte</a>
         </nav>
 
         <!-- КНОПКА ЛИЧНОГО КАБИНЕТА -->
@@ -1734,11 +1903,74 @@
             <button type="button" class="lang-btn active" id="btnRo" onclick="setLanguage('ro')">RO</button>
         </div>
 
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars" id="menuIcon"></i>
-        </div>
+        <!-- СТИЛЬНЫЙ БУРГЕР -->
+        <button type="button" class="menu-toggle" id="burgerBtn" aria-label="Meniu" onclick="toggleMenu()">
+            <div class="burger-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
     </div>
 </header>
+
+<!-- СТИЛЬНАЯ МОБИЛЬНАЯ ПАНЕЛЬ НАВИГАЦИИ -->
+<div class="mobile-menu-backdrop" id="mobileBackdrop" onclick="closeMenu()"></div>
+<aside class="mobile-drawer" id="mobileDrawer">
+    <div>
+        <div class="mobile-drawer-header">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <img src="Gemini_Generated_Image_ag3b37ag3b37ag3b-removebg-preview.png" alt="Logo" style="height:44px; filter: drop-shadow(0 3px 10px rgba(212,175,55,0.4));">
+                <div>
+                    <div style="font-family:'Montserrat',sans-serif; font-weight:900; font-size:0.86rem; color:#f6d776; letter-spacing:0.6px;">BORDENIUC UNITY</div>
+                    <div style="font-size:0.72rem; color:#94a3b8;" data-ru="Бухгалтерия РМ 2026" data-ro="Contabilitate RM 2026">Contabilitate RM 2026</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-drawer-links">
+            <a href="#testimonials" class="mobile-nav-link" onclick="closeMenu()">
+                <span class="mobile-nav-icon"><i class="fas fa-star"></i></span>
+                <span data-ru="Отзывы учеников" data-ro="Recenzii studenți">Recenzii studenți</span>
+            </a>
+            <a href="#teacher" class="mobile-nav-link" onclick="closeMenu()">
+                <span class="mobile-nav-icon"><i class="fas fa-award"></i></span>
+                <span data-ru="Команда экспертов" data-ro="Echipa de experți">Echipa de experți</span>
+            </a>
+            <a href="#program" class="mobile-nav-link" onclick="closeMenu()">
+                <span class="mobile-nav-icon"><i class="fas fa-book-open"></i></span>
+                <span data-ru="Программа Марафона" data-ro="Programa Maratonului">Programa Maratonului</span>
+            </a>
+            <a href="#pricing" class="mobile-nav-link" onclick="closeMenu()">
+                <span class="mobile-nav-icon"><i class="fas fa-tags"></i></span>
+                <span data-ru="Тарифы и услуги" data-ro="Tarife și servicii">Tarife și servicii</span>
+            </a>
+            <a href="#contact" class="mobile-nav-link" onclick="closeMenu()">
+                <span class="mobile-nav-icon"><i class="fas fa-headset"></i></span>
+                <span data-ru="Контакты и запись" data-ro="Contacte și înscriere">Contacte și înscriere</span>
+            </a>
+            <a href="javascript:void(0)" class="mobile-nav-link" onclick="closeMenu(); toggleCalendar();">
+                <span class="mobile-nav-icon"><i class="fas fa-calendar-alt"></i></span>
+                <span data-ru="Календарь бухгалтера" data-ro="Calendarul contabilului">Calendarul contabilului</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="mobile-drawer-footer">
+        <button type="button" class="btn-hero" style="width:100%; padding:14px 20px; border-radius:16px; font-size:0.92rem;" onclick="closeMenu(); openPortal();">
+            <i class="fas fa-user-circle"></i>
+            <span data-ru="Войти в Личный кабинет" data-ro="Intră în Contul meu">Intră în Contul meu</span>
+        </button>
+        <div style="display:flex; gap:10px;">
+            <a href="https://wa.me/37378506196" target="_blank" style="flex:1; background:#25d366; color:#fff; text-decoration:none; padding:11px; border-radius:14px; font-weight:800; font-size:0.84rem; display:flex; align-items:center; justify-content:center; gap:6px;">
+                <i class="fab fa-whatsapp" style="font-size:1.1rem;"></i> WhatsApp
+            </a>
+            <a href="viber://chat?number=%2B37378506196" style="flex:1; background:#7360f2; color:#fff; text-decoration:none; padding:11px; border-radius:14px; font-weight:800; font-size:0.84rem; display:flex; align-items:center; justify-content:center; gap:6px;">
+                <i class="fab fa-viber" style="font-size:1.1rem;"></i> Viber
+            </a>
+        </div>
+    </div>
+</aside>
 
 <!-- ГЛАВНЫЙ ЭКРАН -->
 <section class="hero">
@@ -1848,7 +2080,7 @@
             <div class="target-card reveal" style="transition-delay: 0.2s;">
                 <div class="target-icon"><i class="fas fa-sync-alt"></i></div>
                 <h4 data-ru="Бухгалтерам после перерыва" data-ro="Contabililor după o pauză">Contabililor după o pauză</h4>
-                <p data-ru="Выходили в декрет или меняли сферу? Поможем обновить знания под реалии и законы 2026 года." data-ro="Ați fost în concediu de maternitate sau ați schimbat domeniul? Vă ajutăm să vă actualizați cunoștințele.">Ați fost în concediu de maternitate sau ați schimbat domeniul? Vă ajutăm să vă actualizați cunoștințele.</p>
+                <p data-ru="Выходили в декрет или меняли сферу? Поможем обновить знания под реалии и законы 2026 года." data-ro="Ați fost în concediu de maternitate sau ați schbat domeniul? Vă ajutăm să vă actualizați cunoștințele.">Ați fost în concediu de maternitate sau ați schimbat domeniul? Vă ajutăm să vă actualizați cunoștințele.</p>
             </div>
         </div>
     </div>
@@ -2129,93 +2361,13 @@
     </div>
 </section>
 
-<!-- ОТЗЫВЫ -->
+<!-- ОТЗЫВЫ (ДИНАМИЧЕСКИ РЕНДЕРЯТСЯ ИЗ БАЗЫ + МОДЕРАЦИЯ В АДМИНКЕ) -->
 <section class="section-light" id="testimonials">
     <div class="roadmap-container">
         <h2 class="section-title reveal" data-ru="Отзывы наших учеников" data-ro="Recenziile studenților noștri">Recenziile studenților noștri</h2>
         <div class="section-divider reveal"></div>
                 
-        <div class="reviews-grid">
-            <!-- 1. OLIGA -->
-            <div class="review-card reveal">
-                <div class="review-header-row">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <div class="quote-badge"><i class="fas fa-quote-right"></i></div>
-                </div>
-                <p class="review-text" 
-                   data-ru="Хочу выразить огромную благодарность моему преподавателю по бухгалтерскому учету! Занятия проходят на одном дыхании: вся информация объясняется максимально доступно, четко и без лишней «воды», от самых азов до сложных проводок. Очень ценю индивидуальный подход, терпение и готовность отвечать на любые вопросы до тех пор, пока всё не станет понятно. Благодаря вам появилась уверенность в своих силах и глубокое понимание профессии. Огромное спасибо за ваш труд, профессионализм и атмосферу на уроках!" 
-                   data-ro="Vreau să-mi exprim recunoștința enormă față de profesorul meu de contabilitate! Lecțiile trec pe nerăsuflate: toată informația este explicată cât se poate de accesibil, clar și fără «apă» inutilă, de la baze până la formule contabile complexe. Apreciez foarte mult abordarea individuală, răbdarea și disponibilitatea de a răspunde la orice întrebare până când totul devine clar. Datorită dvs. a apărut încrederea în propriile forțe și o înțelegere profundă a profesiei. Mulțumesc enorm pentru munca, profesionalismul și atmosfera de la lecții!">
-                   Vreau să-mi exprim recunoștința enormă față de profesorul meu de contabilitate! Lecțiile trec pe nerăsuflate: toată informația este explicată cât se poate de accesibil, clar și fără «apă» inutilă, de la baze până la formule contabile complexe. Apreciez foarte mult abordarea individuală, răbdarea și disponibilitatea de a răspunde la orice întrebare până când totul devine clar. Datorită dvs. a apărut încrederea în propriile forțe și o înțelegere profundă a profesiei. Mulțumesc enorm pentru munca, profesionalismul și atmosfera de la lecții!
-                </p>
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar"><i class="fas fa-user"></i></div>
-                    <div>
-                        <h4 data-ru="Ольга" data-ro="Oliga">Oliga</h4>
-                        <span data-ru="Выпускник марафона" data-ro="Absolvent al maratonului">Absolvent al maratonului</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. LOLITA -->
-            <div class="review-card reveal">
-                <div class="review-header-row">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <div class="quote-badge"><i class="fas fa-quote-right"></i></div>
-                </div>
-                <p class="review-text" 
-                   data-ru="Хочу сказать большое спасибо нашему преподавателю за эти курсы! Мне очень понравилось, как проходили занятия. Всё объяснялось спокойно, понятно и простыми словами. Даже сложные темы постепенно стали понятнее. Отдельное спасибо за терпение, внимание и готовность всегда всё объяснить ещё раз. Я получила много полезных знаний и уверенности в себе. Очень рада, что попала именно к такому преподавателю. Спасибо за ваш труд и хорошее отношение!" 
-                   data-ro="Vreau să spun un mare mulțumesc profesorului nostru pentru aceste cursuri! Mi-a plăcut foarte mult cum s-au desfășurat lecțiile. Totul a fost explicat calm, clar și în cuvinte simple. Chiar și temele complexe au devenit treptat mai clare. Mulțumesc separat pentru răbdare, atenție și disponibilitatea de a explica mereu încă o dată. Am primit multe cunoștințe utile și încredere în mine. Mă bucur foarte mult că am ajuns anume la un astfel de profesor. Mulțumesc pentru munca și atitudinea frumoasă!">
-                   Vreau să spun un mare mulțumesc profesorului nostru pentru aceste cursuri! Mi-a plăcut foarte mult cum s-au desfășurat lecțiile. Totul a fost explicat calm, clar și în cuvinte simple. Chiar și temele complexe au devenit treptat mai clare. Mulțumesc separat pentru răbdare, atenție și disponibilitatea de a explica mereu încă o dată. Am primit multe cunoștințe utile și încredere în mine. Mă bucur foarte mult că am ajuns anume la un astfel de profesor. Mulțumesc pentru munca și atitudinea frumoasă!
-                </p>
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar"><i class="fas fa-user"></i></div>
-                    <div>
-                        <h4 data-ru="Лолита" data-ro="Lolita">Lolita</h4>
-                        <span data-ru="Выпускник марафона" data-ro="Absolvent al maratonului">Absolvent al maratonului</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. IRINA -->
-            <div class="review-card reveal">
-                <div class="review-header-row">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <div class="quote-badge"><i class="fas fa-quote-right"></i></div>
-                </div>
-                <p class="review-text" 
-                   data-ru="Людмила, огромное спасибо за проведенные вами уроки. Данный курс сформировал мощную базу в моей профессиональной деятельности. ОГРОМНОЕ СПАСИБО !!!" 
-                   data-ro="Doamna Ludmila, multumesc enorm pt lectiile care d-voastra le-ati petrecut. Cursul dat a format o baza puternica in activitatea mea profesionala. MULTUMESC ENORM !!!">
-                   Doamna Ludmila, multumesc enorm pt lectiile care d-voastra le-ati petrecut. Cursul dat a format o baza puternica in activitatea mea profesionala. MULTUMESC ENORM !!!
-                </p>
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar"><i class="fas fa-user"></i></div>
-                    <div>
-                        <h4 data-ru="Ирина" data-ro="Irina">Irina</h4>
-                        <span data-ru="Выпускник марафона" data-ro="Absolvent al maratonului">Absolvent al maratonului</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. SVETLANA VOLCOV -->
-            <div class="review-card reveal">
-                <div class="review-header-row">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <div class="quote-badge"><i class="fas fa-quote-right"></i></div>
-                </div>
-                <p class="review-text" 
-                   data-ru="Хочу от всей души поблагодарить госпожу Людмилу, которая направляла меня и обучила на курсах бухгалтерии. ✨ Это настоящий профессионал, очень терпеливая и доступно всё объясняющая. Она разобрала каждую тему четко и понятно для меня, терпеливо отвечая на все мои вопросы. Благодаря её методике преподавания я смогла гораздо лучше понять бухгалтерский учет и обрела больше уверенности в себе. Спасибо вам, госпожа Людмила, за терпение, профессионализм и за все знания, которые вы мне передали! От всей души рекомендую вас всем, кто хочет изучить бухгалтерию с нуля или углубить свои знания." 
-                   data-ro="Vreau să-i mulțumesc din suflet doamnei Ludmila care m-a îndrumat și m-a învățat cursurile de contabilitate. ✨ Este o adevărată profesionistă, foarte răbdătoare și explicită. Mi-a explicat fiecare temă clar și pe înțelesul meu, răspunzând cu răbdare la toate întrebările mele. Datorită modului în care predă, am reușit să înțeleg mult mai bine contabilitatea și să capăt mai multă încredere în mine. Vă mulțumesc Dna Ludmila pentru răbdare, profesionalism și pentru toate cunoștințele pe care mi le-ați transmis! Vă recomand cu mare drag tuturor celor care doresc să învețe contabilitate de la zero sau să-și îmbogățească cunoștințele.">
-                   Vreau să-i mulțumesc din suflet doamnei Ludmila care m-a îndrumat și m-a învățat cursurile de contabilitate. ✨ Este o adevărată profesionistă, foarte răbdătoare și explicită. Mi-a explicat fiecare temă clar și pe înțelesul meu, răspunzând cu răbdare la toate întrebările mele. Datorită modului în care predă, am reușit să înțeleg mult mai bine contabilitatea și să capăt mai multă încredere în mine. Vă mulțumesc Dna Ludmila pentru răbdare, profesionalism și pentru toate cunoștințele pe care mi le-ați transmis! Vă recomand cu mare drag tuturor celor care doresc să învețe contabilitate de la zero sau să-și îmbogățească cunoștințele.
-                </p>
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar"><i class="fas fa-user"></i></div>
-                    <div>
-                        <h4 data-ru="Светлана Волков" data-ro="Svetlana Volcov">Svetlana Volcov</h4>
-                        <span data-ru="Выпускник марафона" data-ro="Absolvent al maratonului">Absolvent al maratonului</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="reviews-grid" id="publicReviewsGrid"></div>
 
         <div style="text-align: center; margin-top: 42px;">
             <button onclick="openReviewModal()" class="btn-hero">
@@ -2295,16 +2447,16 @@
     <p style="margin: 0;">&copy; 2026 <span style="color: var(--secondary); font-weight: 700;">BordeniucUnity.md</span> | Ludmila Bordeniuc</p>
 </footer>
 
-<!-- МОДАЛЬНОЕ ОКНО ОТЗЫВОВ -->
+<!-- МОДАЛЬНОЕ ОКНО ОТЗЫВОВ (ОТПРАВКА НА МОДЕРАЦИЮ В АДМИНКУ) -->
 <style>
     .star-icon { color: #cbd5e1; cursor: pointer; transition: color 0.2s, transform 0.2s; }
     .star-icon:hover { transform: scale(1.12); }
     .star-icon.active { color: var(--secondary); }
 </style>
 
-<div id="reviewModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(4px); z-index: 4000; justify-content: center; align-items: center;">
-    <div style="background: #fff; padding: 32px; border-radius: 24px; width: 92%; max-width: 420px; position: relative; box-shadow: 0 20px 45px rgba(0,0,0,0.25); border: 1.5px solid rgba(212, 175, 55, 0.45);">
-        <button onclick="closeReviewModal()" style="position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #888;">&times;</button>
+<div id="reviewModal" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.68); backdrop-filter: blur(5px); z-index: 4000; justify-content: center; align-items: center; padding: 16px;">
+    <div style="background: #fff; padding: 30px 24px; border-radius: 24px; width: 100%; max-width: 430px; position: relative; box-shadow: 0 20px 45px rgba(0,0,0,0.25); border: 1.5px solid rgba(212, 175, 55, 0.45);">
+        <button onclick="closeReviewModal()" style="position: absolute; top: 15px; right: 18px; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #888;">&times;</button>
         <h3 data-ru="Поделитесь впечатлениями" data-ro="Împărtășește-ți impresiile" style="color: var(--primary); margin-top: 0; text-align: center;">Împărtășește-ți impresiile</h3>
         
         <div id="starRatingContainer" style="text-align: center; margin-bottom: 18px; font-size: 2rem;">
@@ -2315,17 +2467,13 @@
             <i class="fas fa-star star-icon" data-val="5" onclick="setRating(5)"></i>
         </div>
         
-        <input type="text" id="reviewNameInput" style="width: 100%; padding: 13px 15px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 14px; outline: none; font-size: 0.95rem; font-family: inherit;" placeholder="Numele dvs.">
-        <textarea id="reviewTextInput" rows="4" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 15px; font-family: inherit; resize: vertical; outline: none; font-size: 0.95rem;" placeholder="Scrie recenzia ta aici..."></textarea>
+        <input type="text" id="reviewNameInput" style="width: 100%; padding: 13px 15px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 14px; outline: none; font-family: inherit;" placeholder="Numele dvs.">
+        <textarea id="reviewTextInput" rows="4" style="width: 100%; padding: 14px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 15px; font-family: inherit; resize: vertical; outline: none;" placeholder="Scrie recenzia ta aici..."></textarea>
         
-        <div class="messenger-btns">
-            <button onclick="sendReview('whatsapp')" class="btn-messenger btn-whatsapp">
-                <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> WhatsApp
-            </button>
-            <button onclick="sendReview('viber')" class="btn-messenger btn-viber">
-                <i class="fab fa-viber" style="font-size: 1.3rem;"></i> Viber
-            </button>
-        </div>
+        <button type="button" id="submitReviewBtn" onclick="submitSiteReview()" class="btn-hero" style="width: 100%; justify-content: center; padding: 15px; border-radius: 14px; font-size: 0.98rem;">
+            <i class="fas fa-paper-plane"></i>
+            <span data-ru="Отправить отзыв" data-ro="Trimite recenzia">Trimite recenzia</span>
+        </button>
     </div>
 </div>
 
@@ -2382,7 +2530,7 @@
             <div class="cabinet-user-badge">
                 <img src="Gemini_Generated_Image_ag3b37ag3b37ag3b-removebg-preview.png" alt="Bordeniuc Unity" class="cabinet-logo-clean">
                 <div>
-                    <h3 style="margin: 0; font-size: 1.25rem; letter-spacing: 0.3px;" id="cabUserName">Ludmila Bordeniuc</h3>
+                    <h3 style="margin: 0; font-size: 1.2rem; letter-spacing: 0.3px;" id="cabUserName">Ludmila Bordeniuc</h3>
                     <span class="role-pill" id="cabUserRole">Administrator</span>
                 </div>
             </div>
@@ -2485,6 +2633,50 @@
         }
     }
 
+    /* БАЗОВЫЕ ОТЗЫВЫ */
+    const DEFAULT_REVIEWS = [
+        {
+            id: 'rev-1',
+            nameRu: 'Ольга',
+            nameRo: 'Oliga',
+            rating: 5,
+            textRu: 'Хочу выразить огромную благодарность моему преподавателю по бухгалтерскому учету! Занятия проходят на одном дыхании: вся информация объясняется максимально доступно, четко и без лишней «воды», от самых азов до сложных проводок. Очень ценю индивидуальный подход, терпение и готовность отвечать на любые вопросы до тех пор, пока всё не станет понятно. Благодаря вам появилась уверенность в своих силах и глубокое понимание профессии. Огромное спасибо за ваш труд, профессионализм и атмосферу на уроках!',
+            textRo: 'Vreau să-mi exprim recunoștința enormă față de profesorul meu de contabilitate! Lecțiile trec pe nerăsuflate: toată informația este explicată cât se poate de accesibil, clar și fără «apă» inutilă, de la baze până la formule contabile complexe. Apreciez foarte mult abordarea individuală, răbdarea și disponibilitatea de a răspunde la orice întrebare până când totul devine clar. Datorită dvs. a apărut încrederea în propriile forțe și o înțelegere profundă a profesiei. Mulțumesc enorm pentru munca, profesionalismul și atmosfera de la lecții!',
+            status: 'approved',
+            createdAt: '2026-01-15'
+        },
+        {
+            id: 'rev-2',
+            nameRu: 'Лолита',
+            nameRo: 'Lolita',
+            rating: 5,
+            textRu: 'Хочу сказать большое спасибо нашему преподавателю за эти курсы! Мне очень понравилось, как проходили занятия. Всё объяснялось спокойно, понятно и простыми словами. Даже сложные темы постепенно стали понятнее. Отдельное спасибо за терпение, внимание и готовность всегда всё объяснить ещё раз. Я получила много полезных знаний и уверенности в себе. Очень рада, что попала именно к такому преподавателю. Спасибо за ваш труд и хорошее отношение!',
+            textRo: 'Vreau să spun un mare mulțumesc profesorului nostru pentru aceste cursuri! Mi-a plăcut foarte mult cum s-au desfășurat lecțiile. Totul a fost explicat calm, clar și în cuvinte simple. Chiar și temele complexe au devenit treptat mai clare. Mulțumesc separat pentru răbdare, atenție și disponibilitatea de a explica mereu încă o dată. Am primit multe cunoștințe utile și încredere în mine. Mă bucur foarte mult că am ajuns anume la un astfel de profesor. Mulțumesc pentru munca și atitudinea frumoasă!',
+            status: 'approved',
+            createdAt: '2026-01-18'
+        },
+        {
+            id: 'rev-3',
+            nameRu: 'Ирина',
+            nameRo: 'Irina',
+            rating: 5,
+            textRu: 'Людмила, огромное спасибо за проведенные вами уроки. Данный курс сформировал мощную базу в моей профессиональной деятельности. ОГРОМНОЕ СПАСИБО !!!',
+            textRo: 'Doamna Ludmila, multumesc enorm pt lectiile care d-voastra le-ati petrecut. Cursul dat a format o baza puternica in activitatea mea profesionala. MULTUMESC ENORM !!!',
+            status: 'approved',
+            createdAt: '2026-01-20'
+        },
+        {
+            id: 'rev-4',
+            nameRu: 'Светлана Волков',
+            nameRo: 'Svetlana Volcov',
+            rating: 5,
+            textRu: 'Хочу от всей души поблагодарить госпожу Людмилу, которая направляла меня и обучила на курсах бухгалтерии. ✨ Это настоящий профессионал, очень терпеливая и доступно всё объясняющая. Она разобрала каждую тему четко и понятно для меня, терпеливо отвечая на все мои вопросы. Благодаря её методике преподавания я смогла гораздо лучше понять бухгалтерский учет и обрела больше уверенности в себе. Спасибо вам, госпожа Людмила, за терпение, профессионализм и за все знания, которые вы мне передали! От всей души рекомендую вас всем, кто хочет изучить бухгалтерию с нуля или углубить свои знания.',
+            textRo: 'Vreau să-i mulțumesc din suflet doamnei Ludmila care m-a îndrumat și m-a învățat cursurile de contabilitate. ✨ Este o adevărată profesionistă, foarte răbdătoare și explicită. Mi-a explicat fiecare temă clar și pe înțelesul meu, răspunzând cu răbdare la toate întrebările mele. Datorită modului în care predă, am reușit să înțeleg mult mai bine contabilitatea și să capăt mai multă încredere în mine. Vă mulțumesc Dna Ludmila pentru răbdare, profesionalism și pentru toate cunoștințele pe care mi le-ați transmis! Vă recomand cu mare drag tuturor celor care doresc să învețe contabilitate de la zero sau să-și îmbogățească cunoștințele.',
+            status: 'approved',
+            createdAt: '2026-01-25'
+        }
+    ];
+
     /* БАЗА ДАННЫХ */
     const DEFAULT_STATE = {
         groups: [
@@ -2531,11 +2723,15 @@
                 url: 'https://docs.google.com/spreadsheets/'
             }
         ],
-        submissions: []
+        submissions: [],
+        reviews: DEFAULT_REVIEWS
     };
 
-    let appState = JSON.parse(localStorage.getItem('contabil_portal_v7')) || JSON.parse(JSON.stringify(DEFAULT_STATE));
+    let appState = JSON.parse(localStorage.getItem('contabil_portal_v8')) || JSON.parse(JSON.stringify(DEFAULT_STATE));
     if (!appState.materials) appState.materials = DEFAULT_STATE.materials;
+    if (!appState.reviews || !Array.isArray(appState.reviews) || appState.reviews.length === 0) {
+        appState.reviews = JSON.parse(JSON.stringify(DEFAULT_REVIEWS));
+    }
 
     let currentUser = JSON.parse(sessionStorage.getItem('contabil_current_user')) || null;
     let activePortalTab = 'student-schedule';
@@ -2546,6 +2742,7 @@
     let adminHwOnlyPending = false;
     let adminPeopleSearch = '';
     let adminPeopleGroupFilter = 'all';
+    let adminReviewFilter = 'all';
 
     /* СОСТОЯНИЕ СВОРАЧИВАНИЯ ДОМАШНИХ ЗАДАНИЙ УЧЕНИКА */
     let expandedHwMap = {};
@@ -2569,9 +2766,9 @@
 
     /* СОХРАНЕНИЕ В LOCALSTORAGE МГНОВЕННО + СИНХРОНИЗАЦИЯ С FIREBASE В ФОНЕ */
     function saveAppState() {
-        localStorage.setItem('contabil_portal_v7', JSON.stringify(appState));
+        localStorage.setItem('contabil_portal_v8', JSON.stringify(appState));
         if (db) {
-            db.collection('portal').doc('mainStateV7').set(appState).catch(e => {
+            db.collection('portal').doc('mainStateV8').set(appState).catch(e => {
                 console.warn("Firestore background sync warning:", e);
             });
         }
@@ -2580,11 +2777,13 @@
     async function loadCloudState() {
         if (!db) return;
         try {
-            const doc = await db.collection('portal').doc('mainStateV7').get();
+            const doc = await db.collection('portal').doc('mainStateV8').get();
             if (doc.exists) {
                 appState = doc.data();
                 if (!appState.materials) appState.materials = [];
-                localStorage.setItem('contabil_portal_v7', JSON.stringify(appState));
+                if (!appState.reviews) appState.reviews = JSON.parse(JSON.stringify(DEFAULT_REVIEWS));
+                localStorage.setItem('contabil_portal_v8', JSON.stringify(appState));
+                renderPublicReviews();
                 if (currentUser) renderCabinet(false);
             } else {
                 saveAppState();
@@ -2594,6 +2793,46 @@
         }
     }
     loadCloudState();
+
+    /* ОТРИСОВКА ОПУБЛИКОВАННЫХ ОТЗЫВОВ НА ГЛАВНОЙ СТРАНИЦЕ */
+    function renderPublicReviews() {
+        const gridEl = document.getElementById('publicReviewsGrid');
+        if (!gridEl) return;
+        const isRu = currentLang === 'ru';
+        const approvedReviews = (appState.reviews || []).filter(r => r.status === 'approved');
+
+        if (approvedReviews.length === 0) {
+            gridEl.innerHTML = `<div class="cab-card" style="grid-column: 1 / -1; text-align:center;"><p style="margin:0; color:var(--text-muted);">${isRu ? 'Пока нет опубликованных отзывов.' : 'Nu există recenzii publicate momentan.'}</p></div>`;
+            return;
+        }
+
+        gridEl.innerHTML = approvedReviews.map(r => {
+            const starsCount = Math.min(5, Math.max(1, parseInt(r.rating) || 5));
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                starsHtml += `<i class="${i <= starsCount ? 'fas fa-star' : 'far fa-star'}"></i>`;
+            }
+            const authorName = isRu ? (r.nameRu || r.nameRo) : (r.nameRo || r.nameRu);
+            const reviewBody = isRu ? (r.textRu || r.textRo) : (r.textRo || r.textRu);
+
+            return `
+                <div class="review-card reveal active">
+                    <div class="review-header-row">
+                        <div class="stars">${starsHtml}</div>
+                        <div class="quote-badge"><i class="fas fa-quote-right"></i></div>
+                    </div>
+                    <p class="review-text">${reviewBody}</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar"><i class="fas fa-user"></i></div>
+                        <div>
+                            <h4>${authorName}</h4>
+                            <span>${isRu ? 'Выпускник марафона' : 'Absolvent al maratonului'}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
 
     /* УПРАВЛЕНИЕ КАБИНЕТОМ И ВХОДОМ */
     function openPortal() {
@@ -2845,8 +3084,8 @@
         return `
             <div class="cab-card hw-card-collapsible ${isOpen ? '' : 'collapsed'}">
                 <div class="hw-card-header-toggle" onclick="toggleStudentHwCard('${hw.id}', ${isOpen})">
-                    <div style="flex:1; min-width:200px;">
-                        <h4 style="margin:0; color:var(--primary-dark); font-size:1.08rem; transition:color 0.2s;">
+                    <div style="flex:1; min-width:190px;">
+                        <h4 style="margin:0; color:var(--primary-dark); font-size:1.06rem; transition:color 0.2s;">
                             ${isRu ? hw.titleRu : hw.titleRo}
                         </h4>
                         <span style="font-size:0.84rem; color:var(--text-muted);">
@@ -2911,7 +3150,7 @@
                             }
                         </div>
                         <div class="hw-chat-input-row">
-                            <input type="text" id="chat-stu-${hw.id}" class="portal-input" style="margin:0; padding:9px 14px; font-size:0.86rem;" placeholder="${isRu ? 'Написать вопрос...' : 'Scrie o întrebare...'}" onkeydown="if(event.key==='Enter') sendStudentChatMsg('${hw.id}')">
+                            <input type="text" id="chat-stu-${hw.id}" class="portal-input" style="margin:0; padding:9px 14px;" placeholder="${isRu ? 'Написать вопрос...' : 'Scrie o întrebare...'}" onkeydown="if(event.key==='Enter') sendStudentChatMsg('${hw.id}')">
                             <button type="button" class="btn-sm btn-sm-gold" onclick="sendStudentChatMsg('${hw.id}')"><i class="fas fa-paper-plane"></i></button>
                         </div>
                     </div>
@@ -3056,6 +3295,7 @@
         } else {
             /* ==================== ПАНЕЛЬ АДМИНИСТРАТОРА ==================== */
             const pendingCount = appState.submissions.filter(s => s.status === 'submitted').length;
+            const pendingReviewsCount = (appState.reviews || []).filter(r => r.status === 'pending').length;
 
             tabsEl.innerHTML = `
                 <button class="cab-tab ${activePortalTab === 'admin-schedule' ? 'active' : ''}" onclick="switchPortalTab('admin-schedule')">
@@ -3067,6 +3307,10 @@
                 </button>
                 <button class="cab-tab ${activePortalTab === 'admin-materials' ? 'active' : ''}" onclick="switchPortalTab('admin-materials')">
                     <i class="fas fa-folder-open"></i> ${isRu ? 'Материалы' : 'Materiale'}
+                </button>
+                <button class="cab-tab ${activePortalTab === 'admin-reviews' ? 'active' : ''}" onclick="switchPortalTab('admin-reviews')">
+                    <i class="fas fa-star"></i> ${isRu ? 'Отзывы' : 'Recenzii'}
+                    ${pendingReviewsCount > 0 ? `<span class="tab-badge-count">${pendingReviewsCount}</span>` : ''}
                 </button>
                 <button class="cab-tab ${activePortalTab === 'admin-groups' ? 'active' : ''}" onclick="switchPortalTab('admin-groups')">
                     <i class="fas fa-users"></i> ${isRu ? 'Группы, ученики и практика' : 'Grupe, studenți și practică'}
@@ -3096,7 +3340,7 @@
                                     <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Дата' : 'Data'}</label>
                                     <input type="date" id="newLesDate" class="portal-input" value="2026-02-10">
                                 </div>
-                                <div style="width:120px;">
+                                <div style="width:125px;">
                                     <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Время' : 'Ora'}</label>
                                     <input type="time" id="newLesTime" class="portal-input" value="18:30">
                                 </div>
@@ -3159,7 +3403,7 @@
                     <!-- ПАНЕЛЬ БЫСТРОЙ ФИЛЬТРАЦИИ ДЗ -->
                     <div class="admin-filter-bar">
                         <span style="font-size:0.84rem; font-weight:800; color:var(--primary-dark);"><i class="fas fa-filter"></i> ${isRu ? 'Фильтр:' : 'Filtru:'}</span>
-                        <select class="portal-input" style="width:auto; min-width:210px; margin:0; padding:8px 14px;" onchange="adminHwGroupFilter = this.value; renderCabinet(false);">
+                        <select class="portal-input" style="width:auto; min-width:200px; margin:0; padding:8px 14px;" onchange="adminHwGroupFilter = this.value; renderCabinet(false);">
                             <option value="all" ${adminHwGroupFilter === 'all' ? 'selected' : ''}>${isRu ? 'Все группы' : 'Toate grupele'}</option>
                             ${marathonGroups.map(g => `<option value="${g.id}" ${adminHwGroupFilter === g.id ? 'selected' : ''}>${isRu ? g.nameRu : g.nameRo}</option>`).join('')}
                         </select>
@@ -3218,11 +3462,11 @@
                                                 <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; border-top:1px solid #f1f5f9; padding-top:10px;">
                                                     <div style="display:flex; align-items:center; gap:6px;">
                                                         <label style="font-size:0.8rem; font-weight:700;">${isRu ? 'Оценка (1-10):' : 'Nota (1-10):'}</label>
-                                                        <select id="grade-${s.id}" class="portal-input" style="width:70px; margin:0; padding:6px;">
+                                                        <select id="grade-${s.id}" class="portal-input" style="width:74px; margin:0; padding:6px;">
                                                             ${[10,9,8,7,6,5,4,3,2,1].map(num => `<option value="${num}" ${s.grade == num ? 'selected' : ''}>${num}</option>`).join('')}
                                                         </select>
                                                     </div>
-                                                    <input type="text" id="comm-${s.id}" class="portal-input" style="flex:1; margin:0; padding:8px 12px; font-size:0.88rem;" placeholder="${isRu ? 'Комментарий к оценке...' : 'Comentariu...'}" value="${s.teacherComment || ''}">
+                                                    <input type="text" id="comm-${s.id}" class="portal-input" style="flex:1; min-width:160px; margin:0; padding:8px 12px;" placeholder="${isRu ? 'Комментарий к оценке...' : 'Comentariu...'}" value="${s.teacherComment || ''}">
                                                     <button type="button" class="btn-sm btn-sm-success" onclick="adminGradeSub('${s.id}', 'approved')">✓</button>
                                                     <button type="button" class="btn-sm btn-sm-danger" onclick="adminGradeSub('${s.id}', 'revision')">↺</button>
                                                 </div>
@@ -3243,7 +3487,7 @@
                                                         </div>
                                                     ` : ''}
                                                     <div class="hw-chat-input-row">
-                                                        <input type="text" id="chat-adm-${s.id}" class="portal-input" style="margin:0; padding:7px 12px; font-size:0.84rem;" placeholder="${isRu ? 'Ответить ученику...' : 'Răspunde studentului...'}" onkeydown="if(event.key==='Enter') sendAdminChatMsg('${s.id}')">
+                                                        <input type="text" id="chat-adm-${s.id}" class="portal-input" style="margin:0; padding:7px 12px;" placeholder="${isRu ? 'Ответить ученику...' : 'Răspunde studentului...'}" onkeydown="if(event.key==='Enter') sendAdminChatMsg('${s.id}')">
                                                         <button type="button" class="btn-sm btn-sm-primary" style="padding:7px 14px;" onclick="sendAdminChatMsg('${s.id}')"><i class="fas fa-paper-plane"></i></button>
                                                     </div>
                                                 </div>
@@ -3310,6 +3554,78 @@
                             }).join('')}
                         </div>
                     `}
+                `;
+            } else if (activePortalTab === 'admin-reviews') {
+                /* ==================== ВКЛАДКА МОДЕРАЦИИ ОТЗЫВОВ ==================== */
+                const allReviews = appState.reviews || [];
+                const filteredReviews = allReviews.filter(r => {
+                    if (adminReviewFilter === 'pending') return r.status === 'pending';
+                    if (adminReviewFilter === 'approved') return r.status === 'approved';
+                    return true;
+                });
+
+                bodyEl.innerHTML = `
+                    <div class="admin-filter-bar">
+                        <span style="font-size:0.84rem; font-weight:800; color:var(--primary-dark);"><i class="fas fa-star" style="color:var(--secondary);"></i> ${isRu ? 'Отзывы на сайте:' : 'Recenzii pe site:'}</span>
+                        <button type="button" class="filter-pill-btn ${adminReviewFilter === 'all' ? 'active' : ''}" onclick="adminReviewFilter = 'all'; renderCabinet(false);">
+                            ${isRu ? `Все (${allReviews.length})` : `Toate (${allReviews.length})`}
+                        </button>
+                        <button type="button" class="filter-pill-btn ${adminReviewFilter === 'pending' ? 'active' : ''}" onclick="adminReviewFilter = 'pending'; renderCabinet(false);">
+                            <i class="fas fa-clock"></i> ${isRu ? `Новые / На модерации (${pendingReviewsCount})` : `Noi / În așteptare (${pendingReviewsCount})`}
+                        </button>
+                        <button type="button" class="filter-pill-btn ${adminReviewFilter === 'approved' ? 'active' : ''}" onclick="adminReviewFilter = 'approved'; renderCabinet(false);">
+                            <i class="fas fa-check-circle"></i> ${isRu ? 'Опубликованные' : 'Publicate'}
+                        </button>
+                    </div>
+
+                    ${filteredReviews.length === 0 ? `
+                        <div class="cab-card">
+                            <p style="margin:0; color:var(--text-muted);">${isRu ? 'В этой категории отзывов пока нет.' : 'Nu există recenzii în această categorie.'}</p>
+                        </div>
+                    ` : filteredReviews.map(r => {
+                        const isPending = r.status === 'pending';
+                        const starsCount = Math.min(5, Math.max(1, parseInt(r.rating) || 5));
+                        let starsHtml = '';
+                        for (let i = 1; i <= 5; i++) {
+                            starsHtml += `<i class="${i <= starsCount ? 'fas fa-star' : 'far fa-star'}" style="color:var(--secondary);"></i>`;
+                        }
+                        const authorName = isRu ? (r.nameRu || r.nameRo) : (r.nameRo || r.nameRu);
+                        const reviewText = isRu ? (r.textRu || r.textRo) : (r.textRo || r.textRu);
+
+                        return `
+                            <div class="cab-card" style="border-left: 5px solid ${isPending ? '#f59e0b' : '#10b981'};">
+                                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
+                                    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+                                        <strong style="font-size:1.05rem; color:var(--primary-dark);"><i class="fas fa-user-circle" style="color:var(--secondary);"></i> ${authorName}</strong>
+                                        <span style="font-size:0.92rem;">${starsHtml}</span>
+                                        <span style="font-size:0.78rem; color:var(--text-muted);">${r.createdAt || ''}</span>
+                                    </div>
+                                    <span class="hw-status ${isPending ? 'status-pending' : 'status-approved'}">
+                                        ${isPending ? (isRu ? 'Ожидает публикации' : 'În așteptare') : (isRu ? 'Опубликован на сайте ✓' : 'Publicat pe site ✓')}
+                                    </span>
+                                </div>
+                                
+                                <p style="margin:0 0 16px; font-size:0.94rem; color:#334155; background:#f8fafc; padding:14px 16px; border-radius:14px; border:1px solid #e2e8f0; line-height:1.55;">
+                                    «${reviewText}»
+                                </p>
+
+                                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                                    ${isPending ? `
+                                        <button type="button" class="btn-sm btn-sm-success" onclick="adminApproveReview('${r.id}')">
+                                            <i class="fas fa-check"></i> ${isRu ? 'Опубликовать на сайте' : 'Publică pe site'}
+                                        </button>
+                                    ` : `
+                                        <button type="button" class="btn-sm btn-sm-gold" onclick="adminHideReview('${r.id}')">
+                                            <i class="fas fa-eye-slash"></i> ${isRu ? 'Снять с публикации' : 'Ascunde de pe site'}
+                                        </button>
+                                    `}
+                                    <button type="button" class="btn-sm btn-sm-danger" onclick="confirmDelete('review', '${r.id}')">
+                                        <i class="fas fa-trash"></i> ${isRu ? 'Удалить' : 'Șterge'}
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
                 `;
             } else if (activePortalTab === 'admin-groups') {
                 const allPeople = appState.users.filter(u => u.role === 'student');
@@ -3400,11 +3716,11 @@
 
                     <!-- ПАНЕЛЬ ПОИСКА И ФИЛЬТРАЦИИ УЧЕНИКОВ -->
                     <div class="admin-filter-bar">
-                        <div style="position:relative; flex:1; min-width:220px;">
+                        <div style="position:relative; flex:1; min-width:200px;">
                             <i class="fas fa-search" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-muted);"></i>
                             <input type="text" class="portal-input" style="margin:0; padding:9px 14px 9px 38px;" placeholder="${isRu ? 'Поиск по имени или логину...' : 'Caută după nume sau login...'}" value="${adminPeopleSearch}" oninput="adminPeopleSearch = this.value; renderCabinet(false);">
                         </div>
-                        <select class="portal-input" style="width:auto; min-width:200px; margin:0; padding:9px 14px;" onchange="adminPeopleGroupFilter = this.value; renderCabinet(false);">
+                        <select class="portal-input" style="width:auto; min-width:190px; margin:0; padding:9px 14px;" onchange="adminPeopleGroupFilter = this.value; renderCabinet(false);">
                             <option value="all" ${adminPeopleGroupFilter === 'all' ? 'selected' : ''}>${isRu ? 'Все группы Марафона' : 'Toate grupele Maraton'}</option>
                             ${marathonGroups.map(g => `<option value="${g.id}" ${adminPeopleGroupFilter === g.id ? 'selected' : ''}>${isRu ? g.nameRu : g.nameRo}</option>`).join('')}
                         </select>
@@ -3494,6 +3810,27 @@
         }
 
         if (animate) triggerSmoothBodyAnimation();
+    }
+
+    /* ОДОБРЕНИЕ И СКРЫТИЕ ОТЗЫВОВ В АДМИНКЕ */
+    function adminApproveReview(revId) {
+        const rev = (appState.reviews || []).find(r => r.id === revId);
+        if (!rev) return;
+        rev.status = 'approved';
+        saveAppState();
+        renderPublicReviews();
+        renderCabinet(false);
+        showToast(currentLang === 'ru' ? 'Отзыв опубликован на странице!' : 'Recenzia a fost publicată pe pagină!', 'success');
+    }
+
+    function adminHideReview(revId) {
+        const rev = (appState.reviews || []).find(r => r.id === revId);
+        if (!rev) return;
+        rev.status = 'pending';
+        saveAppState();
+        renderPublicReviews();
+        renderCabinet(false);
+        showToast(currentLang === 'ru' ? 'Отзыв скрыт со страницы' : 'Recenzia a fost ascunsă de pe pagină', 'info');
     }
 
     /* АВТОМАТИЧЕСКОЕ СЖАТИЕ ИЗОБРАЖЕНИЙ ПЕРЕД СОХРАНЕНИЕМ */
@@ -3648,71 +3985,328 @@
     function confirmDelete(type, id) {
         deleteTarget = { type, id };
         const isRu = currentLang === 'ru';
-        document.getElementById('confirmTitle').innerText = isRu ? 'Подтвердите удаление' : 'Confirmați ștergerea';
-        document.getElementById('confirmText').innerText = isRu ? 'Элемент будет безвозвратно удален из системы.' : 'Elementul va fi șters definitiv.';
+        document.getElementById('confirmTitle').innerText = isRu ? 'Подтвердите удаление' : 'Confirmare ștergere';
+        document.getElementById('confirmText').innerText = isRu ? 'Вы действительно хотите удалить этот элемент?' : 'Sigur doriți să ștergeți acest element?';
+        document.getElementById('confirmOkBtn').innerText = isRu ? 'Удалить' : 'Șterge';
         document.getElementById('confirmModal').classList.add('active');
-        document.getElementById('confirmOkBtn').onclick = executeDelete;
     }
-
     function closeConfirmModal() {
         document.getElementById('confirmModal').classList.remove('active');
         deleteTarget = null;
     }
-
-    function executeDelete() {
+    document.getElementById('confirmOkBtn').onclick = function() {
         if (!deleteTarget) return;
         const { type, id } = deleteTarget;
-        if (type === 'lesson') {
-            appState.lessons = appState.lessons.filter(l => l.id !== id);
-        } else if (type === 'hw') {
-            appState.homeworks = appState.homeworks.filter(h => h.id !== id);
-            appState.submissions = appState.submissions.filter(s => s.hwId !== id);
-        } else if (type === 'material') {
-            appState.materials = (appState.materials || []).filter(m => m.id !== id);
-        } else if (type === 'group') {
-            appState.groups = appState.groups.filter(g => g.id !== id);
-        } else if (type === 'student') {
-            appState.users = appState.users.filter(u => u.id !== id);
+        if (type === 'lesson') appState.lessons = appState.lessons.filter(x => x.id !== id);
+        if (type === 'hw') {
+            appState.homeworks = appState.homeworks.filter(x => x.id !== id);
+            appState.submissions = appState.submissions.filter(x => x.hwId !== id);
+        }
+        if (type === 'material') {
+            appState.materials = (appState.materials || []).filter(x => x.id !== id);
+        }
+        if (type === 'review') {
+            appState.reviews = (appState.reviews || []).filter(x => x.id !== id);
+            renderPublicReviews();
+        }
+        if (type === 'group') {
+            appState.groups = appState.groups.filter(x => x.id !== id);
+            appState.users = appState.users.filter(u => u.role === 'admin' || u.groupId !== id);
+            appState.lessons = appState.lessons.filter(l => l.groupId !== id);
+            appState.homeworks = appState.homeworks.filter(h => h.groupId !== id);
+        }
+        if (type === 'student') {
+            appState.users = appState.users.filter(x => x.id !== id);
+            appState.submissions = appState.submissions.filter(s => s.studentId !== id);
         }
         saveAppState();
-        renderCabinet(false);
         closeConfirmModal();
+        renderCabinet(false);
         showToast(currentLang === 'ru' ? 'Успешно удалено' : 'Șters cu succes', 'info');
+    };
+
+    /* МОДАЛЬНЫЕ ОКНА РЕДАКТИРОВАНИЯ */
+    function closeEditModal() {
+        document.getElementById('editModal').classList.remove('active');
     }
 
-    function submitStudentHw(hwId) {
-        const text = document.getElementById('ans-' + hwId).value.trim();
-        const photo = document.getElementById('photoVal-' + hwId).value.trim();
-        if (!text && !photo) {
-            showToast(currentLang === 'ru' ? 'Пожалуйста, напишите ответ или прикрепите фотографию работы!' : 'Vă rugăm să scrieți răspunsul sau să atașați o poză!', 'warning');
+    function openEditGroupModal(grpId) {
+        const grp = appState.groups.find(x => x.id === grpId);
+        if (!grp) return;
+        const isRu = currentLang === 'ru';
+        document.getElementById('editModalTitle').innerText = isRu ? 'Изменить название группы' : 'Modifică denumirea grupei';
+        document.getElementById('editModalContent').innerHTML = `
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Новое название группы' : 'Denumire nouă grupă'}</label>
+            <input type="text" id="edGrpName" class="portal-input" value="${isRu ? grp.nameRu : grp.nameRo}">
+            <button type="button" id="btnSaveGrp" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:13px;" onclick="saveEditedGroup('${grp.id}')">
+                <i class="fas fa-save"></i> ${isRu ? 'Сохранить' : 'Salvează'}
+            </button>
+        `;
+        document.getElementById('editModal').classList.add('active');
+    }
+
+    async function saveEditedGroup(grpId) {
+        const grp = appState.groups.find(x => x.id === grpId);
+        if (!grp) return;
+        const rawName = document.getElementById('edGrpName').value.trim();
+        if (!rawName) return;
+
+        const btn = document.getElementById('btnSaveGrp');
+        if (btn) { btn.disabled = true; btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`; }
+
+        try {
+            const tr = await smartAutoTranslate(rawName);
+            grp.nameRu = tr.ru;
+            grp.nameRo = tr.ro;
+            saveAppState();
+            closeEditModal();
+            renderCabinet(false);
+            showToast(currentLang === 'ru' ? 'Название группы обновлено!' : 'Denumirea grupei a fost actualizată!', 'success');
+        } finally {
+            if (btn) btn.disabled = false;
+        }
+    }
+
+    function openEditMarathonStudentModal(stuId) {
+        const st = appState.users.find(x => x.id === stuId);
+        if (!st) return;
+        const isRu = currentLang === 'ru';
+        const marathonGroups = appState.groups.filter(g => g.type !== 'practice');
+
+        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать ученика Марафона' : 'Editează studentul Maraton';
+        document.getElementById('editModalContent').innerHTML = `
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Имя и Фамилия' : 'Nume și Prenume'}</label>
+            <input type="text" id="edMarStuName" class="portal-input" value="${st.name}">
+
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Группа Марафона' : 'Grupa Maraton'}</label>
+            <select id="edMarStuGroup" class="portal-input">
+                ${marathonGroups.map(g => `<option value="${g.id}" ${st.groupId === g.id ? 'selected' : ''}>${isRu ? g.nameRu : g.nameRo}</option>`).join('')}
+            </select>
+
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">Login / Email</label>
+            <input type="text" id="edMarStuLogin" class="portal-input" value="${st.login || ''}">
+
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Пароль' : 'Parola'}</label>
+            <input type="text" id="edMarStuPass" class="portal-input" value="${st.pass || ''}">
+
+            <button type="button" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:13px;" onclick="saveEditedMarathonStudent('${st.id}')">
+                <i class="fas fa-save"></i> ${isRu ? 'Сохранить изменения' : 'Salvează modificările'}
+            </button>
+        `;
+        document.getElementById('editModal').classList.add('active');
+    }
+
+    function saveEditedMarathonStudent(stuId) {
+        const st = appState.users.find(x => x.id === stuId);
+        if (!st) return;
+        const newName = document.getElementById('edMarStuName').value.trim();
+        const newGroup = document.getElementById('edMarStuGroup').value;
+        const newLogin = document.getElementById('edMarStuLogin').value.trim();
+        const newPass = document.getElementById('edMarStuPass').value.trim();
+
+        if (!newName || !newLogin || !newPass) {
+            showToast(currentLang === 'ru' ? 'Заполните имя, логин и пароль!' : 'Completați numele, login-ul și parola!', 'warning');
             return;
         }
-        const existingIdx = appState.submissions.findIndex(s => s.hwId === hwId && s.studentId === currentUser.id);
-        const existingSub = existingIdx >= 0 ? appState.submissions[existingIdx] : null;
+        if (appState.users.some(u => u.id !== stuId && u.login && u.login.toLowerCase() === newLogin.toLowerCase())) {
+            showToast(currentLang === 'ru' ? 'Этот логин уже занят!' : 'Acest login există deja!', 'error');
+            return;
+        }
 
-        const entry = {
-            id: existingSub ? existingSub.id : 'sub-' + Date.now(),
+        st.name = newName;
+        st.groupId = newGroup;
+        st.login = newLogin;
+        st.pass = newPass;
+
+        saveAppState();
+        closeEditModal();
+        renderCabinet(false);
+        showToast(currentLang === 'ru' ? 'Данные ученика обновлены!' : 'Datele studentului au fost actualizate!', 'success');
+    }
+
+    function openEditStudentPracticeModal(stuId) {
+        const st = appState.users.find(x => x.id === stuId);
+        if (!st) return;
+        const isRu = currentLang === 'ru';
+        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать практиканта 1С' : 'Modifică practicantul 1C';
+        document.getElementById('editModalContent').innerHTML = `
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Имя и Фамилия' : 'Numele și Prenumele'}</label>
+            <input type="text" id="edPrStuName" class="portal-input" value="${st.name}">
+            <div style="background:var(--practice-light); padding:14px 16px; border-radius:14px; border:1px solid #ddd6fe; margin-bottom:16px;">
+                <label style="font-size:0.84rem; font-weight:800; color:var(--practice); display:block; margin-bottom:6px;">
+                    <i class="far fa-calendar-check"></i> ${isRu ? 'На практике до какого числа:' : 'La practică până la data de:'}
+                </label>
+                <input type="date" id="edStuPracticeUntil" class="portal-input" style="margin-bottom:0; background:#fff;" value="${st.practiceUntil || '2026-04-30'}">
+            </div>
+            <button type="button" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:13px;" onclick="saveEditedStudentPractice('${st.id}')">
+                <i class="fas fa-save"></i> ${isRu ? 'Сохранить изменения' : 'Salvează modificările'}
+            </button>
+        `;
+        document.getElementById('editModal').classList.add('active');
+    }
+
+    function saveEditedStudentPractice(stuId) {
+        const st = appState.users.find(x => x.id === stuId);
+        if (!st) return;
+        const newName = document.getElementById('edPrStuName').value.trim();
+        if (!newName) return;
+        st.name = newName;
+        st.practiceUntil = document.getElementById('edStuPracticeUntil').value;
+        saveAppState();
+        closeEditModal();
+        renderCabinet(false);
+        showToast(currentLang === 'ru' ? 'Данные практиканта обновлены!' : 'Datele practicantului au fost actualizate!', 'success');
+    }
+
+    function openEditLessonModal(id) {
+        const l = appState.lessons.find(x => x.id === id);
+        if (!l) return;
+        const isRu = currentLang === 'ru';
+        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать урок' : 'Editează lecția';
+        document.getElementById('editModalContent').innerHTML = `
+            <div style="display:flex; gap:10px;">
+                <input type="date" id="edLesDate" class="portal-input" value="${l.date}">
+                <input type="time" id="edLesTime" class="portal-input" value="${l.time}">
+            </div>
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Тема урока' : 'Tema lecției'}</label>
+            <input type="text" id="edLesTitle" class="portal-input" value="${isRu ? l.titleRu : l.titleRo}">
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Описание' : 'Descriere'}</label>
+            <input type="text" id="edLesDesc" class="portal-input" value="${isRu ? (l.descRu || '') : (l.descRo || '')}">
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">Link</label>
+            <input type="url" id="edLesLink" class="portal-input" value="${l.link || ''}">
+            <button type="button" id="btnSaveLes" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:13px;" onclick="saveEditedLesson('${l.id}')">
+                <i class="fas fa-save"></i> ${isRu ? 'Сохранить' : 'Salvează'}
+            </button>
+        `;
+        document.getElementById('editModal').classList.add('active');
+    }
+
+    async function saveEditedLesson(id) {
+        const l = appState.lessons.find(x => x.id === id);
+        if (!l) return;
+        const btn = document.getElementById('btnSaveLes');
+        if (btn) { btn.disabled = true; btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`; }
+
+        try {
+            l.date = document.getElementById('edLesDate').value;
+            l.time = document.getElementById('edLesTime').value;
+            const rawTitle = document.getElementById('edLesTitle').value.trim();
+            const rawDesc = document.getElementById('edLesDesc').value.trim();
+            const trTitle = await smartAutoTranslate(rawTitle);
+            const trDesc = await smartAutoTranslate(rawDesc);
+            l.titleRu = trTitle.ru;
+            l.titleRo = trTitle.ro;
+            l.descRu = trDesc.ru;
+            l.descRo = trDesc.ro;
+            l.link = document.getElementById('edLesLink').value.trim();
+            saveAppState();
+            closeEditModal();
+            renderCabinet(false);
+            showToast(currentLang === 'ru' ? 'Урок обновлен!' : 'Lecția a fost actualizată!', 'success');
+        } finally {
+            if (btn) btn.disabled = false;
+        }
+    }
+
+    function openEditHwModal(id) {
+        const hw = appState.homeworks.find(x => x.id === id);
+        if (!hw) return;
+        const isRu = currentLang === 'ru';
+        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать задание' : 'Editează tema';
+        document.getElementById('editModalContent').innerHTML = `
+            <input type="date" id="edHwDeadline" class="portal-input" value="${hw.deadline}">
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Название задания' : 'Titlul temei'}</label>
+            <input type="text" id="edHwTitle" class="portal-input" value="${isRu ? hw.titleRu : hw.titleRo}">
+            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Условие' : 'Condiție'}</label>
+            <textarea id="edHwDesc" rows="3" class="portal-input">${isRu ? hw.descRu : hw.descRo}</textarea>
+            <button type="button" id="btnSaveHw" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:13px;" onclick="saveEditedHw('${hw.id}')">
+                <i class="fas fa-save"></i> ${isRu ? 'Сохранить' : 'Salvează'}
+            </button>
+        `;
+        document.getElementById('editModal').classList.add('active');
+    }
+
+    async function saveEditedHw(id) {
+        const hw = appState.homeworks.find(x => x.id === id);
+        if (!hw) return;
+        const btn = document.getElementById('btnSaveHw');
+        if (btn) { btn.disabled = true; btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i>`; }
+
+        try {
+            hw.deadline = document.getElementById('edHwDeadline').value;
+            const rawTitle = document.getElementById('edHwTitle').value.trim();
+            const rawDesc = document.getElementById('edHwDesc').value.trim();
+            const trTitle = await smartAutoTranslate(rawTitle);
+            const trDesc = await smartAutoTranslate(rawDesc);
+            hw.titleRu = trTitle.ru;
+            hw.titleRo = trTitle.ro;
+            hw.descRu = trDesc.ru;
+            hw.descRo = trDesc.ro;
+            saveAppState();
+            closeEditModal();
+            renderCabinet(false);
+            showToast(currentLang === 'ru' ? 'Задание обновлено!' : 'Tema a fost actualizată!', 'success');
+        } finally {
+            if (btn) btn.disabled = false;
+        }
+    }
+
+    /* ОТПРАВКА ДЗ УЧЕНИКОМ */
+    function submitStudentHw(hwId) {
+        const text = document.getElementById('ans-' + hwId).value.trim();
+        const photoData = document.getElementById('photoVal-' + hwId).value;
+
+        if (!text && !photoData) {
+            showToast(currentLang === 'ru' ? 'Введите текст ответа или прикрепите фотографию!' : 'Introduceți răspunsul sau atașați o poză!', 'warning');
+            return;
+        }
+
+        const existingIndex = appState.submissions.findIndex(s => s.hwId === hwId && s.studentId === currentUser.id);
+        const existingMsgs = existingIndex > -1 && Array.isArray(appState.submissions[existingIndex].messages)
+            ? appState.submissions[existingIndex].messages
+            : [];
+
+        const payload = {
+            id: existingIndex > -1 ? appState.submissions[existingIndex].id : 'sub-' + Date.now(),
             hwId: hwId,
             studentId: currentUser.id,
             studentName: currentUser.name,
             answerText: text,
-            photoData: photo,
+            photoData: photoData,
             status: 'submitted',
-            grade: existingSub ? existingSub.grade : null,
-            teacherComment: existingSub ? existingSub.teacherComment : '',
-            messages: existingSub && Array.isArray(existingSub.messages) ? existingSub.messages : [],
+            grade: existingIndex > -1 ? appState.submissions[existingIndex].grade : null,
+            teacherComment: existingIndex > -1 ? appState.submissions[existingIndex].teacherComment : '',
+            messages: existingMsgs,
             updatedAt: new Date().toLocaleDateString('ru-RU')
         };
-        if (existingIdx >= 0) appState.submissions[existingIdx] = entry;
-        else appState.submissions.push(entry);
+
+        if (existingIndex > -1) {
+            appState.submissions[existingIndex] = payload;
+        } else {
+            appState.submissions.push(payload);
+        }
 
         expandedHwMap[hwId] = false;
-
         saveAppState();
         renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Домашнее задание успешно отправлено!' : 'Tema a fost trimisă cu succes!', 'success');
+        showToast(currentLang === 'ru' ? 'Работа отправлена на проверку!' : 'Lucrarea a fost trimisă spre verificare!', 'success');
     }
 
+    /* ОЦЕНКА РАБОТЫ ПРЕПОДАВАТЕЛЕМ */
+    function adminGradeSub(subId, newStatus) {
+        const sub = appState.submissions.find(s => s.id === subId);
+        if (!sub) return;
+        const commEl = document.getElementById('comm-' + subId);
+        const gradeEl = document.getElementById('grade-' + subId);
+        sub.status = newStatus;
+        sub.grade = gradeEl ? gradeEl.value : '10';
+        sub.teacherComment = commEl ? commEl.value.trim() : '';
+        saveAppState();
+        renderCabinet(false);
+        showToast(currentLang === 'ru' ? `Оценка ${sub.grade}/10 сохранена!` : `Nota ${sub.grade}/10 a fost salvată!`, 'success');
+    }
+
+    /* ДОБАВЛЕНИЕ УРОКОВ, ДЗ, ГРУПП И УЧЕНИКОВ */
     async function adminAddLesson() {
         const groupId = document.getElementById('newLesGroup').value;
         const date = document.getElementById('newLesDate').value;
@@ -3749,7 +4343,7 @@
             });
             saveAppState();
             renderCabinet(false);
-            showToast(currentLang === 'ru' ? 'Урок опубликован!' : 'Lecția a fost publicată!', 'success');
+            showToast(currentLang === 'ru' ? 'Урок успешно опубликован!' : 'Lecția a fost publicată!', 'success');
         } finally {
             const freshBtn = document.getElementById('btnAddLesson');
             if (freshBtn) {
@@ -3759,230 +4353,6 @@
         }
     }
 
-    /* МОДАЛЬНОЕ ОКНО РЕДАКТИРОВАНИЯ НАЗВАНИЯ ГРУППЫ */
-    function openEditGroupModal(grpId) {
-        const grp = appState.groups.find(g => g.id === grpId);
-        if (!grp) return;
-        const isRu = currentLang === 'ru';
-
-        document.getElementById('editModalTitle').innerText = isRu ? 'Изменить название группы' : 'Editează denumirea grupei';
-        document.getElementById('editModalContent').innerHTML = `
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Название группы (RU)' : 'Denumire grupă (RU)'}</label>
-            <input type="text" id="edGrpNameRu" class="portal-input" value="${grp.nameRu}">
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Название группы (RO)' : 'Denumire grupă (RO)'}</label>
-            <input type="text" id="edGrpNameRo" class="portal-input" value="${grp.nameRo}">
-            <button type="button" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:12px;" onclick="saveEditedGroup('${grp.id}')">
-                <i class="fas fa-save"></i> ${isRu ? 'Сохранить название' : 'Salvează denumirea'}
-            </button>
-        `;
-        document.getElementById('editModal').classList.add('active');
-    }
-
-    function saveEditedGroup(grpId) {
-        const grp = appState.groups.find(g => g.id === grpId);
-        if (!grp) return;
-
-        const newRu = document.getElementById('edGrpNameRu').value.trim();
-        const newRo = document.getElementById('edGrpNameRo').value.trim();
-
-        if (!newRu && !newRo) {
-            showToast(currentLang === 'ru' ? 'Введите название группы!' : 'Introduceți denumirea grupei!', 'warning');
-            return;
-        }
-
-        grp.nameRu = newRu || newRo;
-        grp.nameRo = newRo || newRu;
-
-        saveAppState();
-        closeEditModal();
-        renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Название группы обновлено!' : 'Denumirea grupei a fost actualizată!', 'success');
-    }
-
-    /* МОДАЛЬНЫЕ ОКНА РЕДАКТИРОВАНИЯ */
-    function openEditLessonModal(id) {
-        const les = appState.lessons.find(l => l.id === id);
-        if (!les) return;
-        const isRu = currentLang === 'ru';
-
-        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать урок' : 'Editează lecția';
-
-        document.getElementById('editModalContent').innerHTML = `
-            <div style="display:flex; gap:10px;">
-                <input type="date" id="edLesDate" class="portal-input" value="${les.date}">
-                <input type="time" id="edLesTime" class="portal-input" value="${les.time}">
-            </div>
-            <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Тема (RU)</label>
-            <input type="text" id="edLesTitleRu" class="portal-input" value="${les.titleRu}">
-            <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Tema (RO)</label>
-            <input type="text" id="edLesTitleRo" class="portal-input" value="${les.titleRo}">
-            <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Описание (RU)</label>
-            <input type="text" id="edLesDescRu" class="portal-input" value="${les.descRu || ''}">
-            <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Descriere (RO)</label>
-            <input type="text" id="edLesDescRo" class="portal-input" value="${les.descRo || ''}">
-            <input type="url" id="edLesLink" class="portal-input" placeholder="Link" value="${les.link || ''}">
-            <button type="button" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:12px;" onclick="saveEditedLesson('${les.id}')">
-                <i class="fas fa-save"></i> ${isRu ? 'Сохранить изменения' : 'Salvează modificările'}
-            </button>
-        `;
-        document.getElementById('editModal').classList.add('active');
-    }
-
-    function saveEditedLesson(id) {
-        const les = appState.lessons.find(l => l.id === id);
-        if (!les) return;
-        les.date = document.getElementById('edLesDate').value || les.date;
-        les.time = document.getElementById('edLesTime').value || les.time;
-        les.titleRu = document.getElementById('edLesTitleRu').value.trim() || les.titleRu;
-        les.titleRo = document.getElementById('edLesTitleRo').value.trim() || les.titleRo;
-        les.descRu = document.getElementById('edLesDescRu').value.trim();
-        les.descRo = document.getElementById('edLesDescRo').value.trim();
-        les.link = document.getElementById('edLesLink').value.trim();
-
-        saveAppState();
-        closeEditModal();
-        renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Изменения сохранены!' : 'Modificările au fost salvate!', 'success');
-    }
-
-    /* РЕДАКТИРОВАНИЕ СТУДЕНТА МАРАФОНА */
-    function openEditMarathonStudentModal(stuId) {
-        const stu = appState.users.find(u => u.id === stuId);
-        if (!stu) return;
-        const isRu = currentLang === 'ru';
-        const marathonGroups = appState.groups.filter(g => g.type !== 'practice');
-
-        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать ученика Марафона' : 'Editează studentul Maraton';
-        document.getElementById('editModalContent').innerHTML = `
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Имя и Фамилия' : 'Nume și Prenume'}</label>
-            <input type="text" id="edMarStuName" class="portal-input" value="${stu.name}">
-            
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Группа Марафона' : 'Grupa Maraton'}</label>
-            <select id="edMarStuGroup" class="portal-input">
-                ${marathonGroups.map(g => `<option value="${g.id}" ${stu.groupId === g.id ? 'selected' : ''}>${isRu ? g.nameRu : g.nameRo}</option>`).join('')}
-            </select>
-
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">Login / Email</label>
-            <input type="text" id="edMarStuLogin" class="portal-input" value="${stu.login || ''}">
-
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">Parola / Пароль</label>
-            <input type="text" id="edMarStuPass" class="portal-input" value="${stu.pass || ''}">
-
-            <button type="button" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:12px;" onclick="saveEditedMarathonStudent('${stu.id}')">
-                <i class="fas fa-save"></i> ${isRu ? 'Сохранить изменения' : 'Salvează modificările'}
-            </button>
-        `;
-        document.getElementById('editModal').classList.add('active');
-    }
-
-    function saveEditedMarathonStudent(stuId) {
-        const stu = appState.users.find(u => u.id === stuId);
-        if (!stu) return;
-
-        const newName = document.getElementById('edMarStuName').value.trim();
-        const newGroup = document.getElementById('edMarStuGroup').value;
-        const newLogin = document.getElementById('edMarStuLogin').value.trim();
-        const newPass = document.getElementById('edMarStuPass').value.trim();
-
-        if (!newName || !newLogin || !newPass) {
-            showToast(currentLang === 'ru' ? 'Имя, логин и пароль не могут быть пустыми!' : 'Numele, login-ul și parola sunt obligatorii!', 'warning');
-            return;
-        }
-
-        const duplicate = appState.users.some(u => u.id !== stuId && u.login && u.login.toLowerCase() === newLogin.toLowerCase());
-        if (duplicate) {
-            showToast(currentLang === 'ru' ? 'Такой логин уже занят другим пользователем!' : 'Acest login este deja folosit!', 'error');
-            return;
-        }
-
-        stu.name = newName;
-        stu.groupId = newGroup;
-        stu.login = newLogin;
-        stu.pass = newPass;
-
-        appState.submissions.forEach(s => {
-            if (s.studentId === stuId) s.studentName = newName;
-        });
-
-        saveAppState();
-        closeEditModal();
-        renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Данные ученика обновлены!' : 'Datele studentului au fost actualizate!', 'success');
-    }
-
-    /* РЕДАКТИРОВАНИЕ ПРАКТИКАНТА В 1С */
-    function openEditStudentPracticeModal(stuId) {
-        const stu = appState.users.find(u => u.id === stuId);
-        if (!stu) return;
-        const isRu = currentLang === 'ru';
-        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать практиканта' : 'Editează practicantul';
-        document.getElementById('editModalContent').innerHTML = `
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Имя и Фамилия' : 'Nume și Prenume'}</label>
-            <input type="text" id="edStuPracticeName" class="portal-input" value="${stu.name}">
-            <label style="font-size:0.84rem; font-weight:700; color:var(--practice); display:block; margin-bottom:8px;">
-                ${isRu ? 'На практике до какого числа:' : 'La practică până la data de:'}
-            </label>
-            <input type="date" id="edStuPracticeUntil" class="portal-input" value="${stu.practiceUntil || '2026-04-30'}">
-            <button type="button" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:12px;" onclick="saveEditedStudentPractice('${stu.id}')">
-                <i class="fas fa-save"></i> ${isRu ? 'Сохранить' : 'Salvează'}
-            </button>
-        `;
-        document.getElementById('editModal').classList.add('active');
-    }
-
-    function saveEditedStudentPractice(stuId) {
-        const stu = appState.users.find(u => u.id === stuId);
-        if (!stu) return;
-        const newName = document.getElementById('edStuPracticeName').value.trim();
-        if (newName) stu.name = newName;
-        stu.practiceUntil = document.getElementById('edStuPracticeUntil').value;
-        saveAppState();
-        closeEditModal();
-        renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Данные практиканта обновлены!' : 'Datele practicantului au fost actualizate!', 'success');
-    }
-
-    function openEditHwModal(id) {
-        const hw = appState.homeworks.find(h => h.id === id);
-        if (!hw) return;
-        const isRu = currentLang === 'ru';
-        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать задание' : 'Editează tema';
-        document.getElementById('editModalContent').innerHTML = `
-            <input type="date" id="edHwDeadline" class="portal-input" value="${hw.deadline}">
-            <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Название (RU)</label>
-            <input type="text" id="edHwTitleRu" class="portal-input" value="${hw.titleRu}">
-            <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Titlu (RO)</label>
-            <input type="text" id="edHwTitleRo" class="portal-input" value="${hw.titleRo}">
-            <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Описание (RU)</label>
-            <textarea id="edHwDescRu" rows="2" class="portal-input">${hw.descRu || ''}</textarea>
-            <label style="font-size:0.78rem; font-weight:700; color:var(--text-muted);">Descriere (RO)</label>
-            <textarea id="edHwDescRo" rows="2" class="portal-input">${hw.descRo || ''}</textarea>
-            <button type="button" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:12px;" onclick="saveEditedHw('${hw.id}')">
-                <i class="fas fa-save"></i> ${isRu ? 'Сохранить изменения' : 'Salvează modificările'}
-            </button>
-        `;
-        document.getElementById('editModal').classList.add('active');
-    }
-
-    function saveEditedHw(id) {
-        const hw = appState.homeworks.find(h => h.id === id);
-        if (!hw) return;
-        hw.deadline = document.getElementById('edHwDeadline').value || hw.deadline;
-        hw.titleRu = document.getElementById('edHwTitleRu').value.trim() || hw.titleRu;
-        hw.titleRo = document.getElementById('edHwTitleRo').value.trim() || hw.titleRo;
-        hw.descRu = document.getElementById('edHwDescRu').value.trim();
-        hw.descRo = document.getElementById('edHwDescRo').value.trim();
-
-        saveAppState();
-        closeEditModal();
-        renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Задание обновлено!' : 'Tema a fost actualizată!', 'success');
-    }
-
-    function closeEditModal() {
-        document.getElementById('editModal').classList.remove('active');
-    }
-
     async function adminAddHw() {
         const groupId = document.getElementById('newHwGroup').value;
         const deadline = document.getElementById('newHwDeadline').value;
@@ -3990,7 +4360,7 @@
         const rawDesc = document.getElementById('newHwDescSingle').value.trim();
 
         if (!rawTitle) {
-            showToast(currentLang === 'ru' ? 'Введите название задания!' : 'Introduceți titlul temei!', 'warning');
+            showToast(currentLang === 'ru' ? 'Укажите название задания!' : 'Specificați titlul temei!', 'warning');
             return;
         }
 
@@ -4015,7 +4385,7 @@
             });
             saveAppState();
             renderCabinet(false);
-            showToast(currentLang === 'ru' ? 'Домашнее задание опубликовано!' : 'Tema a fost publicată!', 'success');
+            showToast(currentLang === 'ru' ? 'Задание опубликовано!' : 'Tema a fost publicată!', 'success');
         } finally {
             const freshBtn = document.getElementById('btnAddHw');
             if (freshBtn) {
@@ -4025,27 +4395,19 @@
         }
     }
 
-    function adminGradeSub(subId, newStatus) {
-        const sub = appState.submissions.find(s => s.id === subId);
-        if (!sub) return;
-        const gradeVal = document.getElementById('grade-' + subId).value;
-        const commVal = document.getElementById('comm-' + subId).value.trim();
-        sub.grade = gradeVal;
-        sub.teacherComment = commVal;
-        sub.status = newStatus;
-        saveAppState();
-        renderCabinet(false);
-        showToast(currentLang === 'ru' ? `Оценка ${gradeVal}/10 сохранена!` : `Nota ${gradeVal}/10 a fost salvată!`, 'success');
-    }
-
     async function adminAddGroup() {
-        const rawGrp = document.getElementById('newGrpSingle').value.trim();
-        if (!rawGrp) {
+        const rawName = document.getElementById('newGrpSingle').value.trim();
+        if (!rawName) {
             showToast(currentLang === 'ru' ? 'Введите название группы!' : 'Introduceți denumirea grupei!', 'warning');
             return;
         }
-        const trGrp = await smartAutoTranslate(rawGrp);
-        appState.groups.push({ id: 'grp-' + Date.now(), nameRu: trGrp.ru, nameRo: trGrp.ro, type: 'marathon' });
+        const tr = await smartAutoTranslate(rawName);
+        appState.groups.push({
+            id: 'grp-' + Date.now(),
+            nameRu: tr.ru,
+            nameRo: tr.ro,
+            type: 'marathon'
+        });
         saveAppState();
         renderCabinet(false);
         showToast(currentLang === 'ru' ? 'Группа Марафона создана!' : 'Grupa Maraton a fost creată!', 'success');
@@ -4056,95 +4418,72 @@
 
         if (adminAddPersonMode === 'practice') {
             const practiceUntil = document.getElementById('newStuPracticeUntil').value;
-            if (!name) {
-                showToast(currentLang === 'ru' ? 'Введите имя и фамилию практиканта!' : 'Introduceți numele practicantului!', 'warning');
-                return;
-            }
-            if (!practiceUntil) {
-                showToast(currentLang === 'ru' ? 'Укажите дату окончания практики!' : 'Specificați data finalizării practicii!', 'warning');
+            if (!name || !practiceUntil) {
+                showToast(currentLang === 'ru' ? 'Укажите имя и дату окончания практики!' : 'Completați numele și data expirării practicii!', 'warning');
                 return;
             }
             appState.users.push({
                 id: 'u-' + Date.now(),
+                login: '',
+                pass: '',
                 name,
                 role: 'student',
                 category: 'practice',
                 groupId: '',
-                login: '',
-                pass: '',
                 practiceUntil
             });
             saveAppState();
             renderCabinet(false);
-            showToast(currentLang === 'ru' ? 'Практикант добавлен!' : 'Practicantul a fost adăugat!', 'success');
-            return;
-        }
+            showToast(currentLang === 'ru' ? 'Практикант добавлен в список 1С!' : 'Practicantul a fost adăugat la 1C!', 'success');
+        } else {
+            const groupId = document.getElementById('newStuGroup').value;
+            const login = document.getElementById('newStuLogin').value.trim();
+            const pass = document.getElementById('newStuPass').value.trim();
 
-        const groupId = document.getElementById('newStuGroup').value;
-        const login = document.getElementById('newStuLogin').value.trim();
-        const pass = document.getElementById('newStuPass').value.trim();
-
-        if (!name || !login || !pass) {
-            showToast(currentLang === 'ru' ? 'Заполните имя, логин и пароль!' : 'Completați numele, login-ul și parola!', 'warning');
-            return;
-        }
-        if (appState.users.some(u => u.login && u.login.toLowerCase() === login.toLowerCase())) {
-            showToast(currentLang === 'ru' ? 'Такой логин уже существует!' : 'Acest login există deja!', 'error');
-            return;
-        }
-        appState.users.push({
-            id: 'u-' + Date.now(),
-            name,
-            login,
-            pass,
-            role: 'student',
-            category: 'marathon',
-            groupId
-        });
-        saveAppState();
-        renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Ученик добавлен на Марафон!' : 'Studentul a fost adăugat la Maraton!', 'success');
-    }
-
-    function formatDate(iso) {
-        if (!iso) return '';
-        const parts = iso.split('-');
-        if (parts.length !== 3) return iso;
-        return `${parts[2]}.${parts[1]}.${parts[0]}`;
-    }
-
-    /* ПРОФИЛИ ЭКСПЕРТОВ */
-    function switchProfile(profileId, tabElement) {
-        const allCards = document.querySelectorAll('.teacher-card');
-        allCards.forEach(card => {
-            card.classList.add('hidden-profile');
-            card.classList.remove('fade-in-profile');
-        });
-        const allTabs = document.querySelectorAll('.teacher-tab');
-        allTabs.forEach(tab => tab.classList.remove('active'));
-        const selectedCard = document.getElementById('profile-' + profileId);
-        if (selectedCard) {
-            selectedCard.classList.remove('hidden-profile');
-            void selectedCard.offsetWidth;
-            selectedCard.classList.add('fade-in-profile');
-        }
-        if (tabElement) {
-            tabElement.classList.add('active');
+            if (!name || !login || !pass) {
+                showToast(currentLang === 'ru' ? 'Заполните имя, логин и пароль!' : 'Completați numele, login-ul și parola!', 'warning');
+                return;
+            }
+            if (appState.users.some(u => u.login && u.login.toLowerCase() === login.toLowerCase())) {
+                showToast(currentLang === 'ru' ? 'Такой логин уже существует!' : 'Acest login există deja!', 'error');
+                return;
+            }
+            appState.users.push({
+                id: 'u-' + Date.now(),
+                login,
+                pass,
+                name,
+                role: 'student',
+                category: 'marathon',
+                groupId,
+                practiceUntil: ''
+            });
+            saveAppState();
+            renderCabinet(false);
+            showToast(currentLang === 'ru' ? 'Ученик Марафона добавлен!' : 'Studentul Maraton a fost adăugat!', 'success');
         }
     }
 
-    /* ОТЗЫВЫ */
+    function formatDate(isoStr) {
+        if (!isoStr) return '';
+        const parts = isoStr.split('-');
+        return parts.length === 3 ? `${parts[2]}.${parts[1]}.${parts[0]}` : isoStr;
+    }
+
+    /* ОТЗЫВЫ (С СОХРАНЕНИЕМ В АДМИНКУ НА МОДЕРАЦИЮ) */
     let currentRating = 5;
     function openReviewModal() {
         document.getElementById('reviewModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
         setRating(5);
     }
     function closeReviewModal() {
         document.getElementById('reviewModal').style.display = 'none';
+        document.body.style.overflow = '';
     }
     function setRating(val) {
         currentRating = val;
-        document.querySelectorAll('.star-icon').forEach(star => {
+        document.querySelectorAll('#starRatingContainer .star-icon').forEach(star => {
             if (parseInt(star.getAttribute('data-val')) <= val) {
                 star.classList.add('active');
             } else {
@@ -4152,98 +4491,164 @@
             }
         });
     }
-    function sendReview(messenger) {
-        const name = document.getElementById('reviewNameInput').value.trim();
-        const text = document.getElementById('reviewTextInput').value.trim();
-        if (!name || !text) {
-            showToast(currentLang === 'ru' ? "Пожалуйста, введите ваше имя и текст отзыва!" : "Vă rugăm să introduceți numele și textul recenziei!", 'warning');
+
+    async function submitSiteReview() {
+        const nameInput = document.getElementById('reviewNameInput');
+        const textInput = document.getElementById('reviewTextInput');
+        const rawName = nameInput.value.trim();
+        const rawText = textInput.value.trim();
+
+        if (!rawName || !rawText) {
+            showToast(currentLang === 'ru' ? 'Пожалуйста, укажите имя и текст отзыва!' : 'Vă rugăm să introduceți numele și textul recenziei!', 'warning');
             return;
         }
-        const stars = "⭐".repeat(currentRating);
-        const msg = currentLang === 'ru'
-            ? `Здравствуйте! Хочу оставить отзыв о курсах:\nИмя: ${name}\nОценка: ${stars} (${currentRating}/5)\nОтзыв: ${text}`
-            : `Bună ziua! Doresc să las o recenzie despre cursuri:\nNume: ${name}\nNota: ${stars} (${currentRating}/5)\nRecenzie: ${text}`;
-        if (messenger === 'whatsapp') {
-            window.open(`https://wa.me/37378506196?text=${encodeURIComponent(msg)}`, '_blank');
-        } else if (messenger === 'viber') {
-            window.location.href = `viber://forward?text=${encodeURIComponent(msg)}`;
+
+        const btn = document.getElementById('submitReviewBtn');
+        if (btn) {
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${currentLang === 'ru' ? 'Отправка...' : 'Se trimite...'}`;
         }
-        closeReviewModal();
+
+        try {
+            const trName = await smartAutoTranslate(rawName);
+            const trText = await smartAutoTranslate(rawText);
+
+            if (!Array.isArray(appState.reviews)) appState.reviews = [];
+            appState.reviews.unshift({
+                id: 'rev-' + Date.now(),
+                nameRu: trName.ru || rawName,
+                nameRo: trName.ro || rawName,
+                rating: currentRating,
+                textRu: trText.ru || rawText,
+                textRo: trText.ro || rawText,
+                status: 'pending',
+                createdAt: new Date().toLocaleDateString('ru-RU')
+            });
+
+            saveAppState();
+            nameInput.value = '';
+            textInput.value = '';
+            closeReviewModal();
+            if (currentUser && currentUser.role === 'admin') {
+                renderCabinet(false);
+            }
+            showToast(
+                currentLang === 'ru'
+                    ? 'Спасибо! Ваш отзыв отправлен на проверку администратору и скоро появится на сайте.'
+                    : 'Mulțumim! Recenzia dvs. a fost trimisă spre aprobare și va apărea în curând pe site.',
+                'success'
+            );
+        } finally {
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fas fa-paper-plane"></i> <span>${currentLang === 'ru' ? 'Отправить отзыв' : 'Trimite recenzia'}</span>`;
+            }
+        }
     }
 
     /* АНИМАЦИЯ ПРИ СКРОЛЛЕ */
-    function initScrollReveal() {
-        const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-        reveals.forEach(el => observer.observe(el));
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            if (elementTop < windowHeight - 40) reveals[i].classList.add("active");
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    window.addEventListener("load", () => {
+        reveal();
+        renderPublicReviews();
+    });
+
+    /* ПЕРЕКЛЮЧЕНИЕ ПРОФИЛЕЙ ПРЕПОДАВАТЕЛЕЙ */
+    function switchProfile(profileId, clickedTab) {
+        document.querySelectorAll('.teacher-tab').forEach(tab => tab.classList.remove('active'));
+        clickedTab.classList.add('active');
+        const allProfiles = ['ludmila', 'nadejda', 'irina'];
+        allProfiles.forEach(id => {
+            const el = document.getElementById('profile-' + id);
+            if (id === profileId) {
+                el.classList.remove('hidden-profile');
+                el.classList.remove('fade-in-profile');
+                void el.offsetWidth;
+                el.classList.add('fade-in-profile');
+            } else {
+                el.classList.add('hidden-profile');
+            }
+        });
     }
 
-    /* КАЛЕНДАРЬ БУХГАЛТЕРА (ОБНОВЛЕННЫЙ) */
+    /* НАЛОГОВЫЙ КАЛЕНДАРЬ */
     const monthsData = [
-        { ru: "Январь", ro: "Ianuarie", holiRu: "1 января — Новый год<br>7, 8 января — Рождество Христово", holiRo: "1 Ianuarie — Anul Nou<br>7, 8 Ianuarie — Crăciunul pe stil vechi", d8: 18, h8: 144, d7: 1, h7: 7, dt: 19, ht: 151, reports: [{ dateRu: "До 15 Января", dateRo: "Până pe 15 Ianuarie", list: "CAS18-AN" }, { dateRu: "До 20 Января", dateRo: "Până pe 20 Ianuarie", list: "TGN-07" }, { dateRu: "До 26 Января", dateRo: "Până pe 26 Ianuarie", list: "CAS18-AN, IPC21, IALS21, INR14, IU17, ISAPTI 17, TAXI17, TVA12, ACZ09, TFD19, TDL-13, TL 13, TRN 21, TFSP 20, CFV21, DNTC25, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
-        { ru: "Февраль", ro: "Februarie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160, reports: [{ dateRu: "До 25 Февраля", dateRo: "Până pe 25 Februarie", list: "IPC21, IU17, TAXI18, TVA12, ACZ09, EMPOLDEP19, TFDP 20, TBDSA15, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
-        { ru: "Март", ro: "Martie", holiRu: "8 марта — Международный женский день", holiRo: "8 Martie — Ziua Internațională a Femeii", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reports: [{ dateRu: "До 25 Марта", dateRo: "Până pe 25 Martie", list: "IPC21, IU17, TAXI18, DAP24, SIMM24, ONG17, VEN12, TVA12, ACZ09, TFZD-15, BIJ17, TFSP 20, UNIF25, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
-        { ru: "Апрель", ro: "Aprilie", holiRu: "12, 13 апреля — Святая Пасха<br>20 апреля — Радоница", holiRo: "12, 13 Aprilie — Paștele<br>20 Aprilie — Paștele Blajinilor", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, reports: [{ dateRu: "До 21 Апреля", dateRo: "Până pe 21 Aprilie", list: "TGN-07" }, { dateRu: "До 27 Апреля", dateRo: "Până pe 27 Aprilie", list: "IPC21, IU17, TAXI18, DAP24, SIMM24, TVA12, ACZ09, POLMED25, TDL-13, TFSP 20, CFV21" }, { dateRu: "До 30 Апреля", dateRo: "Până pe 30 Aprilie", list: "CET18" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
-        { ru: "Май", ro: "Mai", holiRu: "1 мая — День труда<br>9 мая — День Европы / День Победы", holiRo: "1 Mai — Ziua Muncii<br>9 Mai — Ziua Europei / Ziua Victoriei", d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159, reports: [{ dateRu: "До 25 Мая", dateRo: "Până pe 25 Mai", list: "IPC21, IU17, TAXI18, TVA12, ACZ09, TFSP 20, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
-        { ru: "Июнь", ro: "Iunie", holiRu: "1 июня — День защиты детей", holiRo: "1 Iunie — Ziua Copilului", d8: 21, h8: 168, d7: 0, h7: 0, dt: 21, ht: 168, reports: [{ dateRu: "До 25 Июня", dateRo: "Până pe 25 Iunie", list: "IPC21, IU17, TAXI18, TVA12, ACZ09, TFSP 20, IUPT25, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
-        { ru: "Июль", ro: "Iulie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 23, h8: 184, d7: 0, h7: 0, dt: 23, ht: 184, reports: [{ dateRu: "До 20 Июля", dateRo: "Până pe 20 Iulie", list: "TGN-07" }, { dateRu: "До 27 Июля", dateRo: "Până pe 27 Июля", list: "IPC21, IU17, DAP24, SIMM24, TVA12, ACZ09, TFSP 20, POLMED25, TDL-13, TL 13, TRN 21, CFV21" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
-        { ru: "Август", ro: "August", holiRu: "27 августа — День независимости<br>31 августа — Праздник «Limba noastră»", holiRo: "27 August — Ziua Independenței<br>31 August — Sărbătoarea «Limba noastră»", d8: 18, h8: 144, d7: 1, h7: 7, dt: 19, ht: 151, reports: [{ dateRu: "До 25 Августа", dateRo: "Până pe 25 August", list: "IPC21, IU17, TVA12, ACZ09, TFSP 20, POLMED25, DDP24" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
-        { ru: "Сентябрь", ro: "Septembrie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reports: [{ dateRu: "До 25 Сентября", dateRo: "Până pe 25 Septembrie", list: "IPC21, IU17, TVA12, ACZ09, BIJ17, TFSP 20, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
-        { ru: "Октябрь", ro: "Octombrie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176, reports: [{ dateRu: "До 20 Октября", dateRo: "Până pe 20 Octombrie", list: "TGN-07" }, { dateRu: "До 26 Октября", dateRo: "Până pe 26 Octombrie", list: "IPC21, IU17, TVA12, ACZ09, TFSP 20, POLMED25, TDL-13, CFV21" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
-        { ru: "Ноябрь", ro: "Noiembrie", holiRu: "Нет официальных праздников", holiRo: "Fără sărbători oficiale", d8: 21, h8: 168, d7: 0, h7: 0, dt: 21, ht: 168, reports: [{ dateRu: "До 25 Ноября", dateRo: "Până pe 25 Noiembrie", list: "IPC21, IU17, TVA12, ACZ09, TFSP 20, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] },
-        { ru: "Декабрь", ro: "Decembrie", holiRu: "25 декабря — Рождество Христово (по новому стилю)", holiRo: "25 Decembrie — Crăciunul pe stil nou", d8: 20, h8: 160, d7: 2, h7: 14, dt: 22, ht: 174, reports: [{ dateRu: "До 28 Декабря", dateRo: "Până pe 28 Decembrie", list: "IPC21, IU17, TVA12, ACZ09, TFSP 20, POLMED25" }, { dateRu: "В течение месяца с момента возникновения обязательства", dateRo: "Pe parcursul lunii de la apariția obligației", list: "NER-17, IRM19" }] }
+        { ro: "Ianuarie", ru: "Январь", d8: 18, d7: 1, holidays: { ro: "1 Ianuarie — Anul Nou; 7-8 Ianuarie — Nașterea lui Iisus Hristos (Crăciunul pe stil vechi)", ru: "1 Января — Новый год; 7-8 Января — Рождество Христово (по старому стилю)" }, reports: [{ date: "26 Ianuarie", items: ["IPC21", "IU17", "IRV21", "TAXI18", "TVA12", "ACC14", "TL13", "BIJ17", "TFD19", "TFI24"] }, { date: "30 Ianuarie", items: ["IALS21", "INR14", "ISAP25"] }] },
+        { ro: "Februarie", ru: "Февраль", d8: 20, d7: 0, holidays: { ro: "Nu sunt zile de sărbătoare nelucrătoare", ru: "Нерабочих праздничных дней нет" }, reports: [{ date: "25 Februarie", items: ["IPC21", "IU17", "IRV21", "TAXI18", "TVA12", "ACC14", "TL13", "BIJ17", "TFD19", "TFI24"] }] },
+        { ro: "Martie", ru: "Март", d8: 21, d7: 0, holidays: { ro: "8 Martie — Ziua Internațională a Femeii (duminică)", ru: "8 Марта — Международный женский день (воскресенье)" }, reports: [{ date: "25 Martie", items: ["IPC21", "IU17", "IRV21", "TAXI18", "TVA12", "ACC14", "TL13", "BIJ17", "TFD19", "TFI24", "VEN12", "UNIF21", "SIMM24", "IVAO15", "ONG17", "CET18"] }] },
+        { ro: "Aprilie", ru: "Aprilie", d8: 20, d7: 0, holidays: { ro: "12-13 Aprilie — Paștele; 20 Aprilie — Paștele Blajinilor", ru: "12-13 Апреля — Пасха; 20 Апреля — Радоница" }, reports: [{ date: "27 Aprilie", items: ["IPC21", "IU17", "IRV21", "TAXI18", "TVA12", "ACC14", "TL13", "BIJ17", "TFD19", "TFI24"] }] },
+        { ro: "Mai", ru: "Май", d8: 19, d7: 1, holidays: { ro: "1 Mai — Ziua Muncii; 9 Mai — Ziua Victoriei și a Europei (sâmbătă)", ru: "1 Мая — День труда; 9 Мая — День Победы и День Европы (суббота)" }, reports: [{ date: "25 Mai", items: ["IPC21", "IU17", "IRV21", "TAXI18", "TVA12", "ACC14", "TL13", "BIJ17", "TFD19", "TFI24"] }, { date: "31 Mai", items: ["Situațiile financiare (Bilanțul) / Финансовые отчеты"] }] },
+        { ro: "Iunie", ru: "Июнь", d8: 21, d7: 0, holidays: { ro: "1 Iunie — Ziua Internațională a Copilului", ru: "1 Июня — Международный день защиты детей" }, reports: [{ date: "25 Iunie", items: ["IPC21", "IU17", "IRV21", "TAXI18", "TVA12", "ACC14", "TL13", "BIJ17", "TFD19", "TFI24"] }] },
+        { ro: "Iulie", ru: "Июль", d8: 23, d7: 0, holidays: { ro: "Nu sunt zile de sărbătoare nelucrătoare", ru: "Нерабочих праздничных дней нет" }, reports: [{ date: "27 Iulie", items: ["IPC21", "IU17", "IRV21", "TAXI18", "TVA12", "ACC14", "TL13", "BIJ17", "TFD19", "TFI24"] }] },
+        { ro: "August", ru: "Август", d8: 18, d7: 1, holidays: { ro: "27 August — Ziua Independenței; 31 August — Sărbătoarea «Limba Noastră»", ru: "27 Августа — День Независимости; 31 Августа — Праздник «Limba Noastră»" }, reports: [{ date: "25 August", items: ["IPC21", "IU17", "IRV21", "TAXI18", "TVA12", "ACC14", "TL13", "BIJ17", "TFD19", "TFI24"] }] },
+        { ro: "Septembrie", ru: "Сентябрь", d8: 22, d7: 0, holidays: { ro: "Nu sunt zile de sărbătoare nelucrătoare", ru: "Нерабочих праздничных дней нет" }, reports: [{ date: "25 Septembrie", items: ["IPC21", "IU17", "IRV21", "TAXI18", "TVA12", "ACC14", "TL13", "BIJ17", "TFD19", "TFI24", "BIJ19"] }] },
+        { ro: "Octombrie", ru: "Октябрь", d8: 22, d7: 0, holidays: { ro: "14 Octombrie — Hramul orașului Chișinău (doar în mun. Chișinău)", ru: "14 Октября — Храм города Кишинева (только для мун. Кишинев)" }, reports: [{ date: "26 Octombrie", items: ["IPC21", "IU17", "IRV21", "TAXI18", "TVA12", "ACC14", "TL13", "BIJ17", "TFD19", "TFI24"] }] },
+        { ro: "Noiembrie", ru: "Ноябрь", d8: 21, d7: 0, holidays: { ro: "Nu sunt zile de sărbătoare nelucrătoare", ru: "Нерабочих праздничных дней нет" }, reports: [{ date: "25 Noiembrie", items: ["IPC21", "IU17", "IRV21", "TAXI18", "TVA12", "ACC14", "TL13", "BIJ17", "TFD19", "TFI24"] }] },
+        { ro: "Decembrie", ru: "Декабрь", d8: 21, d7: 1, holidays: { ro: "25 Decembrie — Nașterea lui Iisus Hristos (Crăciunul pe stil nou)", ru: "25 Декабря — Рождество Христово (по новому стилю)" }, reports: [{ date: "28 Decembrie", items: ["IPC21", "IU17", "IRV21", "TAXI18", "TVA12", "ACC14", "TL13", "BIJ17", "TFD19", "TFI24"] }] }
     ];
 
     let currentLang = 'ro';
-    let selectedMonthIdx = null;
-    const grid = document.getElementById('monthGrid');
+    let selectedMonthIdx = 0;
 
     function initCalendar() {
+        const grid = document.getElementById('monthGrid');
         grid.innerHTML = '';
-        monthsData.forEach((m, index) => {
-            const div = document.createElement('div');
-            div.className = 'month-item';
-            if (selectedMonthIdx === index) div.classList.add('active');
-            div.innerText = currentLang === 'ru' ? m.ru : m.ro;
-            div.onclick = () => showDeadline(index);
-            grid.appendChild(div);
+        monthsData.forEach((m, idx) => {
+            const btn = document.createElement('div');
+            btn.className = 'month-item' + (idx === selectedMonthIdx ? ' active' : '');
+            btn.innerText = m[currentLang];
+            btn.onclick = () => selectMonth(idx, btn);
+            grid.appendChild(btn);
         });
+        selectMonth(selectedMonthIdx, grid.children[selectedMonthIdx]);
     }
 
-    function showDeadline(index) {
-        selectedMonthIdx = index;
-        document.querySelectorAll('.month-item').forEach((item, idx) => {
-            item.classList.toggle('active', idx === index);
-        });
-        const m = monthsData[index];
-        document.getElementById('dlTitle').innerText = currentLang === 'ru' ? m.ru : m.ro;
-        document.getElementById('dlHolidays').innerHTML = currentLang === 'ru' ? m.holiRu : m.holiRo;
-        document.getElementById('wt-d8').innerText = m.d8;
-        document.getElementById('wt-h8').innerText = m.h8;
-        document.getElementById('wt-d7').innerText = m.d7;
-        document.getElementById('wt-h7').innerText = m.h7;
-        document.getElementById('wt-dt').innerText = m.dt;
-        document.getElementById('wt-ht').innerText = m.ht;
-
-        const reportsCont = document.getElementById('reportsContainer');
-        reportsCont.innerHTML = '';
-        m.reports.forEach(rep => {
+    function selectMonth(idx, el) {
+        selectedMonthIdx = idx;
+        document.querySelectorAll('.month-item').forEach(item => item.classList.remove('active'));
+        if (el) el.classList.add('active');
+        
+        const m = monthsData[idx];
+        const box = document.getElementById('deadlineBox');
+        document.getElementById('dlTitle').innerText = m[currentLang] + " 2026";
+        document.getElementById('dlHolidays').innerText = m.holidays[currentLang];
+        
+        const repContainer = document.getElementById('reportsContainer');
+        repContainer.innerHTML = '';
+        m.reports.forEach(group => {
             const groupDiv = document.createElement('div');
             groupDiv.className = 'report-group';
-            groupDiv.innerHTML = `
-                <div class="dl-date">${currentLang === 'ru' ? rep.dateRu : rep.dateRo}</div>
-                <div class="reports-list">${rep.list}</div>
-            `;
-            reportsCont.appendChild(groupDiv);
+            const dateDiv = document.createElement('div');
+            dateDiv.className = 'dl-date';
+            dateDiv.innerText = (currentLang === 'ru' ? 'До ' : 'Până la ') + group.date;
+            const listDiv = document.createElement('div');
+            listDiv.className = 'reports-list';
+            listDiv.innerText = group.items.join(', ');
+            groupDiv.appendChild(dateDiv);
+            groupDiv.appendChild(listDiv);
+            repContainer.appendChild(groupDiv);
         });
-
-        document.getElementById('deadlineBox').classList.add('show');
+        
+        const h8 = m.d8 * 8;
+        const h7 = m.d7 * 7;
+        document.getElementById('wt-d8').innerText = m.d8;
+        document.getElementById('wt-h8').innerText = h8;
+        document.getElementById('wt-d7').innerText = m.d7;
+        document.getElementById('wt-h7').innerText = h7;
+        document.getElementById('wt-dt').innerText = m.d8 + m.d7;
+        document.getElementById('wt-ht').innerText = h8 + h7;
+        
+        box.classList.remove('show');
+        void box.offsetWidth;
+        box.classList.add('show');
     }
 
     function toggleCalendar() {
@@ -4252,97 +4657,52 @@
     }
 
     function toggleMenu() {
-        const nav = document.getElementById('mobileNav');
-        const icon = document.getElementById('menuIcon');
-        nav.classList.toggle('active');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
+        const drawer = document.getElementById('mobileDrawer');
+        const backdrop = document.getElementById('mobileBackdrop');
+        const burger = document.getElementById('burgerBtn');
+        const isOpen = drawer.classList.contains('active');
+
+        if (isOpen) {
+            closeMenu();
+        } else {
+            drawer.classList.add('active');
+            backdrop.classList.add('active');
+            burger.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
     }
 
     function closeMenu() {
-        document.getElementById('mobileNav').classList.remove('active');
-        document.getElementById('menuIcon').classList.add('fa-bars');
-        document.getElementById('menuIcon').classList.remove('fa-times');
-    }
-
-    function toggleAcc(headerElement) {
-        const currentItem = headerElement.parentElement;
-        const currentContent = currentItem.querySelector('.acc-content');
-        const isOpen = currentItem.classList.contains('open');
-
-        document.querySelectorAll('.acc-item.open').forEach(openItem => {
-            if (openItem !== currentItem) {
-                openItem.classList.remove('open');
-                openItem.querySelector('.acc-content').style.maxHeight = null;
-            }
-        });
-
-        if (isOpen) {
-            currentItem.classList.remove('open');
-            currentContent.style.maxHeight = null;
-        } else {
-            currentItem.classList.add('open');
-            currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+        const drawer = document.getElementById('mobileDrawer');
+        const backdrop = document.getElementById('mobileBackdrop');
+        const burger = document.getElementById('burgerBtn');
+        if (drawer) drawer.classList.remove('active');
+        if (backdrop) backdrop.classList.remove('active');
+        if (burger) burger.classList.remove('open');
+        if (!document.getElementById('portalOverlay').classList.contains('active') && document.getElementById('reviewModal').style.display !== 'flex') {
+            document.body.style.overflow = '';
         }
     }
-
-    function selectCourse(course) {
-        document.getElementById('courseSelect').value = course;
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function sendToWhatsApp() {
-        const name = document.getElementById('nameInput').value.trim();
-        const phone = document.getElementById('phoneInput').value.trim();
-        const course = document.getElementById('courseSelect').value;
-        if (!name || !phone) {
-            showToast(currentLang === 'ru' ? "Пожалуйста, заполните имя и телефон!" : "Vă rugăm să completați numele și telefonul!", 'warning');
-            return;
-        }
-        const msg = currentLang === 'ru' 
-            ? `Здравствуйте! Меня зовут ${name}. Хочу записаться на курс: ${course}. Мой телефон: ${phone}` 
-            : `Bună ziua! Mă numesc ${name}. Doresc să mă înscriu la curs: ${course}. Telefonul meu: ${phone}`;
-        window.open(`https://wa.me/37378506196?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-
-    function sendToViber() {
-        const name = document.getElementById('nameInput').value.trim();
-        const phone = document.getElementById('phoneInput').value.trim();
-        const course = document.getElementById('courseSelect').value;
-        if (!name || !phone) {
-            showToast(currentLang === 'ru' ? "Пожалуйста, заполните имя и телефон!" : "Vă rugăm să completați numele și telefonul!", 'warning');
-            return;
-        }
-        const msg = currentLang === 'ru' 
-            ? `Здравствуйте! Меня зовут ${name}. Хочу записаться на курс: ${course}. Мой телефон: ${phone}` 
-            : `Bună ziua! Mă numesc ${name}. Doresc să mă înscriu la curs: ${course}. Telefonul meu: ${phone}`;
-        window.location.href = `viber://forward?text=${encodeURIComponent(msg)}`;
-    }
-
-    /* ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА С ПЛАВНОЙ АНИМАЦИЕЙ */
-    let langSwitchTimer = null;
 
     function syncCabLangSwitch() {
-        const cabPill = document.getElementById('cabLangPill');
-        const cabBtnRu = document.getElementById('cabBtnRu');
-        const cabBtnRo = document.getElementById('cabBtnRo');
-        if (!cabPill || !cabBtnRu || !cabBtnRo) return;
+        const pill = document.getElementById('cabLangPill');
+        const bRu = document.getElementById('cabBtnRu');
+        const bRo = document.getElementById('cabBtnRo');
+        if (!pill || !bRu || !bRo) return;
 
         if (currentLang === 'ru') {
-            cabPill.style.transform = 'translateX(0)';
-            cabBtnRu.classList.add('active');
-            cabBtnRu.style.color = '#000';
-            cabBtnRo.classList.remove('active');
-            cabBtnRo.style.color = '#fff';
+            pill.style.transform = 'translateX(0%)';
+            bRu.style.color = '#000';
+            bRo.style.color = '#fff';
         } else {
-            cabPill.style.transform = 'translateX(100%)';
-            cabBtnRo.classList.add('active');
-            cabBtnRo.style.color = '#000';
-            cabBtnRu.classList.remove('active');
-            cabBtnRu.style.color = '#fff';
+            pill.style.transform = 'translateX(100%)';
+            bRo.style.color = '#000';
+            bRu.style.color = '#fff';
         }
     }
 
+    /* ПЛАВНАЯ СМЕНА ЯЗЫКА */
+    let langSwitchTimeout = null;
     function setLanguage(lang) {
         if (currentLang === lang) return;
         currentLang = lang;
@@ -4353,7 +4713,7 @@
         const btnRo = document.getElementById('btnRo');
 
         if (lang === 'ru') {
-            pill.style.transform = 'translateX(0)';
+            pill.style.transform = 'translateX(0%)';
             btnRu.classList.add('active');
             btnRo.classList.remove('active');
         } else {
@@ -4361,56 +4721,108 @@
             btnRo.classList.add('active');
             btnRu.classList.remove('active');
         }
-
         syncCabLangSwitch();
 
         document.body.classList.add('lang-switching');
-        clearTimeout(langSwitchTimer);
+        clearTimeout(langSwitchTimeout);
 
-        langSwitchTimer = setTimeout(() => {
-            document.querySelectorAll('[data-ru]').forEach(el => {
+        langSwitchTimeout = setTimeout(() => {
+            document.querySelectorAll('[data-' + lang + ']').forEach(el => {
                 el.innerText = el.getAttribute('data-' + lang);
             });
+            
+            const heroH1 = document.getElementById('hero-h1');
+            const heroP = document.getElementById('hero-p');
+            const heroBtn = document.getElementById('hero-btn');
+            const nameInput = document.getElementById('nameInput');
+            const phoneInput = document.getElementById('phoneInput');
+            const revName = document.getElementById('reviewNameInput');
+            const revText = document.getElementById('reviewTextInput');
 
             if (lang === 'ru') {
-                document.getElementById('hero-h1').innerHTML = 'Бухгалтерский учет в Республике Молдова:<br>Практика 2026';
-                document.getElementById('hero-p').innerText = 'Станьте востребованным специалистом под руководством Людмилы Борденюк.';
-                document.getElementById('hero-btn').innerText = 'Записаться на Марафон';
-                document.getElementById('nameInput').placeholder = 'Ваше имя';
-                document.getElementById('phoneInput').placeholder = 'Ваш телефон';
-                document.getElementById('reviewNameInput').placeholder = 'Ваше имя';
-                document.getElementById('reviewTextInput').placeholder = 'Напишите ваш отзыв здесь...';
+                heroH1.innerHTML = 'Бухгалтерский учет в Республике Молдова:<br>Практика 2026';
+                heroP.innerText = 'Станьте востребованным специалистом под руководством Людмилы Борденюк.';
+                heroBtn.innerText = 'Записаться на Марафон';
+                nameInput.placeholder = 'Ваше имя';
+                phoneInput.placeholder = 'Ваш телефон';
+                if (revName) revName.placeholder = 'Ваше имя';
+                if (revText) revText.placeholder = 'Напишите ваш отзыв здесь...';
             } else {
-                document.getElementById('hero-h1').innerHTML = 'Evidența contabilă în Republica Moldova:<br>Practica 2026';
-                document.getElementById('hero-p').innerText = 'Devino un specialist solicitat sub îndrumarea Ludmilei Bordeniuc.';
-                document.getElementById('hero-btn').innerText = 'Înscrie-te la Maraton';
-                document.getElementById('nameInput').placeholder = 'Numele dvs.';
-                document.getElementById('phoneInput').placeholder = 'Telefonul dvs.';
-                document.getElementById('reviewNameInput').placeholder = 'Numele dvs.';
-                document.getElementById('reviewTextInput').placeholder = 'Scrie recenzia ta aici...';
+                heroH1.innerHTML = 'Evidența contabilă în Republica Moldova:<br>Practica 2026';
+                heroP.innerText = 'Devino un specialist solicitat sub îndrumarea Ludmilei Bordeniuc.';
+                heroBtn.innerText = 'Înscrie-te la Maraton';
+                nameInput.placeholder = 'Numele dvs.';
+                phoneInput.placeholder = 'Telefonul dvs.';
+                if (revName) revName.placeholder = 'Numele dvs.';
+                if (revText) revText.placeholder = 'Scrie recenzia ta aici...';
             }
 
-            initCalendar();
-            if (selectedMonthIdx !== null) showDeadline(selectedMonthIdx);
+            updateHeaderUserButton();
+            renderPublicReviews();
             if (currentUser) showCabinetView();
-
-            document.querySelectorAll('.acc-item.open').forEach(item => {
-                const content = item.querySelector('.acc-content');
-                content.style.maxHeight = content.scrollHeight + "px";
-            });
+            initCalendar();
 
             requestAnimationFrame(() => {
                 document.body.classList.remove('lang-switching');
             });
-        }, 260);
+        }, 160);
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-        initCalendar();
-        initScrollReveal();
-        updateHeaderUserButton();
-        syncCabLangSwitch();
-    });
+    function selectCourse(courseName) {
+        const select = document.getElementById('courseSelect');
+        select.value = courseName;
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        select.style.borderColor = '#d4af37';
+        select.style.boxShadow = '0 0 12px rgba(212, 175, 55, 0.35)';
+        setTimeout(() => { select.style.borderColor = '#cbd5e1'; select.style.boxShadow = 'none'; }, 2000);
+    }
+
+    function sendToWhatsApp() {
+        const name = document.getElementById('nameInput').value.trim();
+        const phone = document.getElementById('phoneInput').value.trim();
+        const course = document.getElementById('courseSelect').value;
+        if (!name || !phone) {
+            showToast(currentLang === 'ru' ? 'Пожалуйста, заполните имя и телефон!' : 'Vă rugăm să completați numele și telefonul!', 'warning');
+            return;
+        }
+        const message = currentLang === 'ru' 
+            ? `Здравствуйте! Меня зовут ${name}. Хочу записаться на курс: ${course}. Мой телефон: ${phone}` 
+            : `Bună ziua! Mă numesc ${name}. Doresc să mă înscriu la cursul: ${course}. Telefonul meu: ${phone}`;
+        window.open(`https://wa.me/37378506196?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    function sendToViber() {
+        const name = document.getElementById('nameInput').value.trim();
+        const phone = document.getElementById('phoneInput').value.trim();
+        const course = document.getElementById('courseSelect').value;
+        if (!name || !phone) {
+            showToast(currentLang === 'ru' ? 'Пожалуйста, заполните имя и телефон!' : 'Vă rugăm să completați numele și telefonul!', 'warning');
+            return;
+        }
+        const message = currentLang === 'ru' 
+            ? `Здравствуйте! Меня зовут ${name}. Хочу записаться на курс: ${course}. Мой телефон: ${phone}` 
+            : `Bună ziua! Mă numesc ${name}. Doresc să mă înscriu la cursul: ${course}. Telefonul meu: ${phone}`;
+        window.location.href = `viber://chat?number=%2B37378506196&text=${encodeURIComponent(message)}`;
+    }
+
+    function toggleAcc(header) {
+        const item = header.parentElement;
+        const content = item.querySelector('.acc-content');
+        const isOpen = item.classList.contains('open');
+
+        if (isOpen) {
+            item.classList.remove('open');
+            content.style.maxHeight = null;
+        } else {
+            item.classList.add('open');
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    }
+
+    updateHeaderUserButton();
+    initCalendar();
+    renderPublicReviews();
 </script>
+
 </body>
 </html>
