@@ -69,7 +69,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ЖЕСТКАЯ БЛОКИРОВКА СКРОЛЛА ФОНА НА IPHONE БЕЗ СДВИГА СТРАНИЦЫ */
         body.modal-locked {
             position: fixed;
             left: 0;
@@ -82,7 +81,6 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* ЗАЩИТА ОТ АВТО-ЗУМА НА IPHONE И ФИКС ШИРИНЫ DATE / TIME В IOS SAFARI */
         input, textarea, select {
             font-size: 16px !important;
             max-width: 100%;
@@ -119,7 +117,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* МЯГКИЙ И ПЛАВНЫЙ ПЕРЕХОД ПРИ СМЕНЕ ЯЗЫКА */
         [data-ru], #hero-h1, #hero-p, #hero-btn, input, textarea, select, #cabinetBody, #cabinetTabs, #cabUserRole {
             transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
                         transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
@@ -137,7 +134,6 @@
             filter: blur(4px);
         }
 
-        /* АНИМАЦИЯ ПЕРЕКЛЮЧЕНИЯ ВКЛАДОК И РАЗДЕЛОВ В КАБИНЕТЕ */
         .tab-content-animate {
             animation: smoothTabReveal 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
@@ -146,14 +142,12 @@
             100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
         }
 
-        /* АНИМАЦИИ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ */
         .reveal { opacity: 0; transform: translateY(28px); transition: all 0.75s cubic-bezier(0.25, 0.8, 0.25, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         .reveal-left { opacity: 0; transform: translateX(-28px); transition: all 0.75s cubic-bezier(0.25, 0.8, 0.25, 1); }
         .reveal-right { opacity: 0; transform: translateX(28px); transition: all 0.75s cubic-bezier(0.25, 0.8, 0.25, 1); }
         .reveal-left.active, .reveal-right.active { opacity: 1; transform: translateX(0); }
 
-        /* КРАСИВЫЕ ВСПЛЫВАЮЩИЕ УВЕДОМЛЕНИЯ (TOASTS) */
         .toast-container {
             position: fixed;
             top: calc(16px + env(safe-area-inset-top));
@@ -207,7 +201,6 @@
             100% { opacity: 0; transform: translateY(-16px) scale(0.94); }
         }
 
-        /* НАВИГАЦИЯ */
         header {
             background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(16px);
@@ -261,7 +254,6 @@
         nav.desktop-nav a:hover { color: var(--primary); }
         nav.desktop-nav a:hover::after { width: 100%; }
 
-        /* КНОПКА ЛИЧНОГО КАБИНЕТА В ШАПКЕ */
         .btn-cabinet-nav {
             display: inline-flex;
             align-items: center;
@@ -290,7 +282,6 @@
             box-shadow: var(--gold-glow);
         }
 
-        /* ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА СО СКОЛЬЗЯЩЕЙ ПЛАШКОЙ */
         .lang-switch {
             position: relative;
             display: flex;
@@ -329,7 +320,6 @@
         .lang-btn.active { color: #fff; }
         .lang-btn:not(.active) { color: var(--primary); }
 
-        /* СТИЛЬНАЯ КНОПКА БУРГЕРА С МОРФИНГОМ */
         .menu-toggle {
             display: none;
             width: 44px;
@@ -386,7 +376,6 @@
             transform: translateY(-5.75px) rotate(-45deg);
         }
 
-        /* ПРЕМИАЛЬНАЯ ВЫЕЗЖАЮЩАЯ МОБИЛЬНАЯ ПАНЕЛЬ */
         .mobile-menu-backdrop {
             position: fixed;
             inset: 0;
@@ -480,7 +469,6 @@
             gap: 12px;
         }
 
-        /* ГЕРОЙ */
         .hero {
             position: relative;
             min-height: 85vh;
@@ -572,7 +560,6 @@
             box-shadow: 0 14px 32px rgba(212, 175, 55, 0.65);
         }
 
-        /* 3D БЛОКНОТ */
         .hero-visual { flex: 0.95; display: flex; justify-content: center; align-items: center; perspective: 1500px; }
         .floating-wrapper { position: relative; width: 100%; max-width: 295px; aspect-ratio: 1 / 1.35; }
         .floating-shadow { position: absolute; bottom: -40px; left: 10%; width: 80%; height: 25px; background: rgba(0,0,0,0.8); filter: blur(25px); border-radius: 50%; animation: shadow-pulse 6s ease-in-out infinite; }
@@ -630,7 +617,6 @@
             box-shadow: 0 3px 10px rgba(212, 175, 55, 0.35);
         }
 
-        /* ПРЕПОДАВАТЕЛИ & ТАБЫ */
         .teacher-switcher { 
             display: inline-flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 45px; 
             background: var(--light-grey); padding: 8px 20px; border-radius: 50px;
@@ -709,7 +695,6 @@
             box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
         }
 
-        /* ПУТЬ СТУДЕНТА */
         .roadmap-container { text-align: center; max-width: 1200px; margin: 0 auto; }
         .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
         .step-item {
@@ -745,7 +730,6 @@
             box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45);
         }
 
-        /* ПРОГРАММА */
         .program-container { max-width: 860px; margin: 0 auto; }
         .acc-item {
             border: 1px solid #e2e8f0;
@@ -811,7 +795,6 @@
         .acc-content-inner ul { margin: 8px 0 14px; padding-left: 20px; }
         .acc-content-inner li { margin-bottom: 6px; color: var(--primary-dark); font-weight: 600; }
 
-        /* ОТЗЫВЫ */
         .reviews-grid { 
             display: grid; 
             grid-template-columns: repeat(2, 1fr); 
@@ -902,7 +885,6 @@
         .reviewer-info h4 { margin: 0 0 2px 0; color: var(--dark); font-size: 1rem; font-weight: 800; }
         .reviewer-info span { font-size: 0.8rem; color: #9f7509; font-weight: 700; }
 
-        /* ТАРИФЫ */
         .pricing-container { text-align: center; max-width: 900px; margin: 0 auto; }
         .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin-top: 20px; }
         .price-card {
@@ -961,7 +943,6 @@
         .btn-tariff-blue { background: var(--primary); color: #fff; box-shadow: 0 8px 20px rgba(26, 79, 139, 0.25); }
         .btn-tariff-blue:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
-        /* КОНТАКТЫ */
         .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; max-width: 1100px; margin: 0 auto; }
         .contact-method {
             display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--dark);
@@ -988,7 +969,6 @@
         .btn-viber { background: #7360f2; }
         .btn-viber:hover { background: #6554d4; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(115, 96, 242, 0.35); }
 
-        /* ИНТЕРАКТИВНЫЙ КАЛЕНДАРЬ */
         .floating-calendar-btn {
             position: fixed; top: 50%; right: 0; transform: translateY(-50%);
             background: var(--gold-grad);
@@ -1118,7 +1098,6 @@
             box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.16);
         }
 
-        /* РАБОЧЕЕ ОКНО КАБИНЕТА */
         .cabinet-workspace {
             background: #f1f5f9;
             width: 100%;
@@ -1293,7 +1272,6 @@
             min-width: 0;
         }
 
-        /* РАЗДЕЛЫ ДОМАШНИХ ЗАДАНИЙ У УЧЕНИКОВ И СВОРАЧИВАНИЕ КАРТОЧКИ */
         .hw-section-header {
             display: flex;
             align-items: center;
@@ -1354,7 +1332,6 @@
             border-top: 1px solid #f1f5f9;
         }
 
-        /* БЕЙДЖ ОЦЕНКИ УЧЕНИКА */
         .grade-pill-badge {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.05rem;
@@ -1373,7 +1350,6 @@
             box-shadow: 0 4px 12px rgba(202, 138, 4, 0.22);
         }
 
-        /* ПАНЕЛЬ ФИЛЬТРОВ И ПОИСКА В АДМИНКЕ */
         .admin-filter-bar {
             display: flex;
             flex-wrap: wrap;
@@ -1406,7 +1382,6 @@
             border-color: var(--primary);
         }
 
-        /* ЧАТ ВНУТРИ ДОМАШНЕГО ЗАДАНИЯ */
         .hw-chat-box {
             margin-top: 16px;
             background: #f8fafc;
@@ -1447,7 +1422,6 @@
             gap: 8px;
         }
 
-        /* КАРТОЧКИ БИБЛИОТЕКИ МАТЕРИАЛОВ */
         .materials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
@@ -1484,7 +1458,6 @@
         .mat-excel { background: #dcfce7; color: #16a34a; }
         .mat-doc { background: #dbeafe; color: #2563eb; }
 
-        /* ПЕРЕКЛЮЧАТЕЛЬ ТИПА ДОБАВЛЕНИЯ В АДМИНКЕ (МАРАФОН / ПРАКТИКА 1С) */
         .mode-pill-switch {
             display: flex;
             background: var(--light-grey);
@@ -1559,7 +1532,6 @@
             border-color: #fda4af !important;
         }
 
-        /* КОМПАКТНЫЙ И ПЛАВНЫЙ КАЛЕНДАРЬ УЧЕНИКА МАРАФОНА */
         .stu-schedule-layout {
             display: grid;
             grid-template-columns: 315px 1fr;
@@ -1769,7 +1741,6 @@
             background: #f8fafc;
         }
 
-        /* МОДАЛЬНЫЕ ОКНА ПОДТВЕРЖДЕНИЯ И РЕДАКТИРОВАНИЯ */
         .sub-modal-overlay {
             display: none;
             position: fixed;
@@ -1807,7 +1778,6 @@
             100% { transform: scale(1) translateY(0); opacity: 1; }
         }
 
-        /* ПРЕВЬЮ ЗАГРУЖЕННЫХ ФОТО */
         .uploaded-img-thumb {
             width: 84px;
             height: 84px;
@@ -1880,7 +1850,6 @@
             .calendar-drawer { width: 100%; }
             .messenger-btns { flex-direction: column; }
 
-            /* НА МОБИЛЬНЫХ ОКНО КАБИНЕТА ОТКРЫВАЕТСЯ НА ВЕСЬ ЭКРАН БЕЗ СЪЕЗДАНИЯ */
             .portal-overlay { padding: 0; align-items: stretch; }
             .portal-overlay.active { align-items: stretch; }
             #loginView { margin: auto 12px; max-height: calc(100dvh - 24px); }
@@ -1909,7 +1878,6 @@
 </head>
 <body>
 
-<!-- КОНТЕЙНЕР КРАСИВЫХ УВЕДОМЛЕНИЙ -->
 <div class="toast-container" id="toastContainer"></div>
 
 <!-- ПЛАВАЮЩАЯ КНОПКА КАЛЕНДАРЯ -->
@@ -1965,20 +1933,17 @@
             <a href="#contact" data-ru="Контакты" data-ro="Contacte">Contacte</a>
         </nav>
 
-        <!-- КНОПКА ЛИЧНОГО КАБИНЕТА -->
         <button type="button" class="btn-cabinet-nav" id="headerCabinetBtn" onclick="openPortal()">
             <i class="fas fa-user-circle" style="font-size: 1.05rem;"></i>
             <span id="headerCabinetLabel" data-ru="Кабинет" data-ro="Contul meu">Contul meu</span>
         </button>
 
-        <!-- ПЕРЕКЛЮЧАТЕЛЬ RU / RO -->
         <div class="lang-switch" aria-label="Language switcher">
             <div class="lang-pill" id="langPill"></div>
             <button type="button" class="lang-btn" id="btnRu" onclick="setLanguage('ru')">RU</button>
             <button type="button" class="lang-btn active" id="btnRo" onclick="setLanguage('ro')">RO</button>
         </div>
 
-        <!-- СТИЛЬНЫЙ БУРГЕР -->
         <button type="button" class="menu-toggle" id="burgerBtn" aria-label="Meniu" onclick="toggleMenu()">
             <div class="burger-lines">
                 <span></span>
@@ -1989,7 +1954,7 @@
     </div>
 </header>
 
-<!-- СТИЛЬНАЯ МОБИЛЬНАЯ ПАНЕЛЬ НАВИГАЦИИ -->
+<!-- МОБИЛЬНАЯ ПАНЕЛЬ НАВИГАЦИИ -->
 <div class="mobile-menu-backdrop" id="mobileBackdrop" onclick="closeMenu()"></div>
 <aside class="mobile-drawer" id="mobileDrawer">
     <div>
@@ -2247,7 +2212,6 @@
         <h2 class="section-title reveal" data-ru="Программа Марафона (6 недель)" data-ro="Programa Maratonului (6 săptămâni)">Programa Maratonului (6 săptămâni)</h2>
         <div class="section-divider reveal"></div>
         
-        <!-- НЕДЕЛЯ 1 -->
         <div class="acc-item reveal">
             <div class="acc-header" onclick="toggleAcc(this)">
                 <span data-ru="Неделя 1: Основы и структура имущества компании" data-ro="Săptămâna 1: Bazele și structura patrimoniului companiei">Săptămâna 1: Bazele și structura patrimoniului companiei</span>
@@ -2277,7 +2241,6 @@
             </div>
         </div>
     
-        <!-- НЕДЕЛЯ 2 -->
         <div class="acc-item reveal">
             <div class="acc-header" onclick="toggleAcc(this)">
                 <span data-ru="Неделя 2: Долгосрочные активы" data-ro="Săptămâna 2: Active pe termen lung">Săptămâna 2: Active pe termen lung</span>
@@ -2308,7 +2271,6 @@
             </div>
         </div>
     
-        <!-- НЕДЕЛЯ 3 -->
         <div class="acc-item reveal">
             <div class="acc-header" onclick="toggleAcc(this)">
                 <span data-ru="Неделя 3: Казначейство, запасы и заработная плата" data-ro="Săptămâna 3: Trezoreria, stocurile și salarizarea">Săptămâna 3: Trezoreria, stocurile și salarizarea</span>
@@ -2338,7 +2300,6 @@
             </div>
         </div>
     
-        <!-- НЕДЕЛЯ 4 -->
         <div class="acc-item reveal">
             <div class="acc-header" onclick="toggleAcc(this)">
                 <span data-ru="Неделя 4: Собственный капитал, дебиторская и кредиторская задолженность" data-ro="Săptămâna 4: Capital propriu, creanțe și datorii">Săptămâna 4: Capital propriu, creanțe și datorii</span>
@@ -2364,7 +2325,6 @@
             </div>
         </div>
     
-        <!-- НЕДЕЛЯ 5 -->
         <div class="acc-item reveal">
             <div class="acc-header" onclick="toggleAcc(this)">
                 <span data-ru="Неделя 5: Доходы, расходы и финансовые результаты" data-ro="Săptămâna 5: Venituri, cheltuieli și rezultate financiare">Săptămâna 5: Venituri, cheltuieli și rezultate financiare</span>
@@ -2390,7 +2350,6 @@
             </div>
         </div>
     
-        <!-- НЕДЕЛЯ 6 -->
         <div class="acc-item reveal">
             <div class="acc-header" onclick="toggleAcc(this)">
                 <span data-ru="Неделя 6: Краткий обзор бухгалтерского учета и налогообложения" data-ro="Săptămâna 6: Scurtă trecere în revistă a contabilității și impozitării">Săptămâna 6: Scurtă trecere în revistă a contabilității și impozitării</span>
@@ -2418,7 +2377,6 @@
             </div>
         </div>
     
-        <!-- ФИНАЛЬНЫЙ ПРОЕКТ -->
         <div class="acc-item reveal" style="border: 1.5px solid var(--secondary); border-left: 5px solid var(--secondary);">
             <div class="acc-header" onclick="toggleAcc(this)" style="background: linear-gradient(90deg, var(--secondary-light) 0%, #ffffff 100%);">
                 <span data-ru="Финальный проект" data-ro="Proiect final" style="color: #856006; font-weight: 800;">Proiect final</span>
@@ -2436,7 +2394,7 @@
     </div>
 </section>
 
-<!-- ОТЗЫВЫ (ДИНАМИЧЕСКИ РЕНДЕРЯТСЯ ИЗ БАЗЫ + МОДЕРАЦИЯ В АДМИНКЕ) -->
+<!-- ОТЗЫВЫ -->
 <section class="section-light" id="testimonials">
     <div class="roadmap-container">
         <h2 class="section-title reveal" data-ru="Отзывы наших учеников" data-ro="Recenziile studenților noștri">Recenziile studenților noștri</h2>
@@ -2522,7 +2480,7 @@
     <p style="margin: 0;">&copy; 2026 <span style="color: var(--secondary); font-weight: 700;">BordeniucUnity.md</span> | Ludmila Bordeniuc</p>
 </footer>
 
-<!-- МОДАЛЬНОЕ ОКНО ОТЗЫВОВ (ОТПРАВКА НА МОДЕРАЦИЮ В АДМИНКУ) -->
+<!-- МОДАЛЬНОЕ ОКНО ОТЗЫВОВ -->
 <style>
     .star-icon { color: #cbd5e1; cursor: pointer; transition: color 0.2s, transform 0.2s; }
     .star-icon:hover { transform: scale(1.12); }
@@ -2591,9 +2549,9 @@
         </div>
 
         <form onsubmit="handleLogin(event)">
-            <input type="text" id="loginEmail" class="portal-input" placeholder="Login / Email" required>
+            <input type="email" id="loginEmail" class="portal-input" placeholder="Email" required>
             <input type="password" id="loginPass" class="portal-input" placeholder="Parola / Пароль" required>
-            <button type="submit" class="btn-hero" style="width: 100%; justify-content: center; padding: 15px; border-radius: 14px; font-size: 1.02rem;">
+            <button type="submit" id="btnLoginSubmit" class="btn-hero" style="width: 100%; justify-content: center; padding: 15px; border-radius: 14px; font-size: 1.02rem;">
                 <span data-ru="Войти" data-ro="Intră în cont">Intră în cont</span>
             </button>
         </form>
@@ -2633,6 +2591,7 @@
 
 <!-- FIREBASE SDK -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
@@ -2670,12 +2629,20 @@
     };
 
     let db = null;
+    let auth = null;
+    let secondaryAuth = null;
+
     if (firebaseConfig.apiKey && firebaseConfig.projectId && typeof firebase !== 'undefined') {
         try {
             firebase.initializeApp(firebaseConfig);
+            auth = firebase.auth();
             db = firebase.firestore();
+
+            // Вторичный инстанс для регистрации учеников админом без потери текущей сессии
+            const secondaryApp = firebase.initializeApp(firebaseConfig, 'Secondary');
+            secondaryAuth = secondaryApp.auth();
         } catch (e) {
-            console.warn("Firebase fallback to localStorage:", e);
+            console.error("Firebase init error:", e);
         }
     }
 
@@ -2774,15 +2741,10 @@
         }
     ];
 
-    /* БАЗА ДАННЫХ */
-    const DEFAULT_STATE = {
+    /* БАЗОВЫЕ ШАБЛОНЫ КОНТЕНТА (БЕЗ ПАРОЛЕЙ В КОДЕ) */
+    const DEFAULT_CONTENT = {
         groups: [
             { id: 'grp-marathon', nameRu: 'Марафон — Основная группа', nameRo: 'Maraton — Grupa principală', type: 'marathon' }
-        ],
-        users: [
-            { id: 'u-admin', login: 'admin@contabil.md', pass: 'admin2026', name: 'Ludmila Bordeniuc', role: 'admin', groupId: 'all' },
-            { id: 'u-1', login: 'student@contabil.md', pass: '123456', name: 'Nicoleta Rusu', role: 'student', groupId: 'grp-marathon' },
-            { id: 'u-2', login: '', pass: '', name: 'Ion Ciobanu', role: 'student', category: 'practice', groupId: '', practiceUntil: '2026-04-30' }
         ],
         lessons: [
             {
@@ -2819,18 +2781,21 @@
                 descRo: 'Tabel Excel pregătit cu formule pentru realizarea sarcinilor practice.',
                 url: 'https://docs.google.com/spreadsheets/'
             }
-        ],
-        submissions: [],
-        reviews: DEFAULT_REVIEWS
+        ]
     };
 
-    let appState = JSON.parse(localStorage.getItem('contabil_portal_v8')) || JSON.parse(JSON.stringify(DEFAULT_STATE));
-    if (!appState.materials) appState.materials = DEFAULT_STATE.materials;
-    if (!appState.reviews || !Array.isArray(appState.reviews) || appState.reviews.length === 0) {
-        appState.reviews = JSON.parse(JSON.stringify(DEFAULT_REVIEWS));
-    }
+    /* В ОПЕРАТИВНОЙ ПАМЯТИ ДЕРЖИМ ТОЛЬКО ПУБЛИЧНЫЕ ОТЗЫВЫ ДО МОМЕНТА АВТОРИЗАЦИИ */
+    let appState = {
+        groups: [],
+        users: [],
+        lessons: [],
+        homeworks: [],
+        materials: [],
+        submissions: [],
+        reviews: JSON.parse(JSON.stringify(DEFAULT_REVIEWS))
+    };
 
-    let currentUser = JSON.parse(sessionStorage.getItem('contabil_current_user')) || null;
+    let currentUser = null;
     let activePortalTab = 'student-schedule';
 
     /* СОСТОЯНИЯ АДМИН-ФИЛЬТРОВ И РЕЖИМОВ */
@@ -2861,35 +2826,127 @@
         return grp && grp.type === 'practice';
     }
 
-    /* СОХРАНЕНИЕ В LOCALSTORAGE МГНОВЕННО + СИНХРОНИЗАЦИЯ С FIREBASE В ФОНЕ */
-    function saveAppState() {
-        localStorage.setItem('contabil_portal_v8', JSON.stringify(appState));
-        if (db) {
-            db.collection('portal').doc('mainStateV8').set(appState).catch(e => {
-                console.warn("Firestore background sync warning:", e);
-            });
+    /* ЗАГРУЗКА ТОЛЬКО ОДОБРЕННЫХ ОТЗЫВОВ ДЛЯ ГОСТЕЙ САЙТА */
+    async function loadPublicReviews() {
+        if (!db) return;
+        try {
+            const snap = await db.collection('reviews').where('status', '==', 'approved').get();
+            if (!snap.empty) {
+                appState.reviews = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                renderPublicReviews();
+            }
+        } catch (e) {
+            console.warn("Public reviews read warning:", e);
         }
     }
 
-    async function loadCloudState() {
-        if (!db) return;
+    /* СИНХРОНИЗАЦИЯ ЗАЩИЩЕННЫХ ДАННЫХ ПОРТАЛА (ТОЛЬКО ДЛЯ АДМИНА) */
+    async function syncPortalContent() {
+        if (!db || !currentUser || currentUser.role !== 'admin') return;
         try {
-            const doc = await db.collection('portal').doc('mainStateV8').get();
-            if (doc.exists) {
-                appState = doc.data();
-                if (!appState.materials) appState.materials = [];
-                if (!appState.reviews) appState.reviews = JSON.parse(JSON.stringify(DEFAULT_REVIEWS));
-                localStorage.setItem('contabil_portal_v8', JSON.stringify(appState));
-                renderPublicReviews();
-                if (currentUser) renderCabinet(false);
-            } else {
-                saveAppState();
-            }
+            await db.collection('portalData').doc('content').set({
+                groups: appState.groups,
+                lessons: appState.lessons,
+                homeworks: appState.homeworks,
+                materials: appState.materials
+            });
         } catch (e) {
-            console.warn("Firestore read skipped:", e);
+            console.error("Failed to save portal content:", e);
+            showToast(currentLang === 'ru' ? 'Ошибка сохранения в облако!' : 'Eroare la salvarea în cloud!', 'error');
         }
     }
-    loadCloudState();
+
+    /* ЗАГРУЗКА ЗАЩИЩЕННЫХ ДАННЫХ ПОСЛЕ УСПЕШНОЙ АВТОРИЗАЦИИ */
+    async function loadProtectedPortalData() {
+        if (!db || !currentUser) return;
+
+        try {
+            // 1. Загружаем расписание, группы, ДЗ и материалы (доступно только авторизованным)
+            const contentDoc = await db.collection('portalData').doc('content').get();
+            if (contentDoc.exists) {
+                const data = contentDoc.data();
+                appState.groups = data.groups || [];
+                appState.lessons = data.lessons || [];
+                appState.homeworks = data.homeworks || [];
+                appState.materials = data.materials || [];
+            } else if (currentUser.role === 'admin') {
+                // Инициализируем стартовую структуру при первом входе админа
+                appState.groups = JSON.parse(JSON.stringify(DEFAULT_CONTENT.groups));
+                appState.lessons = JSON.parse(JSON.stringify(DEFAULT_CONTENT.lessons));
+                appState.homeworks = JSON.parse(JSON.stringify(DEFAULT_CONTENT.homeworks));
+                appState.materials = JSON.parse(JSON.stringify(DEFAULT_CONTENT.materials));
+                await syncPortalContent();
+            }
+
+            // 2. Загружаем сданные работы, пользователей и отзывы согласно правам
+            if (currentUser.role === 'admin') {
+                const [subSnap, usersSnap, revSnap] = await Promise.all([
+                    db.collection('submissions').get(),
+                    db.collection('users').get(),
+                    db.collection('reviews').get()
+                ]);
+                appState.submissions = subSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+                appState.users = usersSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+                if (revSnap.empty) {
+                    // Переносим базовые отзывы в коллекцию reviews при первом входе админа
+                    for (const r of DEFAULT_REVIEWS) {
+                        const { id, ...revData } = r;
+                        await db.collection('reviews').doc(id).set(revData);
+                    }
+                    appState.reviews = JSON.parse(JSON.stringify(DEFAULT_REVIEWS));
+                } else {
+                    appState.reviews = revSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+                }
+            } else {
+                // Ученик получает ТОЛЬКО свои сданные работы
+                const subSnap = await db.collection('submissions')
+                    .where('studentUid', '==', currentUser.id)
+                    .get();
+                appState.submissions = subSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+            }
+        } catch (e) {
+            console.error("Protected data load error:", e);
+        }
+    }
+
+    /* ОТСЛЕЖИВАНИЕ СЕССИИ FIREBASE AUTH ПРИ ОБНОВЛЕНИИ СТРАНИЦЫ */
+    if (auth) {
+        auth.onAuthStateChanged(async (firebaseUser) => {
+            if (firebaseUser) {
+                try {
+                    const userDoc = await db.collection('users').doc(firebaseUser.uid).get();
+                    if (userDoc.exists) {
+                        const profile = { id: firebaseUser.uid, ...userDoc.data() };
+                        if (!isPracticeUser(profile)) {
+                            currentUser = profile;
+                            await loadProtectedPortalData();
+                            updateHeaderUserButton();
+                            activePortalTab = currentUser.role === 'admin' ? 'admin-schedule' : 'student-schedule';
+                            if (document.getElementById('portalOverlay').classList.contains('active')) {
+                                showCabinetView();
+                            }
+                            return;
+                        }
+                    }
+                    await auth.signOut();
+                } catch (err) {
+                    console.error("Auth state restore error:", err);
+                }
+            } else {
+                currentUser = null;
+                appState.groups = [];
+                appState.lessons = [];
+                appState.homeworks = [];
+                appState.materials = [];
+                appState.submissions = [];
+                appState.users = [];
+                updateHeaderUserButton();
+            }
+        });
+    }
+
+    loadPublicReviews();
 
     /* ОТРИСОВКА ОПУБЛИКОВАННЫХ ОТЗЫВОВ НА ГЛАВНОЙ СТРАНИЦЕ */
     function renderPublicReviews() {
@@ -2949,47 +3006,77 @@
         unlockBodyScrollIfIdle();
     }
 
-    function handleLogin(e) {
+    async function handleLogin(e) {
         e.preventDefault();
-        const login = document.getElementById('loginEmail').value.trim().toLowerCase();
+        if (!auth || !db) {
+            showToast(currentLang === 'ru' ? 'Ошибка подключения к базе данных.' : 'Eroare de conexiune la baza de date.', 'error');
+            return;
+        }
+
+        const email = document.getElementById('loginEmail').value.trim();
         const pass = document.getElementById('loginPass').value.trim();
+        const btn = document.getElementById('btnLoginSubmit');
+        if (btn) btn.disabled = true;
 
-        const found = appState.users.find(u => u.login && u.login.toLowerCase() === login && u.pass === pass);
-        if (!found) {
-            showToast(currentLang === 'ru' ? 'Неверный логин или пароль!' : 'Login sau parolă incorectă!', 'error');
-            return;
-        }
+        try {
+            const cred = await auth.signInWithEmailAndPassword(email, pass);
+            const uid = cred.user.uid;
 
-        if (isPracticeUser(found)) {
-            showToast(currentLang === 'ru' ? 'Для практики в 1С вход в кабинет не предусмотрен.' : 'Pentru practica 1C nu este prevăzut acces în cont.', 'warning');
-            return;
-        }
-
-        currentUser = found;
-        sessionStorage.setItem('contabil_current_user', JSON.stringify(found));
-        updateHeaderUserButton();
-
-        const myLessons = appState.lessons
-            .filter(l => l.groupId === found.groupId)
-            .sort((a, b) => a.date.localeCompare(b.date));
-        if (myLessons.length > 0 && myLessons[0].date) {
-            const parts = myLessons[0].date.split('-');
-            if (parts.length === 3) {
-                stuCalYear = parseInt(parts[0], 10);
-                stuCalMonth = parseInt(parts[1], 10) - 1;
+            const userDoc = await db.collection('users').doc(uid).get();
+            if (!userDoc.exists) {
+                await auth.signOut();
+                if (btn) btn.disabled = false;
+                showToast(currentLang === 'ru' ? 'Профиль не найден в базе!' : 'Profilul nu a fost găsit în baza de date!', 'error');
+                return;
             }
-        }
-        stuSelectedDate = null;
-        stuCalSlideDir = '';
-        activePortalTab = found.role === 'admin' ? 'admin-schedule' : 'student-schedule';
 
-        showToast(currentLang === 'ru' ? `Добро пожаловать, ${found.name}!` : `Bine ați venit, ${found.name}!`, 'success');
-        showCabinetView();
+            const profile = { id: uid, ...userDoc.data() };
+            if (isPracticeUser(profile)) {
+                await auth.signOut();
+                if (btn) btn.disabled = false;
+                showToast(currentLang === 'ru' ? 'Для практики в 1С вход в кабинет не предусмотрен.' : 'Pentru practica 1C nu este prevăzut acces în cont.', 'warning');
+                return;
+            }
+
+            currentUser = profile;
+            await loadProtectedPortalData();
+            updateHeaderUserButton();
+
+            const myLessons = appState.lessons
+                .filter(l => l.groupId === profile.groupId)
+                .sort((a, b) => a.date.localeCompare(b.date));
+            if (myLessons.length > 0 && myLessons[0].date) {
+                const parts = myLessons[0].date.split('-');
+                if (parts.length === 3) {
+                    stuCalYear = parseInt(parts[0], 10);
+                    stuCalMonth = parseInt(parts[1], 10) - 1;
+                }
+            }
+            stuSelectedDate = null;
+            stuCalSlideDir = '';
+            activePortalTab = profile.role === 'admin' ? 'admin-schedule' : 'student-schedule';
+
+            if (btn) btn.disabled = false;
+            showToast(currentLang === 'ru' ? `Добро пожаловать, ${profile.name}!` : `Bine ați venit, ${profile.name}!`, 'success');
+            showCabinetView();
+        } catch (err) {
+            console.error("Login error:", err);
+            if (btn) btn.disabled = false;
+            showToast(currentLang === 'ru' ? 'Неверный email или пароль!' : 'Email sau parolă incorectă!', 'error');
+        }
     }
 
-    function logoutPortal() {
+    async function logoutPortal() {
+        if (auth) {
+            await auth.signOut();
+        }
         currentUser = null;
-        sessionStorage.removeItem('contabil_current_user');
+        appState.groups = [];
+        appState.lessons = [];
+        appState.homeworks = [];
+        appState.materials = [];
+        appState.submissions = [];
+        appState.users = [];
         updateHeaderUserButton();
         document.getElementById('cabinetView').style.display = 'none';
         document.getElementById('loginView').style.display = 'block';
@@ -3163,9 +3250,9 @@
         return { cls: '', label: formatDate(dateIso) };
     }
 
-    /* ОТРИСОВКА ОДНОЙ КАРТОЧКИ ДОМАШНЕГО ЗАДАНИЯ УЧЕНИКА (СО СВОРАЧИВАНИЕМ) */
+    /* ОТРИСОВКА ОДНОЙ КАРТОЧКИ ДОМАШНЕГО ЗАДАНИЯ УЧЕНИКА */
     function renderStudentHwCard(hw, isRu) {
-        const sub = appState.submissions.find(s => s.hwId === hw.id && s.studentId === currentUser.id);
+        const sub = appState.submissions.find(s => s.hwId === hw.id && s.studentUid === currentUser.id);
         const status = sub ? sub.status : 'pending';
         const chatMessages = (sub && Array.isArray(sub.messages)) ? sub.messages : [];
         const statusMap = {
@@ -3268,12 +3355,12 @@
             /* ==================== ПРОФИЛЬ УЧЕНИКА МАРАФОНА ==================== */
             const myHws = appState.homeworks.filter(h => h.groupId === currentUser.groupId);
             const todoHws = myHws.filter(hw => {
-                const sub = appState.submissions.find(s => s.hwId === hw.id && s.studentId === currentUser.id);
+                const sub = appState.submissions.find(s => s.hwId === hw.id && s.studentUid === currentUser.id);
                 const st = sub ? sub.status : 'pending';
                 return st === 'pending' || st === 'revision';
             });
             const doneHws = myHws.filter(hw => {
-                const sub = appState.submissions.find(s => s.hwId === hw.id && s.studentId === currentUser.id);
+                const sub = appState.submissions.find(s => s.hwId === hw.id && s.studentUid === currentUser.id);
                 const st = sub ? sub.status : 'pending';
                 return st === 'submitted' || st === 'approved';
             });
@@ -3339,7 +3426,6 @@
                 }
 
                 bodyEl.innerHTML = `
-                    <!-- РАЗДЕЛ 1: НАДО СДАТЬ -->
                     <div class="hw-section-header hw-section-todo">
                         <span><i class="fas fa-hourglass-half"></i> ${isRu ? 'Надо сдать' : 'De predat'}</span>
                         <span>${todoHws.length}</span>
@@ -3349,7 +3435,6 @@
                         : todoHws.map(hw => renderStudentHwCard(hw, isRu)).join('')
                     }
 
-                    <!-- РАЗДЕЛ 2: СДАНО И ПРОВЕРЕНО -->
                     <div class="hw-section-header hw-section-done">
                         <span><i class="fas fa-check-circle"></i> ${isRu ? 'Сдано и проверено' : 'Predate și verificate'}</span>
                         <span>${doneHws.length}</span>
@@ -3501,7 +3586,6 @@
                         </button>
                     </div>
 
-                    <!-- ПАНЕЛЬ БЫСТРОЙ ФИЛЬТРАЦИИ ДЗ -->
                     <div class="admin-filter-bar">
                         <span style="font-size:0.84rem; font-weight:800; color:var(--primary-dark);"><i class="fas fa-filter"></i> ${isRu ? 'Фильтр:' : 'Filtru:'}</span>
                         <select class="portal-input" style="width:auto; min-width:200px; margin:0; padding:8px 14px;" onchange="adminHwGroupFilter = this.value; renderCabinet(false);">
@@ -3572,7 +3656,6 @@
                                                     <button type="button" class="btn-sm btn-sm-danger" onclick="adminGradeSub('${s.id}', 'revision')">↺</button>
                                                 </div>
 
-                                                <!-- ЧАТ АДМИНА С УЧЕНИКОМ ПО ДЗ -->
                                                 <div class="hw-chat-box" style="margin-top:12px;">
                                                     <div style="font-size:0.78rem; font-weight:800; color:var(--primary-dark); margin-bottom:6px;">
                                                         <i class="fas fa-comments" style="color:var(--secondary);"></i> ${isRu ? `Переписка с учеником (${chatMessages.length})` : `Mesaje cu studentul (${chatMessages.length})`}
@@ -3657,7 +3740,6 @@
                     `}
                 `;
             } else if (activePortalTab === 'admin-reviews') {
-                /* ==================== ВКЛАДКА МОДЕРАЦИИ ОТЗЫВОВ ==================== */
                 const allReviews = appState.reviews || [];
                 const filteredReviews = allReviews.filter(r => {
                     if (adminReviewFilter === 'pending') return r.status === 'pending';
@@ -3746,7 +3828,6 @@
 
                 bodyEl.innerHTML = `
                     <div class="cab-grid-2">
-                        <!-- ЛЕВАЯ КАРТОЧКА: ГРУППЫ МАРАФОНА -->
                         <div class="cab-card" style="border-top:5px solid var(--primary);">
                             <h4 style="margin-top:0; color:var(--primary-dark); font-size:1.1rem;"><i class="fas fa-layer-group"></i> ${isRu ? 'Группы Марафона' : 'Grupe Maraton'}</h4>
                             <input type="text" id="newGrpSingle" class="portal-input" placeholder="${isRu ? 'Название новой группы Марафона' : 'Denumire grupă nouă Maraton'}">
@@ -3773,7 +3854,6 @@
                             }).join('')}
                         </div>
 
-                        <!-- ПРАВАЯ КАРТОЧКА: ДОБАВЛЕНИЕ УЧЕНИКА МАРАФОНА ИЛИ ПРАКТИКАНТА 1С -->
                         <div class="cab-card" style="border-top:5px solid var(--secondary);">
                             <h4 style="margin-top:0; color:var(--primary-dark); font-size:1.1rem;"><i class="fas fa-user-plus" style="color:var(--secondary);"></i> ${isRu ? 'Добавить человека' : 'Adaugă persoană'}</h4>
                             
@@ -3792,9 +3872,9 @@
                                     ${marathonGroups.map(g => `<option value="${g.id}">${isRu ? g.nameRu : g.nameRo}</option>`).join('')}
                                 </select>
                                 <input type="text" id="newStuName" class="portal-input" placeholder="${isRu ? 'Имя и Фамилия' : 'Nume și Prenume'}">
-                                <input type="text" id="newStuLogin" class="portal-input" placeholder="Login / Email">
-                                <input type="text" id="newStuPass" class="portal-input" placeholder="Parola">
-                                <button type="button" class="btn-sm btn-sm-gold" onclick="adminAddStudent()">
+                                <input type="email" id="newStuLogin" class="portal-input" placeholder="Email (например: student@contabil.md)">
+                                <input type="text" id="newStuPass" class="portal-input" placeholder="${isRu ? 'Пароль (минимум 6 символов)' : 'Parola (minim 6 caractere)'}">
+                                <button type="button" id="btnAddStudent" class="btn-sm btn-sm-gold" onclick="adminAddStudent()">
                                     <i class="fas fa-user-check"></i> ${isRu ? 'Добавить на Марафон' : 'Adaugă la Maraton'}
                                 </button>
                             ` : `
@@ -3808,14 +3888,13 @@
                                     </label>
                                     <input type="date" id="newStuPracticeUntil" class="portal-input" style="margin-bottom:0; background:#fff;" value="2026-04-30">
                                 </div>
-                                <button type="button" class="btn-sm btn-sm-gold" onclick="adminAddStudent()">
+                                <button type="button" id="btnAddStudent" class="btn-sm btn-sm-gold" onclick="adminAddStudent()">
                                     <i class="fas fa-user-check"></i> ${isRu ? 'Добавить на Практику 1С' : 'Adaugă la Practica 1C'}
                                 </button>
                             `}
                         </div>
                     </div>
 
-                    <!-- ПАНЕЛЬ ПОИСКА И ФИЛЬТРАЦИИ УЧЕНИКОВ -->
                     <div class="admin-filter-bar">
                         <div style="position:relative; flex:1; min-width:200px;">
                             <i class="fas fa-search" style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-muted);"></i>
@@ -3827,9 +3906,7 @@
                         </select>
                     </div>
 
-                    <!-- РАЗДЕЛЬНЫЕ ТАБЛИЦЫ: 1) УЧЕНИКИ МАРАФОНА  2) ПРАКТИКАНТЫ В 1С -->
                     <div class="cab-grid-2">
-                        <!-- БЛОК 1: УЧЕНИКИ МАРАФОНА -->
                         <div class="cab-card" style="overflow-x:auto; border-top:5px solid var(--secondary); margin-bottom:0;">
                             <h4 style="margin-top:0; color:var(--primary-dark); display:flex; align-items:center; gap:8px;">
                                 <i class="fas fa-rocket" style="color:var(--secondary);"></i>
@@ -3841,7 +3918,7 @@
                                         <tr>
                                             <th>${isRu ? 'Имя' : 'Nume'}</th>
                                             <th>${isRu ? 'Группа' : 'Grupă'}</th>
-                                            <th>Login / Parola</th>
+                                            <th>Email / ${isRu ? 'Статус' : 'Status'}</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -3854,7 +3931,7 @@
                                                     <td><span class="category-badge-marathon" style="margin:0;">${grp ? (isRu ? grp.nameRu : grp.nameRo) : '—'}</span></td>
                                                     <td>
                                                         <div style="font-size:0.82rem;"><code>${st.login || '—'}</code></div>
-                                                        <div style="font-size:0.82rem; color:var(--text-muted);"><code>${st.pass || '—'}</code></div>
+                                                        <div style="font-size:0.74rem; color:var(--success); font-weight:700;"><i class="fas fa-shield-alt"></i> Firebase Auth</div>
                                                     </td>
                                                     <td style="text-align:right; white-space:nowrap;">
                                                         <button type="button" class="btn-sm btn-sm-gold" style="margin-right:6px;" title="${isRu ? 'Редактировать ученика' : 'Editează studentul'}" onclick="openEditMarathonStudentModal('${st.id}')"><i class="fas fa-pen"></i></button>
@@ -3868,7 +3945,6 @@
                             `}
                         </div>
 
-                        <!-- БЛОК 2: ПРАКТИКАНТЫ В 1С -->
                         <div class="cab-card" style="overflow-x:auto; border-top:5px solid var(--practice); margin-bottom:0;">
                             <h4 style="margin-top:0; color:var(--practice); display:flex; align-items:center; gap:8px;">
                                 <i class="fas fa-laptop-code"></i>
@@ -3913,22 +3989,26 @@
         if (animate) triggerSmoothBodyAnimation();
     }
 
-    /* ОДОБРЕНИЕ И СКРЫТИЕ ОТЗЫВОВ В АДМИНКЕ */
-    function adminApproveReview(revId) {
+    /* ОДОБРЕНИЕ И СКРЫТИЕ ОТЗЫВОВ В АДМИНКЕ (КОЛЛЕКЦИЯ reviews) */
+    async function adminApproveReview(revId) {
         const rev = (appState.reviews || []).find(r => r.id === revId);
         if (!rev) return;
         rev.status = 'approved';
-        saveAppState();
+        if (db) {
+            await db.collection('reviews').doc(revId).update({ status: 'approved' });
+        }
         renderPublicReviews();
         renderCabinet(false);
         showToast(currentLang === 'ru' ? 'Отзыв опубликован на странице!' : 'Recenzia a fost publicată pe pagină!', 'success');
     }
 
-    function adminHideReview(revId) {
+    async function adminHideReview(revId) {
         const rev = (appState.reviews || []).find(r => r.id === revId);
         if (!rev) return;
         rev.status = 'pending';
-        saveAppState();
+        if (db) {
+            await db.collection('reviews').doc(revId).update({ status: 'pending' });
+        }
         renderPublicReviews();
         renderCabinet(false);
         showToast(currentLang === 'ru' ? 'Отзыв скрыт со страницы' : 'Recenzia a fost ascunsă de pe pagină', 'info');
@@ -3965,64 +4045,110 @@
         const file = e.target.files[0];
         if (!file) return;
         const compressedBase64 = await compressImageFile(file);
-        document.getElementById('photoVal-' + hwId).value = compressedBase64;
-        document.getElementById('preview-' + hwId).innerHTML = `<img src="${compressedBase64}" class="uploaded-img-thumb" onclick="window.open(this.src)">`;
-        showToast(currentLang === 'ru' ? 'Фотография сжата и прикреплена!' : 'Fotografia a fost optimizată și atașată!', 'success');
+        document.getElementById(`photoVal-${hwId}`).value = compressedBase64;
+        document.getElementById(`preview-${hwId}`).innerHTML = `<img src="${compressedBase64}" class="uploaded-img-thumb" onclick="window.open(this.src)">`;
     }
 
-    /* ЧАТ ВНУТРИ ДОМАШНЕГО ЗАДАНИЯ */
-    function sendStudentChatMsg(hwId) {
-        const input = document.getElementById('chat-stu-' + hwId);
-        if (!input) return;
-        const text = input.value.trim();
+    /* ОТПРАВКА ДЗ УЧЕНИКОМ В КОЛЛЕКЦИЮ submissions */
+    async function submitStudentHw(hwId) {
+        if (!currentUser || !db) return;
+        const ans = document.getElementById(`ans-${hwId}`).value.trim();
+        const photo = document.getElementById(`photoVal-${hwId}`).value;
+
+        if (!ans && !photo) {
+            showToast(currentLang === 'ru' ? 'Напишите ответ или прикрепите фото работы!' : 'Scrieți răspunsul sau atașați o poză!', 'warning');
+            return;
+        }
+
+        const subId = `${hwId}_${currentUser.id}`;
+        const existing = appState.submissions.find(s => s.id === subId);
+
+        const payload = {
+            hwId,
+            studentUid: currentUser.id,
+            studentId: currentUser.id,
+            studentName: currentUser.name,
+            answerText: ans,
+            photoData: photo,
+            status: 'submitted',
+            grade: existing ? (existing.grade || '') : '',
+            teacherComment: existing ? (existing.teacherComment || '') : '',
+            messages: existing ? (existing.messages || []) : []
+        };
+
+        try {
+            await db.collection('submissions').doc(subId).set(payload, { merge: true });
+            if (existing) {
+                Object.assign(existing, payload);
+            } else {
+                appState.submissions.push({ id: subId, ...payload });
+            }
+            expandedHwMap[hwId] = false;
+            renderCabinet(false);
+            showToast(currentLang === 'ru' ? 'Работа успешно отправлена на проверку!' : 'Lucrarea a fost trimisă spre verificare!', 'success');
+        } catch (e) {
+            console.error("Submit HW error:", e);
+            showToast(currentLang === 'ru' ? 'Ошибка отправки работы!' : 'Eroare la trimiterea lucrării!', 'error');
+        }
+    }
+
+    /* ЧАТ ВНУТРИ ДОМАШНЕГО ЗАДАНИЯ (УЧЕНИК <-> АДМИН) */
+    async function sendStudentChatMsg(hwId) {
+        if (!currentUser || !db) return;
+        const inputEl = document.getElementById(`chat-stu-${hwId}`);
+        const text = inputEl.value.trim();
         if (!text) return;
 
-        let sub = appState.submissions.find(s => s.hwId === hwId && s.studentId === currentUser.id);
+        const now = new Date();
+        const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        const msgObj = {
+            senderRole: 'student',
+            senderName: currentUser.name,
+            text,
+            time: timeStr
+        };
+
+        const subId = `${hwId}_${currentUser.id}`;
+        let sub = appState.submissions.find(s => s.id === subId);
+
         if (!sub) {
             sub = {
-                id: 'sub-' + Date.now(),
-                hwId: hwId,
+                id: subId,
+                hwId,
+                studentUid: currentUser.id,
                 studentId: currentUser.id,
                 studentName: currentUser.name,
                 answerText: '',
                 photoData: '',
                 status: 'submitted',
-                grade: null,
+                grade: '',
                 teacherComment: '',
-                messages: [],
-                updatedAt: new Date().toLocaleDateString('ru-RU')
+                messages: [msgObj]
             };
             appState.submissions.push(sub);
+        } else {
+            if (!Array.isArray(sub.messages)) sub.messages = [];
+            sub.messages.push(msgObj);
         }
-        if (!Array.isArray(sub.messages)) sub.messages = [];
 
-        const now = new Date();
-        const timeStr = `${String(now.getDate()).padStart(2,'0')}.${String(now.getMonth()+1).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-
-        sub.messages.push({
-            senderRole: 'student',
-            senderName: currentUser.name,
-            text,
-            time: timeStr
-        });
-
-        saveAppState();
+        const { id, ...docData } = sub;
+        await db.collection('submissions').doc(subId).set(docData, { merge: true });
+        inputEl.value = '';
         renderCabinet(false);
     }
 
-    function sendAdminChatMsg(subId) {
-        const input = document.getElementById('chat-adm-' + subId);
-        if (!input) return;
-        const text = input.value.trim();
+    async function sendAdminChatMsg(subId) {
+        if (!currentUser || currentUser.role !== 'admin' || !db) return;
+        const inputEl = document.getElementById(`chat-adm-${subId}`);
+        const text = inputEl.value.trim();
         if (!text) return;
 
         const sub = appState.submissions.find(s => s.id === subId);
         if (!sub) return;
-        if (!Array.isArray(sub.messages)) sub.messages = [];
 
         const now = new Date();
-        const timeStr = `${String(now.getDate()).padStart(2,'0')}.${String(now.getMonth()+1).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-
+        const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        if (!Array.isArray(sub.messages)) sub.messages = [];
         sub.messages.push({
             senderRole: 'admin',
             senderName: currentUser.name,
@@ -4030,66 +4156,49 @@
             time: timeStr
         });
 
-        saveAppState();
+        await db.collection('submissions').doc(subId).update({ messages: sub.messages });
+        inputEl.value = '';
         renderCabinet(false);
     }
 
-    /* ДЕЙСТВИЯ УЧЕНИКА И АДМИНИСТРАТОРА */
-    function submitStudentHw(hwId) {
-        const text = document.getElementById('ans-' + hwId).value.trim();
-        const photoData = document.getElementById('photoVal-' + hwId).value;
+    async function adminGradeSub(subId, status) {
+        if (!currentUser || currentUser.role !== 'admin' || !db) return;
+        const sub = appState.submissions.find(s => s.id === subId);
+        if (!sub) return;
+        sub.status = status;
+        sub.grade = document.getElementById(`grade-${subId}`).value;
+        sub.teacherComment = document.getElementById(`comm-${subId}`).value.trim();
 
-        if (!text && !photoData) {
-            showToast(currentLang === 'ru' ? 'Введите текст ответа или прикрепите фотографию!' : 'Introduceți textul sau atașați o poză!', 'warning');
-            return;
-        }
+        await db.collection('submissions').doc(subId).update({
+            status: sub.status,
+            grade: sub.grade,
+            teacherComment: sub.teacherComment
+        });
 
-        let sub = appState.submissions.find(s => s.hwId === hwId && s.studentId === currentUser.id);
-        if (sub) {
-            sub.answerText = text;
-            sub.photoData = photoData;
-            sub.status = 'submitted';
-            sub.updatedAt = new Date().toLocaleDateString('ru-RU');
-        } else {
-            appState.submissions.push({
-                id: 'sub-' + Date.now(),
-                hwId: hwId,
-                studentId: currentUser.id,
-                studentName: currentUser.name,
-                answerText: text,
-                photoData: photoData,
-                status: 'submitted',
-                grade: null,
-                teacherComment: '',
-                messages: [],
-                updatedAt: new Date().toLocaleDateString('ru-RU')
-            });
-        }
-        expandedHwMap[hwId] = false;
-        saveAppState();
         renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Домашнее задание отправлено!' : 'Tema a fost trimisă cu succes!', 'success');
+        showToast(currentLang === 'ru' ? `Оценка ${sub.grade}/10 сохранена!` : `Nota ${sub.grade}/10 a fost salvată!`, 'success');
     }
 
+    /* ДОБАВЛЕНИЕ УРОКОВ, ДЗ, МАТЕРИАЛОВ И ГРУПП АДМИНОМ */
     async function adminAddLesson() {
+        const titleRaw = document.getElementById('newLesTitleSingle').value.trim();
+        const descRaw = document.getElementById('newLesDescSingle').value.trim();
         const groupId = document.getElementById('newLesGroup').value;
         const date = document.getElementById('newLesDate').value;
         const time = document.getElementById('newLesTime').value;
-        const rawTitle = document.getElementById('newLesTitleSingle').value.trim();
-        const rawDesc = document.getElementById('newLesDescSingle').value.trim();
         const link = document.getElementById('newLesLink').value.trim();
 
-        if (!date || !rawTitle) {
-            showToast(currentLang === 'ru' ? 'Укажите дату и название урока!' : 'Introduceți data și tema lecției!', 'warning');
+        if (!titleRaw) {
+            showToast(currentLang === 'ru' ? 'Введите тему урока!' : 'Introduceți tema lecției!', 'warning');
             return;
         }
 
         const btn = document.getElementById('btnAddLesson');
         if (btn) btn.disabled = true;
 
-        const [tTitle, tDesc] = await Promise.all([
-            smartAutoTranslate(rawTitle),
-            smartAutoTranslate(rawDesc)
+        const [titleBi, descBi] = await Promise.all([
+            smartAutoTranslate(titleRaw),
+            smartAutoTranslate(descRaw)
         ]);
 
         appState.lessons.push({
@@ -4097,24 +4206,26 @@
             groupId,
             date,
             time,
-            titleRu: tTitle.ru,
-            titleRo: tTitle.ro,
-            descRu: tDesc.ru,
-            descRo: tDesc.ro,
+            titleRu: titleBi.ru,
+            titleRo: titleBi.ro,
+            descRu: descBi.ru,
+            descRo: descBi.ro,
             link
         });
-        saveAppState();
+
+        await syncPortalContent();
+        if (btn) btn.disabled = false;
         renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Урок добавлен в расписание!' : 'Lecția a fost adăugată!', 'success');
+        showToast(currentLang === 'ru' ? 'Урок успешно опубликован!' : 'Lecția a fost publicată!', 'success');
     }
 
     async function adminAddHw() {
+        const titleRaw = document.getElementById('newHwTitleSingle').value.trim();
+        const descRaw = document.getElementById('newHwDescSingle').value.trim();
         const groupId = document.getElementById('newHwGroup').value;
         const deadline = document.getElementById('newHwDeadline').value;
-        const rawTitle = document.getElementById('newHwTitleSingle').value.trim();
-        const rawDesc = document.getElementById('newHwDescSingle').value.trim();
 
-        if (!rawTitle) {
+        if (!titleRaw) {
             showToast(currentLang === 'ru' ? 'Введите название задания!' : 'Introduceți titlul temei!', 'warning');
             return;
         }
@@ -4122,43 +4233,45 @@
         const btn = document.getElementById('btnAddHw');
         if (btn) btn.disabled = true;
 
-        const [tTitle, tDesc] = await Promise.all([
-            smartAutoTranslate(rawTitle),
-            smartAutoTranslate(rawDesc)
+        const [titleBi, descBi] = await Promise.all([
+            smartAutoTranslate(titleRaw),
+            smartAutoTranslate(descRaw)
         ]);
 
         appState.homeworks.push({
             id: 'hw-' + Date.now(),
             groupId,
-            deadline,
-            titleRu: tTitle.ru,
-            titleRo: tTitle.ro,
-            descRu: tDesc.ru,
-            descRo: tDesc.ro
+            titleRu: titleBi.ru,
+            titleRo: titleBi.ro,
+            descRu: descBi.ru,
+            descRo: descBi.ro,
+            deadline
         });
-        saveAppState();
+
+        await syncPortalContent();
+        if (btn) btn.disabled = false;
         renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Домашнее задание опубликовано!' : 'Tema a fost publicată!', 'success');
+        showToast(currentLang === 'ru' ? 'Домашнее задание создано!' : 'Tema a fost creată!', 'success');
     }
 
     async function adminAddMaterial() {
         const groupId = document.getElementById('newMatGroup').value;
         const type = document.getElementById('newMatType').value;
-        const rawTitle = document.getElementById('newMatTitle').value.trim();
-        const rawDesc = document.getElementById('newMatDesc').value.trim();
+        const titleRaw = document.getElementById('newMatTitle').value.trim();
+        const descRaw = document.getElementById('newMatDesc').value.trim();
         const url = document.getElementById('newMatUrl').value.trim();
 
-        if (!rawTitle || !url) {
-            showToast(currentLang === 'ru' ? 'Введите название материала и ссылку!' : 'Introduceți denumirea materialului și link-ul!', 'warning');
+        if (!titleRaw || !url) {
+            showToast(currentLang === 'ru' ? 'Укажите название и ссылку!' : 'Introduceți denumirea și link-ul!', 'warning');
             return;
         }
 
         const btn = document.getElementById('btnAddMat');
         if (btn) btn.disabled = true;
 
-        const [tTitle, tDesc] = await Promise.all([
-            smartAutoTranslate(rawTitle),
-            smartAutoTranslate(rawDesc)
+        const [titleBi, descBi] = await Promise.all([
+            smartAutoTranslate(titleRaw),
+            smartAutoTranslate(descRaw)
         ]);
 
         if (!appState.materials) appState.materials = [];
@@ -4166,130 +4279,158 @@
             id: 'mat-' + Date.now(),
             groupId,
             type,
-            titleRu: tTitle.ru,
-            titleRo: tTitle.ro,
-            descRu: tDesc.ru,
-            descRo: tDesc.ro,
+            titleRu: titleBi.ru,
+            titleRo: titleBi.ro,
+            descRu: descBi.ru,
+            descRo: descBi.ro,
             url
         });
-        saveAppState();
-        renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Материал опубликован!' : 'Materialul a fost publicat!', 'success');
-    }
 
-    function adminGradeSub(subId, newStatus) {
-        const sub = appState.submissions.find(s => s.id === subId);
-        if (!sub) return;
-        const grade = document.getElementById('grade-' + subId).value;
-        const comm = document.getElementById('comm-' + subId).value.trim();
-        
-        sub.grade = grade;
-        sub.teacherComment = comm;
-        sub.status = newStatus;
-        
-        saveAppState();
+        await syncPortalContent();
+        if (btn) btn.disabled = false;
         renderCabinet(false);
-        showToast(
-            newStatus === 'approved'
-                ? (currentLang === 'ru' ? `Оценка ${grade}/10 выставлена!` : `Nota ${grade}/10 a fost salvată!`)
-                : (currentLang === 'ru' ? 'Отправлено на доработку!' : 'Trimis spre refacere!'),
-            newStatus === 'approved' ? 'success' : 'warning'
-        );
+        showToast(currentLang === 'ru' ? 'Материал добавлен!' : 'Materialul a fost adăugat!', 'success');
     }
 
     async function adminAddGroup() {
-        const rawName = document.getElementById('newGrpSingle').value.trim();
-        if (!rawName) {
-            showToast(currentLang === 'ru' ? 'Введите название группы Марафона!' : 'Introduceți denumirea grupei Maraton!', 'warning');
+        const nameRaw = document.getElementById('newGrpSingle').value.trim();
+        if (!nameRaw) {
+            showToast(currentLang === 'ru' ? 'Введите название группы!' : 'Introduceți denumirea grupei!', 'warning');
             return;
         }
-        const tName = await smartAutoTranslate(rawName);
-        appState.groups.push({ id: 'grp-' + Date.now(), nameRu: tName.ru, nameRo: tName.ro, type: 'marathon' });
-        saveAppState();
+        const nameBi = await smartAutoTranslate(nameRaw);
+        appState.groups.push({
+            id: 'grp-' + Date.now(),
+            nameRu: nameBi.ru,
+            nameRo: nameBi.ro,
+            type: 'marathon'
+        });
+        await syncPortalContent();
         renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Группа Марафона создана!' : 'Grupa Maraton a fost creată!', 'success');
+        showToast(currentLang === 'ru' ? 'Группа создана!' : 'Grupa a fost creată!', 'success');
     }
 
-    function adminAddStudent() {
+    /* СОЗДАНИЕ УЧЕНИКА МАРАФОНА ЧЕРЕЗ FIREBASE AUTH ИЛИ ДОБАВЛЕНИЕ ПРАКТИКАНТА */
+    async function adminAddStudent() {
+        if (!currentUser || currentUser.role !== 'admin' || !db) return;
         const name = document.getElementById('newStuName').value.trim();
+        const btn = document.getElementById('btnAddStudent');
 
         if (adminAddPersonMode === 'marathon') {
             const groupId = document.getElementById('newStuGroup').value;
-            const login = document.getElementById('newStuLogin').value.trim();
+            const login = document.getElementById('newStuLogin').value.trim().toLowerCase();
             const pass = document.getElementById('newStuPass').value.trim();
 
             if (!name || !login || !pass) {
-                showToast(currentLang === 'ru' ? 'Заполните имя, логин и пароль для ученика Марафона!' : 'Completați numele, loginul și parola pentru Maraton!', 'warning');
+                showToast(currentLang === 'ru' ? 'Заполните имя, email и пароль!' : 'Completați numele, email-ul și parola!', 'warning');
                 return;
             }
-            appState.users.push({
-                id: 'u-' + Date.now(),
-                name,
-                login,
-                pass,
-                role: 'student',
-                category: 'marathon',
-                groupId
-            });
-            saveAppState();
-            renderCabinet(false);
-            showToast(currentLang === 'ru' ? 'Ученик добавлен на Марафон!' : 'Student adăugat la Maraton!', 'success');
+            if (pass.length < 6) {
+                showToast(currentLang === 'ru' ? 'Пароль должен содержать минимум 6 символов!' : 'Parola trebuie să conțină cel puțin 6 caractere!', 'warning');
+                return;
+            }
+
+            if (btn) btn.disabled = true;
+
+            try {
+                // Создаем учетную запись в Firebase Auth через вторичный инстанс, не сбивая сессию админа
+                const userCred = await secondaryAuth.createUserWithEmailAndPassword(login, pass);
+                const newUid = userCred.user.uid;
+                await secondaryAuth.signOut();
+
+                const userProfile = {
+                    login,
+                    name,
+                    role: 'student',
+                    category: 'marathon',
+                    groupId
+                };
+
+                await db.collection('users').doc(newUid).set(userProfile);
+                appState.users.push({ id: newUid, ...userProfile });
+
+                if (btn) btn.disabled = false;
+                renderCabinet(false);
+                showToast(currentLang === 'ru' ? 'Ученик Марафона зарегистрирован!' : 'Studentul Maraton a fost înregistrat!', 'success');
+            } catch (err) {
+                console.error("Create student error:", err);
+                if (btn) btn.disabled = false;
+                const msg = err.code === 'auth/email-already-in-use'
+                    ? (currentLang === 'ru' ? 'Этот email уже зарегистрирован!' : 'Acest email este deja înregistrat!')
+                    : (err.message || (currentLang === 'ru' ? 'Ошибка создания аккаунта!' : 'Eroare la crearea contului!'));
+                showToast(msg, 'error');
+            }
         } else {
             const practiceUntil = document.getElementById('newStuPracticeUntil').value;
-            if (!name || !practiceUntil) {
-                showToast(currentLang === 'ru' ? 'Укажите имя и дату окончания практики 1С!' : 'Introduceți numele și data practicii 1C!', 'warning');
+            if (!name) {
+                showToast(currentLang === 'ru' ? 'Введите имя практиканта!' : 'Introduceți numele practicantului!', 'warning');
                 return;
             }
-            appState.users.push({
-                id: 'u-' + Date.now(),
-                name,
-                login: '',
-                pass: '',
-                role: 'student',
-                category: 'practice',
-                groupId: '',
-                practiceUntil
-            });
-            saveAppState();
-            renderCabinet(false);
-            showToast(currentLang === 'ru' ? 'Практикант добавлен в Практику 1С!' : 'Practicant adăugat la Practica 1C!', 'success');
+            if (!practiceUntil) {
+                showToast(currentLang === 'ru' ? 'Укажите дату окончания практики!' : 'Selectați data expirării practicii!', 'warning');
+                return;
+            }
+
+            if (btn) btn.disabled = true;
+
+            try {
+                const pracId = 'prac-' + Date.now();
+                const pracProfile = {
+                    login: '',
+                    name,
+                    role: 'student',
+                    category: 'practice',
+                    groupId: '',
+                    practiceUntil
+                };
+
+                await db.collection('users').doc(pracId).set(pracProfile);
+                appState.users.push({ id: pracId, ...pracProfile });
+
+                if (btn) btn.disabled = false;
+                renderCabinet(false);
+                showToast(currentLang === 'ru' ? 'Практикант 1С добавлен!' : 'Practicantul 1C a fost adăugat!', 'success');
+            } catch (err) {
+                console.error("Create practice student error:", err);
+                if (btn) btn.disabled = false;
+                showToast(currentLang === 'ru' ? 'Ошибка сохранения!' : 'Eroare la salvare!', 'error');
+            }
         }
     }
 
-    /* МОДАЛЬНОЕ ОКНО РЕДАКТИРОВАНИЯ ГРУППЫ МАРАФОНА */
+    /* МОДАЛЬНОЕ ОКНО РЕДАКТИРОВАНИЯ ГРУППЫ */
     function openEditGroupModal(grpId) {
         const grp = appState.groups.find(g => g.id === grpId);
         if (!grp) return;
         const isRu = currentLang === 'ru';
-        const currentTitle = isRu ? grp.nameRu : grp.nameRo;
-
-        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать группу Марафона' : 'Editează grupa Maraton';
+        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать название группы' : 'Editează denumirea grupei';
         document.getElementById('editModalContent').innerHTML = `
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Название группы' : 'Denumirea grupei'}</label>
-            <input type="text" id="edGrpNameSingle" class="portal-input" value="${currentTitle}">
-            <button type="button" id="btnSaveGroupEdit" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:13px;" onclick="saveEditedGroup('${grp.id}')">
+            <label style="font-size:0.8rem;font-weight:700;color:var(--text-muted);">${isRu ? 'Новое название группы' : 'Denumirea nouă a grupei'}</label>
+            <input type="text" id="editGrpNameInput" class="portal-input" value="${isRu ? grp.nameRu : grp.nameRo}">
+            <button type="button" id="btnSaveGrpEdit" class="btn-sm btn-sm-gold" style="width:100%;justify-content:center;padding:14px;" onclick="saveEditGroup('${grpId}')">
                 <i class="fas fa-save"></i> ${isRu ? 'Сохранить' : 'Salvează'}
             </button>
         `;
         document.getElementById('editModal').classList.add('active');
     }
 
-    async function saveEditedGroup(grpId) {
+    async function saveEditGroup(grpId) {
         const grp = appState.groups.find(g => g.id === grpId);
         if (!grp) return;
-        const rawName = document.getElementById('edGrpNameSingle').value.trim();
-        if (!rawName) {
+        const nameRaw = document.getElementById('editGrpNameInput').value.trim();
+        if (!nameRaw) {
             showToast(currentLang === 'ru' ? 'Введите название группы!' : 'Introduceți denumirea grupei!', 'warning');
             return;
         }
-        const btn = document.getElementById('btnSaveGroupEdit');
+        const btn = document.getElementById('btnSaveGrpEdit');
         if (btn) btn.disabled = true;
 
-        const tName = await smartAutoTranslate(rawName);
-        grp.nameRu = tName.ru;
-        grp.nameRo = tName.ro;
+        const nameBi = await smartAutoTranslate(nameRaw);
+        grp.nameRu = nameBi.ru;
+        grp.nameRo = nameBi.ro;
 
-        saveAppState();
+        await syncPortalContent();
+        if (btn) btn.disabled = false;
         closeEditModal();
         renderCabinet(false);
         showToast(currentLang === 'ru' ? 'Название группы обновлено!' : 'Denumirea grupei a fost actualizată!', 'success');
@@ -4297,226 +4438,227 @@
 
     /* МОДАЛЬНОЕ ОКНО РЕДАКТИРОВАНИЯ УЧЕНИКА МАРАФОНА */
     function openEditMarathonStudentModal(stuId) {
-        const stu = appState.users.find(u => u.id === stuId);
-        if (!stu) return;
+        const st = appState.users.find(u => u.id === stuId);
+        if (!st) return;
         const isRu = currentLang === 'ru';
         const marathonGroups = appState.groups.filter(g => g.type !== 'practice');
 
         document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать ученика Марафона' : 'Editează studentul Maraton';
         document.getElementById('editModalContent').innerHTML = `
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Группа Марафона' : 'Grupa Maraton'}</label>
-            <select id="edMarStuGroup" class="portal-input">
-                ${marathonGroups.map(g => `<option value="${g.id}" ${stu.groupId === g.id ? 'selected' : ''}>${isRu ? g.nameRu : g.nameRo}</option>`).join('')}
+            <label style="font-size:0.8rem;font-weight:700;color:var(--text-muted);">${isRu ? 'Имя и Фамилия' : 'Nume și Prenume'}</label>
+            <input type="text" id="editMarStuName" class="portal-input" value="${st.name}">
+
+            <label style="font-size:0.8rem;font-weight:700;color:var(--text-muted);">${isRu ? 'Группа Марафона' : 'Grupa Maraton'}</label>
+            <select id="editMarStuGroup" class="portal-input">
+                ${marathonGroups.map(g => `<option value="${g.id}" ${st.groupId === g.id ? 'selected' : ''}>${isRu ? g.nameRu : g.nameRo}</option>`).join('')}
             </select>
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Имя и Фамилия' : 'Nume și Prenume'}</label>
-            <input type="text" id="edMarStuName" class="portal-input" value="${stu.name}">
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">Login / Email</label>
-            <input type="text" id="edMarStuLogin" class="portal-input" value="${stu.login || ''}">
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Пароль' : 'Parola'}</label>
-            <input type="text" id="edMarStuPass" class="portal-input" value="${stu.pass || ''}">
-            <button type="button" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:13px;" onclick="saveEditedMarathonStudent('${stu.id}')">
-                <i class="fas fa-save"></i> ${isRu ? 'Сохранить' : 'Salvează'}
+
+            <label style="font-size:0.8rem;font-weight:700;color:var(--text-muted);">Email (${isRu ? 'только просмотр' : 'doar vizualizare'})</label>
+            <input type="email" class="portal-input" value="${st.login || ''}" disabled style="opacity:0.7;">
+
+            <button type="button" class="btn-sm btn-sm-gold" style="width:100%;justify-content:center;padding:14px;" onclick="saveEditMarathonStudent('${stuId}')">
+                <i class="fas fa-save"></i> ${isRu ? 'Сохранить изменения' : 'Salvează modificările'}
             </button>
         `;
         document.getElementById('editModal').classList.add('active');
     }
 
-    function saveEditedMarathonStudent(stuId) {
-        const stu = appState.users.find(u => u.id === stuId);
-        if (!stu) return;
-        const groupId = document.getElementById('edMarStuGroup').value;
-        const name = document.getElementById('edMarStuName').value.trim();
-        const login = document.getElementById('edMarStuLogin').value.trim();
-        const pass = document.getElementById('edMarStuPass').value.trim();
+    async function saveEditMarathonStudent(stuId) {
+        const st = appState.users.find(u => u.id === stuId);
+        if (!st || !db) return;
 
-        if (!name || !login || !pass) {
-            showToast(currentLang === 'ru' ? 'Заполните имя, логин и пароль!' : 'Completați numele, loginul și parola!', 'warning');
+        const name = document.getElementById('editMarStuName').value.trim();
+        const groupId = document.getElementById('editMarStuGroup').value;
+
+        if (!name) {
+            showToast(currentLang === 'ru' ? 'Укажите имя ученика!' : 'Introduceți numele studentului!', 'warning');
             return;
         }
-        stu.groupId = groupId;
-        stu.name = name;
-        stu.login = login;
-        stu.pass = pass;
 
-        saveAppState();
+        st.name = name;
+        st.groupId = groupId;
+
+        await db.collection('users').doc(stuId).update({ name, groupId });
         closeEditModal();
         renderCabinet(false);
         showToast(currentLang === 'ru' ? 'Данные ученика обновлены!' : 'Datele studentului au fost actualizate!', 'success');
     }
 
-    /* МОДАЛЬНОЕ ОКНО РЕДАКТИРОВАНИЯ УРОКА, ДЗ И ПРАКТИКАНТА */
-    function openEditLessonModal(lesId) {
-        const l = appState.lessons.find(item => item.id === lesId);
-        if (!l) return;
+    /* МОДАЛЬНОЕ ОКНО РЕДАКТИРОВАНИЯ ПРАКТИКАНТА 1С */
+    function openEditStudentPracticeModal(stuId) {
+        const st = appState.users.find(u => u.id === stuId);
+        if (!st) return;
         const isRu = currentLang === 'ru';
-        const currentTitle = isRu ? l.titleRu : l.titleRo;
-        const currentDesc = isRu ? (l.descRu || '') : (l.descRo || '');
-
-        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать урок' : 'Editează lecția';
+        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать практиканта 1С' : 'Editează practicantul 1C';
         document.getElementById('editModalContent').innerHTML = `
-            <div class="date-time-row">
-                <div>
-                    <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Дата' : 'Data'}</label>
-                    <input type="date" id="edLesDate" class="portal-input" value="${l.date}">
-                </div>
-                <div>
-                    <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Время' : 'Ora'}</label>
-                    <input type="time" id="edLesTime" class="portal-input" value="${l.time}">
-                </div>
-            </div>
-            <input type="text" id="edLesTitleSingle" class="portal-input" value="${currentTitle}" placeholder="${isRu ? 'Тема урока' : 'Tema lecției'}">
-            <input type="text" id="edLesDescSingle" class="portal-input" value="${currentDesc}" placeholder="${isRu ? 'Описание' : 'Descriere'}">
-            <input type="url" id="edLesLink" class="portal-input" value="${l.link || ''}" placeholder="Link Zoom / Google Meet">
-            <button type="button" id="btnSaveLesEdit" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:13px;" onclick="saveEditedLesson('${l.id}')">
+            <label style="font-size:0.8rem;font-weight:700;color:var(--text-muted);">${isRu ? 'Имя и Фамилия' : 'Nume și Prenume'}</label>
+            <input type="text" id="editPracStuName" class="portal-input" value="${st.name}">
+            <label style="font-size:0.8rem;font-weight:700;color:var(--practice);">${isRu ? 'На практике до какого числа:' : 'La practică până la data de:'}</label>
+            <input type="date" id="editPracDate" class="portal-input" value="${st.practiceUntil || '2026-04-30'}">
+            <button type="button" class="btn-sm btn-sm-gold" style="width:100%;justify-content:center;padding:14px;" onclick="saveEditStudentPractice('${stuId}')">
                 <i class="fas fa-save"></i> ${isRu ? 'Сохранить' : 'Salvează'}
             </button>
         `;
         document.getElementById('editModal').classList.add('active');
     }
 
-    async function saveEditedLesson(lesId) {
-        const l = appState.lessons.find(item => item.id === lesId);
+    async function saveEditStudentPractice(stuId) {
+        const st = appState.users.find(u => u.id === stuId);
+        if (!st || !db) return;
+        const nameVal = document.getElementById('editPracStuName').value.trim();
+        const dateVal = document.getElementById('editPracDate').value;
+        if (!nameVal) {
+            showToast(currentLang === 'ru' ? 'Введите имя практиканта!' : 'Introduceți numele practicantului!', 'warning');
+            return;
+        }
+        st.name = nameVal;
+        st.practiceUntil = dateVal;
+        await db.collection('users').doc(stuId).update({ name: nameVal, practiceUntil: dateVal });
+        closeEditModal();
+        renderCabinet(false);
+        showToast(currentLang === 'ru' ? 'Данные практиканта обновлены!' : 'Datele practicantului au fost actualizate!', 'success');
+    }
+
+    /* МОДАЛЬНЫЕ ОКНА РЕДАКТИРОВАНИЯ УРОКОВ И ДЗ */
+    function openEditLessonModal(lesId) {
+        const l = appState.lessons.find(x => x.id === lesId);
         if (!l) return;
-        const rawTitle = document.getElementById('edLesTitleSingle').value.trim();
-        const rawDesc = document.getElementById('edLesDescSingle').value.trim();
+        const isRu = currentLang === 'ru';
+        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать урок' : 'Editare lecție';
+        document.getElementById('editModalContent').innerHTML = `
+            <div class="date-time-row">
+                <div>
+                    <label style="font-size:0.8rem;font-weight:700;color:var(--text-muted);">${isRu ? 'Дата' : 'Data'}</label>
+                    <input type="date" id="editLesDate" class="portal-input" value="${l.date}">
+                </div>
+                <div>
+                    <label style="font-size:0.8rem;font-weight:700;color:var(--text-muted);">${isRu ? 'Время' : 'Ora'}</label>
+                    <input type="time" id="editLesTime" class="portal-input" value="${l.time}">
+                </div>
+            </div>
+            <input type="text" id="editLesTitle" class="portal-input" value="${isRu ? l.titleRu : l.titleRo}" placeholder="${isRu ? 'Тема урока' : 'Tema lecției'}">
+            <input type="text" id="editLesDesc" class="portal-input" value="${isRu ? (l.descRu || '') : (l.descRo || '')}" placeholder="${isRu ? 'Описание' : 'Descriere'}">
+            <input type="url" id="editLesLink" class="portal-input" value="${l.link || ''}" placeholder="Link Zoom / Meet">
+            <button type="button" id="btnSaveLesEdit" class="btn-sm btn-sm-gold" style="width:100%;justify-content:center;padding:14px;" onclick="saveEditLesson('${lesId}')">
+                <i class="fas fa-save"></i> ${isRu ? 'Сохранить изменения' : 'Salvează modificările'}
+            </button>
+        `;
+        document.getElementById('editModal').classList.add('active');
+    }
+
+    async function saveEditLesson(lesId) {
+        const l = appState.lessons.find(x => x.id === lesId);
+        if (!l) return;
+        const titleRaw = document.getElementById('editLesTitle').value.trim();
+        const descRaw = document.getElementById('editLesDesc').value.trim();
+        if (!titleRaw) return;
 
         const btn = document.getElementById('btnSaveLesEdit');
         if (btn) btn.disabled = true;
 
-        const [tTitle, tDesc] = await Promise.all([
-            smartAutoTranslate(rawTitle),
-            smartAutoTranslate(rawDesc)
+        const [titleBi, descBi] = await Promise.all([
+            smartAutoTranslate(titleRaw),
+            smartAutoTranslate(descRaw)
         ]);
 
-        l.date = document.getElementById('edLesDate').value;
-        l.time = document.getElementById('edLesTime').value;
-        l.titleRu = tTitle.ru;
-        l.titleRo = tTitle.ro;
-        l.descRu = tDesc.ru;
-        l.descRo = tDesc.ro;
-        l.link = document.getElementById('edLesLink').value.trim();
-        
-        saveAppState();
+        l.date = document.getElementById('editLesDate').value;
+        l.time = document.getElementById('editLesTime').value;
+        l.titleRu = titleBi.ru;
+        l.titleRo = titleBi.ro;
+        l.descRu = descBi.ru;
+        l.descRo = descBi.ro;
+        l.link = document.getElementById('editLesLink').value.trim();
+
+        await syncPortalContent();
+        if (btn) btn.disabled = false;
         closeEditModal();
         renderCabinet(false);
         showToast(currentLang === 'ru' ? 'Урок обновлен!' : 'Lecția a fost actualizată!', 'success');
     }
 
     function openEditHwModal(hwId) {
-        const hw = appState.homeworks.find(item => item.id === hwId);
+        const hw = appState.homeworks.find(x => x.id === hwId);
         if (!hw) return;
         const isRu = currentLang === 'ru';
-        const currentTitle = isRu ? hw.titleRu : hw.titleRo;
-        const currentDesc = isRu ? (hw.descRu || '') : (hw.descRo || '');
-
-        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать ДЗ' : 'Editează tema';
+        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать задание' : 'Editare temă';
         document.getElementById('editModalContent').innerHTML = `
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Срок сдачи' : 'Termen limită'}</label>
-            <input type="date" id="edHwDeadline" class="portal-input" value="${hw.deadline}">
-            <input type="text" id="edHwTitleSingle" class="portal-input" value="${currentTitle}">
-            <textarea id="edHwDescSingle" rows="3" class="portal-input">${currentDesc}</textarea>
-            <button type="button" id="btnSaveHwEdit" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:13px;" onclick="saveEditedHw('${hw.id}')">
-                <i class="fas fa-save"></i> ${isRu ? 'Сохранить' : 'Salvează'}
+            <label style="font-size:0.8rem;font-weight:700;color:var(--text-muted);">${isRu ? 'Срок сдачи' : 'Termen limită'}</label>
+            <input type="date" id="editHwDeadline" class="portal-input" value="${hw.deadline}">
+            <input type="text" id="editHwTitle" class="portal-input" value="${isRu ? hw.titleRu : hw.titleRo}">
+            <textarea id="editHwDesc" rows="3" class="portal-input">${isRu ? hw.descRu : hw.descRo}</textarea>
+            <button type="button" id="btnSaveHwEdit" class="btn-sm btn-sm-gold" style="width:100%;justify-content:center;padding:14px;" onclick="saveEditHw('${hwId}')">
+                <i class="fas fa-save"></i> ${isRu ? 'Сохранить изменения' : 'Salvează modificările'}
             </button>
         `;
         document.getElementById('editModal').classList.add('active');
     }
 
-    async function saveEditedHw(hwId) {
-        const hw = appState.homeworks.find(item => item.id === hwId);
+    async function saveEditHw(hwId) {
+        const hw = appState.homeworks.find(x => x.id === hwId);
         if (!hw) return;
-        const rawTitle = document.getElementById('edHwTitleSingle').value.trim();
-        const rawDesc = document.getElementById('edHwDescSingle').value.trim();
+        const titleRaw = document.getElementById('editHwTitle').value.trim();
+        const descRaw = document.getElementById('editHwDesc').value.trim();
+        if (!titleRaw) return;
 
         const btn = document.getElementById('btnSaveHwEdit');
         if (btn) btn.disabled = true;
 
-        const [tTitle, tDesc] = await Promise.all([
-            smartAutoTranslate(rawTitle),
-            smartAutoTranslate(rawDesc)
+        const [titleBi, descBi] = await Promise.all([
+            smartAutoTranslate(titleRaw),
+            smartAutoTranslate(descRaw)
         ]);
 
-        hw.deadline = document.getElementById('edHwDeadline').value;
-        hw.titleRu = tTitle.ru;
-        hw.titleRo = tTitle.ro;
-        hw.descRu = tDesc.ru;
-        hw.descRo = tDesc.ro;
+        hw.deadline = document.getElementById('editHwDeadline').value;
+        hw.titleRu = titleBi.ru;
+        hw.titleRo = titleBi.ro;
+        hw.descRu = descBi.ru;
+        hw.descRo = descBi.ro;
 
-        saveAppState();
+        await syncPortalContent();
+        if (btn) btn.disabled = false;
         closeEditModal();
         renderCabinet(false);
         showToast(currentLang === 'ru' ? 'Задание обновлено!' : 'Tema a fost actualizată!', 'success');
-    }
-
-    function openEditStudentPracticeModal(stuId) {
-        const stu = appState.users.find(u => u.id === stuId);
-        if (!stu) return;
-        const isRu = currentLang === 'ru';
-        document.getElementById('editModalTitle').innerText = isRu ? 'Редактировать практиканта 1С' : 'Editează practicantul 1C';
-        document.getElementById('editModalContent').innerHTML = `
-            <label style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">${isRu ? 'Имя и Фамилия' : 'Nume și Prenume'}</label>
-            <input type="text" id="edPrStuName" class="portal-input" value="${stu.name}">
-            <label style="font-size:0.8rem; font-weight:700; color:var(--practice);">${isRu ? 'На практике до какого числа:' : 'La practică până la data de:'}</label>
-            <input type="date" id="edPrStuDate" class="portal-input" value="${stu.practiceUntil || '2026-04-30'}">
-            <button type="button" class="btn-sm btn-sm-gold" style="width:100%; justify-content:center; padding:13px;" onclick="saveEditedStudentPractice('${stu.id}')">
-                <i class="fas fa-save"></i> ${isRu ? 'Сохранить' : 'Salvează'}
-            </button>
-        `;
-        document.getElementById('editModal').classList.add('active');
-    }
-
-    function saveEditedStudentPractice(stuId) {
-        const stu = appState.users.find(u => u.id === stuId);
-        if (!stu) return;
-        const newName = document.getElementById('edPrStuName').value.trim();
-        const newDate = document.getElementById('edPrStuDate').value;
-        if (!newName || !newDate) {
-            showToast(currentLang === 'ru' ? 'Заполните имя и дату!' : 'Completați numele și data!', 'warning');
-            return;
-        }
-        stu.name = newName;
-        stu.practiceUntil = newDate;
-        saveAppState();
-        closeEditModal();
-        renderCabinet(false);
-        showToast(currentLang === 'ru' ? 'Данные практиканта обновлены!' : 'Datele practicantului au fost actualizate!', 'success');
     }
 
     function closeEditModal() {
         document.getElementById('editModal').classList.remove('active');
     }
 
-    /* МОДАЛЬНОЕ ОКНО ПОДТВЕРЖДЕНИЯ УДАЛЕНИЯ */
+    /* КРАСИВОЕ ПОДТВЕРЖДЕНИЕ УДАЛЕНИЯ */
     function confirmDelete(type, id) {
         const isRu = currentLang === 'ru';
-        const titles = {
-            lesson: isRu ? 'Удалить урок?' : 'Ștergeți lecția?',
-            hw: isRu ? 'Удалить задание?' : 'Ștergeți tema?',
-            material: isRu ? 'Удалить материал?' : 'Ștergeți materialul?',
-            review: isRu ? 'Удалить отзыв?' : 'Ștergeți recenzia?',
-            group: isRu ? 'Удалить группу?' : 'Ștergeți grupa?',
-            student: isRu ? 'Удалить человека?' : 'Ștergeți persoana?'
-        };
-        document.getElementById('confirmTitle').innerText = titles[type] || (isRu ? 'Подтверждение' : 'Confirmare');
-        document.getElementById('confirmText').innerText = isRu ? 'Это действие нельзя будет отменить.' : 'Această acțiune nu poate fi anulată.';
-        document.getElementById('confirmOkBtn').innerText = isRu ? 'Удалить' : 'Șterge';
+        document.getElementById('confirmTitle').innerText = isRu ? 'Подтвердите удаление' : 'Confirmare ștergere';
+        document.getElementById('confirmText').innerText = isRu ? 'Вы действительно хотите удалить эту запись? Действие нельзя отменить.' : 'Sigur doriți să ștergeți această înregistrare?';
+        const okBtn = document.getElementById('confirmOkBtn');
+        okBtn.innerText = isRu ? 'Удалить' : 'Șterge';
 
-        document.getElementById('confirmOkBtn').onclick = function() {
-            if (type === 'lesson') appState.lessons = appState.lessons.filter(l => l.id !== id);
-            if (type === 'hw') appState.homeworks = appState.homeworks.filter(h => h.id !== id);
-            if (type === 'material') appState.materials = (appState.materials || []).filter(m => m.id !== id);
-            if (type === 'review') {
+        okBtn.onclick = async function() {
+            if (type === 'lesson') {
+                appState.lessons = appState.lessons.filter(l => l.id !== id);
+                await syncPortalContent();
+            } else if (type === 'hw') {
+                appState.homeworks = appState.homeworks.filter(h => h.id !== id);
+                await syncPortalContent();
+            } else if (type === 'material') {
+                appState.materials = (appState.materials || []).filter(m => m.id !== id);
+                await syncPortalContent();
+            } else if (type === 'review') {
                 appState.reviews = (appState.reviews || []).filter(r => r.id !== id);
+                if (db) await db.collection('reviews').doc(id).delete();
                 renderPublicReviews();
+            } else if (type === 'group') {
+                appState.groups = appState.groups.filter(g => g.id !== id);
+                await syncPortalContent();
+            } else if (type === 'student') {
+                appState.users = appState.users.filter(u => u.id !== id);
+                if (db) await db.collection('users').doc(id).delete();
             }
-            if (type === 'group') appState.groups = appState.groups.filter(g => g.id !== id);
-            if (type === 'student') appState.users = appState.users.filter(u => u.id !== id);
-            
-            saveAppState();
             closeConfirmModal();
             renderCabinet(false);
-            showToast(isRu ? 'Успешно удалено!' : 'Șters cu succes!', 'info');
+            showToast(isRu ? 'Запись удалена' : 'Înregistrarea a fost ștearsă', 'info');
         };
+
         document.getElementById('confirmModal').classList.add('active');
     }
 
@@ -4526,280 +4668,43 @@
 
     function formatDate(iso) {
         if (!iso) return '';
-        const [y, m, d] = iso.split('-');
-        return `${d}.${m}.${y}`;
-    }
-
-    /* АНИМАЦИЯ ПРИ СКРОЛЛЕ */
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('active');
-        });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
-
-    /* КАЛЕНДАРЬ БУХГАЛТЕРА 2026 */
-    const calendarData = {
-        "Ianuarie": { 
-            ru: "Январь", 
-            holidays: { ro: "1 Ianuarie (Anul Nou), 7-8 Ianuarie (Crăciunul pe stil vechi)", ru: "1 Января (Новый год), 7-8 Января (Рождество по старому стилю)" },
-            deadlines: [
-                { date: "15 Ianuarie", reports: "2-INV, 5-CI (Trimestrul IV)" },
-                { date: "26 Ianuarie", reports: "TVA12, IPC21, IU17, IALS21, INR14, IRM19, TL13, TFD13, TAT14, TA18, TR18, BIJ17, TFJ17, TDL13, TAI21, TC21, ISAPTI17, TP22, TIV23, IIP24, TB24, IVAO24, UNIF21 (Trimestrul IV)" },
-                { date: "30 Ianuarie", reports: "M3 (Anual)" }
-            ],
-            wt: { d8: 18, h8: 144, d7: 1, h7: 7, dt: 19, ht: 151 } 
-        },
-        "Februarie": { 
-            ru: "Февраль", 
-            holidays: { ro: "Nu sunt sărbători", ru: "Праздничных дней нет" },
-            deadlines: [
-                { date: "16 Februarie", reports: "1-INF" },
-                { date: "25 Februarie", reports: "TVA12, IPC21, IU17, IALS21, INR14, IRM19, TL13, TFD13, TAT14, TA18, TR18, BIJ17, TFJ17, TDL13, TAI21, TC21, ISAPTI17, TP22, TIV23" },
-                { date: "27 Februarie", reports: "1-TR (auto)" }
-            ],
-            wt: { d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160 } 
-        },
-        "Martie": { 
-            ru: "Март", 
-            holidays: { ro: "8 Martie (Ziua Internațională a Femeii)", ru: "8 Марта (Международный женский день)" },
-            deadlines: [
-                { date: "25 Martie", reports: "TVA12, IPC21, IU17, IALS21, INR14, IRM19, TL13, TFD13, TAT14, TA18, TR18, BIJ17, TFJ17, TDL13, TAI21, TC21, ISAPTI17, TP22, TIV23, VEN12, IVAO24, UNIF21, DASS19, ONG17, IIP24, TB24" },
-                { date: "31 Martie", reports: "Darea de seamă anuală" }
-            ],
-            wt: { d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176 } 
-        },
-        "Aprilie": { 
-            ru: "Апрель", 
-            holidays: { ro: "12-13 Aprilie (Paștele), 20 Aprilie (Paștele Blajinilor)", ru: "12-13 Апреля (Пасха), 20 Апреля (Радоница)" },
-            deadlines: [
-                { date: "15 Aprilie", reports: "2-INV, 5-CI (Trimestrul I)" },
-                { date: "27 Aprilie", reports: "TVA12, IPC21, IU17, IALS21, INR14, IRM19, TL13, TFD13, TAT14, TA18, TR18, BIJ17, TFJ17, TDL13, TAI21, TC21, ISAPTI17, TP22, TIV23, IIP24, TB24, IVAO24, UNIF21 (Trimestrul I)" },
-                { date: "30 Aprilie", reports: "CET18, RAPORT S.F." }
-            ],
-            wt: { d8: 20, h8: 160, d7: 0, h7: 0, dt: 20, ht: 160 } 
-        },
-        "Mai": { 
-            ru: "Май", 
-            holidays: { ro: "1 Mai (Ziua Muncii), 9 Mai (Ziua Victoriei)", ru: "1 Мая (День труда), 9 Мая (День Победы)" },
-            deadlines: [
-                { date: "25 Mai", reports: "TVA12, IPC21, IU17, IALS21, INR14, IRM19, TL13, TFD13, TAT14, TA18, TR18, BIJ17, TFJ17, TDL13, TAI21, TC21, ISAPTI17, TP22, TIV23" },
-                { date: "29 Mai", reports: "RAPORT S.F. (entități mijlocii și mari)" }
-            ],
-            wt: { d8: 19, h8: 152, d7: 1, h7: 7, dt: 20, ht: 159 } 
-        },
-        "Iunie": { 
-            ru: "Июнь", 
-            holidays: { ro: "1 Iunie (Ziua Copilului)", ru: "1 Июня (День защиты детей)" },
-            deadlines: [
-                { date: "25 Iunie", reports: "TVA12, IPC21, IU17, IALS21, INR14, IRM19, TL13, TFD13, TAT14, TA18, TR18, BIJ17, TFJ17, TDL13, TAI21, TC21, ISAPTI17, TP22, TIV23" },
-                { date: "30 Iunie", reports: "BIJ17 (calculul impozitului pe bunurile imobiliare)" }
-            ],
-            wt: { d8: 21, h8: 168, d7: 0, h7: 0, dt: 21, ht: 168 } 
-        },
-        "Iulie": { 
-            ru: "Июль", 
-            holidays: { ro: "Nu sunt sărbători", ru: "Праздничных дней нет" },
-            deadlines: [
-                { date: "15 Iulie", reports: "2-INV, 5-CI (Trimestrul II)" },
-                { date: "27 Iulie", reports: "TVA12, IPC21, IU17, IALS21, INR14, IRM19, TL13, TFD13, TAT14, TA18, TR18, BIJ17, TFJ17, TDL13, TAI21, TC21, ISAPTI17, TP22, TIV23, IIP24, TB24, IVAO24, UNIF21 (Trimestrul II)" }
-            ],
-            wt: { d8: 23, h8: 184, d7: 0, h7: 0, dt: 23, ht: 184 } 
-        },
-        "August": { 
-            ru: "Август", 
-            holidays: { ro: "27 August (Ziua Independenței), 31 August (Limba Noastră)", ru: "27 Августа (День Независимости), 31 Августа (Лимба Ноастрэ)" },
-            deadlines: [
-                { date: "25 August", reports: "TVA12, IPC21, IU17, IALS21, INR14, IRM19, TL13, TFD13, TAT14, TA18, TR18, BIJ17, TFJ17, TDL13, TAI21, TC21, ISAPTI17, TP22, TIV23" }
-            ],
-            wt: { d8: 18, h8: 144, d7: 1, h7: 7, dt: 19, ht: 151 } 
-        },
-        "Septembrie": { 
-            ru: "Сентябрь", 
-            holidays: { ro: "Nu sunt sărbători", ru: "Праздничных дней нет" },
-            deadlines: [
-                { date: "25 Septembrie", reports: "TVA12, IPC21, IU17, IALS21, INR14, IRM19, TL13, TFD13, TAT14, TA18, TR18, BIJ17, TFJ17, TDL13, TAI21, TC21, ISAPTI17, TP22, TIV23" }
-            ],
-            wt: { d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176 } 
-        },
-        "Octombrie": { 
-            ru: "Октябрь", 
-            holidays: { ro: "Nu sunt sărbători", ru: "Праздничных дней нет" },
-            deadlines: [
-                { date: "15 Octombrie", reports: "2-INV, 5-CI (Trimestrul III)" },
-                { date: "26 Octombrie", reports: "TVA12, IPC21, IU17, IALS21, INR14, IRM19, TL13, TFD13, TAT14, TA18, TR18, BIJ17, TFJ17, TDL13, TAI21, TC21, ISAPTI17, TP22, TIV23, IIP24, TB24, IVAO24, UNIF21 (Trimestrul III)" }
-            ],
-            wt: { d8: 22, h8: 176, d7: 0, h7: 0, dt: 22, ht: 176 } 
-        },
-        "Noiembrie": { 
-            ru: "Ноябрь", 
-            holidays: { ro: "Nu sunt sărbători", ru: "Праздничных дней нет" },
-            deadlines: [
-                { date: "25 Noiembrie", reports: "TVA12, IPC21, IU17, IALS21, INR14, IRM19, TL13, TFD13, TAT14, TA18, TR18, BIJ17, TFJ17, TDL13, TAI21, TC21, ISAPTI17, TP22, TIV23" }
-            ],
-            wt: { d8: 21, h8: 168, d7: 0, h7: 0, dt: 21, ht: 168 } 
-        },
-        "Decembrie": { 
-            ru: "Декабрь", 
-            holidays: { ro: "25 Decembrie (Crăciunul pe stil nou)", ru: "25 Декабря (Рождество по новому стилю)" },
-            deadlines: [
-                { date: "28 Decembrie", reports: "TVA12, IPC21, IU17, IALS21, INR14, IRM19, TL13, TFD13, TAT14, TA18, TR18, BIJ17, TFJ17, TDL13, TAI21, TC21, ISAPTI17, TP22, TIV23" }
-            ],
-            wt: { d8: 21, h8: 168, d7: 1, h7: 7, dt: 22, ht: 175 } 
-        }
-    };
-
-    const grid = document.getElementById('monthGrid');
-    let activeMonthKey = 'Ianuarie';
-
-    Object.keys(calendarData).forEach((m, index) => {
-        const div = document.createElement('div');
-        div.className = 'month-item' + (index === 0 ? ' active' : '');
-        div.innerText = m;
-        div.dataset.key = m;
-        div.onclick = () => showDeadline(m, div);
-        grid.appendChild(div);
-    });
-
-    function showDeadline(m, el) {
-        activeMonthKey = m;
-        document.querySelectorAll('.month-item').forEach(i => i.classList.remove('active'));
-        if (el) el.classList.add('active');
-        
-        const info = calendarData[m];
-        document.getElementById('dlTitle').innerText = currentLang === 'ru' ? info.ru : m;
-        document.getElementById('dlHolidays').innerText = currentLang === 'ru' ? info.holidays.ru : info.holidays.ro;
-        
-        const reportsContainer = document.getElementById('reportsContainer');
-        reportsContainer.innerHTML = '';
-        info.deadlines.forEach(item => {
-            const groupDiv = document.createElement('div');
-            groupDiv.className = 'report-group';
-            groupDiv.innerHTML = `<div class="dl-date">${item.date}</div><div class="reports-list">${item.reports}</div>`;
-            reportsContainer.appendChild(groupDiv);
-        });
-
-        document.getElementById('wt-d8').innerText = info.wt.d8;
-        document.getElementById('wt-h8').innerText = info.wt.h8;
-        document.getElementById('wt-d7').innerText = info.wt.d7;
-        document.getElementById('wt-h7').innerText = info.wt.h7;
-        document.getElementById('wt-dt').innerText = info.wt.dt;
-        document.getElementById('wt-ht').innerText = info.wt.ht;
-
-        document.getElementById('deadlineBox').classList.add('show');
-    }
-
-    function toggleCalendar() {
-        const drawer = document.getElementById('calDrawer');
-        const overlay = document.getElementById('drawerOverlay');
-        const isOpening = !drawer.classList.contains('open');
-        drawer.classList.toggle('open');
-        overlay.classList.toggle('active');
-        if (isOpening) {
-            lockBodyScroll();
-            if (!document.getElementById('deadlineBox').classList.contains('show')) {
-                showDeadline(activeMonthKey, document.querySelector(`.month-item[data-key="${activeMonthKey}"]`));
-            }
-        } else {
-            unlockBodyScrollIfIdle();
-        }
-    }
-
-    /* ОТЗЫВЫ (ОТПРАВКА НА МОДЕРАЦИЮ В АДМИНКУ) */
-    let currentRating = 5;
-    function openReviewModal() {
-        document.getElementById('reviewModal').style.display = 'flex';
-        lockBodyScroll();
-        setRating(5);
-    }
-    function closeReviewModal() {
-        document.getElementById('reviewModal').style.display = 'none';
-        unlockBodyScrollIfIdle();
-    }
-    function setRating(val) {
-        currentRating = val;
-        document.querySelectorAll('.star-icon').forEach(star => {
-            if (parseInt(star.getAttribute('data-val')) <= val) star.classList.add('active');
-            else star.classList.remove('active');
-        });
-    }
-
-    async function submitSiteReview() {
-        const rawName = document.getElementById('reviewNameInput').value.trim();
-        const rawText = document.getElementById('reviewTextInput').value.trim();
-        if (!rawName || !rawText) {
-            showToast(currentLang === 'ru' ? 'Пожалуйста, введите ваше имя и текст отзыва!' : 'Vă rugăm să introduceți numele și recenzia!', 'warning');
-            return;
-        }
-
-        const btn = document.getElementById('submitReviewBtn');
-        if (btn) btn.disabled = true;
-
-        const [tName, tText] = await Promise.all([
-            smartAutoTranslate(rawName),
-            smartAutoTranslate(rawText)
-        ]);
-
-        if (!appState.reviews) appState.reviews = [];
-        appState.reviews.unshift({
-            id: 'rev-' + Date.now(),
-            nameRu: tName.ru,
-            nameRo: tName.ro,
-            rating: currentRating,
-            textRu: tText.ru,
-            textRo: tText.ro,
-            status: 'pending',
-            createdAt: new Date().toLocaleDateString('ru-RU')
-        });
-
-        saveAppState();
-        if (btn) btn.disabled = false;
-        document.getElementById('reviewNameInput').value = '';
-        document.getElementById('reviewTextInput').value = '';
-        closeReviewModal();
-
-        if (currentUser && currentUser.role === 'admin') {
-            renderCabinet(false);
-        }
-
-        showToast(
-            currentLang === 'ru'
-                ? 'Спасибо! Ваш отзыв отправлен администратору на проверку.'
-                : 'Mulțumim! Recenzia dvs. a fost trimisă administratorului spre aprobare.',
-            'success'
-        );
+        const p = iso.split('-');
+        return p.length === 3 ? `${p[2]}.${p[1]}.${p[0]}` : iso;
     }
 
     /* ПРОФИЛИ ЭКСПЕРТОВ */
-    function switchProfile(teacherId, clickedTab) {
+    function switchProfile(personKey, element) {
         document.querySelectorAll('.teacher-tab').forEach(tab => tab.classList.remove('active'));
-        clickedTab.classList.add('active');
+        element.classList.add('active');
 
         const profiles = ['ludmila', 'nadejda', 'irina'];
-        profiles.forEach(p => {
-            const card = document.getElementById('profile-' + p);
-            card.classList.add('hidden-profile');
-            card.classList.remove('fade-in-profile');
+        profiles.forEach(key => {
+            const card = document.getElementById('profile-' + key);
+            if (key === personKey) {
+                card.classList.remove('hidden-profile');
+                card.classList.remove('fade-in-profile');
+                void card.offsetWidth;
+                card.classList.add('fade-in-profile');
+            } else {
+                card.classList.add('hidden-profile');
+                card.classList.remove('fade-in-profile');
+            }
         });
-
-        const selectedCard = document.getElementById('profile-' + teacherId);
-        selectedCard.classList.remove('hidden-profile');
-        void selectedCard.offsetWidth; 
-        selectedCard.classList.add('fade-in-profile');
     }
 
+    /* НАВИГАЦИЯ МОБИЛЬНОГО МЕНЮ */
     function toggleMenu() {
         const drawer = document.getElementById('mobileDrawer');
         const backdrop = document.getElementById('mobileBackdrop');
         const burger = document.getElementById('burgerBtn');
-        const isOpening = !drawer.classList.contains('active');
-        drawer.classList.toggle('active');
-        backdrop.classList.toggle('active');
-        burger.classList.toggle('open');
-        if (isOpening) {
-            lockBodyScroll();
+        const isOpen = drawer.classList.contains('active');
+        if (isOpen) {
+            closeMenu();
         } else {
-            unlockBodyScrollIfIdle();
+            drawer.classList.add('active');
+            backdrop.classList.add('active');
+            burger.classList.add('open');
+            lockBodyScroll();
         }
     }
 
@@ -4810,88 +4715,145 @@
         unlockBodyScrollIfIdle();
     }
 
-    function toggleAcc(headerEl) {
-        const item = headerEl.parentElement;
-        const content = item.querySelector('.acc-content');
+    /* КАЛЕНДАРЬ 2026 */
+    const deadlinesData = {
+        ru: [
+            { name: "Январь", holidays: "1 Января — Новый год, 7 и 8 Января — Рождество", groups: [{ date: "до 15.01", items: "UNIF21, VEN12" }, { date: "до 26.01", items: "IPC21, IAL21, BIJ17, TVA12, TFD19" }, { date: "до 30.01", items: "IRM19 (по необходимости)" }], wt: [18, 144, 1, 7, 19, 151] },
+            { name: "Февраль", holidays: "Нерабочих праздничных дней в этом месяце нет", groups: [{ date: "до 25.02", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "до 28.02", items: "IRM19 (по необходимости)" }], wt: [20, 160, 0, 0, 20, 160] },
+            { name: "Март", holidays: "8 Марта — Международный женский день", groups: [{ date: "до 25.03", items: "IPC21, TVA12, TFD19, VEN12, UNIF21, IVAO23, SIMM24, SIMM25, ТТ21, BIJ17" }, { date: "до 31.03", items: "IRM19 (по необходимости)" }], wt: [22, 176, 0, 0, 22, 176] },
+            { name: "Апрель", holidays: "12, 13 Апреля — Пасха; 20 Апреля — Радоница", groups: [{ date: "до 27.04", items: "IPC21, TVA12, TFD19, ТТ21, BIJ17" }, { date: "до 30.04", items: "IRM19 (по необходимости), CET18" }], wt: [20, 160, 0, 0, 20, 160] },
+            { name: "Май", holidays: "1 Мая — День труда; 9 Мая — День Победы", groups: [{ date: "до 25.05", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "до 30.05", items: "Финансовые отчеты, IRM19 (по необходимости)" }], wt: [19, 152, 0, 0, 19, 152] },
+            { name: "Июнь", holidays: "1 Июня — День защиты детей", groups: [{ date: "до 25.06", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "до 30.06", items: "IRM19 (по необходимости)" }], wt: [21, 168, 0, 0, 21, 168] },
+            { name: "Июль", holidays: "Нерабочих праздничных дней в этом месяце нет", groups: [{ date: "до 27.07", items: "IPC21, TVA12, TFD19, ТТ21, BIJ17" }, { date: "до 31.07", items: "IRM19 (по необходимости)" }], wt: [23, 184, 0, 0, 23, 184] },
+            { name: "Август", holidays: "27 Августа — День Независимости; 31 Августа — Лимба Ноастрэ", groups: [{ date: "до 25.08", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "до 31.08", items: "IRM19 (по необходимости)" }], wt: [19, 152, 0, 0, 19, 152] },
+            { name: "Сентябрь", holidays: "Нерабочих праздничных дней в этом месяце нет", groups: [{ date: "до 25.09", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "до 30.09", items: "IRM19 (по необходимости)" }], wt: [22, 176, 0, 0, 22, 176] },
+            { name: "Октябрь", holidays: "14 Октября — День города (Кишинёв)", groups: [{ date: "до 26.10", items: "IPC21, TVA12, TFD19, ТТ21, BIJ17" }, { date: "до 31.10", items: "IRM19 (по необходимости)" }], wt: [21, 168, 1, 7, 22, 175] },
+            { name: "Ноябрь", holidays: "Нерабочих праздничных дней в этом месяце нет", groups: [{ date: "до 25.11", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "до 30.11", items: "IRM19 (по необходимости)" }], wt: [21, 168, 0, 0, 21, 168] },
+            { name: "Декабрь", holidays: "25 Декабря — Рождество по новому стилю", groups: [{ date: "до 25.12", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "до 31.12", items: "IRM19 (по необходимости)" }], wt: [21, 168, 1, 7, 22, 175] }
+        ],
+        ro: [
+            { name: "Ianuarie", holidays: "1 Ianuarie — Anul Nou, 7 și 8 Ianuarie — Crăciunul", groups: [{ date: "până pe 15.01", items: "UNIF21, VEN12" }, { date: "până pe 26.01", items: "IPC21, IAL21, BIJ17, TVA12, TFD19" }, { date: "până pe 30.01", items: "IRM19 (după caz)" }], wt: [18, 144, 1, 7, 19, 151] },
+            { name: "Februarie", holidays: "Nu sunt zile de sărbătoare nelucrătoare în această lună", groups: [{ date: "până pe 25.02", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "până pe 28.02", items: "IRM19 (după caz)" }], wt: [20, 160, 0, 0, 20, 160] },
+            { name: "Martie", holidays: "8 Martie — Ziua Internațională a Femeii", groups: [{ date: "până pe 25.03", items: "IPC21, TVA12, TFD19, VEN12, UNIF21, IVAO23, SIMM24, SIMM25, ТТ21, BIJ17" }, { date: "până pe 31.03", items: "IRM19 (după caz)" }], wt: [22, 176, 0, 0, 22, 176] },
+            { name: "Aprilie", holidays: "12, 13 Aprilie — Paștele; 20 Aprilie — Paștele Blajinilor", groups: [{ date: "până pe 27.04", items: "IPC21, TVA12, TFD19, ТТ21, BIJ17" }, { date: "până pe 30.04", items: "IRM19 (după caz), CET18" }], wt: [20, 160, 0, 0, 20, 160] },
+            { name: "Mai", holidays: "1 Mai — Ziua Muncii; 9 Mai — Ziua Victoriei", groups: [{ date: "până pe 25.05", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "până pe 30.05", items: "Situații financiare, IRM19 (după caz)" }], wt: [19, 152, 0, 0, 19, 152] },
+            { name: "Iunie", holidays: "1 Iunie — Ziua Copilului", groups: [{ date: "până pe 25.06", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "până pe 30.06", items: "IRM19 (după caz)" }], wt: [21, 168, 0, 0, 21, 168] },
+            { name: "Iulie", holidays: "Nu sunt zile de sărbătoare nelucrătoare în această lună", groups: [{ date: "până pe 27.07", items: "IPC21, TVA12, TFD19, ТТ21, BIJ17" }, { date: "până pe 31.07", items: "IRM19 (după caz)" }], wt: [23, 184, 0, 0, 23, 184] },
+            { name: "August", holidays: "27 August — Ziua Independenței; 31 August — Limba Noastră", groups: [{ date: "până pe 25.08", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "până pe 31.08", items: "IRM19 (după caz)" }], wt: [19, 152, 0, 0, 19, 152] },
+            { name: "Septembrie", holidays: "Nu sunt zile de sărbătoare nelucrătoare în această lună", groups: [{ date: "până pe 25.09", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "până pe 30.09", items: "IRM19 (după caz)" }], wt: [22, 176, 0, 0, 22, 176] },
+            { name: "Octombrie", holidays: "14 Octombrie — Hramul orașului Chișinău", groups: [{ date: "până pe 26.10", items: "IPC21, TVA12, TFD19, ТТ21, BIJ17" }, { date: "până pe 31.10", items: "IRM19 (după caz)" }], wt: [21, 168, 1, 7, 22, 175] },
+            { name: "Noiembrie", holidays: "Nu sunt zile de sărbătoare nelucrătoare în această lună", groups: [{ date: "până pe 25.11", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "până pe 30.11", items: "IRM19 (după caz)" }], wt: [21, 168, 0, 0, 21, 168] },
+            { name: "Decembrie", holidays: "25 Decembrie — Crăciunul pe stil nou", groups: [{ date: "până pe 25.12", items: "IPC21, TVA12, TFD19, BIJ17" }, { date: "până pe 31.12", items: "IRM19 (după caz)" }], wt: [21, 168, 1, 7, 22, 175] }
+        ]
+    };
+
+    let currentLang = 'ro';
+    let selectedMonthIdx = null;
+
+    function toggleCalendar() {
+        const drawer = document.getElementById('calDrawer');
+        const overlay = document.getElementById('drawerOverlay');
+        const isOpening = !drawer.classList.contains('open');
+        drawer.classList.toggle('open');
+        overlay.classList.toggle('active');
+        if (isOpening) {
+            lockBodyScroll();
+            renderMonths();
+        } else {
+            unlockBodyScrollIfIdle();
+        }
+    }
+
+    function renderMonths() {
+        const grid = document.getElementById('monthGrid');
+        grid.innerHTML = '';
+        deadlinesData[currentLang].forEach((m, idx) => {
+            const div = document.createElement('div');
+            div.className = 'month-item' + (selectedMonthIdx === idx ? ' active' : '');
+            div.innerText = m.name;
+            div.onclick = () => selectMonth(idx, div);
+            grid.appendChild(div);
+        });
+    }
+
+    function selectMonth(idx, el) {
+        selectedMonthIdx = idx;
+        document.querySelectorAll('.month-item').forEach(i => i.classList.remove('active'));
+        if(el) el.classList.add('active');
+        const data = deadlinesData[currentLang][idx];
+        document.getElementById('dlTitle').innerText = data.name;
+        document.getElementById('dlHolidays').innerText = data.holidays;
+        const container = document.getElementById('reportsContainer');
+        container.innerHTML = '';
+        data.groups.forEach(group => {
+            const groupDiv = document.createElement('div');
+            groupDiv.className = 'report-group';
+            groupDiv.innerHTML = `<div class="dl-date">${group.date}</div><div class="reports-list">${group.items}</div>`;
+            container.appendChild(groupDiv);
+        });
+        document.getElementById('wt-d8').innerText = data.wt[0];
+        document.getElementById('wt-h8').innerText = data.wt[1];
+        document.getElementById('wt-d7').innerText = data.wt[2];
+        document.getElementById('wt-h7').innerText = data.wt[3];
+        document.getElementById('wt-dt').innerText = data.wt[4];
+        document.getElementById('wt-ht').innerText = data.wt[5];
+        document.getElementById('deadlineBox').classList.add('show');
+    }
+
+    function toggleAcc(header) {
+        const item = header.parentElement;
+        const content = header.nextElementSibling;
         const isOpen = item.classList.contains('open');
 
-        document.querySelectorAll('.acc-item').forEach(other => {
-            other.classList.remove('open');
-            other.querySelector('.acc-content').style.maxHeight = null;
-        });
-
-        if (!isOpen) {
+        if (isOpen) {
+            item.classList.remove('open');
+            content.style.maxHeight = '0px';
+        } else {
             item.classList.add('open');
             content.style.maxHeight = content.scrollHeight + 'px';
         }
     }
 
-    function selectCourse(courseName) {
-        const select = document.getElementById('courseSelect');
-        select.value = courseName;
+    function selectCourse(val) {
+        document.getElementById('courseSelect').value = val;
         document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        select.style.borderColor = '#d4af37';
-        select.style.backgroundColor = '#fbf6e6';
-        setTimeout(() => { 
-            select.style.borderColor = '#cbd5e1'; 
-            select.style.backgroundColor = '#f8fafc';
-        }, 1200);
     }
 
-    function getOrderMessage() {
+    function getFormData() {
         const name = document.getElementById('nameInput').value.trim();
         const phone = document.getElementById('phoneInput').value.trim();
         const course = document.getElementById('courseSelect').value;
-
         if (!name || !phone) {
-            showToast(currentLang === 'ru' ? 'Пожалуйста, введите ваше имя и номер телефона!' : 'Vă rugăm să introduceți numele și numărul de telefon!', 'warning');
+            showToast(currentLang === 'ru' ? 'Пожалуйста, заполните имя и номер телефона!' : 'Vă rugăm să completați numele și numărul de telefon!', 'warning');
             return null;
         }
-
-        if (currentLang === 'ru') {
-            return `Здравствуйте! Хочу записаться на курс:\n📚 Курс: ${course}\n👤 Имя: ${name}\n📞 Телефон: ${phone}`;
-        } else {
-            return `Bună ziua! Doresc să mă înscriu la curs:\n📚 Curs: ${course}\n👤 Nume: ${name}\n📞 Telefon: ${phone}`;
-        }
+        return { name, phone, course };
     }
 
     function sendToWhatsApp() {
-        const msg = getOrderMessage();
-        if (!msg) return;
-        const phone = "37378506196";
-        const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-        window.open(url, '_blank');
+        const data = getFormData();
+        if (!data) return;
+        const text = `Здравствуйте! Хочу записаться на обучение:\nИмя: ${data.name}\nТелефон: ${data.phone}\nКурс: ${data.course}`;
+        window.open(`https://wa.me/37378506196?text=${encodeURIComponent(text)}`, '_blank');
     }
 
     function sendToViber() {
-        const msg = getOrderMessage();
-        if (!msg) return;
-        const phone = "%2B37378506196";
-        const url = `viber://forward?text=${encodeURIComponent(msg)}`;
-        window.location.href = url;
-        setTimeout(() => {
-            window.location.href = `viber://chat?number=${phone}`;
-        }, 500);
+        const data = getFormData();
+        if (!data) return;
+        const text = `Здравствуйте! Хочу записаться на обучение:\nИмя: ${data.name}\nТелефон: ${data.phone}\nКурс: ${data.course}`;
+        window.location.href = `viber://forward?text=${encodeURIComponent(text)}`;
     }
 
-    /* ПЛАВНОЕ ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА */
-    let currentLang = 'ro';
-    let langSwitchTimeout = null;
-
+    /* СИНХРОНИЗАЦИЯ ПЕРЕКЛЮЧАТЕЛЯ ЯЗЫКА В ШАПКЕ И КАБИНЕТЕ */
     function syncCabLangSwitch() {
-        const cabPill = document.getElementById('cabLangPill');
-        const cabRu = document.getElementById('cabBtnRu');
-        const cabRo = document.getElementById('cabBtnRo');
-        if (!cabPill || !cabRu || !cabRo) return;
-
-        if (currentLang === 'ru') {
-            cabPill.style.transform = 'translateX(0%)';
-            cabRu.style.color = '#0f172a';
-            cabRo.style.color = '#fff';
-        } else {
-            cabPill.style.transform = 'translateX(100%)';
-            cabRu.style.color = '#fff';
-            cabRo.style.color = '#0f172a';
+        const isRu = currentLang === 'ru';
+        const pill = document.getElementById('cabLangPill');
+        const bRu = document.getElementById('cabBtnRu');
+        const bRo = document.getElementById('cabBtnRo');
+        if (pill && bRu && bRo) {
+            pill.style.transform = isRu ? 'translateX(0%)' : 'translateX(100%)';
+            bRu.style.color = isRu ? '#0f172a' : '#fff';
+            bRo.style.color = !isRu ? '#0f172a' : '#fff';
         }
     }
 
@@ -4899,73 +4861,152 @@
         if (currentLang === lang) return;
         currentLang = lang;
         
-        const pill = document.getElementById('langPill');
-        const btnRu = document.getElementById('btnRu');
-        const btnRo = document.getElementById('btnRo');
-
-        if (lang === 'ru') {
-            pill.style.transform = 'translateX(0%)';
-            btnRu.classList.add('active');
-            btnRo.classList.remove('active');
-        } else {
-            pill.style.transform = 'translateX(100%)';
-            btnRo.classList.add('active');
-            btnRu.classList.remove('active');
-        }
+        document.body.classList.add('lang-switching');
+        
+        document.getElementById('btnRu').classList.toggle('active', lang === 'ru');
+        document.getElementById('btnRo').classList.toggle('active', lang === 'ro');
+        document.getElementById('langPill').style.transform = lang === 'ru' ? 'translateX(0%)' : 'translateX(100%)';
         syncCabLangSwitch();
 
-        document.body.classList.add('lang-switching');
-        if (langSwitchTimeout) clearTimeout(langSwitchTimeout);
-
-        langSwitchTimeout = setTimeout(() => {
+        setTimeout(() => {
             document.querySelectorAll('[data-ru]').forEach(el => {
-                if (el.id === 'headerCabinetLabel' && currentUser) return;
-                el.innerText = el.getAttribute('data-' + lang);
+                el.innerText = el.getAttribute(`data-${lang}`);
             });
-
-            document.querySelectorAll('.month-item').forEach(item => {
-                const key = item.dataset.key;
-                item.innerText = lang === 'ru' ? calendarData[key].ru : key;
-            });
-
-            if (document.getElementById('deadlineBox').classList.contains('show')) {
-                showDeadline(activeMonthKey, document.querySelector(`.month-item[data-key="${activeMonthKey}"]`));
-            }
 
             if (lang === 'ru') {
-                document.getElementById('hero-h1').innerHTML = "Бухгалтерский учет в Республике Молдова:<br>Практика 2026";
-                document.getElementById('hero-p').innerText = "Станьте востребованным специалистом под руководством Людмилы Борденюк.";
-                document.getElementById('hero-btn').innerText = "Записаться на Марафон";
-                document.getElementById('nameInput').placeholder = "Ваше имя";
-                document.getElementById('phoneInput').placeholder = "Ваш телефон";
-                document.getElementById('reviewNameInput').placeholder = "Ваше имя";
-                document.getElementById('reviewTextInput').placeholder = "Напишите ваш отзыв здесь...";
-                document.getElementById('loginPass').placeholder = "Пароль";
+                document.getElementById('hero-h1').innerHTML = 'Бухгалтерский учет в Республике Молдова:<br>Практика 2026';
+                document.getElementById('hero-p').innerText = 'Станьте востребованным специалистом под руководством Людмилы Борденюк.';
+                document.getElementById('hero-btn').innerText = 'Записаться на Марафон';
+                document.getElementById('nameInput').placeholder = 'Ваше имя';
+                document.getElementById('phoneInput').placeholder = 'Ваш телефон';
+                document.getElementById('reviewNameInput').placeholder = 'Ваше имя';
+                document.getElementById('reviewTextInput').placeholder = 'Напишите ваш отзыв здесь...';
             } else {
-                document.getElementById('hero-h1').innerHTML = "Evidența contabilă în Republica Moldova:<br>Practica 2026";
-                document.getElementById('hero-p').innerText = "Devino un specialist solicitat sub îndrumarea Ludmilei Bordeniuc.";
-                document.getElementById('hero-btn').innerText = "Înscrie-te la Maraton";
-                document.getElementById('nameInput').placeholder = "Numele dvs.";
-                document.getElementById('phoneInput').placeholder = "Telefonul dvs.";
-                document.getElementById('reviewNameInput').placeholder = "Numele dvs.";
-                document.getElementById('reviewTextInput').placeholder = "Scrie recenzia ta aici...";
-                document.getElementById('loginPass').placeholder = "Parola";
+                document.getElementById('hero-h1').innerHTML = 'Evidența contabilă în Republica Moldova:<br>Practica 2026';
+                document.getElementById('hero-p').innerText = 'Devino un specialist solicitat sub îndrumarea Ludmilei Bordeniuc.';
+                document.getElementById('hero-btn').innerText = 'Înscrie-te la Maraton';
+                document.getElementById('nameInput').placeholder = 'Numele dvs.';
+                document.getElementById('phoneInput').placeholder = 'Telefonul dvs.';
+                document.getElementById('reviewNameInput').placeholder = 'Numele dvs.';
+                document.getElementById('reviewTextInput').placeholder = 'Scrie recenzia ta aici...';
             }
 
             renderPublicReviews();
 
-            if (currentUser && document.getElementById('cabinetView').style.display !== 'none') {
+            if(document.getElementById('calDrawer').classList.contains('open')) {
+                renderMonths();
+                if(selectedMonthIdx !== null) selectMonth(selectedMonthIdx, document.querySelectorAll('.month-item')[selectedMonthIdx]);
+            }
+
+            if (currentUser) {
                 showCabinetView();
             }
 
-            requestAnimationFrame(() => {
+            setTimeout(() => {
                 document.body.classList.remove('lang-switching');
-            });
-        }, 210);
+            }, 40);
+        }, 240);
     }
 
-    updateHeaderUserButton();
-    renderPublicReviews();
+    /* МОДАЛКА ОТЗЫВОВ -> ОТПРАВКА В КОЛЛЕКЦИЮ reviews ДЛЯ МОДЕРАЦИИ */
+    let currentRating = 5;
+    function setRating(val) {
+        currentRating = val;
+        document.querySelectorAll('#starRatingContainer .star-icon').forEach(star => {
+            const sVal = parseInt(star.getAttribute('data-val'));
+            star.classList.toggle('active', sVal <= currentRating);
+        });
+    }
+    setRating(5);
+
+    function openReviewModal() {
+        document.getElementById('reviewModal').style.display = 'flex';
+        lockBodyScroll();
+    }
+    function closeReviewModal() {
+        document.getElementById('reviewModal').style.display = 'none';
+        unlockBodyScrollIfIdle();
+    }
+
+    async function submitSiteReview() {
+        const nameInput = document.getElementById('reviewNameInput');
+        const textInput = document.getElementById('reviewTextInput');
+        const nameRaw = nameInput.value.trim();
+        const textRaw = textInput.value.trim();
+
+        if (!nameRaw || !textRaw) {
+            showToast(currentLang === 'ru' ? 'Пожалуйста, укажите имя и текст отзыва!' : 'Vă rugăm să completați numele și recenzia!', 'warning');
+            return;
+        }
+
+        const btn = document.getElementById('submitReviewBtn');
+        if (btn) btn.disabled = true;
+
+        const [nameBi, textBi] = await Promise.all([
+            smartAutoTranslate(nameRaw),
+            smartAutoTranslate(textRaw)
+        ]);
+
+        const now = new Date();
+        const createdAt = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+        const revId = 'rev-' + Date.now();
+
+        const newRev = {
+            nameRu: nameBi.ru,
+            nameRo: nameBi.ro,
+            rating: currentRating,
+            textRu: textBi.ru,
+            textRo: textBi.ro,
+            status: 'pending',
+            createdAt
+        };
+
+        try {
+            if (db) {
+                await db.collection('reviews').doc(revId).set(newRev);
+            }
+            if (!appState.reviews) appState.reviews = [];
+            appState.reviews.unshift({ id: revId, ...newRev });
+
+            if (btn) btn.disabled = false;
+            nameInput.value = '';
+            textInput.value = '';
+            setRating(5);
+            closeReviewModal();
+
+            if (currentUser && currentUser.role === 'admin') {
+                renderCabinet(false);
+            }
+
+            showToast(
+                currentLang === 'ru'
+                    ? 'Спасибо! Ваш отзыв отправлен на проверку администратору.'
+                    : 'Mulțumim! Recenzia dvs. a fost trimisă spre aprobare administratorului.',
+                'success'
+            );
+        } catch (err) {
+            console.error("Submit review error:", err);
+            if (btn) btn.disabled = false;
+            showToast(currentLang === 'ru' ? 'Ошибка при отправке отзыва!' : 'Eroare la trimiterea recenziei!', 'error');
+        }
+    }
+
+    function reveal() {
+        var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 65;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', () => {
+        renderPublicReviews();
+        reveal();
+    });
 </script>
 </body>
 </html>
