@@ -2636,6 +2636,7 @@
         try {
             firebase.initializeApp(firebaseConfig);
             auth = firebase.auth();
+            auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
             db = firebase.firestore();
 
             // Вторичный инстанс для регистрации учеников админом без потери текущей сессии
